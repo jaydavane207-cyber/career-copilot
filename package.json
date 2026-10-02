@@ -1,0 +1,31 @@
+{
+  "name": "career-copilot-workspace",
+  "version": "1.0.0",
+  "description": "Career Copilot - AI-Powered Job Preparation & Application Platform",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "start:backend": "cd backend && npm run dev",
+    "start:frontend": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "seed": "node scripts/seed-db.js",
+    "setup": "bash scripts/setup-env.sh"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "keywords": [
+    "career",
+    "copilot",
+    "job-tracker",
+    "resume-analyzer",
+    "mock-interview",
+    "skill-gap"
+  ],
+  "author": "Career Copilot Team",
+  "license": "MIT"
+}

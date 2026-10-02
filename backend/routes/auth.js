@@ -1,0 +1,36 @@
+// backend/routes/auth.js
+const express = require('express');
+const router = express.Router();
+const authController = require('../controllers/authController');
+const authenticate = require('../middleware/auth');
+const { validateRegister, validateLogin } = require('../middleware/validation');
+
+/**
+ * @route   POST /api/auth/register
+ * @desc    Register a new user account with name, email, password (min 8 chars)
+ * @access  Public
+ */
+router.post('/register', validateRegister, authController.register);
+
+/**
+ * @route   POST /api/auth/login
+ * @desc    Log in an existing user and return a signed JWT
+ * @access  Public
+ */
+router.post('/login', validateLogin, authController.login);
+
+/**
+ * @route   POST /api/auth/logout
+ * @desc    Log out current session
+ * @access  Private
+ */
+router.post('/logout', authenticate, authController.logout);
+
+/**
+ * @route   GET /api/auth/me
+ * @desc    Get currently logged-in user profile
+ * @access  Private
+ */
+router.get('/me', authenticate, authController.me);
+
+module.exports = router;

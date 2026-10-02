@@ -1,0 +1,142 @@
+[
+  {
+    "id": "frontend-dev",
+    "title": "Frontend Developer",
+    "category": "Software Engineering",
+    "description": "Develops responsive, high-performance web user interfaces using modern JavaScript frameworks.",
+    "coreSkills": ["JavaScript", "React", "TypeScript", "HTML5", "CSS3", "Tailwind CSS", "Redux", "REST APIs", "Git", "Webpack"]
+  },
+  {
+    "id": "backend-dev",
+    "title": "Backend Developer",
+    "category": "Software Engineering",
+    "description": "Designs scalable server-side systems, RESTful and GraphQL APIs, and database architectures.",
+    "coreSkills": ["Node.js", "Express", "PostgreSQL", "MongoDB", "Redis", "Docker", "REST APIs", "System Design", "Git", "Microservices"]
+  },
+  {
+    "id": "fullstack-dev",
+    "title": "Fullstack Developer",
+    "category": "Software Engineering",
+    "description": "Bridges frontend user experiences with scalable backend services and cloud deployments.",
+    "coreSkills": ["JavaScript", "TypeScript", "React", "Node.js", "Express", "PostgreSQL", "Docker", "REST APIs", "Git", "AWS"]
+  },
+  {
+    "id": "devops-engineer",
+    "title": "DevOps Engineer",
+    "category": "Infrastructure & Cloud",
+    "description": "Automates CI/CD pipelines, container orchestration, and cloud infrastructure as code.",
+    "coreSkills": ["Docker", "Kubernetes", "Linux", "AWS", "Terraform", "CI/CD", "GitHub Actions", "Prometheus", "Bash", "Python"]
+  },
+  {
+    "id": "cloud-architect",
+    "title": "Cloud Architect",
+    "category": "Infrastructure & Cloud",
+    "description": "Architects resilient, high-availability multi-region enterprise cloud infrastructure.",
+    "coreSkills": ["AWS", "Azure", "GCP", "Terraform", "Cloud Security", "System Design", "Networking", "Kubernetes", "Serverless", "Cost Optimization"]
+  },
+  {
+    "id": "data-engineer",
+    "title": "Data Engineer",
+    "category": "Data & AI",
+    "description": "Constructs robust distributed data pipelines, ETL workflows, and data lakes.",
+    "coreSkills": ["Python", "SQL", "Apache Spark", "Kafka", "PostgreSQL", "Snowflake", "Airflow", "Docker", "AWS", "Data Modeling"]
+  },
+  {
+    "id": "data-scientist",
+    "title": "Data Scientist",
+    "category": "Data & AI",
+    "description": "Applies statistical modeling, hypothesis testing, and machine learning to drive actionable product insights.",
+    "coreSkills": ["Python", "R", "SQL", "Pandas", "Scikit-Learn", "Machine Learning", "Statistics", "Data Visualization", "Matplotlib", "Jupyter"]
+  },
+  {
+    "id": "ml-engineer",
+    "title": "Machine Learning Engineer",
+    "category": "Data & AI",
+    "description": "Deploys, optimizes, and monitors production machine learning models and LLM applications.",
+    "coreSkills": ["Python", "PyTorch", "TensorFlow", "MLOps", "Docker", "FastAPI", "Hugging Face", "Kubernetes", "Data Pipelines", "CUDA"]
+  },
+  {
+    "id": "mobile-ios-dev",
+    "title": "iOS Developer",
+    "category": "Mobile Development",
+    "description": "Creates fluid native iOS applications for iPhone and iPad using Swift and SwiftUI.",
+    "coreSkills": ["Swift", "SwiftUI", "UIKit", "Xcode", "Combine", "Core Data", "REST APIs", "Git", "App Store Deployment", "Unit Testing"]
+  },
+  {
+    "id": "mobile-android-dev",
+    "title": "Android Developer",
+    "category": "Mobile Development",
+    "description": "Develops native Android applications using Kotlin and Jetpack Compose.",
+    "coreSkills": ["Kotlin", "Jetpack Compose", "Android SDK", "Coroutines", "Room DB", "Dagger Hilt", "Retrofit", "Git", "Material Design", "Gradle"]
+  },
+  {
+    "id": "mobile-react-native-dev",
+    "title": "Cross-Platform Mobile Developer (React Native)",
+    "category": "Mobile Development",
+    "description": "Builds high-performance native-feeling cross-platform mobile apps for iOS and Android.",
+    "coreSkills": ["React Native", "JavaScript", "TypeScript", "Expo", "Redux", "Native Modules", "REST APIs", "Git", "Mobile UX", "Debugging"]
+  },
+  {
+    "id": "qa-automation-engineer",
+    "title": "QA Automation Engineer",
+    "category": "Quality Assurance",
+    "description": "Builds robust end-to-end, integration, and load testing automation frameworks.",
+    "coreSkills": ["Playwright", "Cypress", "Selenium", "JavaScript", "Python", "Jest", "CI/CD", "Postman", "Test Planning", "Git"]
+  },
+  {
+    "id": "cybersecurity-analyst",
+    "title": "Cybersecurity Analyst",
+    "category": "Security",
+    "description": "Monitors network vulnerabilities, performs threat analysis, and enforces security compliance.",
+    "coreSkills": ["Network Security", "SIEM", "Penetration Testing", "Linux", "Python", "Cryptography", "OWASP", "Wireshark", "Firewalls", "Incident Response"]
+  },
+  {
+    "id": "systems-software-engineer",
+    "title": "Systems / Embedded Software Engineer",
+    "category": "Systems",
+    "description": "Develops low-level systems, kernel modules, drivers, and embedded microcontrollers.",
+    "coreSkills": ["C", "C++", "Rust", "Linux Kernel", "RTOS", "Memory Management", "Multithreading", "Assembly", "GDB", "Git"]
+  },
+  {
+    "id": "site-reliability-engineer",
+    "title": "Site Reliability Engineer (SRE)",
+    "category": "Infrastructure & Cloud",
+    "description": "Balances system resilience, latency SLAs/SLOs, and automation across distributed architectures.",
+    "coreSkills": ["Linux", "Kubernetes", "Prometheus", "Grafana", "Go", "Python", "Chaos Engineering", "Incident Management", "Terraform", "Distributed Systems"]
+  },
+  {
+    "id": "database-administrator",
+    "title": "Database Administrator / Architect",
+    "category": "Data & AI",
+    "description": "Specializes in query optimization, replication, clustering, high availability, and disaster recovery.",
+    "coreSkills": ["PostgreSQL", "MySQL", "Database Tuning", "Indexing", "Backup & Recovery", "Sharding", "SQL", "Linux", "High Availability", "Security"]
+  },
+  {
+    "id": "product-manager-tech",
+    "title": "Technical Product Manager",
+    "category": "Product",
+    "description": "Drives engineering product vision, user story roadmaps, metrics, and sprint execution.",
+    "coreSkills": ["Agile/Scrum", "Product Roadmapping", "User Research", "SQL", "A/B Testing", "System Architecture Basics", "Jira", "KPI Tracking", "Communication", "Data Analytics"]
+  },
+  {
+    "id": "ui-ux-engineer",
+    "title": "UI/UX Design Technologist",
+    "category": "Design & Frontend",
+    "description": "Blends design system typography, accessibility, Figma specs, and rapid code prototyping.",
+    "coreSkills": ["Figma", "Design Systems", "CSS3", "Tailwind CSS", "React", "Accessibility (WCAG)", "Prototyping", "User Research", "HTML5", "Animation"]
+  },
+  {
+    "id": "blockchain-developer",
+    "title": "Web3 / Blockchain Developer",
+    "category": "Web3",
+    "description": "Engineers smart contracts, decentralized applications (dApps), and token mechanics.",
+    "coreSkills": ["Solidity", "Ethereum", "Ethers.js", "Web3.js", "Hardhat", "Smart Contract Security", "Rust", "JavaScript", "IPFS", "Cryptography"]
+  },
+  {
+    "id": "ai-solutions-architect",
+    "title": "AI & GenAI Solutions Architect",
+    "category": "Data & AI",
+    "description": "Architects production generative AI workflows, RAG architectures, and AI agent frameworks.",
+    "coreSkills": ["LangChain", "LlamaIndex", "Vector Databases", "OpenAI API", "Python", "FastAPI", "Prompt Engineering", "RAG Architecture", "Docker", "System Design"]
+  }
+]

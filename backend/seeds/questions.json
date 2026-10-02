@@ -1,0 +1,92 @@
+[
+  {
+    "id": "q1",
+    "role": "Frontend Developer",
+    "type": "Technical",
+    "category": "React Internals",
+    "question": "Explain how React's Virtual DOM and Reconciliation algorithm (Fiber) work, and how keys optimize list re-rendering.",
+    "expectedKeywords": ["virtual dom", "reconciliation", "fiber", "diffing", "keys", "render tree", "batching"],
+    "difficulty": "Medium"
+  },
+  {
+    "id": "q2",
+    "role": "Frontend Developer",
+    "type": "Technical",
+    "category": "Performance",
+    "question": "What techniques would you implement to optimize Largest Contentful Paint (LCP) and minimize bundle size in a React application?",
+    "expectedKeywords": ["code splitting", "lazy loading", "tree shaking", "cdn", "memo", "webp", "critical css"],
+    "difficulty": "Hard"
+  },
+  {
+    "id": "q3",
+    "role": "Backend Developer",
+    "type": "Technical",
+    "category": "Concurrency & Node.js",
+    "question": "How does the Node.js event loop handle asynchronous I/O, timers, microtasks, and thread pools (libuv)?",
+    "expectedKeywords": ["event loop", "libuv", "microtask", "process.nextTick", "call stack", "thread pool", "async non-blocking"],
+    "difficulty": "Hard"
+  },
+  {
+    "id": "q4",
+    "role": "Backend Developer",
+    "type": "Technical",
+    "category": "Databases",
+    "question": "Explain database indexing in PostgreSQL. How do B-tree indexes speed up queries and what are the trade-offs on writes?",
+    "expectedKeywords": ["b-tree", "indexes", "query planner", "explain analyze", "write latency", "seek time", "composite index"],
+    "difficulty": "Medium"
+  },
+  {
+    "id": "q5",
+    "role": "Fullstack Developer",
+    "type": "Technical",
+    "category": "Authentication & Security",
+    "question": "Contrast JWT stored in localStorage vs httpOnly secure cookies. How do you protect against XSS and CSRF attacks?",
+    "expectedKeywords": ["httponly", "jwt", "xss", "csrf", "samesite", "refresh token", "cors", "secure cookie"],
+    "difficulty": "Medium"
+  },
+  {
+    "id": "q6",
+    "role": "General",
+    "type": "Behavioral",
+    "category": "Conflict Resolution",
+    "question": "Describe a situation where you had a strong technical disagreement with a teammate or lead. How did you resolve it?",
+    "expectedKeywords": ["star method", "data-driven", "consensus", "compromise", "code review", "constructive feedback"],
+    "difficulty": "Medium"
+  },
+  {
+    "id": "q7",
+    "role": "General",
+    "type": "Behavioral",
+    "category": "Handling Failure",
+    "question": "Tell me about a time an outage or critical bug was introduced in production by your code. What steps did you take?",
+    "expectedKeywords": ["incident response", "rollback", "post-mortem", "root cause analysis", "monitoring", "accountability"],
+    "difficulty": "Medium"
+  },
+  {
+    "id": "q8",
+    "role": "Fullstack Developer",
+    "type": "System Design",
+    "category": "Scalability",
+    "question": "Design a URL shortening service like TinyURL. Walk through API design, database schema, hashing/encoding strategy, and caching.",
+    "expectedKeywords": ["base62", "redis cache", "nosql vs sql", "load balancer", "unique hash", "throughput", "rate limiting"],
+    "difficulty": "Hard"
+  },
+  {
+    "id": "q9",
+    "role": "DevOps Engineer",
+    "type": "Technical",
+    "category": "Containerization",
+    "question": "How do Docker layers work, and what best practices do you follow to produce slim and secure multi-stage Docker images?",
+    "expectedKeywords": ["multi-stage build", "layer caching", "alpine", "non-root user", "caching", "dockerfile"],
+    "difficulty": "Medium"
+  },
+  {
+    "id": "q10",
+    "role": "Data Engineer",
+    "type": "Technical",
+    "category": "Pipelines",
+    "question": "What is the difference between batch and streaming processing? When would you choose Apache Spark vs Apache Kafka / Flink?",
+    "expectedKeywords": ["streaming", "batch", "latency", "spark", "kafka", "backpressure", "exactly-once semantics"],
+    "difficulty": "Medium"
+  }
+]

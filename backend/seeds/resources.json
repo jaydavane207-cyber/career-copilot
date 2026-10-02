@@ -1,0 +1,35 @@
+{
+  "React": [
+    { "title": "Official React Documentation", "type": "Documentation", "url": "https://react.dev", "free": true },
+    { "title": "Epic React by Kent C. Dodds", "type": "Course", "url": "https://epicreact.dev", "free": false },
+    { "title": "Full Stack Open - Modern React", "type": "Interactive", "url": "https://fullstackopen.com/en/", "free": true }
+  ],
+  "TypeScript": [
+    { "title": "TypeScript Handbook", "type": "Documentation", "url": "https://www.typescriptlang.org/docs/", "free": true },
+    { "title": "Total TypeScript Tutorials", "type": "Interactive", "url": "https://www.totaltypescript.com/tutorials", "free": true }
+  ],
+  "Node.js": [
+    { "title": "Node.js Best Practices", "type": "GitHub Repo", "url": "https://github.com/goldbergyoni/nodebestpractices", "free": true },
+    { "title": "Node.js Documentation", "type": "Documentation", "url": "https://nodejs.org/docs/latest/api/", "free": true }
+  ],
+  "PostgreSQL": [
+    { "title": "PostgreSQL Tutorial", "type": "Documentation", "url": "https://www.postgresqltutorial.com/", "free": true },
+    { "title": "Use The Index, Luke (SQL Indexing)", "type": "Guide", "url": "https://use-the-index-luke.com/", "free": true }
+  ],
+  "Docker": [
+    { "title": "Docker Getting Started Guide", "type": "Documentation", "url": "https://docs.docker.com/get-started/", "free": true },
+    { "title": "Play with Docker Classroom", "type": "Interactive", "url": "https://training.play-with-docker.com/", "free": true }
+  ],
+  "System Design": [
+    { "title": "System Design Primer", "type": "GitHub Repo", "url": "https://github.com/donnemartin/system-design-primer", "free": true },
+    { "title": "ByteByteGo System Design Newsletter", "type": "Articles", "url": "https://blog.bytebytego.com/", "free": true }
+  ],
+  "AWS": [
+    { "title": "AWS Skill Builder", "type": "Course", "url": "https://explore.skillbuilder.aws/", "free": true },
+    { "title": "AWS Architecture Center", "type": "Guide", "url": "https://aws.amazon.com/architecture/", "free": true }
+  ],
+  "Python": [
+    { "title": "Official Python Tutorial", "type": "Documentation", "url": "https://docs.python.org/3/tutorial/", "free": true },
+    { "title": "Real Python Tutorials", "type": "Articles", "url": "https://realpython.com/", "free": true }
+  ]
+}
