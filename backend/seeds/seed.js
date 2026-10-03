@@ -33,36 +33,46 @@ const runSeeder = async () => {
         {
           userId: demoUser.id,
           companyName: 'Stripe',
-          positionTitle: 'Fullstack Software Engineer',
-          status: 'Interviewing',
-          workType: 'Remote',
-          location: 'San Francisco, CA (Remote)',
-          salaryRange: '$145,000 - $175,000',
-          deadline: '2026-10-15',
-          appliedDate: '2026-09-20',
-          notes: 'Completed technical screen. Next round is system design and architecture deep dive.'
+          jobTitle: 'Fullstack Software Engineer',
+          jobLink: 'https://stripe.com/jobs/fullstack-eng',
+          stage: 'interview',
+          dateApplied: '2026-09-20',
+          interviewDate: '2026-10-06',
+          notes: 'Completed technical screen. Next round is system design and architecture deep dive.',
+          salary: '$145,000 - $175,000'
         },
         {
           userId: demoUser.id,
           companyName: 'Datadog',
-          positionTitle: 'Backend Engineer - Cloud Platform',
-          status: 'Applied',
-          workType: 'Hybrid',
-          location: 'New York, NY',
-          salaryRange: '$150,000 - $180,000',
-          deadline: '2026-10-25',
-          appliedDate: '2026-09-28',
-          notes: 'Referral submitted via engineering alum.'
+          jobTitle: 'Backend Engineer - Cloud Platform',
+          jobLink: 'https://datadog.com/careers/backend',
+          stage: 'applied',
+          dateApplied: '2026-09-28',
+          interviewDate: null,
+          notes: 'Referral submitted via engineering alum. Awaiting recruiter response.',
+          salary: '$150,000 - $180,000'
+        },
+        {
+          userId: demoUser.id,
+          companyName: 'Razorpay',
+          jobTitle: 'Senior Platform Engineer',
+          jobLink: 'https://razorpay.com/careers/platform',
+          stage: 'offer',
+          dateApplied: '2026-09-10',
+          interviewDate: '2026-09-22',
+          notes: 'Final rounds passed. Received formal offer letter! Negotiating CTC and joining bonus.',
+          salary: '₹38 LPA - ₹44 LPA'
         },
         {
           userId: demoUser.id,
           companyName: 'Vercel',
-          positionTitle: 'Frontend Infrastructure Engineer',
-          status: 'Wishlist',
-          workType: 'Remote',
-          location: 'Worldwide Remote',
-          salaryRange: '$140,000 - $170,000',
-          notes: 'Prepare open source contributions before applying.'
+          jobTitle: 'Frontend Infrastructure Engineer',
+          jobLink: 'https://vercel.com/careers/frontend',
+          stage: 'applied',
+          dateApplied: '2026-10-01',
+          interviewDate: null,
+          notes: 'Submitted application with Next.js portfolio and open source contributions.',
+          salary: '$140,000 - $170,000'
         }
       ]);
 
