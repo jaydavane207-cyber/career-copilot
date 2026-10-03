@@ -2,6 +2,10 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/database');
 
+/**
+ * Resume Model
+ * Stores uploaded resumes, extracted text, and past analysis records
+ */
 const Resume = sequelize.define('Resume', {
   id: {
     type: DataTypes.UUID,
@@ -18,24 +22,30 @@ const Resume = sequelize.define('Resume', {
   },
   originalName: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: true
   },
   filePath: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: true
   },
   fileSize: {
     type: DataTypes.INTEGER,
     allowNull: true
   },
+  uploadedAt: {
+    type: DataTypes.DATE,
+    defaultValue: DataTypes.NOW
+  },
   extractedText: {
     type: DataTypes.TEXT,
     allowNull: true
   },
-  parsedSections: {
+  // Past resume analyses array: [{ id, jobTitle, jobDescription, matchScore, matchingKeywords, missingKeywords, suggestions, atsReadiness, analyzedAt }]
+  analyses: {
     type: DataTypes.JSON,
-    defaultValue: {}
+    defaultValue: []
   },
+  // Backward compatibility fields for dashboard and existing views
   targetRole: {
     type: DataTypes.STRING,
     allowNull: true
@@ -55,6 +65,10 @@ const Resume = sequelize.define('Resume', {
   suggestions: {
     type: DataTypes.JSON,
     defaultValue: []
+  },
+  parsedSections: {
+    type: DataTypes.JSON,
+    defaultValue: {}
   }
 }, {
   tableName: 'resumes',
