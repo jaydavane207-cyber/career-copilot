@@ -2,22 +2,17 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-import { Mail, Lock, Sparkles, Eye, EyeOff, AlertCircle } from 'lucide-react';
-import { ErrorMessage } from '../Common/ErrorMessage';
+import { Mail, Lock, Eye, EyeOff, Sparkles } from 'lucide-react';
 import { validateEmail } from '../../utils/validators';
 import GoogleAuthButton from './GoogleAuthButton';
+import { Button } from '../UI/Button';
+import { Input, Checkbox } from '../UI/FormControls';
+import { ErrorMessage } from '../Common/ErrorMessage';
 
-/**
- * Login Component
- * Provides user sign-in functionality:
- * - Google Sign-in Mockup CTA
- * - Email & Password credentials authentication
- * - One-click demo credentials filling for rapid evaluation
- * - JWT storage and redirect to protected dashboard
- */
 export const Login = () => {
   const [email, setEmail] = useState('demo@careercopilot.io');
   const [password, setPassword] = useState('password123');
+  const [rememberMe, setRememberMe] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -27,17 +22,11 @@ export const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || '/dashboard';
 
-  /**
-   * Quick fill for demo account
-   */
   const handleUseDemo = () => {
     setEmail('demo@careercopilot.io');
     setPassword('password123');
   };
 
-  /**
-   * Handle user login submission
-   */
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -56,10 +45,10 @@ export const Login = () => {
 
     try {
       await login(email.trim().toLowerCase(), password);
-      // Redirect to the originally requested route or dashboard
       navigate(from, { replace: true });
     } catch (err) {
-      const serverMsg = err.response?.data?.message || err.message || 'Login failed. Please check your credentials.';
+      const serverMsg =
+        err.response?.data?.message || err.message || 'Login failed. Please check your credentials.';
       setError(serverMsg);
     } finally {
       setLoading(false);
@@ -67,112 +56,129 @@ export const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-slate-100 p-4 py-12">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-xl border border-slate-100 p-8 sm:p-10">
-        {/* Brand Header */}
-        <div className="flex items-center gap-2 mb-6 text-indigo-600">
-          <div className="p-2 bg-indigo-50 rounded-xl">
-            <Sparkles className="w-6 h-6 text-indigo-600" />
+    <div className="min-h-screen bg-[#F9FAFB] flex flex-col justify-center items-center p-4 py-12">
+      {/* Centered container, max width 400px */}
+      <div className="w-full max-w-[400px] bg-white rounded-[12px] border border-[#E5E7EB] p-8 shadow-[0_1px_3px_rgba(0,0,0,0.1)]">
+        {/* Logo centered at top */}
+        <div className="flex flex-col items-center text-center mb-6">
+          <div className="w-[40px] h-[40px] rounded-[10px] bg-[#3B82F6] flex items-center justify-center text-white mb-3 shadow-sm">
+            <Sparkles className="w-5 h-5" />
           </div>
-          <div>
-            <span className="font-black text-xl tracking-tight text-slate-900 block leading-tight">Career Copilot</span>
-            <span className="text-[10px] text-indigo-600 font-semibold tracking-wider uppercase">Free Indian Tech Prep</span>
-          </div>
-        </div>
-
-        <h1 className="text-2xl font-black text-slate-900 tracking-tight">Welcome Back</h1>
-        <p className="text-xs text-slate-500 mt-1 mb-6">
-          Sign in to access your dashboard, ATS resume score, and tech job tracker.
-        </p>
-
-        {/* Google Sign-in Mockup CTA */}
-        <div className="mb-5">
-          <GoogleAuthButton mode="login" onUseDemo={handleUseDemo} />
-        </div>
-
-        {/* Divider */}
-        <div className="relative flex items-center justify-center mb-6">
-          <div className="border-t border-slate-200 w-full" />
-          <span className="bg-white px-3 text-[11px] font-semibold text-slate-400 uppercase tracking-wider relative">
-            Or sign in with email
-          </span>
+          <h1 className="text-[32px] leading-[40px] font-bold text-[#111827] tracking-[-0.5px]">
+            Welcome back
+          </h1>
+          <p className="text-[14px] text-[#6B7280] mt-1">
+            Sign in to continue to Career Copilot
+          </p>
         </div>
 
         {/* Error Alert */}
         <ErrorMessage message={error} />
 
-        {/* Login Form */}
+        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
-              Email Address
+            <label className="block text-[14px] font-semibold text-[#374151] mb-2">
+              Email Address <span className="text-[#EF4444]">*</span>
             </label>
             <div className="relative">
-              <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
+              <Mail className="w-4 h-4 text-[#9CA3AF] absolute left-4 top-3.5" />
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@company.com"
-                className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm transition-all"
+                placeholder="you@example.com"
+                className="input-field pl-11"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
-              Password
+            <label className="block text-[14px] font-semibold text-[#374151] mb-2">
+              Password <span className="text-[#EF4444]">*</span>
             </label>
             <div className="relative">
-              <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
+              <Lock className="w-4 h-4 text-[#9CA3AF] absolute left-4 top-3.5" />
               <input
                 type={showPassword ? 'text' : 'password'}
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm transition-all"
+                className="input-field pl-11 pr-11"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-3 text-slate-400 hover:text-slate-600 focus:outline-none"
+                className="absolute right-3.5 top-3.5 text-[#9CA3AF] hover:text-[#374151] focus:outline-none"
               >
                 {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
               </button>
             </div>
           </div>
 
-          {/* Quick Demo Helper Card */}
-          <div className="bg-indigo-50/70 border border-indigo-100/80 rounded-xl p-3 text-xs text-indigo-900 flex justify-between items-center">
+          {/* Remember me & Forgot password */}
+          <div className="flex items-center justify-between text-[14px]">
+            <Checkbox
+              id="remember-me"
+              checked={rememberMe}
+              onChange={(e) => setRememberMe(e.target.checked)}
+              label="Remember me"
+            />
+            <button
+              type="button"
+              onClick={() => alert('Password reset link sent to registered email.')}
+              className="text-[#3B82F6] hover:underline font-medium text-[13px]"
+            >
+              Forgot password?
+            </button>
+          </div>
+
+          {/* Demo account helper button */}
+          <div className="bg-[#EBF5FF] border border-[#BFDBFE] rounded-[8px] p-3 flex items-center justify-between text-[12px]">
             <div>
-              <p className="font-semibold text-indigo-950">Pre-loaded Demo Account:</p>
-              <p className="text-[11px] text-indigo-700">demo@careercopilot.io / password123</p>
+              <p className="font-semibold text-[#1E40AF]">Demo Credentials:</p>
+              <p className="text-[#3B82F6]">demo@careercopilot.io / password123</p>
             </div>
             <button
               type="button"
               onClick={handleUseDemo}
-              className="px-2.5 py-1 bg-white hover:bg-indigo-50 text-indigo-600 font-bold text-[11px] rounded-lg border border-indigo-200 transition-colors shadow-2xs"
+              className="px-2.5 py-1 bg-white hover:bg-blue-50 text-[#3B82F6] font-semibold rounded-[6px] border border-[#BFDBFE] transition-colors"
             >
               Fill Demo
             </button>
           </div>
 
-          <button
+          {/* Primary Submit Button: "Sign in" */}
+          <Button
             type="submit"
-            disabled={loading}
-            className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-lg shadow-indigo-100 transition-all text-sm disabled:opacity-50 mt-2"
+            variant="primary"
+            loading={loading}
+            className="w-full mt-2"
           >
-            {loading ? 'Authenticating...' : 'Sign In'}
-          </button>
+            Sign in
+          </Button>
         </form>
 
-        {/* Footer Link to Sign Up */}
-        <div className="mt-6 text-center text-xs text-slate-500">
-          Don't have an account yet?{' '}
-          <Link to="/signup" className="text-indigo-600 font-bold hover:underline">
-            Create free account
+        {/* Divider: "Or continue with" */}
+        <div className="relative flex items-center justify-center my-6">
+          <div className="border-t border-[#E5E7EB] w-full" />
+          <span className="bg-white px-3 text-[12px] font-semibold text-[#9CA3AF] uppercase tracking-wider relative">
+            Or continue with
+          </span>
+        </div>
+
+        {/* Google sign-in button (gray) */}
+        <div className="mb-6">
+          <GoogleAuthButton mode="login" onUseDemo={handleUseDemo} />
+        </div>
+
+        {/* Footer: "Don't have account? Sign up" */}
+        <div className="text-center text-[14px] text-[#6B7280]">
+          Don't have an account?{' '}
+          <Link to="/signup" className="text-[#3B82F6] font-semibold hover:underline">
+            Sign up
           </Link>
         </div>
       </div>

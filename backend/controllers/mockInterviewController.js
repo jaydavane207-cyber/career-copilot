@@ -1,6 +1,7 @@
 // backend/controllers/mockInterviewController.js
-const { MockInterview } = require('../models');
+const { MockInterview, MockInterviewQuestion } = require('../models');
 const questionsData = require('../seeds/questions.json');
+const { v4: uuidv4 } = require('uuid');
 
 /**
  * Fisher-Yates array shuffle for uniform randomness
@@ -26,38 +27,40 @@ const getQuestions = async (req, res, next) => {
     const targetType = type ? type.trim().toLowerCase() : null;
     const targetRole = role ? role.trim().toLowerCase() : null;
 
-    // Filter questions
-    let candidates = questionsData.filter(q => {
-      const matchType = targetType ? q.type.toLowerCase() === targetType : true;
-      const matchRole = targetRole ? (q.role.toLowerCase() === targetRole || q.role.toLowerCase() === 'general') : true;
+    let dbQuestions = await MockInterviewQuestion.findAll().catch(() => []);
+    let bank = (dbQuestions && dbQuestions.length > 0) ? dbQuestions : questionsData;
+
+    let candidates = bank.filter(q => {
+      const qType = (q.type || '').toLowerCase();
+      const qRole = (q.role || '').toLowerCase();
+      const matchType = targetType ? qType === targetType : true;
+      const matchRole = targetRole ? (qRole === targetRole || qRole === 'general') : true;
       return matchType && matchRole;
     });
 
-    // If role filter was too strict, fallback to matching type
     if (candidates.length < requestedCount && targetType) {
-      candidates = questionsData.filter(q => q.type.toLowerCase() === targetType);
+      candidates = bank.filter(q => (q.type || '').toLowerCase() === targetType);
     }
 
-    // If still empty, use all questions
     if (candidates.length === 0) {
-      candidates = [...questionsData];
+      candidates = [...bank];
     }
 
-    // Shuffle and pick unique questions (no duplicates)
     const shuffled = shuffleArray(candidates);
     const seenIds = new Set();
     const selected = [];
 
     for (const q of shuffled) {
-      if (!seenIds.has(q.id)) {
-        seenIds.add(q.id);
+      const qId = q.id;
+      if (!seenIds.has(qId)) {
+        seenIds.add(qId);
         selected.push({
-          id: q.id,
-          questionId: q.id,
+          id: qId,
+          questionId: qId,
           type: q.type,
-          category: q.category,
-          role: q.role,
-          difficulty: q.difficulty,
+          category: q.category || 'General',
+          role: q.role || 'General',
+          difficulty: q.difficulty || 'Medium',
           question: q.question,
           expectedKeywords: q.expectedKeywords || []
         });
@@ -76,13 +79,184 @@ const getQuestions = async (req, res, next) => {
 };
 
 /**
- * POST /api/mock-interview/submit-answer (also supports /submit)
- * Saves user answers and session statistics to the database.
- * Evaluates keyword coverage, enriches with sample answers, and computes rubric score.
+ * GET /api/mock-interview/start & POST /api/mock-interview/start
+ * startInterview(userId, { type, numQuestions, role }):
+ * - Query random questions of requested type from database
+ * - Do NOT include sample answers
+ * - Create interview session in database
+ * - Return { interviewId, questions: [] }
+ */
+const startInterview = async (req, res, next) => {
+  try {
+    const type = req.body?.type || req.body?.interviewType || req.query?.type || 'Technical';
+    const numQuestions = parseInt(req.body?.numQuestions || req.body?.count || req.query?.numQuestions || req.query?.count || 5, 10);
+    const role = req.body?.role || req.query?.role || req.user?.targetRole || 'Fullstack Developer';
+
+    let dbQuestions = await MockInterviewQuestion.findAll().catch(() => []);
+    let bank = (dbQuestions && dbQuestions.length > 0) ? dbQuestions : questionsData;
+
+    const targetType = type.trim().toLowerCase();
+    let candidates = bank.filter(q => (q.type || '').toLowerCase() === targetType);
+    if (candidates.length === 0) {
+      candidates = [...bank];
+    }
+
+    const shuffled = shuffleArray(candidates);
+    const selected = [];
+    const seenIds = new Set();
+
+    for (const q of shuffled) {
+      if (!seenIds.has(q.id)) {
+        seenIds.add(q.id);
+        selected.push({
+          id: q.id,
+          questionId: q.id,
+          type: q.type,
+          category: q.category || 'General',
+          role: q.role || 'General',
+          difficulty: q.difficulty || 'Medium',
+          question: q.question,
+          expectedKeywords: q.expectedKeywords || []
+        });
+      }
+      if (selected.length >= numQuestions) break;
+    }
+
+    // Create session in database
+    const session = await MockInterview.create({
+      userId: req.user.id,
+      interviewType: type,
+      role,
+      questions: selected,
+      answers: [],
+      sessionStats: {
+        totalQuestions: selected.length,
+        timeSpent: 0,
+        avgConfidence: 0
+      },
+      durationMinutes: Math.round(selected.length * 3),
+      overallScore: 0
+    });
+
+    res.status(201).json({
+      success: true,
+      interviewId: session.id,
+      id: session.id,
+      role: session.role,
+      interviewType: session.interviewType,
+      questions: selected,
+      session
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
+ * Evaluates an array of answers against expected keywords and rubric
+ */
+const evaluateAnswers = (answersList = []) => {
+  let totalScore = 0;
+  let totalConfidence = 0;
+  const evaluatedAnswers = [];
+  const strengths = [];
+  const areasForImprovement = [];
+
+  for (const item of answersList) {
+    const qId = item.questionId || item.id;
+    const original = questionsData.find(q => q.id === qId) || {};
+    const userAnswerText = item.userAnswer || item.userResponse || '';
+    const confidence = Math.min(5, Math.max(1, parseInt(item.confidence, 10) || 3));
+    const answerLength = item.answerLength || (userAnswerText ? userAnswerText.trim().length : 0);
+
+    totalConfidence += confidence;
+
+    const keywords = original.expectedKeywords || item.expectedKeywords || [];
+    const lowerText = userAnswerText.toLowerCase();
+
+    let matchedKeywordsCount = 0;
+    const matchedKeywords = [];
+    const missingKeywords = [];
+
+    for (const kw of keywords) {
+      if (lowerText.includes(kw.toLowerCase())) {
+        matchedKeywordsCount++;
+        matchedKeywords.push(kw);
+      } else {
+        missingKeywords.push(kw);
+      }
+    }
+
+    const keywordRatio = keywords.length > 0 ? (matchedKeywordsCount / keywords.length) : 0.6;
+    const lengthScore = answerLength > 200 ? 1.0 : answerLength > 80 ? 0.75 : answerLength > 30 ? 0.5 : 0.2;
+    const confidenceScore = (confidence / 5);
+
+    const questionScore = Math.min(100, Math.round((keywordRatio * 0.5 + lengthScore * 0.3 + confidenceScore * 0.2) * 100));
+    totalScore += questionScore;
+
+    const sample = original.sampleAnswer || {};
+    const strongAnswer = sample.strongAnswer || 'Provide a structured, quantified response using the STAR technique.';
+    const keyPoints = Array.isArray(sample.keyPoints) ? sample.keyPoints : [];
+    const tips = sample.tips || original.indiaContextTip || 'Structure answers clearly with concrete impact metrics.';
+
+    evaluatedAnswers.push({
+      questionId: qId,
+      id: qId,
+      question: original.question || item.question || 'Interview Question',
+      type: original.type || item.type || 'Technical',
+      category: original.category || 'General',
+      userAnswer: userAnswerText,
+      confidence,
+      score: questionScore,
+      matchedKeywords,
+      missingKeywords,
+      sampleAnswer: {
+        strongAnswer,
+        keyPoints,
+        tips
+      },
+      strongAnswer,
+      keyPoints,
+      tips
+    });
+
+    if (questionScore >= 75) {
+      strengths.push(`Strong response on: "${(original.question || item.question || '').slice(0, 50)}..."`);
+    } else {
+      areasForImprovement.push(`Incorporate more architectural depth and keywords in: "${(original.question || item.question || '').slice(0, 50)}..."`);
+    }
+  }
+
+  const overallScore = evaluatedAnswers.length > 0
+    ? Math.round(totalScore / evaluatedAnswers.length)
+    : 0;
+
+  const avgConfidence = evaluatedAnswers.length > 0
+    ? Number((totalConfidence / evaluatedAnswers.length).toFixed(1))
+    : 3.0;
+
+  return {
+    evaluatedAnswers,
+    overallScore,
+    avgConfidence,
+    strengths: strengths.slice(0, 3),
+    areasForImprovement: areasForImprovement.slice(0, 3)
+  };
+};
+
+/**
+ * POST /api/mock-interview/submit-answer
+ * Supports both:
+ * 1. Single question submission: { interviewId, questionId, userAnswer, confidence }
+ * 2. Full session submission: { interviewType, role, answers, sessionStats, durationMinutes }
  */
 const submitAnswer = async (req, res, next) => {
   try {
     const {
+      interviewId,
+      questionId,
+      userAnswer,
+      confidence,
       interviewType = 'Technical',
       role,
       answers = [],
@@ -90,6 +264,88 @@ const submitAnswer = async (req, res, next) => {
       durationMinutes
     } = req.body;
 
+    // Mode A: Single answer submission to an active session
+    if (interviewId && questionId) {
+      const session = await MockInterview.findOne({
+        where: { id: interviewId, userId: req.user.id }
+      });
+
+      if (!session) {
+        return res.status(404).json({
+          success: false,
+          error: 'NOT_FOUND',
+          message: 'Interview session not found or does not belong to user.'
+        });
+      }
+
+      let currentAnswers = Array.isArray(session.answers) ? [...session.answers] : [];
+      // Replace existing answer for this question or append
+      const existingIdx = currentAnswers.findIndex(a => a.questionId === questionId || a.id === questionId);
+      const answerRecord = {
+        questionId,
+        id: questionId,
+        userAnswer: userAnswer || '',
+        confidence: parseInt(confidence, 10) || 3,
+        answeredAt: new Date().toISOString()
+      };
+
+      if (existingIdx >= 0) {
+        currentAnswers[existingIdx] = answerRecord;
+      } else {
+        currentAnswers.push(answerRecord);
+      }
+
+      session.answers = currentAnswers;
+      session.changed('answers', true);
+      const totalQuestions = Array.isArray(session.questions) && session.questions.length > 0
+        ? session.questions.length
+        : (session.sessionStats?.totalQuestions || currentAnswers.length);
+
+      // Check if all questions have been answered
+      const isComplete = currentAnswers.length >= totalQuestions;
+
+      if (isComplete) {
+        const evaluation = evaluateAnswers(currentAnswers);
+        session.answers = evaluation.evaluatedAnswers;
+        session.overallScore = evaluation.overallScore;
+        session.strengths = evaluation.strengths;
+        session.areasForImprovement = evaluation.areasForImprovement;
+        session.sessionStats = {
+          totalQuestions,
+          timeSpent: session.durationMinutes || 15,
+          avgConfidence: evaluation.avgConfidence
+        };
+        session.completedAt = new Date();
+        await session.save();
+
+        return res.json({
+          success: true,
+          isComplete: true,
+          message: 'Interview completed and evaluated!',
+          results: {
+            interviewId: session.id,
+            overallScore: evaluation.overallScore,
+            avgConfidence: evaluation.avgConfidence,
+            totalQuestions,
+            strengths: evaluation.strengths,
+            areasForImprovement: evaluation.areasForImprovement,
+            answers: evaluation.evaluatedAnswers
+          },
+          result: session
+        });
+      } else {
+        await session.save();
+        return res.json({
+          success: true,
+          isComplete: false,
+          message: 'Answer recorded.',
+          nextQuestionIndex: currentAnswers.length,
+          hasMore: true
+        });
+      }
+    }
+
+    // Mode B: Bulk session submission
     if (!Array.isArray(answers) || answers.length === 0) {
       return res.status(400).json({
         success: false,
@@ -97,106 +353,39 @@ const submitAnswer = async (req, res, next) => {
       });
     }
 
-    // Map each answer to its question data in the seed bank
-    let totalScore = 0;
-    let totalConfidence = 0;
-    const evaluatedAnswers = [];
-    const strengths = [];
-    const areasForImprovement = [];
-
-    for (const item of answers) {
-      const qId = item.questionId || item.id;
-      const original = questionsData.find(q => q.id === qId) || {};
-      const userAnswerText = item.userAnswer || item.userResponse || '';
-      const confidence = Math.min(5, Math.max(1, parseInt(item.confidence, 10) || 3));
-      const answerLength = item.answerLength || (userAnswerText ? userAnswerText.trim().length : 0);
-
-      totalConfidence += confidence;
-
-      // Evaluation rubric based on expected keywords and answer length
-      const keywords = original.expectedKeywords || item.expectedKeywords || [];
-      const lowerText = userAnswerText.toLowerCase();
-
-      let matchedKeywordsCount = 0;
-      for (const kw of keywords) {
-        if (lowerText.includes(kw.toLowerCase())) {
-          matchedKeywordsCount++;
-        }
-      }
-
-      const keywordRatio = keywords.length > 0 ? (matchedKeywordsCount / keywords.length) : (answerLength > 80 ? 0.8 : 0.4);
-      let qScore = Math.min(100, Math.round(keywordRatio * 85 + (confidence / 5) * 15));
-      if (answerLength < 25) {
-        qScore = Math.min(qScore, 30); // penalize extremely short or empty answers
-      }
-
-      totalScore += qScore;
-
-      let feedback = '';
-      if (qScore >= 75) {
-        feedback = 'Strong answer! Demonstrates depth and covers key technical nuances.';
-        strengths.push(`${original.category || 'Core'}: Clear explanations and terminology`);
-      } else if (qScore >= 50) {
-        feedback = 'Solid effort. Could provide deeper structural examples, trade-offs, and metrics.';
-      } else {
-        feedback = 'Needs improvement: Ensure structured STAR format or architectural trade-offs.';
-        if (keywords.length > 0) {
-          areasForImprovement.push(`${original.category || 'Core'}: Review ${keywords.slice(0, 3).join(', ')}`);
-        }
-      }
-
-      evaluatedAnswers.push({
-        questionId: qId,
-        id: qId,
-        question: item.question || original.question,
-        category: original.category || item.category || 'General',
-        type: original.type || interviewType,
-        userAnswer: userAnswerText,
-        userResponse: userAnswerText,
-        confidence,
-        answerLength,
-        score: qScore,
-        feedback,
-        expectedKeywords: keywords,
-        sampleAnswer: original.sampleAnswer || null
-      });
-    }
-
-    const totalQuestions = answers.length;
-    const calculatedAvgConfidence = Number((totalConfidence / totalQuestions).toFixed(1));
-    const overallScore = Math.round(totalScore / totalQuestions);
-
-    const feedbackSummary = overallScore >= 75
-      ? 'Excellent performance! You communicated clearly and demonstrated comprehensive technical depth.'
-      : overallScore >= 50
-      ? 'Solid effort! Focus on structured frameworks (STAR), concrete metrics, and architectural trade-offs.'
-      : 'Good start. Spend time reviewing the sample solutions, key points, and core terminology.';
-
-    const stats = {
-      totalQuestions,
-      timeSpent: sessionStats.timeSpent || (durationMinutes ? durationMinutes * 60 : totalQuestions * 120),
-      avgConfidence: sessionStats.avgConfidence !== undefined ? sessionStats.avgConfidence : calculatedAvgConfidence
-    };
+    const evaluation = evaluateAnswers(answers);
+    const finalDuration = parseInt(durationMinutes, 10) || Math.round(answers.length * 3);
 
     const record = await MockInterview.create({
       userId: req.user.id,
-      date: new Date(),
-      role: role || req.user.targetRole || 'Fullstack Developer',
       interviewType,
-      answers: evaluatedAnswers,
-      sessionStats: stats,
-      questions: evaluatedAnswers, // synced for backward compatibility
-      overallScore,
-      feedbackSummary,
-      strengths: [...new Set(strengths)].slice(0, 4),
-      areasForImprovement: [...new Set(areasForImprovement)].slice(0, 4),
-      durationMinutes: Math.round(stats.timeSpent / 60) || 10,
+      role: role || req.user.targetRole || 'Fullstack Developer',
+      answers: evaluation.evaluatedAnswers,
+      questions: evaluation.evaluatedAnswers,
+      sessionStats: {
+        totalQuestions: answers.length,
+        timeSpent: finalDuration,
+        avgConfidence: evaluation.avgConfidence,
+        ...sessionStats
+      },
+      overallScore: evaluation.overallScore,
+      durationMinutes: finalDuration,
+      strengths: evaluation.strengths,
+      areasForImprovement: evaluation.areasForImprovement,
+      feedbackSummary: `Overall performance score of ${evaluation.overallScore}% with average confidence ${evaluation.avgConfidence}/5.`,
       completedAt: new Date()
     });
 
     res.json({
       success: true,
       message: 'Interview session submitted and evaluated successfully',
+      interviewId: record.id,
+      overallScore: evaluation.overallScore,
+      avgConfidence: evaluation.avgConfidence,
+      durationMinutes: finalDuration,
+      strengths: evaluation.strengths,
+      areasForImprovement: evaluation.areasForImprovement,
+      answers: evaluation.evaluatedAnswers,
       result: record
     });
   } catch (error) {
@@ -205,8 +394,108 @@ const submitAnswer = async (req, res, next) => {
 };
 
 /**
+ * GET /api/mock-interview/:id/results
+ * getResults(interviewId): Calculate stats, identify weak question types, return results
+ */
+const getResults = async (req, res, next) => {
+  try {
+    const session = await MockInterview.findOne({
+      where: { id: req.params.id, userId: req.user.id }
+    });
+
+    if (!session) {
+      return res.status(404).json({
+        success: false,
+        error: 'NOT_FOUND',
+        message: 'Mock interview session not found.'
+      });
+    }
+
+    const answers = Array.isArray(session.answers) ? session.answers : [];
+    const typeScores = {};
+
+    for (const a of answers) {
+      const type = a.type || session.interviewType || 'General';
+      if (!typeScores[type]) {
+        typeScores[type] = { totalScore: 0, count: 0 };
+      }
+      typeScores[type].totalScore += (a.score || 50);
+      typeScores[type].count += 1;
+    }
+
+    const weakTypes = Object.entries(typeScores)
+      .map(([type, stats]) => ({
+        type,
+        avgScore: Math.round(stats.totalScore / stats.count)
+      }))
+      .filter(t => t.avgScore < 70)
+      .sort((a, b) => a.avgScore - b.avgScore);
+
+    res.json({
+      success: true,
+      interviewId: session.id,
+      overallScore: session.overallScore,
+      sessionStats: session.sessionStats,
+      weakQuestionTypes: weakTypes,
+      strengths: session.strengths || [],
+      areasForImprovement: session.areasForImprovement || [],
+      answers,
+      results: session
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
+ * GET /api/mock-interview/:id/answer/:questionId
+ * getAnswerReview(interviewId, questionId):
+ * - Get user's answer
+ * - Get sample answer from database
+ * - Return both
+ */
+const getAnswerReview = async (req, res, next) => {
+  try {
+    const { id: interviewId, questionId } = req.params;
+
+    const session = await MockInterview.findOne({
+      where: { id: interviewId, userId: req.user.id }
+    });
+
+    if (!session) {
+      return res.status(404).json({
+        success: false,
+        error: 'NOT_FOUND',
+        message: 'Mock interview session not found.'
+      });
+    }
+
+    const answers = Array.isArray(session.answers) ? session.answers : [];
+    const userAnswerObj = answers.find(a => a.questionId === questionId || a.id === questionId) || {};
+
+    const original = questionsData.find(q => q.id === questionId) || {};
+    const sample = original.sampleAnswer || {};
+
+    res.json({
+      success: true,
+      interviewId,
+      questionId,
+      question: original.question || userAnswerObj.question,
+      userAnswer: userAnswerObj.userAnswer || '',
+      confidence: userAnswerObj.confidence || 3,
+      score: userAnswerObj.score || 0,
+      sampleAnswer: sample.strongAnswer || userAnswerObj.sampleAnswer || '',
+      strongAnswer: sample.strongAnswer || userAnswerObj.strongAnswer || '',
+      keyPoints: sample.keyPoints || userAnswerObj.keyPoints || [],
+      tips: sample.tips || userAnswerObj.tips || ''
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
  * GET /api/mock-interview/history
- * Returns all past interview attempts for the authenticated user
  */
 const getHistory = async (req, res, next) => {
   try {
@@ -227,7 +516,6 @@ const getHistory = async (req, res, next) => {
 
 /**
  * GET /api/mock-interview/feedback
- * Returns sample answers, key points checklist, and tips for requested questions
  */
 const getFeedback = async (req, res, next) => {
   try {
@@ -273,7 +561,6 @@ const getFeedback = async (req, res, next) => {
 
 /**
  * GET /api/mock-interview/:id
- * Retrieve a specific past interview session by ID
  */
 const getSessionById = async (req, res, next) => {
   try {
@@ -297,27 +584,15 @@ const getSessionById = async (req, res, next) => {
   }
 };
 
-/**
- * Legacy startSession alias
- */
-const startSession = async (req, res, next) => {
-  try {
-    const { role, interviewType, questionCount = 5 } = req.body;
-    req.query.type = interviewType;
-    req.query.count = questionCount;
-    req.query.role = role;
-    return getQuestions(req, res, next);
-  } catch (error) {
-    next(error);
-  }
-};
-
 module.exports = {
   getQuestions,
+  startInterview,
+  startSession: startInterview,
   submitAnswer,
+  submitSession: submitAnswer,
+  getResults,
+  getAnswerReview,
   getHistory,
   getFeedback,
-  getSessionById,
-  startSession,
-  submitSession: submitAnswer
+  getSessionById
 };

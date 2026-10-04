@@ -14,10 +14,16 @@ router.post('/submit', mockInterviewController.submitAnswer); // alias for backw
 router.get('/history', mockInterviewController.getHistory);
 router.get('/feedback', mockInterviewController.getFeedback);
 
-// Legacy start route alias
-router.post('/start', mockInterviewController.startSession);
+// Start interview endpoints
+router.post('/start', mockInterviewController.startInterview);
+router.get('/start', mockInterviewController.startInterview);
+
+// Session results & answer review endpoints
+router.get('/:id/results', mockInterviewController.getResults);
+router.get('/:id/answer/:questionId', mockInterviewController.getAnswerReview);
 
 // Session by ID
 router.get('/:id', mockInterviewController.getSessionById);
 
 module.exports = router;
+

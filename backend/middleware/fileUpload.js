@@ -9,15 +9,14 @@ if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true });
 }
 
-// Multer storage configuration
+// Multer storage configuration with required filename format: ${userId}_${Date.now()}.pdf
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, uploadsDir);
   },
   filename: (req, file, cb) => {
-    const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
-    const sanitizedName = (file.originalname || 'resume.pdf').replace(/[^a-zA-Z0-9.-]/g, '_');
-    cb(null, `${uniqueSuffix}-${sanitizedName}`);
+    const userId = req.user?.id || 'anon';
+    cb(null, `${userId}_${Date.now()}.pdf`);
   }
 });
 
@@ -26,7 +25,6 @@ const fileFilter = (req, file, cb) => {
   const allowedMimeTypes = ['application/pdf'];
   const ext = path.extname(file.originalname || '').toLowerCase();
 
-  // Validate both MIME type and file extension
   if (allowedMimeTypes.includes(file.mimetype) && ext === '.pdf') {
     cb(null, true);
   } else {
@@ -34,8 +32,8 @@ const fileFilter = (req, file, cb) => {
   }
 };
 
-// 5MB max file size limit
-const MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024; // 5MB
+// 5MB max file size limit (5242880 bytes)
+const MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024;
 
 const upload = multer({
   storage,
@@ -46,34 +44,50 @@ const upload = multer({
 });
 
 /**
- * Express middleware wrapper to catch Multer errors and format friendly responses
+ * Universal upload middleware handling either 'resume' or 'file' form fields
  */
 const uploadResumeMiddleware = (req, res, next) => {
-  const uploadSingle = upload.single('resume');
+  // Support both 'resume' and 'file' field names seamlessly
+  const multiFieldHandler = upload.fields([
+    { name: 'resume', maxCount: 1 },
+    { name: 'file', maxCount: 1 }
+  ]);
 
-  uploadSingle(req, res, (err) => {
+  multiFieldHandler(req, res, (err) => {
     if (err instanceof multer.MulterError) {
       if (err.code === 'LIMIT_FILE_SIZE') {
         return res.status(400).json({
           success: false,
+          error: 'FILE_TOO_LARGE',
           message: 'File size exceeds 5MB limit. Please upload a PDF smaller than 5MB.'
         });
       }
       return res.status(400).json({
         success: false,
+        error: err.code,
         message: `Upload error: ${err.message}`
       });
     } else if (err) {
       return res.status(400).json({
         success: false,
+        error: 'INVALID_FILE',
         message: err.message || 'Invalid file uploaded. Only PDF documents are supported.'
       });
     }
 
-    // Check if file is provided
+    // Assign req.file from either 'resume' or 'file'
+    if (req.files) {
+      if (req.files.resume && req.files.resume[0]) {
+        req.file = req.files.resume[0];
+      } else if (req.files.file && req.files.file[0]) {
+        req.file = req.files.file[0];
+      }
+    }
+
     if (!req.file) {
       return res.status(400).json({
         success: false,
+        error: 'FILE_MISSING',
         message: 'No resume file provided. Please upload a PDF file.'
       });
     }
@@ -83,6 +97,8 @@ const uploadResumeMiddleware = (req, res, next) => {
 };
 
 module.exports = {
+  upload,
   uploadResume: upload,
-  uploadResumeMiddleware
+  uploadResumeMiddleware,
+  fileUpload: uploadResumeMiddleware
 };

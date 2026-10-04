@@ -18,7 +18,9 @@ const normalizeStage = (val) => {
 
 /**
  * GET /api/jobs
- * Get all user's job applications with optional stage filtering
+ * Query all jobs for user where userId = $1
+ * Group by stage: { applied: [], interview: [], offer: [] }
+ * Sort by dateApplied (newest first) within each stage
  */
 const getJobs = async (req, res, next) => {
   try {
@@ -30,7 +32,7 @@ const getJobs = async (req, res, next) => {
       filter.stage = normalizeStage(targetStage);
     }
 
-    const jobs = await Job.findAll({
+    const allUserJobs = await Job.findAll({
       where: filter,
       order: [
         ['dateApplied', 'DESC'],
@@ -38,10 +40,18 @@ const getJobs = async (req, res, next) => {
       ]
     });
 
+    // Group by stage and sort newest first within each stage
+    const applied = allUserJobs.filter(j => (j.stage || '').toLowerCase() === 'applied');
+    const interview = allUserJobs.filter(j => (j.stage || '').toLowerCase() === 'interview');
+    const offer = allUserJobs.filter(j => (j.stage || '').toLowerCase() === 'offer');
+
     res.json({
       success: true,
-      count: jobs.length,
-      jobs
+      count: allUserJobs.length,
+      applied,
+      interview,
+      offer,
+      jobs: allUserJobs
     });
   } catch (error) {
     next(error);
@@ -50,7 +60,10 @@ const getJobs = async (req, res, next) => {
 
 /**
  * POST /api/jobs
- * Add new job application
+ * Body: { companyName, jobTitle, jobLink, stage, dateApplied, interviewDate, notes, salary }
+ * Validates required fields: companyName, jobTitle, stage
+ * Validates stage enum: applied|interview|offer
+ * Inserts into jobs table and returns created job
  */
 const createJob = async (req, res, next) => {
   try {
@@ -73,16 +86,18 @@ const createJob = async (req, res, next) => {
     const company = (companyName || '').trim();
     const title = (jobTitle || positionTitle || '').trim();
     const link = (jobLink || jobUrl || '').trim();
-    const initialStage = normalizeStage(stage || status || 'applied');
+    const rawStage = stage || status || 'applied';
+    const initialStage = normalizeStage(rawStage);
     const applied = dateApplied || appliedDate || new Date().toISOString().split('T')[0];
     const interview = interviewDate || null;
     const notesContent = notes !== undefined ? notes : '';
     const salaryVal = salary || salaryRange || null;
 
-    // Input Validation
+    // Validate required fields
     if (!company) {
       return res.status(400).json({
         success: false,
+        error: 'VALIDATION_ERROR',
         message: 'Company name is required.'
       });
     }
@@ -90,6 +105,7 @@ const createJob = async (req, res, next) => {
     if (!title) {
       return res.status(400).json({
         success: false,
+        error: 'VALIDATION_ERROR',
         message: 'Job title is required.'
       });
     }
@@ -97,6 +113,7 @@ const createJob = async (req, res, next) => {
     if (!ALLOWED_STAGES.includes(initialStage)) {
       return res.status(400).json({
         success: false,
+        error: 'VALIDATION_ERROR',
         message: "Stage must be one of: 'applied', 'interview', 'offer'."
       });
     }
@@ -125,7 +142,7 @@ const createJob = async (req, res, next) => {
 
 /**
  * PUT /api/jobs/:id
- * Update job (move between stages, edit details)
+ * Validate job belongs to user, update only provided fields, update updatedAt, return updated job
  */
 const updateJob = async (req, res, next) => {
   try {
@@ -136,6 +153,7 @@ const updateJob = async (req, res, next) => {
     if (!job) {
       return res.status(404).json({
         success: false,
+        error: 'NOT_FOUND',
         message: 'Job application not found.'
       });
     }
@@ -182,6 +200,7 @@ const updateJob = async (req, res, next) => {
       if (!ALLOWED_STAGES.includes(normalized)) {
         return res.status(400).json({
           success: false,
+          error: 'VALIDATION_ERROR',
           message: "Stage must be one of: 'applied', 'interview', 'offer'."
         });
       }
@@ -206,6 +225,7 @@ const updateJob = async (req, res, next) => {
       job.salary = newSalary || null;
     }
 
+    job.updatedAt = new Date();
     await job.save();
 
     res.json({
@@ -220,7 +240,6 @@ const updateJob = async (req, res, next) => {
 
 /**
  * PATCH /api/jobs/:id/status
- * Legacy status update endpoint (kept for backward compatibility)
  */
 const updateJobStatus = async (req, res, next) => {
   try {
@@ -230,6 +249,7 @@ const updateJobStatus = async (req, res, next) => {
     if (!ALLOWED_STAGES.includes(targetStage)) {
       return res.status(400).json({
         success: false,
+        error: 'VALIDATION_ERROR',
         message: "Stage must be one of: 'applied', 'interview', 'offer'."
       });
     }
@@ -241,11 +261,13 @@ const updateJobStatus = async (req, res, next) => {
     if (!job) {
       return res.status(404).json({
         success: false,
+        error: 'NOT_FOUND',
         message: 'Job application not found.'
       });
     }
 
     job.stage = targetStage;
+    job.updatedAt = new Date();
     await job.save();
 
     res.json({
@@ -260,7 +282,7 @@ const updateJobStatus = async (req, res, next) => {
 
 /**
  * DELETE /api/jobs/:id
- * Delete job application
+ * Validate job belongs to user, delete from jobs table, return success message
  */
 const deleteJob = async (req, res, next) => {
   try {
@@ -271,6 +293,7 @@ const deleteJob = async (req, res, next) => {
     if (!job) {
       return res.status(404).json({
         success: false,
+        error: 'NOT_FOUND',
         message: 'Job application not found.'
       });
     }
@@ -288,11 +311,8 @@ const deleteJob = async (req, res, next) => {
 
 /**
  * GET /api/jobs/stats
- * Return stats:
- * - Total applications
- * - Applications in each stage (applied, interview, offer)
- * - Conversion rate (interviews / applied)
- * - Average days between stages
+ * Count jobs by stage, calculate conversion: (interviews / applied) * 100,
+ * calculate average days in each stage, return stats object
  */
 const getJobStats = async (req, res, next) => {
   try {
@@ -307,9 +327,7 @@ const getJobStats = async (req, res, next) => {
     const interviewCount = interviewJobs.length;
     const offerCount = offerJobs.length;
 
-    // Conversion rate: (interviews / applied) as a percentage
-    // If appliedCount > 0, interviews / applied * 100
-    // If appliedCount is 0 but we have total applications: (interviews / totalApplications) * 100
+    // Conversion rate: (interviews / applied) * 100
     let conversionRate = 0;
     if (appliedCount > 0) {
       conversionRate = Math.round((interviewCount / appliedCount) * 100);
@@ -317,15 +335,12 @@ const getJobStats = async (req, res, next) => {
       conversionRate = Math.round((interviewCount / totalApplications) * 100);
     }
 
-    // Overall pipeline conversion (interviews + offers) / total
     const overallSuccessRate = totalApplications > 0
       ? Math.round(((interviewCount + offerCount) / totalApplications) * 100)
       : 0;
 
-    // Average days between stages calculation:
-    // Measures time between dateApplied and interviewDate or stage progression
+    // Calculate average days between stages
     const stageIntervals = [];
-
     for (const job of jobs) {
       const appliedStr = job.dateApplied || (job.createdAt ? new Date(job.createdAt).toISOString().split('T')[0] : null);
       if (!appliedStr) continue;
@@ -352,7 +367,6 @@ const getJobStats = async (req, res, next) => {
       : 0;
 
     const stats = {
-      // Primary required backend stats
       totalApplications,
       totalApplied: totalApplications,
       total: totalApplications,

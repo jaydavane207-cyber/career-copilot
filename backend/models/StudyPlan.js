@@ -28,13 +28,25 @@ const StudyPlan = sequelize.define('StudyPlan', {
     type: DataTypes.INTEGER,
     defaultValue: 10
   },
+  targetDate: {
+    type: DataTypes.STRING,
+    allowNull: true
+  },
+  dailyTasks: {
+    type: DataTypes.JSON,
+    defaultValue: []
+  },
   weeklyModules: {
-    type: DataTypes.JSON, // Array of { week: 1, title: '', topics: [], dailyTasks: [{ id, text, completed: false }] }
+    type: DataTypes.JSON,
     defaultValue: []
   },
   progress: {
     type: DataTypes.FLOAT,
     defaultValue: 0.0 // 0 to 100%
+  },
+  status: {
+    type: DataTypes.STRING,
+    defaultValue: 'active' // 'active' | 'paused' | 'completed'
   },
   isActive: {
     type: DataTypes.BOOLEAN,
@@ -45,4 +57,28 @@ const StudyPlan = sequelize.define('StudyPlan', {
   timestamps: true
 });
 
+StudyPlan.syncColumns = async () => {
+  try {
+    if (sequelize.getDialect() === 'sqlite') {
+      const [cols] = await sequelize.query("PRAGMA table_info('study_plans');");
+      const existingColNames = cols.map(c => c.name);
+
+      const columnsToAdd = [
+        { name: 'targetDate', type: 'VARCHAR(255)' },
+        { name: 'dailyTasks', type: "JSON DEFAULT '[]'" },
+        { name: 'status', type: "VARCHAR(255) DEFAULT 'active'" }
+      ];
+
+      for (const col of columnsToAdd) {
+        if (!existingColNames.includes(col.name)) {
+          await sequelize.query(`ALTER TABLE study_plans ADD COLUMN ${col.name} ${col.type};`);
+        }
+      }
+    }
+  } catch (err) {
+    console.warn('⚠️ [StudyPlan.syncColumns] Notice:', err.message);
+  }
+};
+
 module.exports = StudyPlan;
+

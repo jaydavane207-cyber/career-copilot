@@ -6,14 +6,15 @@ export const ErrorMessage = ({ message, onRetry }) => {
   if (!message) return null;
 
   return (
-    <div className="rounded-lg bg-rose-50 border border-rose-200 p-4 flex items-start gap-3 my-3">
-      <AlertCircle className="w-5 h-5 text-rose-600 flex-shrink-0 mt-0.5" />
+    <div className="rounded-[8px] bg-[#FEF2F2] border border-[#EF4444]/30 p-4 flex items-start gap-3 my-3">
+      <AlertCircle className="w-5 h-5 text-[#EF4444] flex-shrink-0 mt-0.5" />
       <div className="flex-1">
-        <p className="text-sm font-medium text-rose-800">{message}</p>
+        <p className="text-[14px] font-medium text-[#7F1D1D]">{message}</p>
         {onRetry && (
           <button
+            type="button"
             onClick={onRetry}
-            className="mt-2 text-xs font-semibold text-rose-700 hover:text-rose-900 underline"
+            className="mt-2 text-[12px] font-semibold text-[#3B82F6] hover:underline"
           >
             Try Again
           </button>
@@ -24,3 +25,4 @@ export const ErrorMessage = ({ message, onRetry }) => {
 };
 
 export default ErrorMessage;
+

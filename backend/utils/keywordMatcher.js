@@ -2,6 +2,51 @@
 const rolesData = require('../seeds/roles.json');
 
 /**
+ * Common English and conversational stop words list
+ */
+const STOP_WORDS = new Set([
+  'the', 'a', 'an', 'is', 'are', 'was', 'were', 'be', 'been', 'being',
+  'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'could', 'should',
+  'may', 'might', 'must', 'can', 'about', 'above', 'across', 'after', 'again',
+  'against', 'all', 'almost', 'alone', 'along', 'already', 'also', 'although',
+  'always', 'am', 'among', 'and', 'another', 'any', 'anybody', 'anyone',
+  'anything', 'anywhere', 'around', 'as', 'at', 'back', 'because', 'become',
+  'becomes', 'becoming', 'before', 'behind', 'below', 'beside', 'between',
+  'beyond', 'both', 'but', 'by', 'came', 'cannot', 'certain', 'certainly',
+  'come', 'comes', 'during', 'each', 'either', 'else', 'elsewhere', 'enough',
+  'even', 'ever', 'every', 'everybody', 'everyone', 'everything', 'everywhere',
+  'few', 'for', 'from', 'further', 'get', 'gets', 'getting', 'give', 'given',
+  'gives', 'go', 'goes', 'going', 'gone', 'got', 'great', 'had', 'has',
+  'have', 'having', 'he', 'her', 'here', 'hers', 'herself', 'him', 'himself',
+  'his', 'how', 'however', 'if', 'in', 'into', 'it', 'its', 'itself', 'just',
+  'keep', 'keeps', 'kept', 'know', 'known', 'knows', 'last', 'latter',
+  'less', 'like', 'likely', 'little', 'look', 'looked', 'looking', 'looks',
+  'made', 'make', 'makes', 'making', 'many', 'me', 'mean', 'means', 'meant',
+  'more', 'most', 'mostly', 'much', 'my', 'myself', 'name', 'namely',
+  'neither', 'never', 'nevertheless', 'new', 'next', 'no', 'nobody', 'none',
+  'noone', 'nor', 'not', 'nothing', 'now', 'nowhere', 'of', 'off', 'often',
+  'on', 'once', 'one', 'only', 'onto', 'or', 'other', 'others', 'otherwise',
+  'our', 'ours', 'ourselves', 'out', 'over', 'own', 'per', 'perhaps',
+  'please', 'quite', 'rather', 'really', 'regarding', 'said', 'same',
+  'say', 'saying', 'says', 'second', 'seconds', 'see', 'seeing', 'seem',
+  'seemed', 'seeming', 'seems', 'seen', 'sees', 'several', 'she', 'since',
+  'so', 'some', 'somebody', 'someone', 'something', 'somewhere', 'still',
+  'such', 'take', 'taken', 'takes', 'taking', 'than', 'that', 'the',
+  'their', 'theirs', 'them', 'themselves', 'then', 'thence', 'there',
+  'thereafter', 'thereby', 'therefore', 'therein', 'thereupon', 'these',
+  'they', 'this', 'those', 'though', 'through', 'throughout', 'thru',
+  'thus', 'to', 'together', 'too', 'toward', 'towards', 'under', 'until',
+  'unto', 'up', 'upon', 'us', 'use', 'used', 'uses', 'using', 'very',
+  'via', 'want', 'wants', 'we', 'well', 'went', 'what', 'whatever',
+  'when', 'whence', 'whenever', 'where', 'whereafter', 'whereas', 'whereby',
+  'wherein', 'whereupon', 'wherever', 'whether', 'which', 'while', 'whither',
+  'who', 'whoever', 'whole', 'whom', 'whose', 'why', 'with', 'within',
+  'without', 'work', 'working', 'works', 'year', 'years', 'yes', 'yet',
+  'you', 'your', 'yours', 'yourself', 'yourselves', 'job', 'role', 'team',
+  'candidate', 'requirements', 'qualifications', 'responsibilities', 'opportunity'
+]);
+
+/**
  * Comprehensive technical skills repository with canonical names and regex aliases
  */
 const TECH_SKILLS_CATALOG = [
@@ -108,92 +153,193 @@ const TECH_SKILLS_CATALOG = [
 
 /**
  * Checks if a specific skill name or its aliases exist in text
- * @param {string} text - Target text
- * @param {object} skill - Skill entry with name and aliases
- * @returns {boolean}
  */
 const matchesSkill = (text = '', skill) => {
   if (!text || !skill) return false;
 
-  // Test aliases first
   if (Array.isArray(skill.aliases)) {
     for (const regex of skill.aliases) {
       if (regex.test(text)) return true;
     }
   }
 
-  // Fallback to escaped boundary matching
   const escaped = skill.name.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
   const boundaryPattern = new RegExp(`(?:^|[^a-zA-Z0-9_])${escaped}(?:[^a-zA-Z0-9_]|$)`, 'i');
   return boundaryPattern.test(text);
 };
 
 /**
- * Extracts keywords/skills mentioned in a given text (Job Description or Resume)
- * @param {string} text - Source text
- * @returns {string[]} Array of detected unique skill names
+ * extractKeywords(text) function:
+ * - Split text by spaces and word boundaries
+ * - Remove stop words
+ * - Convert to lowercase
+ * - Remove special characters but keep alphanumeric (and standard technical + / # characters)
+ * - Remove duplicates
+ * - Return array of keywords (minimum 3 chars each)
+ * - Also enriches with recognized canonical tech skills
  */
 const extractKeywords = (text = '') => {
   if (!text) return [];
 
-  const foundKeywords = new Set();
+  const foundSet = new Set();
 
-  // 1. Match against known tech catalog
+  // 1. Check known technical catalog for canonical items
   for (const skill of TECH_SKILLS_CATALOG) {
     if (matchesSkill(text, skill)) {
-      foundKeywords.add(skill.name);
+      foundSet.add(skill.name);
     }
   }
 
-  // 2. Extract potential capitalized terms / technical acronyms (e.g. AWS, GCP, CI/CD, Figma, etc.)
-  const words = text.match(/\b[A-Z][a-zA-Z0-9+#.-]{1,15}\b/g) || [];
-  const commonStopWords = new Set([
-    'The', 'We', 'You', 'Our', 'Are', 'This', 'That', 'With', 'From', 'Have',
-    'Will', 'Must', 'Job', 'Role', 'Team', 'Work', 'Year', 'Years', 'Company',
-    'Candidate', 'Requirements', 'Responsibilities', 'Qualifications', 'About',
-    'Skills', 'Experience', 'Education', 'Opportunity', 'Salary', 'Benefits'
-  ]);
+  // 2. Tokenize text by whitespace and common punctuation delimiters
+  const tokens = text.split(/[\s,;:()[\]{}|/\\<>"'!?~`+*=&]+/);
 
-  for (const word of words) {
-    if (!commonStopWords.has(word) && word.length > 2) {
-      // Check if it's already in catalog or a clear technical word
-      const catalogItem = TECH_SKILLS_CATALOG.find(s => s.name.toLowerCase() === word.toLowerCase());
+  for (let rawToken of tokens) {
+    // Keep alphanumeric and special technical chars (+, #, .)
+    const cleanWord = rawToken.replace(/[^a-zA-Z0-9+#.-]/g, '').trim();
+    const lower = cleanWord.toLowerCase();
+
+    if (cleanWord.length >= 3 && !STOP_WORDS.has(lower)) {
+      // Check if it matches a catalog item to preserve standard casing
+      const catalogItem = TECH_SKILLS_CATALOG.find(s => s.name.toLowerCase() === lower);
       if (catalogItem) {
-        foundKeywords.add(catalogItem.name);
+        foundSet.add(catalogItem.name);
+      } else {
+        // Capitalize first character for clean presentation
+        const formatted = cleanWord.charAt(0).toUpperCase() + cleanWord.slice(1);
+        foundSet.add(formatted);
       }
     }
   }
 
-  return Array.from(foundKeywords);
+  return Array.from(foundSet);
+};
+
+/**
+ * matchKeywords(resumeKeywords, jdKeywords) function:
+ * - Find intersection of both arrays
+ * - Case-insensitive comparison
+ * - Return matched keywords array
+ */
+const matchKeywords = (resumeKeywords = [], jdKeywords = []) => {
+  if (!Array.isArray(resumeKeywords) || !Array.isArray(jdKeywords)) return [];
+
+  const matched = [];
+  const resumeLower = new Set(resumeKeywords.map(k => (k || '').toString().toLowerCase()));
+
+  for (const jdKey of jdKeywords) {
+    if (!jdKey) continue;
+    if (resumeLower.has(jdKey.toString().toLowerCase())) {
+      if (!matched.some(m => m.toLowerCase() === jdKey.toLowerCase())) {
+        matched.push(jdKey);
+      }
+    }
+  }
+
+  return matched;
+};
+
+/**
+ * calculateMatchScore(matchedCount, totalJdKeywords) function:
+ * - Formula: (matchedCount / totalJdKeywords) * 100
+ * - Round to 1 decimal place
+ * - Return number 0-100
+ */
+const calculateMatchScore = (matchedCount = 0, totalJdKeywords = 0) => {
+  if (!totalJdKeywords || totalJdKeywords <= 0) return 0;
+  const rawScore = (matchedCount / totalJdKeywords) * 100;
+  const rounded = Math.round(rawScore * 10) / 10;
+  return Math.min(100, Math.max(0, rounded));
+};
+
+/**
+ * findMissingKeywords(resumeKeywords, jdKeywords, jdText) function:
+ * - Return keywords in JD but not in resume
+ * - Limit to top 20 missing keywords (most important)
+ * - Sort by frequency in JD
+ */
+const findMissingKeywords = (resumeKeywords = [], jdKeywords = [], jdText = '') => {
+  if (!Array.isArray(jdKeywords)) return [];
+
+  const resumeLower = new Set((resumeKeywords || []).map(k => (k || '').toString().toLowerCase()));
+  const missing = [];
+
+  for (const jdKey of jdKeywords) {
+    if (!jdKey) continue;
+    if (!resumeLower.has(jdKey.toString().toLowerCase())) {
+      if (!missing.some(m => m.toLowerCase() === jdKey.toLowerCase())) {
+        missing.push(jdKey);
+      }
+    }
+  }
+
+  // Sort by occurrence frequency in the JD text if text provided
+  if (jdText) {
+    missing.sort((a, b) => {
+      const regA = new RegExp(`\\b${a.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')}\\b`, 'gi');
+      const regB = new RegExp(`\\b${b.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')}\\b`, 'gi');
+      const countA = (jdText.match(regA) || []).length;
+      const countB = (jdText.match(regB) || []).length;
+      return countB - countA;
+    });
+  }
+
+  // Limit to top 20 missing keywords
+  return missing.slice(0, 20);
+};
+
+/**
+ * generateSuggestions(missingKeywords, resumeText) function:
+ * - For each missing keyword, suggest where to add:
+ *   - "Add 'React' to Skills section"
+ *   - "Mention 'Docker' in recent projects"
+ *   - "Include 'AWS' in work experience"
+ * - Max 10 suggestions
+ * - Prioritize common keywords first
+ * - Return array of suggestion strings
+ */
+const generateSuggestions = (missingKeywords = [], resumeText = '') => {
+  const suggestions = [];
+  const text = (resumeText || '').toLowerCase();
+
+  const templateTypes = [
+    (kw) => `Add '${kw}' to Skills section`,
+    (kw) => `Mention '${kw}' in recent projects`,
+    (kw) => `Include '${kw}' in work experience`,
+    (kw) => `Highlight hands-on exposure to '${kw}' in summary`
+  ];
+
+  for (let i = 0; i < missingKeywords.length && suggestions.length < 10; i++) {
+    const kw = missingKeywords[i];
+    const templateFn = templateTypes[i % templateTypes.length];
+    suggestions.push(templateFn(kw));
+  }
+
+  // Add ATS formatting tips if fewer than 5
+  if (!text.includes('skills') && suggestions.length < 10) {
+    suggestions.push("Add a designated 'Skills' section for ATS parsing");
+  }
+  if (!text.includes('experience') && !text.includes('work') && suggestions.length < 10) {
+    suggestions.push("Include a chronological 'Work Experience' section with metric outcomes");
+  }
+
+  return suggestions.slice(0, 10);
 };
 
 /**
  * Checks basic ATS readiness of resume text
- * Verifies Contact Info, Skills section, Experience section, Education, and provides actionable tips
- * @param {string} resumeText - Extracted resume text
- * @returns {object} ATS readiness audit result
  */
 const checkAtsReadiness = (resumeText = '') => {
   const text = resumeText || '';
 
-  // 1. Contact Information check (email, phone, LinkedIn / GitHub)
   const hasEmail = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/.test(text);
   const hasPhone = /(?:\+?\d{1,3}[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}|\b\d{10}\b/.test(text);
   const hasContactInfo = hasEmail || hasPhone;
 
-  // 2. Skills Section check
   const hasSkillsSection = /\b(skills|technical skills|technologies|core competencies|tech stack|key skills|proficiencies)\b/i.test(text);
-
-  // 3. Experience Section check
   const hasExperienceSection = /\b(experience|work experience|employment history|professional experience|work history)\b/i.test(text);
-
-  // 4. Education Section check
   const hasEducationSection = /\b(education|academic background|degree|university|college|b\.tech|b\.e\.|m\.tech|bachelor|master)\b/i.test(text);
-
-  // 5. Projects Section check
   const hasProjectsSection = /\b(projects|personal projects|key projects|academic projects)\b/i.test(text);
 
-  // Generate ATS tips
   const tips = [];
   if (!hasSkillsSection) {
     tips.push('Add Skills section for better ATS score');
@@ -211,7 +357,6 @@ const checkAtsReadiness = (resumeText = '') => {
     tips.push('Include a Projects section highlighting practical applications of your skills');
   }
 
-  // Formatting / action verbs check
   const hasActionVerbs = /\b(architected|engineered|developed|implemented|optimized|designed|delivered|built|led)\b/i.test(text);
   if (!hasActionVerbs && tips.length < 3) {
     tips.push('Use strong action verbs like "Engineered", "Architected", and "Optimized" in bullet points');
@@ -223,85 +368,29 @@ const checkAtsReadiness = (resumeText = '') => {
 
   return {
     hasContactInfo,
+    hasContact: hasContactInfo,
     hasSkillsSection,
+    hasSkills: hasSkillsSection,
     hasExperienceSection,
+    hasExperience: hasExperienceSection,
     hasEducationSection,
+    hasEducation: hasEducationSection,
     hasProjectsSection,
+    hasProjects: hasProjectsSection,
     tips
   };
 };
 
 /**
- * Generates 3-5 actionable recommendations based on missing keywords and ATS readiness
- * @param {string[]} missingKeywords - Gaps found
- * @param {object} atsReadiness - ATS checklist
- * @param {string} resumeText - Raw resume text
- * @returns {string[]} 3 to 5 actionable suggestions
- */
-const generateActionableSuggestions = (missingKeywords = [], atsReadiness = {}, resumeText = '') => {
-  const suggestions = [];
-
-  // Suggestion 1: Add top missing keyword to Skills section
-  if (missingKeywords.length > 0) {
-    suggestions.push(`Add '${missingKeywords[0]}' to Skills section`);
-  }
-
-  // Suggestion 2: Include second missing keyword in recent projects
-  if (missingKeywords.length > 1) {
-    suggestions.push(`Include ${missingKeywords[1]} in recent project descriptions`);
-  }
-
-  // Suggestion 3: Mention third missing keyword
-  if (missingKeywords.length > 2) {
-    suggestions.push(`Mention ${missingKeywords[2]} experience if you have it`);
-  }
-
-  // Suggestion 4: If missing skills section or experience section, provide ATS recommendation
-  if (!atsReadiness.hasSkillsSection && !suggestions.some(s => s.toLowerCase().includes('skills section'))) {
-    suggestions.push('Add Skills section for better ATS score');
-  } else if (!atsReadiness.hasExperienceSection) {
-    suggestions.push('Add an Experience section with measurable impact bullet points');
-  } else if (!atsReadiness.hasContactInfo) {
-    suggestions.push('Place your professional email and contact phone prominently in the header');
-  }
-
-  // Suggestion 5: Metric quantification check
-  const hasMetrics = /\b\d+%\b|\b\d+\s*(?:users|clients|ms|seconds|million|thousand|k|x)\b/i.test(resumeText);
-  if (!hasMetrics && suggestions.length < 5) {
-    suggestions.push('Quantify achievements with metrics (e.g. "improved performance by 30%")');
-  }
-
-  // Fill in if fewer than 3 suggestions
-  if (suggestions.length < 3 && missingKeywords.length > 3) {
-    suggestions.push(`Highlight any exposure to ${missingKeywords[3]} in your technical summary`);
-  }
-  if (suggestions.length < 3) {
-    suggestions.push('Tailor your professional summary to mirror key requirements in the job description');
-  }
-  if (suggestions.length < 3) {
-    suggestions.push('Ensure standard font formatting without nested columns or images for ATS compatibility');
-  }
-
-  // Guarantee 3 to 5 suggestions
-  return suggestions.slice(0, 5);
-};
-
-/**
  * Core Analyzer: Takes resume text + job description and returns full analysis
- * @param {string} resumeText - Extracted resume text
- * @param {string} jobDescription - Job description or role requirements
- * @param {string} jobTitle - Optional target role / job title
- * @returns {object} Analysis result matching required schema
  */
 const analyzeResumeAgainstJD = (resumeText = '', jobDescription = '', jobTitle = 'Target Role') => {
   const resume = resumeText || '';
   const jd = jobDescription || '';
 
-  // 1. Extract keywords from both Job Description and Resume
   let jdKeywords = extractKeywords(jd);
   const resumeKeywords = extractKeywords(resume);
 
-  // If JD is brief or empty, fallback to target role's core skills or common stack
   if (jdKeywords.length === 0) {
     const roleMatch = rolesData.find(
       r => r.title.toLowerCase() === (jobTitle || '').toLowerCase()
@@ -310,40 +399,27 @@ const analyzeResumeAgainstJD = (resumeText = '', jobDescription = '', jobTitle =
     jdKeywords = roleMatch ? roleMatch.coreSkills : ['JavaScript', 'React', 'Node.js', 'SQL', 'Git'];
   }
 
-  // 2. Identify matching and missing keywords
-  const matchingKeywords = [];
-  const missingKeywords = [];
-
-  for (const keyword of jdKeywords) {
-    // Check if the skill appears in resume
-    const catalogItem = TECH_SKILLS_CATALOG.find(s => s.name.toLowerCase() === keyword.toLowerCase()) || { name: keyword };
-    if (matchesSkill(resume, catalogItem)) {
-      matchingKeywords.push(keyword);
-    } else {
-      missingKeywords.push(keyword);
-    }
-  }
-
-  // 3. Calculate match score (0-100) = (matching keywords / total JD keywords) * 100
-  const totalJDKeywords = jdKeywords.length;
-  const matchScore = totalJDKeywords > 0
-    ? Math.min(100, Math.max(0, Math.round((matchingKeywords.length / totalJDKeywords) * 100)))
-    : 0;
-
-  // 4. Check basic ATS readiness
+  const matchingKeywords = matchKeywords(resumeKeywords, jdKeywords);
+  const missingKeywords = findMissingKeywords(resumeKeywords, jdKeywords, jd);
+  const score = calculateMatchScore(matchingKeywords.length, jdKeywords.length);
   const atsReadiness = checkAtsReadiness(resume);
-
-  // 5. Provide 3-5 actionable suggestions based on gaps
-  const suggestions = generateActionableSuggestions(missingKeywords, atsReadiness, resume, matchingKeywords);
+  const suggestions = generateSuggestions(missingKeywords, resume);
 
   return {
-    matchScore,
+    matchScore: Math.round(score),
+    rawScore: score,
     missingKeywords,
     matchingKeywords,
-    totalJDKeywords,
+    totalJDKeywords: jdKeywords.length,
     matchingCount: matchingKeywords.length,
     suggestions,
     atsReadiness,
+    atsReady: {
+      hasContact: atsReadiness.hasContactInfo,
+      hasSkills: atsReadiness.hasSkillsSection,
+      hasExperience: atsReadiness.hasExperienceSection,
+      hasEducation: atsReadiness.hasEducationSection
+    },
     jobTitle: jobTitle || 'Target Role'
   };
 };
@@ -373,14 +449,20 @@ const analyzeResumeMatch = (resumeText = '', targetRoleName = 'Fullstack Develop
     matchingKeywords: result.matchingKeywords,
     missingKeywords: result.missingKeywords,
     suggestions: result.suggestions,
-    atsReadiness: result.atsReadiness
+    atsReadiness: result.atsReadiness,
+    atsReady: result.atsReady
   };
 };
 
 module.exports = {
+  extractKeywords,
+  matchKeywords,
+  calculateMatchScore,
+  findMissingKeywords,
+  generateSuggestions,
+  checkAtsReadiness,
   analyzeResumeAgainstJD,
   analyzeResumeMatch,
-  extractKeywords,
-  checkAtsReadiness,
-  generateActionableSuggestions
+  TECH_SKILLS_CATALOG,
+  STOP_WORDS
 };

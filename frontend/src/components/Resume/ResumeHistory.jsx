@@ -7,20 +7,33 @@ import {
   Award,
   Download,
   Eye,
-  Briefcase,
-  ChevronRight,
   Clock,
-  Check
+  Check,
+  AlertTriangle
 } from 'lucide-react';
 import { formatDate } from '../../utils/formatters';
 import { downloadAnalysisPDF } from '../../utils/pdfReport';
+import { Button } from '../UI/Button';
+import { Modal } from '../Common/Modal';
 
 /**
  * ResumeHistory Component:
  * Displays user's past resume analyses with timestamps, scores, and quick download/inspect actions.
  */
-export const ResumeHistory = ({ history = [], onSelectAnalysis, onDeleteAnalysis, selectedAnalysisId }) => {
+export const ResumeHistory = ({
+  history = [],
+  onSelect,
+  onSelectAnalysis,
+  onDelete,
+  onDeleteAnalysis,
+  selectedAnalysisId
+}) => {
   const [downloadingId, setDownloadingId] = useState(null);
+  const [itemToDelete, setItemToDelete] = useState(null);
+  const [deleting, setDeleting] = useState(false);
+
+  const handleSelect = onSelect || onSelectAnalysis;
+  const handleDeleteAction = onDelete || onDeleteAnalysis;
 
   if (!history || history.length === 0) {
     return (
@@ -46,6 +59,19 @@ export const ResumeHistory = ({ history = [], onSelectAnalysis, onDeleteAnalysis
     }
   };
 
+  const confirmDelete = async () => {
+    if (!itemToDelete || !handleDeleteAction) return;
+    try {
+      setDeleting(true);
+      await handleDeleteAction(itemToDelete.id || itemToDelete.resumeId);
+      setItemToDelete(null);
+    } catch (err) {
+      console.error('Delete error:', err);
+    } finally {
+      setDeleting(false);
+    }
+  };
+
   return (
     <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
       <div className="flex items-center justify-between border-b border-slate-100 pb-4">
@@ -67,8 +93,8 @@ export const ResumeHistory = ({ history = [], onSelectAnalysis, onDeleteAnalysis
         {history.map((item) => {
           const isSelected = selectedAnalysisId === item.id;
           const score = item.matchScore !== undefined ? item.matchScore : 0;
-          const isHigh = score >= 75;
-          const isMedium = score >= 50 && score < 75;
+          const isHigh = score >= 67;
+          const isMedium = score >= 34 && score < 67;
 
           const badgeColor = isHigh
             ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
@@ -79,7 +105,7 @@ export const ResumeHistory = ({ history = [], onSelectAnalysis, onDeleteAnalysis
           return (
             <div
               key={item.id}
-              onClick={() => onSelectAnalysis && onSelectAnalysis(item)}
+              onClick={() => handleSelect && handleSelect(item)}
               className={`p-4 rounded-xl border transition-all cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-4 ${
                 isSelected
                   ? 'border-indigo-600 bg-indigo-50/40 ring-1 ring-indigo-600 shadow-sm'
@@ -132,7 +158,7 @@ export const ResumeHistory = ({ history = [], onSelectAnalysis, onDeleteAnalysis
                   type="button"
                   onClick={(e) => {
                     e.stopPropagation();
-                    if (onSelectAnalysis) onSelectAnalysis(item);
+                    if (handleSelect) handleSelect(item);
                   }}
                   className="p-2 text-slate-500 hover:text-indigo-600 hover:bg-white rounded-lg border border-slate-200 transition-colors"
                   title="View Full Analysis"
@@ -154,13 +180,13 @@ export const ResumeHistory = ({ history = [], onSelectAnalysis, onDeleteAnalysis
                   )}
                 </button>
 
-                {/* Delete button */}
-                {onDeleteAnalysis && (
+                {/* Delete button with confirmation */}
+                {handleDeleteAction && (
                   <button
                     type="button"
                     onClick={(e) => {
                       e.stopPropagation();
-                      onDeleteAnalysis(item.id);
+                      setItemToDelete(item);
                     }}
                     className="p-2 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-colors"
                     title="Delete History Entry"
@@ -173,6 +199,44 @@ export const ResumeHistory = ({ history = [], onSelectAnalysis, onDeleteAnalysis
           );
         })}
       </div>
+
+      {/* Confirmation Modal */}
+      {itemToDelete && (
+        <Modal
+          isOpen={Boolean(itemToDelete)}
+          onClose={() => setItemToDelete(null)}
+          title="Delete Resume Analysis"
+        >
+          <div className="space-y-4">
+            <div className="flex items-start gap-3 p-3 bg-rose-50 border border-rose-200 rounded-lg text-rose-800 text-sm">
+              <AlertTriangle className="w-5 h-5 flex-shrink-0 text-rose-600 mt-0.5" />
+              <div>
+                <p className="font-semibold">Are you sure you want to delete this analysis?</p>
+                <p className="text-xs text-rose-600 mt-1">
+                  Analysis for <strong>{itemToDelete.jobTitle}</strong> ({itemToDelete.fileName}) will be permanently removed.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex justify-end gap-2.5 pt-2">
+              <Button
+                variant="secondary"
+                onClick={() => setItemToDelete(null)}
+                disabled={deleting}
+              >
+                Cancel
+              </Button>
+              <Button
+                variant="danger"
+                onClick={confirmDelete}
+                loading={deleting}
+              >
+                Delete
+              </Button>
+            </div>
+          </div>
+        </Modal>
+      )}
     </div>
   );
 };

@@ -43,14 +43,14 @@ const MockInterview = sequelize.define('MockInterview', {
     defaultValue: [],
     get() {
       const raw = this.getDataValue('answers');
-      if (raw && Array.isArray(raw) && raw.length > 0) return raw;
-      return this.getDataValue('questions') || [];
+      if (Array.isArray(raw)) return raw;
+      if (typeof raw === 'string') {
+        try { return JSON.parse(raw); } catch (e) { return []; }
+      }
+      return [];
     },
     set(val) {
       this.setDataValue('answers', val);
-      if (!this.getDataValue('questions') || this.getDataValue('questions').length === 0) {
-        this.setDataValue('questions', val);
-      }
     }
   },
   // Summary session statistics: { totalQuestions, timeSpent, avgConfidence }
@@ -62,12 +62,17 @@ const MockInterview = sequelize.define('MockInterview', {
       avgConfidence: 0
     }
   },
-  // Legacy / fallback questions column for backwards compatibility
+  // Questions column for active session questions
   questions: {
     type: DataTypes.JSON,
     defaultValue: [],
     get() {
-      return this.getDataValue('questions') || this.getDataValue('answers') || [];
+      const raw = this.getDataValue('questions');
+      if (Array.isArray(raw)) return raw;
+      if (typeof raw === 'string') {
+        try { return JSON.parse(raw); } catch (e) { return []; }
+      }
+      return [];
     },
     set(val) {
       this.setDataValue('questions', val);

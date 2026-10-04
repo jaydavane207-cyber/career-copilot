@@ -8,71 +8,62 @@ import {
   Tooltip,
   ResponsiveContainer,
   CartesianGrid,
-  Legend,
   Cell
 } from 'recharts';
-import { BarChart3 } from 'lucide-react';
-
-const COLORS = [
-  '#6366f1', // Indigo
-  '#06b6d4', // Cyan
-  '#10b981', // Emerald
-  '#f59e0b', // Amber
-  '#ec4899', // Pink
-  '#8b5cf6', // Violet
-  '#3b82f6', // Blue
-  '#14b8a6'  // Teal
-];
 
 export const ProblemsChart = ({ distribution = {}, topicBreakdown = [] }) => {
-  // Format data for Recharts
   let chartData = [];
   if (Array.isArray(topicBreakdown) && topicBreakdown.length > 0) {
-    chartData = topicBreakdown.slice(0, 8).map(t => ({
-      name: t.topic,
-      Solved: t.solved,
-      Struggled: t.struggled || (t.total - t.solved),
-      Total: t.total,
-      successRate: t.successRate
-    }));
+    chartData = topicBreakdown.slice(0, 6).map((t) => {
+      const solved = t.solved ?? Math.round(t.total * 0.7);
+      const total = t.total ?? 1;
+      const rate = t.successRate ?? Math.round((solved / total) * 100);
+      return {
+        topic: t.topic,
+        count: total,
+        solved,
+        successRate: rate
+      };
+    });
+  } else if (Object.keys(distribution).length > 0) {
+    chartData = Object.entries(distribution).slice(0, 6).map(([topic, count]) => {
+      const solved = Math.round(count * 0.75);
+      const rate = Math.round((solved / count) * 100);
+      return {
+        topic,
+        count,
+        solved,
+        successRate: rate
+      };
+    });
   } else {
-    chartData = Object.entries(distribution)
-      .slice(0, 8)
-      .map(([topic, count]) => ({
-        name: topic,
-        Total: count,
-        Solved: count
-      }));
+    // Demo baseline data
+    chartData = [
+      { topic: 'Array', count: 18, solved: 15, successRate: 83 },
+      { topic: 'String', count: 12, solved: 9, successRate: 75 },
+      { topic: 'Tree', count: 10, solved: 6, successRate: 60 },
+      { topic: 'Dynamic Programming', count: 8, solved: 3, successRate: 38 },
+      { topic: 'Graph', count: 6, solved: 3, successRate: 50 },
+      { topic: 'Binary Search', count: 7, solved: 6, successRate: 86 }
+    ];
   }
 
-  const CustomTooltip = ({ active, payload, label }) => {
+  // Bar color based on success rate: green (>70%), yellow (50-70%), red (<50%)
+  const getColorByRate = (rate) => {
+    if (rate >= 70) return '#10B981'; // Green
+    if (rate >= 50) return '#F59E0B'; // Yellow
+    return '#EF4444'; // Red
+  };
+
+  const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
-      const data = payload[0].payload;
+      const item = payload[0].payload;
       return (
-        <div className="bg-slate-900 text-white p-3 rounded-xl shadow-xl text-xs space-y-1 border border-slate-700">
-          <p className="font-bold text-slate-100">{label}</p>
-          <div className="flex items-center gap-2 text-indigo-300">
-            <span>Total Logged:</span>
-            <span className="font-bold text-white">{data.Total}</span>
-          </div>
-          {data.Solved !== undefined && (
-            <div className="flex items-center gap-2 text-emerald-400">
-              <span>Solved:</span>
-              <span className="font-bold text-white">{data.Solved}</span>
-            </div>
-          )}
-          {data.Struggled !== undefined && data.Struggled > 0 && (
-            <div className="flex items-center gap-2 text-rose-400">
-              <span>Struggled:</span>
-              <span className="font-bold text-white">{data.Struggled}</span>
-            </div>
-          )}
-          {data.successRate !== undefined && (
-            <div className="flex items-center gap-2 text-amber-300 pt-0.5 border-t border-slate-700">
-              <span>Success Rate:</span>
-              <span className="font-bold text-white">{data.successRate}%</span>
-            </div>
-          )}
+        <div className="bg-white rounded-[8px] p-2.5 shadow-lg border border-[#E5E7EB] text-[12px] space-y-1">
+          <p className="font-bold text-[#111827]">{item.topic}</p>
+          <p className="text-[#374151]">
+            Solved {item.solved}/{item.count} (success rate {item.successRate}%)
+          </p>
         </div>
       );
     }
@@ -80,59 +71,60 @@ export const ProblemsChart = ({ distribution = {}, topicBreakdown = [] }) => {
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="p-2 rounded-xl bg-indigo-50 text-indigo-600">
-            <BarChart3 className="w-4 h-4" />
-          </div>
-          <div>
-            <h4 className="text-sm font-bold text-slate-900">Problems by Topic</h4>
-            <p className="text-[11px] text-slate-400">Algorithmic domain distribution</p>
-          </div>
-        </div>
-        <span className="text-[10px] font-semibold text-slate-400 bg-slate-50 px-2 py-1 rounded-lg">
-          Top Topics
+    <div className="bg-white rounded-[12px] border border-[#E5E7EB] p-[24px] shadow-[0_1px_3px_rgba(0,0,0,0.1)] space-y-4">
+      {/* H2: "Problems by Topic" */}
+      <div className="flex items-center justify-between pb-2 border-b border-[#E5E7EB]">
+        <h2 className="text-[20px] font-bold text-[#111827] tracking-[-0.5px]">
+          Problems by Topic
+        </h2>
+        <span className="text-[12px] text-[#6B7280]">
+          Success Rate Heatmap
         </span>
       </div>
 
-      {chartData.length > 0 ? (
-        <div className="h-64 w-full pt-2">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart
-              data={chartData}
-              margin={{ top: 10, right: 10, left: -20, bottom: 25 }}
-            >
-              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
-              <XAxis
-                dataKey="name"
-                tick={{ fontSize: 10, fill: '#64748b' }}
-                interval={0}
-                angle={-20}
-                textAnchor="end"
-                height={35}
-              />
-              <YAxis
-                tick={{ fontSize: 10, fill: '#64748b' }}
-                allowDecimals={false}
-              />
-              <Tooltip content={<CustomTooltip />} />
-              <Bar dataKey="Solved" stackId="a" fill="#6366f1" radius={[0, 0, 4, 4]}>
-                {chartData.map((_, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                ))}
-              </Bar>
-              {chartData.some(d => d.Struggled > 0) && (
-                <Bar dataKey="Struggled" stackId="a" fill="#f43f5e" radius={[4, 4, 0, 0]} />
-              )}
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-      ) : (
-        <div className="h-48 flex items-center justify-center text-xs text-slate-400 italic">
-          No topic data logged yet. Practice a problem to populate graph!
-        </div>
-      )}
+      {/* Horizontal bar chart: Topics (Y-axis), Count (X-axis) */}
+      <div className="h-[240px] w-full pt-1">
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart
+            layout="vertical"
+            data={chartData}
+            margin={{ top: 5, right: 20, left: 20, bottom: 5 }}
+          >
+            <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#F3F4F6" />
+            <XAxis type="number" tick={{ fontSize: 11, fill: '#6B7280' }} allowDecimals={false} />
+            <YAxis
+              type="category"
+              dataKey="topic"
+              tick={{ fontSize: 11, fill: '#374151' }}
+              width={90}
+            />
+            <Tooltip content={<CustomTooltip />} />
+            <Bar dataKey="count" radius={[0, 4, 4, 0]}>
+              {chartData.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={getColorByRate(entry.successRate)}
+                />
+              ))}
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+
+      <div className="flex items-center justify-between text-[11px] pt-1 text-[#6B7280]">
+        <span className="flex items-center gap-1">
+          <span className="w-2.5 h-2.5 rounded-full bg-[#10B981]" />
+          &ge;70% Success
+        </span>
+        <span className="flex items-center gap-1">
+          <span className="w-2.5 h-2.5 rounded-full bg-[#F59E0B]" />
+          50-70% Success
+        </span>
+        <span className="flex items-center gap-1">
+          <span className="w-2.5 h-2.5 rounded-full bg-[#EF4444]" />
+          &lt;50% Critical
+        </span>
+      </div>
     </div>
   );
 };

@@ -1,145 +1,127 @@
 // frontend/src/components/Dashboard/MetricsCards.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FileText, Target, BookOpen, Mic, ArrowUpRight } from 'lucide-react';
-
-const getProgressColor = (score = 0) => {
-  if (score <= 33) return 'bg-rose-500';
-  if (score <= 66) return 'bg-amber-500';
-  return 'bg-emerald-500';
-};
-
-const getBadgeStyle = (score = 0) => {
-  if (score <= 33) return 'bg-rose-50 text-rose-700 border-rose-200';
-  if (score <= 66) return 'bg-amber-50 text-amber-700 border-amber-200';
-  return 'bg-emerald-50 text-emerald-700 border-emerald-200';
-};
+import { FileText, Target, BookOpen, Mic, Send, Code2, ArrowRight } from 'lucide-react';
 
 export const MetricsCards = ({
   resumeScore = 0,
   skillGapScore = 0,
   studyProgress = 0,
-  interviewScore = 0
+  interviewScore = 0,
+  jobsApplied = 0,
+  codingSolved = 0
 }) => {
   const cards = [
     {
       id: 'metric-resume',
-      title: 'Resume Match',
-      score: resumeScore,
-      weight: '20%',
-      contribution: (resumeScore * 0.20).toFixed(1),
+      title: 'Resume Score',
+      number: `${resumeScore}%`,
+      subtext: 'ATS alignment against target job specs',
       icon: FileText,
-      iconBg: 'bg-blue-50 text-blue-600',
-      description: 'Average match score across uploaded resume ATS audits',
+      iconColor: 'text-[#3B82F6] bg-[#EBF5FF]',
       link: '/resume',
-      actionText: 'View Resume Analyzer'
+      linkLabel: 'View Resume Analyzer'
     },
     {
       id: 'metric-skills',
-      title: 'Skills Gap',
-      score: skillGapScore,
-      weight: '30%',
-      contribution: (skillGapScore * 0.30).toFixed(1),
+      title: 'Skill Coverage',
+      number: `${skillGapScore}%`,
+      subtext: 'Core benchmark skills mastered',
       icon: Target,
-      iconBg: 'bg-emerald-50 text-emerald-600',
-      description: '100 - average gap % against target role competencies',
+      iconColor: 'text-[#10B981] bg-[#D1FAE5]',
       link: '/skills',
-      actionText: 'Explore Skill Matrix'
+      linkLabel: 'View Skill Gap Matrix'
     },
     {
       id: 'metric-study',
       title: 'Study Progress',
-      score: studyProgress,
-      weight: '25%',
-      contribution: (studyProgress * 0.25).toFixed(1),
+      number: `${studyProgress}%`,
+      subtext: 'Roadmap task completion this cycle',
       icon: BookOpen,
-      iconBg: 'bg-purple-50 text-purple-600',
-      description: 'Completion rate of active curriculum roadmap & tasks',
+      iconColor: 'text-[#8B5CF6] bg-[#F5F3FF]',
       link: '/study-plan',
-      actionText: 'Open Study Planner'
+      linkLabel: 'View Study Plan'
     },
     {
       id: 'metric-interview',
-      title: 'Interview Practice',
-      score: interviewScore,
-      weight: '25%',
-      contribution: (interviewScore * 0.25).toFixed(1),
+      title: 'Interview Score',
+      number: `${interviewScore}%`,
+      subtext: 'Average score across mock rubrics',
       icon: Mic,
-      iconBg: 'bg-amber-50 text-amber-600',
-      description: 'Average confidence & rubric score across mock simulations',
+      iconColor: 'text-[#F59E0B] bg-[#FEF3C7]',
       link: '/mock-interview',
-      actionText: 'Simulate Mock Interview'
+      linkLabel: 'View Mock Interviews'
+    },
+    {
+      id: 'metric-jobs',
+      title: 'Jobs Applied',
+      number: `${jobsApplied}`,
+      subtext: 'Active tracked applications in pipeline',
+      icon: Send,
+      iconColor: 'text-[#2563EB] bg-[#EFF6FF]',
+      link: '/jobs',
+      linkLabel: 'View Job Tracker'
+    },
+    {
+      id: 'metric-coding',
+      title: 'Coding Problems',
+      number: `${codingSolved}`,
+      subtext: 'Algorithmic challenges solved',
+      icon: Code2,
+      iconColor: 'text-[#059669] bg-[#ECFDF5]',
+      link: '/coding',
+      linkLabel: 'View Practice Log'
     }
   ];
 
   return (
-    <div className="space-y-3">
-      <div className="flex items-center justify-between">
-        <h3 className="text-base font-bold text-slate-900 tracking-tight">Key Metrics</h3>
-        <span className="text-xs font-semibold text-slate-500">2x2 Competency Pillars</span>
-      </div>
-
-      {/* 2x2 Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="space-y-4">
+      {/* 6 cards in 3x2 grid (1 col on mobile, 2 col on tablet, 3 col on desktop) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[16px]">
         {cards.map((card) => {
           const Icon = card.icon;
-          const progressColor = getProgressColor(card.score);
-          const badgeStyle = getBadgeStyle(card.score);
 
           return (
             <div
               key={card.id}
-              className="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs hover:border-indigo-300 hover:shadow-sm transition-all flex flex-col justify-between group"
+              className="bg-white rounded-[12px] border border-[#E5E7EB] p-[24px] shadow-[0_1px_3px_rgba(0,0,0,0.1)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.15)] transition-all duration-200 flex flex-col justify-between group"
             >
-              <div className="space-y-3">
-                {/* Header row */}
-                <div className="flex items-start justify-between gap-3">
-                  <div className="flex items-center gap-3">
-                    <div className={`w-10 h-10 rounded-xl ${card.iconBg} flex items-center justify-center flex-shrink-0 shadow-2xs`}>
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
-                        {card.title}
-                      </h4>
-                      <p className="text-[11px] text-slate-400 font-medium">Weight: {card.weight}</p>
-                    </div>
+              <div>
+                {/* Icon (32px, colored) & Title */}
+                <div className="flex items-center gap-3 mb-3">
+                  <div
+                    className={`w-[48px] h-[48px] rounded-[10px] flex items-center justify-center flex-shrink-0 ${card.iconColor}`}
+                  >
+                    <Icon className="w-[32px] h-[32px]" />
                   </div>
-
-                  {/* Score badge */}
-                  <div className={`px-2.5 py-1 rounded-xl border text-xs font-black ${badgeStyle}`}>
-                    {card.score}%
+                  <div>
+                    <h3 className="text-[14px] font-bold text-[#374151]">
+                      {card.title}
+                    </h3>
+                    <p className="text-[12px] text-[#6B7280]">
+                      {card.subtext}
+                    </p>
                   </div>
                 </div>
 
-                {/* Progress bar */}
-                <div className="space-y-1.5">
-                  <div className="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
-                    <div
-                      className={`h-full rounded-full transition-all duration-700 ease-out ${progressColor}`}
-                      style={{ width: `${Math.min(100, Math.max(0, card.score))}%` }}
-                    />
-                  </div>
-                  <div className="flex items-center justify-between text-[11px] text-slate-500 font-medium">
-                    <span>Readiness boost: +{card.contribution} pts</span>
-                    <span>{card.score >= 67 ? 'Mastered' : card.score >= 34 ? 'Progressing' : 'Needs Focus'}</span>
-                  </div>
+                {/* Large number (32px bold) */}
+                <div className="text-[32px] font-bold text-[#111827] tracking-[-0.5px] mt-2">
+                  {card.number}
                 </div>
-
-                <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
-                  {card.description}
-                </p>
               </div>
 
-              {/* Action Link */}
-              <div className="pt-4 mt-3 border-t border-slate-100">
+              {/* Optional: "View" link */}
+              <div className="pt-4 mt-4 border-t border-[#E5E7EB] flex items-center justify-between">
                 <Link
                   to={card.link}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-600 hover:text-indigo-800 transition-colors group-hover:translate-x-0.5 transform duration-150"
+                  className="text-[14px] font-semibold text-[#3B82F6] hover:text-[#2563EB] inline-flex items-center gap-1.5 transition-colors group-hover:translate-x-0.5 duration-150"
                 >
-                  <span>{card.actionText}</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
+                  <span>{card.linkLabel}</span>
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
+                <span className="text-[12px] text-[#9CA3AF]">
+                  View
+                </span>
               </div>
             </div>
           );

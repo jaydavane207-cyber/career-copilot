@@ -1,12 +1,26 @@
 // frontend/src/components/JobTracker/JobCard.jsx
 import React from 'react';
 import { Draggable } from '@hello-pangea/dnd';
-import { Calendar, CalendarCheck2, ExternalLink, Trash2, Edit3, DollarSign, GripVertical } from 'lucide-react';
+import { Calendar, AlertCircle, Edit, Trash2, Star } from 'lucide-react';
 import { formatDate } from '../../utils/formatters';
 
 export const JobCard = ({ job, index, onEdit, onDelete }) => {
   const dateAppliedFormatted = formatDate(job.dateApplied);
   const interviewDateFormatted = job.interviewDate ? formatDate(job.interviewDate) : null;
+
+  // Check if interview date is within next 3 days
+  const isInterviewSoon = (() => {
+    if (!job.interviewDate) return false;
+    const interview = new Date(job.interviewDate).getTime();
+    const now = Date.now();
+    const diffDays = (interview - now) / (1000 * 3600 * 24);
+    return diffDays >= 0 && diffDays <= 3;
+  })();
+
+  const isOffer = job.stage === 'offer';
+
+  // Notes preview: first 50 chars
+  const notesPreview = job.notes ? (job.notes.length > 50 ? `${job.notes.slice(0, 50)}...` : job.notes) : '';
 
   return (
     <Draggable draggableId={String(job.id)} index={index}>
@@ -14,32 +28,35 @@ export const JobCard = ({ job, index, onEdit, onDelete }) => {
         <div
           ref={provided.innerRef}
           {...provided.draggableProps}
-          onClick={() => onEdit(job)}
-          className={`group relative bg-white rounded-xl border transition-all duration-200 cursor-pointer select-none p-3.5 ${
-            snapshot.isDragging
-              ? 'shadow-xl border-indigo-400 rotate-1 ring-2 ring-indigo-300 ring-opacity-50 scale-[1.02] z-50'
-              : 'border-slate-200/90 shadow-xs hover:shadow-md hover:border-slate-300'
-          }`}
+          {...provided.dragHandleProps}
+          className={`
+            bg-white rounded-[12px] border border-[#E5E7EB] p-[16px]
+            shadow-[0_1px_3px_rgba(0,0,0,0.1)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.15)]
+            transition-all duration-200 cursor-grab active:cursor-grabbing select-none
+            ${snapshot.isDragging ? 'shadow-2xl ring-2 ring-[#3B82F6] rotate-1 scale-[1.02]' : ''}
+          `}
         >
-          {/* Card Header */}
+          {/* Top row: Company name & Offer badge / Action buttons */}
           <div className="flex items-start justify-between gap-2">
-            <div className="flex-1 min-w-0">
+            <div className="min-w-0 flex-1">
               <div className="flex items-center gap-1.5">
-                <span className="text-slate-300 group-hover:text-slate-400 transition-colors" {...provided.dragHandleProps} title="Drag to move card">
-                  <GripVertical className="w-3.5 h-3.5 cursor-grab active:cursor-grabbing" />
-                </span>
-                {/* Company Name (bold) */}
-                <h4 className="font-bold text-slate-900 text-sm tracking-tight truncate group-hover:text-indigo-600 transition-colors">
+                {/* Company name (16px bold) */}
+                <h4 className="text-[16px] font-bold text-[#111827] truncate">
                   {job.companyName}
                 </h4>
+                {isOffer && (
+                  <span title="Offer received! 🎉" className="text-base select-none">
+                    🎉
+                  </span>
+                )}
               </div>
-              {/* Job Title */}
-              <p className="text-xs text-slate-600 font-medium truncate mt-0.5 pl-5">
-                {job.jobTitle || job.positionTitle || 'Position'}
+              {/* Job title (14px) */}
+              <p className="text-[14px] text-[#374151] mt-0.5 truncate">
+                {job.jobTitle || 'Role'}
               </p>
             </div>
 
-            {/* Actions: Edit & Trash Icon */}
+            {/* Icons: Edit, Delete (gray, hover blue) */}
             <div className="flex items-center gap-1 flex-shrink-0" onClick={(e) => e.stopPropagation()}>
               <button
                 type="button"
@@ -47,10 +64,10 @@ export const JobCard = ({ job, index, onEdit, onDelete }) => {
                   e.stopPropagation();
                   onEdit(job);
                 }}
-                title="Edit job application"
-                className="p-1 rounded-md text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 transition-colors"
+                className="w-8 h-8 rounded-[6px] text-[#6B7280] hover:text-[#3B82F6] hover:bg-[#F3F4F6] flex items-center justify-center transition-colors"
+                title="Edit job"
               >
-                <Edit3 className="w-3.5 h-3.5" />
+                <Edit className="w-4 h-4" />
               </button>
               <button
                 type="button"
@@ -58,61 +75,46 @@ export const JobCard = ({ job, index, onEdit, onDelete }) => {
                   e.stopPropagation();
                   onDelete(job);
                 }}
-                title="Delete job application"
-                className="p-1 rounded-md text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition-colors"
+                className="w-8 h-8 rounded-[6px] text-[#6B7280] hover:text-[#EF4444] hover:bg-[#FEF2F2] flex items-center justify-center transition-colors"
+                title="Delete job"
               >
-                <Trash2 className="w-3.5 h-3.5" />
+                <Trash2 className="w-4 h-4" />
               </button>
             </div>
           </div>
 
-          {/* Dates & Badges */}
-          <div className="mt-3 space-y-1.5 pl-5 text-xs">
-            {/* Date Applied */}
-            <div className="flex items-center gap-1.5 text-slate-500">
-              <Calendar className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
-              <span className="text-[11px]">Applied: {dateAppliedFormatted}</span>
-            </div>
-
-            {/* Interview Date (if exists) */}
-            {interviewDateFormatted && (
-              <div className="flex items-center gap-1.5 text-amber-700 font-medium bg-amber-50/80 px-2 py-0.5 rounded-md border border-amber-200/60 w-fit">
-                <CalendarCheck2 className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" />
-                <span className="text-[11px]">Interview: {interviewDateFormatted}</span>
-              </div>
-            )}
-
-            {/* Salary (if exists) */}
-            {job.salary && (
-              <div className="flex items-center gap-1 text-emerald-700 bg-emerald-50/70 px-2 py-0.5 rounded-md border border-emerald-100 text-[11px] font-medium w-fit">
-                <DollarSign className="w-3 h-3 text-emerald-600" />
-                <span>{job.salary}</span>
-              </div>
-            )}
+          {/* Date applied (12px gray) */}
+          <div className="flex items-center gap-1.5 text-[12px] text-[#6B7280] mt-2">
+            <Calendar className="w-3.5 h-3.5 text-[#9CA3AF]" />
+            <span>Applied: {dateAppliedFormatted}</span>
           </div>
 
-          {/* Notes preview if present */}
-          {job.notes && (
-            <p className="mt-2.5 ml-5 text-[11px] text-slate-500 bg-slate-50 p-2 rounded-lg line-clamp-2 border border-slate-100 italic">
-              "{job.notes}"
-            </p>
-          )}
-
-          {/* Card Footer: External link */}
-          {job.jobLink && (
-            <div className="mt-2.5 ml-5 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
-              <a
-                href={job.jobLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="text-indigo-600 hover:text-indigo-800 flex items-center gap-1 transition-colors font-medium truncate"
-              >
-                <span>Job Posting</span>
-                <ExternalLink className="w-3 h-3 flex-shrink-0" />
-              </a>
+          {/* If interview date soon (<3 days): Red highlight on date + Calendar icon with alert */}
+          {interviewDateFormatted && (
+            <div
+              className={`flex items-center gap-1.5 text-[12px] font-semibold mt-1.5 px-2 py-0.5 rounded-[6px] w-fit ${
+                isInterviewSoon
+                  ? 'bg-[#FEF2F2] text-[#EF4444] border border-[#EF4444]/30'
+                  : 'bg-[#FEF3C7] text-[#B45309]'
+              }`}
+            >
+              {isInterviewSoon ? (
+                <AlertCircle className="w-3.5 h-3.5 text-[#EF4444]" />
+              ) : (
+                <Calendar className="w-3.5 h-3.5 text-[#B45309]" />
+              )}
+              <span>Interview: {interviewDateFormatted}</span>
+              {isInterviewSoon && <span className="text-[10px] font-bold uppercase ml-1">Soon!</span>}
             </div>
           )}
+
+          {/* Gray separator line */}
+          <div className="border-t border-[#E5E7EB] my-3" />
+
+          {/* Notes preview (12px, first 50 chars) */}
+          <p className="text-[12px] text-[#6B7280] italic truncate">
+            {notesPreview ? `"${notesPreview}"` : 'No additional notes'}
+          </p>
         </div>
       )}
     </Draggable>

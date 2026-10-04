@@ -1,108 +1,108 @@
 // frontend/src/components/CodingTracker/WeakTopics.jsx
 import React from 'react';
-import {
-  AlertTriangle,
-  RotateCcw,
-  Sparkles,
-  ChevronRight,
-  TrendingUp,
-  Flame,
-  Clock
-} from 'lucide-react';
+import { Button } from '../UI/Button';
+import { BookOpen, RotateCcw, CheckCircle2 } from 'lucide-react';
 
-export const WeakTopics = ({ weakTopics = [], onReviewTopic }) => {
+export const WeakTopics = ({ weakTopics = [], onReviewTopic, onLearnMore }) => {
+  // If no weak topics: "Great job! All topics >70% success"
   if (!weakTopics || weakTopics.length === 0) {
     return (
-      <div className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm text-center space-y-2">
-        <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto">
-          <Sparkles className="w-5 h-5" />
-        </div>
-        <h4 className="text-sm font-bold text-slate-800">No Weak Topics Flagged</h4>
-        <p className="text-xs text-slate-400 max-w-xs mx-auto">
-          All practicing topics maintain a &ge;70% success rate. Excellent algorithmic consistency!
+      <div className="bg-white rounded-[12px] border border-[#E5E7EB] p-[24px] shadow-[0_1px_3px_rgba(0,0,0,0.1)] text-center space-y-2">
+        <CheckCircle2 className="w-8 h-8 text-[#10B981] mx-auto" />
+        <h2 className="text-[20px] font-bold text-[#111827] tracking-[-0.5px]">
+          Focus Areas
+        </h2>
+        <p className="text-[14px] text-[#10B981] font-semibold">
+          Great job! All topics &gt;70% success
         </p>
       </div>
     );
   }
 
   return (
-    <div className="bg-rose-50/40 rounded-2xl border-2 border-rose-200 p-5 shadow-sm space-y-4">
-      {/* Header with Red Alert Highlight */}
-      <div className="flex items-start justify-between gap-3">
-        <div className="flex items-center gap-2.5">
-          <div className="p-2 rounded-xl bg-rose-100 text-rose-600 flex-shrink-0 animate-pulse">
-            <AlertTriangle className="w-5 h-5" />
-          </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <h4 className="text-sm font-bold text-rose-950">
-                Weak Topics (&lt; 70% Success Rate)
-              </h4>
-              <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-rose-600 text-white shadow-xs">
-                {weakTopics.length} Flagged
-              </span>
-            </div>
-            <p className="text-xs text-rose-700/80 mt-0.5">
-              Targeted DSA areas where success rate has dropped below mastery threshold.
-            </p>
-          </div>
-        </div>
+    <div className="bg-white rounded-[12px] border border-[#E5E7EB] p-[24px] shadow-[0_1px_3px_rgba(0,0,0,0.1)] space-y-4">
+      {/* H2: "Focus Areas" */}
+      <div className="flex items-center justify-between pb-2 border-b border-[#E5E7EB]">
+        <h2 className="text-[20px] font-bold text-[#111827] tracking-[-0.5px]">
+          Focus Areas
+        </h2>
+        <span className="text-[12px] font-semibold text-[#EF4444] bg-[#FEF2F2] px-2.5 py-0.5 rounded-[12px]">
+          {weakTopics.length} topics need work
+        </span>
       </div>
 
-      {/* List of Weak Topics */}
-      <div className="space-y-2.5">
-        {weakTopics.map((item, idx) => (
-          <div
-            key={idx}
-            className="p-3.5 rounded-xl border border-rose-200/90 bg-white shadow-xs hover:border-rose-300 transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-3"
-          >
-            <div className="space-y-1.5 flex-1 min-w-0">
-              <div className="flex items-center justify-between sm:justify-start gap-2">
-                <span className="font-bold text-xs text-slate-900 truncate">
+      <div className="space-y-3">
+        {weakTopics.map((item, idx) => {
+          const rate = item.successRate ?? 40;
+          const isCritical = rate < 50;
+
+          // Progress bar color from red to green
+          const barColor = isCritical ? 'bg-[#EF4444]' : 'bg-[#F59E0B]';
+
+          return (
+            <div
+              key={idx}
+              className="p-3.5 rounded-[8px] bg-[#F9FAFB] border border-[#E5E7EB] space-y-2"
+            >
+              <div className="flex items-center justify-between">
+                {/* Topic name: bold red if <50%, orange if <70% */}
+                <h4
+                  className={`text-[14px] font-bold ${
+                    isCritical ? 'text-[#EF4444]' : 'text-[#B45309]'
+                  }`}
+                >
                   {item.topic}
-                </span>
-                <span className="text-[10px] font-extrabold text-rose-700 bg-rose-50 border border-rose-200 px-2 py-0.5 rounded">
-                  {item.successRate}% Success Rate
+                </h4>
+
+                {/* Success rate percentage */}
+                <span
+                  className={`text-[12px] font-bold px-2 py-0.5 rounded-[4px] ${
+                    isCritical
+                      ? 'bg-[#FEF2F2] text-[#EF4444]'
+                      : 'bg-[#FEF3C7] text-[#B45309]'
+                  }`}
+                >
+                  {rate}% success
                 </span>
               </div>
 
-              {/* Progress bar */}
-              <div className="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
+              {/* Number of problems (e.g. "Solved 3/5") */}
+              <p className="text-[12px] text-[#6B7280]">
+                Solved {item.solved ?? 2}/{item.total ?? 5} problems
+              </p>
+
+              {/* Progress bar (red to green) */}
+              <div className="w-full bg-[#E5E7EB] h-2 rounded-full overflow-hidden">
                 <div
-                  className="bg-rose-500 h-full rounded-full transition-all"
-                  style={{ width: `${Math.max(5, item.successRate)}%` }}
+                  className={`h-full ${barColor} transition-all duration-300`}
+                  style={{ width: `${rate}%` }}
                 />
               </div>
 
-              <div className="flex items-center gap-3 text-[10px] text-slate-400">
-                <span>
-                  Solved {item.solved} of {item.total} attempted
-                </span>
-                {item.avgTime && (
-                  <>
-                    <span>&bull;</span>
-                    <span className="flex items-center gap-1">
-                      <Clock className="w-3 h-3" />
-                      Avg: {item.avgTime}m
-                    </span>
-                  </>
-                )}
+              {/* Action buttons: Review and Learn More */}
+              <div className="flex items-center justify-end gap-2 pt-1">
+                <button
+                  type="button"
+                  onClick={() => onReviewTopic && onReviewTopic(item.topic)}
+                  className="px-2.5 py-1 text-[12px] font-semibold text-[#3B82F6] hover:bg-[#EBF5FF] rounded-[6px] transition-colors flex items-center gap-1"
+                >
+                  <RotateCcw className="w-3 h-3" />
+                  <span>Review</span>
+                </button>
+
+                <a
+                  href={`https://leetcode.com/tag/${item.topic.toLowerCase().replace(/\s+/g, '-')}/`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-2.5 py-1 text-[12px] font-semibold text-[#6B7280] hover:text-[#374151] hover:bg-[#E5E7EB] rounded-[6px] transition-colors flex items-center gap-1"
+                >
+                  <BookOpen className="w-3 h-3" />
+                  <span>Learn More</span>
+                </a>
               </div>
             </div>
-
-            {/* "Review These" Action Button */}
-            <div className="self-end sm:self-auto flex-shrink-0">
-              <button
-                type="button"
-                onClick={() => onReviewTopic && onReviewTopic(item.topic)}
-                className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-rose-700 bg-rose-50 hover:bg-rose-100 border border-rose-200 rounded-lg transition-colors cursor-pointer"
-              >
-                <RotateCcw className="w-3.5 h-3.5" />
-                Review These
-              </button>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

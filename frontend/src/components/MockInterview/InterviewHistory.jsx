@@ -4,161 +4,226 @@ import {
   Calendar,
   Clock,
   Star,
-  Award,
-  ChevronRight,
   BookOpen,
-  Filter,
-  Users,
-  Code,
-  Layers
+  ChevronLeft,
+  ChevronRight,
+  Eye,
+  Plus
 } from 'lucide-react';
 import { formatDate, formatPercentage } from '../../utils/formatters';
+import Badge from '../UI/Badge';
+import Button from '../UI/Button';
+import EmptyState from '../UI/EmptyState';
+
+const ITEMS_PER_PAGE = 5;
 
 export const InterviewHistory = ({ history = [], onSelectSession, onStartNew }) => {
   const [filterType, setFilterType] = useState('All');
+  const [currentPage, setCurrentPage] = useState(1);
 
   const filteredHistory = history.filter(item => {
     if (filterType === 'All') return true;
     return (item.interviewType || '').toLowerCase() === filterType.toLowerCase();
   });
 
-  const getTrackIcon = (type) => {
-    const lower = (type || '').toLowerCase();
-    if (lower.includes('behav')) return Users;
-    if (lower.includes('system')) return Layers;
-    return Code;
-  };
+  const totalPages = Math.max(1, Math.ceil(filteredHistory.length / ITEMS_PER_PAGE));
+  const validPage = Math.min(currentPage, totalPages);
+  const startIndex = (validPage - 1) * ITEMS_PER_PAGE;
+  const paginatedItems = filteredHistory.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
   const getScoreBadge = (score) => {
-    if (score >= 75) return 'bg-emerald-50 text-emerald-700 border-emerald-200';
-    if (score >= 50) return 'bg-amber-50 text-amber-700 border-amber-200';
-    return 'bg-indigo-50 text-indigo-700 border-indigo-200';
+    if (score >= 75) return <Badge variant="success">{score}%</Badge>;
+    if (score >= 50) return <Badge variant="info">{score}%</Badge>;
+    return <Badge variant="warning">{score}%</Badge>;
+  };
+
+  const getTypeBadge = (type) => {
+    const lower = (type || '').toLowerCase();
+    if (lower.includes('behav')) return <Badge variant="neutral">Behavioral</Badge>;
+    if (lower.includes('system')) return <Badge variant="neutral">System Design</Badge>;
+    return <Badge variant="neutral">Technical</Badge>;
   };
 
   if (!history || history.length === 0) {
     return (
-      <div className="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm text-center space-y-4">
-        <div className="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center mx-auto">
-          <BookOpen className="w-6 h-6" />
-        </div>
-        <div className="space-y-1">
-          <h4 className="font-bold text-slate-800 text-sm">No Mock Interviews Taken Yet</h4>
-          <p className="text-xs text-slate-400 max-w-sm mx-auto">
-            Simulate your first real-world technical, behavioral, or system design interview to build confidence and view historical trends.
-          </p>
-        </div>
-        {onStartNew && (
-          <button
-            onClick={onStartNew}
-            className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-sm transition-colors"
-          >
-            Start Your First Interview
-          </button>
-        )}
+      <div className="bg-white rounded-[12px] border border-[#E5E7EB] p-8 shadow-[0_1px_3px_rgba(0,0,0,0.1)]">
+        <EmptyState
+          icon={BookOpen}
+          title="No interview history found"
+          description="Take your first simulated mock interview to build confidence and view historical trends."
+          actionText="Start First Interview"
+          onAction={onStartNew}
+        />
       </div>
     );
   }
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-5 animate-fadeIn">
+    <div className="bg-white rounded-[12px] border border-[#E5E7EB] shadow-[0_1px_3px_rgba(0,0,0,0.1)] overflow-hidden space-y-4 p-6 animate-fade-in">
       {/* Header & Filter Controls */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-3 border-b border-slate-100">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-[#E5E7EB]">
         <div>
-          <h4 className="text-base font-black text-slate-900 tracking-tight">
-            Past Interview Attempts ({history.length})
-          </h4>
-          <p className="text-xs text-slate-500">
-            Click any session to review answers, strong sample solutions, and coaching rubrics.
+          <h3 className="text-[20px] font-bold text-[#374151] tracking-[-0.5px]">
+            Interview History
+          </h3>
+          <p className="text-[13px] text-[#6B7280]">
+            Review past mock interview sessions, answer scores, and detailed feedback
           </p>
         </div>
 
-        {/* Filter Pills */}
-        <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-xl text-xs font-semibold text-slate-600">
-          {['All', 'Behavioral', 'Technical', 'System Design'].map((type) => (
-            <button
-              key={type}
-              onClick={() => setFilterType(type)}
-              className={`px-2.5 py-1 rounded-lg transition-colors text-[11px] ${
-                filterType === type ? 'bg-white text-indigo-600 shadow-2xs font-bold' : 'hover:text-slate-900'
-              }`}
+        <div className="flex items-center gap-3">
+          {/* Filter Pills */}
+          <div className="flex items-center bg-[#F3F4F6] p-1 rounded-[8px] text-[12px] font-semibold text-[#6B7280]">
+            {['All', 'Behavioral', 'Technical', 'System Design'].map((type) => (
+              <button
+                key={type}
+                onClick={() => {
+                  setFilterType(type);
+                  setCurrentPage(1);
+                }}
+                className={`px-3 py-1.5 rounded-[6px] transition-colors ${
+                  filterType === type
+                    ? 'bg-white text-[#3B82F6] shadow-xs font-bold'
+                    : 'hover:text-[#374151]'
+                }`}
+              >
+                {type}
+              </button>
+            ))}
+          </div>
+
+          {onStartNew && (
+            <Button
+              variant="primary"
+              onClick={onStartNew}
+              className="flex items-center gap-1.5 text-[12px] py-1.5 px-3"
             >
-              {type}
-            </button>
-          ))}
+              <Plus className="w-4 h-4" />
+              New
+            </Button>
+          )}
         </div>
       </div>
 
-      {/* History Items List */}
-      <div className="space-y-3">
-        {filteredHistory.length === 0 ? (
-          <div className="p-6 text-center text-xs text-slate-400">
-            No interview records found for track "{filterType}".
-          </div>
-        ) : (
-          filteredHistory.map((item) => {
-            const TrackIcon = getTrackIcon(item.interviewType);
-            const stats = item.sessionStats || {};
-            const answers = item.answers || item.questions || [];
-            const qCount = stats.totalQuestions || answers.length || 0;
-            const avgConf = stats.avgConfidence !== undefined ? stats.avgConfidence : '3.8';
-            const timeSpentSec = stats.timeSpent || 0;
-            const timeDisplay = timeSpentSec ? `${Math.floor(timeSpentSec / 60)}m ${timeSpentSec % 60}s` : `${item.durationMinutes || 10}m`;
-            const score = Math.round(item.overallScore || 0);
+      {/* History Table */}
+      <div className="overflow-x-auto">
+        <table className="w-full text-left border-collapse">
+          <thead>
+            <tr className="bg-[#F9FAFB] border-b border-[#E5E7EB] text-[12px] font-semibold text-[#6B7280] uppercase tracking-wider">
+              <th className="py-3 px-4">Date</th>
+              <th className="py-3 px-4">Type</th>
+              <th className="py-3 px-4">Questions</th>
+              <th className="py-3 px-4">Avg Confidence</th>
+              <th className="py-3 px-4">Score</th>
+              <th className="py-3 px-4 text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-[#E5E7EB] text-[14px]">
+            {paginatedItems.length === 0 ? (
+              <tr>
+                <td colSpan={6} className="py-8 text-center text-[13px] text-[#6B7280]">
+                  No records found matching "{filterType}".
+                </td>
+              </tr>
+            ) : (
+              paginatedItems.map((item) => {
+                const stats = item.sessionStats || {};
+                const answers = item.answers || item.questions || [];
+                const qCount = stats.totalQuestions || answers.length || 0;
+                const avgConf = stats.avgConfidence !== undefined ? stats.avgConfidence : '3.8';
+                const score = Math.round(item.overallScore || 0);
 
-            return (
-              <div
-                key={item.id}
-                onClick={() => onSelectSession && onSelectSession(item)}
-                className="p-4 rounded-xl border border-slate-200 hover:border-indigo-400 hover:bg-indigo-50/20 transition-all cursor-pointer flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 group shadow-2xs"
-              >
-                {/* Left: Icon & Meta */}
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-slate-100 group-hover:bg-indigo-100 group-hover:text-indigo-600 text-slate-600 flex items-center justify-center flex-shrink-0 transition-colors">
-                    <TrackIcon className="w-5 h-5" />
-                  </div>
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2">
-                      <span className="font-bold text-slate-900 text-sm">
-                        {item.interviewType} Interview
-                      </span>
-                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-slate-100 text-slate-600">
-                        {item.role || 'Fullstack Developer'}
-                      </span>
-                    </div>
+                return (
+                  <tr
+                    key={item.id}
+                    className="hover:bg-[#F3F4F6] transition-colors"
+                  >
+                    {/* Date */}
+                    <td className="py-4 px-4 font-medium text-[#374151] whitespace-nowrap">
+                      <div className="flex items-center gap-2">
+                        <Calendar className="w-4 h-4 text-[#6B7280]" />
+                        <span>{formatDate(item.completedAt || item.date || item.createdAt)}</span>
+                      </div>
+                    </td>
 
-                    <div className="flex flex-wrap items-center gap-3 text-[11px] text-slate-400">
-                      <span className="flex items-center gap-1">
-                        <Calendar className="w-3 h-3" />
-                        {formatDate(item.completedAt || item.date || item.createdAt)}
-                      </span>
-                      <span>•</span>
-                      <span className="flex items-center gap-1">
-                        <Clock className="w-3 h-3" />
-                        {timeDisplay}
-                      </span>
-                      <span>•</span>
-                      <span>{qCount} Questions</span>
-                      <span>•</span>
-                      <span className="flex items-center gap-1 font-semibold text-amber-600">
-                        <Star className="w-3 h-3 fill-amber-400 text-amber-500" />
-                        {avgConf} / 5.0
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                    {/* Type */}
+                    <td className="py-4 px-4 whitespace-nowrap">
+                      {getTypeBadge(item.interviewType)}
+                    </td>
 
-                {/* Right: Score Badge & Arrow */}
-                <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-100">
-                  <div className={`px-3 py-1 rounded-xl border text-xs font-black ${getScoreBadge(score)}`}>
-                    {formatPercentage(score)}
-                  </div>
-                  <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-indigo-600 transition-colors" />
-                </div>
-              </div>
-            );
-          })
-        )}
+                    {/* Questions */}
+                    <td className="py-4 px-4 text-[#374151] whitespace-nowrap">
+                      {qCount} questions
+                    </td>
+
+                    {/* Avg Confidence */}
+                    <td className="py-4 px-4 whitespace-nowrap">
+                      <div className="flex items-center gap-1.5 text-[#374151]">
+                        <Star className="w-4 h-4 fill-[#F59E0B] text-[#F59E0B]" />
+                        <span className="font-semibold">{avgConf}</span>
+                        <span className="text-[12px] text-[#6B7280]">/ 5</span>
+                      </div>
+                    </td>
+
+                    {/* Score */}
+                    <td className="py-4 px-4 whitespace-nowrap">
+                      {getScoreBadge(score)}
+                    </td>
+
+                    {/* Actions (Review button) */}
+                    <td className="py-4 px-4 text-right whitespace-nowrap">
+                      <button
+                        onClick={() => onSelectSession && onSelectSession(item)}
+                        className="btn-secondary text-[12px] py-1.5 px-3 inline-flex items-center gap-1.5"
+                      >
+                        <Eye className="w-3.5 h-3.5 text-[#3B82F6]" />
+                        Review
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })
+            )}
+          </tbody>
+        </table>
       </div>
+
+      {/* Pagination (5 per page) */}
+      {totalPages > 1 && (
+        <div className="flex items-center justify-between pt-4 border-t border-[#E5E7EB] text-[13px] text-[#6B7280]">
+          <div>
+            Showing <span className="font-semibold text-[#374151]">{startIndex + 1}</span> to{' '}
+            <span className="font-semibold text-[#374151]">
+              {Math.min(startIndex + ITEMS_PER_PAGE, filteredHistory.length)}
+            </span>{' '}
+            of <span className="font-semibold text-[#374151]">{filteredHistory.length}</span> entries
+          </div>
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+              disabled={validPage === 1}
+              className="p-2 rounded-[8px] border border-[#E5E7EB] hover:bg-[#F3F4F6] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              aria-label="Previous Page"
+            >
+              <ChevronLeft className="w-4 h-4 text-[#374151]" />
+            </button>
+
+            <span className="text-[13px] font-semibold text-[#374151] px-2">
+              Page {validPage} of {totalPages}
+            </span>
+
+            <button
+              onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+              disabled={validPage === totalPages}
+              className="p-2 rounded-[8px] border border-[#E5E7EB] hover:bg-[#F3F4F6] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              aria-label="Next Page"
+            >
+              <ChevronRight className="w-4 h-4 text-[#374151]" />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

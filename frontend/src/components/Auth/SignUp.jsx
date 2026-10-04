@@ -2,25 +2,44 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-import { Mail, Lock, User, Target, Sparkles, Check, AlertCircle, Eye, EyeOff } from 'lucide-react';
-import { ErrorMessage } from '../Common/ErrorMessage';
+import { Mail, Lock, User, Sparkles, Eye, EyeOff } from 'lucide-react';
 import { validateEmail, validatePassword } from '../../utils/validators';
 import GoogleAuthButton from './GoogleAuthButton';
+import { Button } from '../UI/Button';
+import { Checkbox } from '../UI/FormControls';
+import { ErrorMessage } from '../Common/ErrorMessage';
 
 /**
- * SignUp Component
- * Provides complete user registration interface for Career Copilot:
- * - Google Sign-up Mockup CTA
- * - Email & Password registration form
- * - Real-time password validation (min 8 chars)
- * - Email validation
- * - Target Tech Role selection (focused on Indian tech ecosystem)
+ * Calculates password strength percentage:
+ * Weak (red): 0-33%
+ * Fair (orange): 34-66%
+ * Strong (green): 67-100%
  */
+const getPasswordStrength = (pwd) => {
+  if (!pwd) return { score: 0, text: '', color: 'bg-transparent' };
+  let score = 0;
+  if (pwd.length >= 8) score += 35;
+  if (/[A-Z]/.test(pwd)) score += 20;
+  if (/[0-9]/.test(pwd)) score += 25;
+  if (/[^A-Za-z0-9]/.test(pwd)) score += 20;
+
+  score = Math.min(100, score);
+
+  if (score <= 33) {
+    return { score, text: 'Weak password', color: 'bg-[#EF4444]', textColor: 'text-[#EF4444]' };
+  }
+  if (score <= 66) {
+    return { score, text: 'Fair password', color: 'bg-[#F59E0B]', textColor: 'text-[#F59E0B]' };
+  }
+  return { score, text: 'Strong password', color: 'bg-[#10B981]', textColor: 'text-[#10B981]' };
+};
+
 export const SignUp = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [targetRole, setTargetRole] = useState('Full Stack Developer');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [agreeTerms, setAgreeTerms] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -28,25 +47,19 @@ export const SignUp = () => {
   const { register } = useAuth();
   const navigate = useNavigate();
 
-  // Password validation checklist checks
-  const isPasswordLengthValid = password.length >= 8;
-  const isEmailValid = validateEmail(email);
+  const strength = getPasswordStrength(password);
 
-  /**
-   * Handle form submission and user registration
-   */
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
-    // Client-side validations
     if (!name.trim()) {
       setError('Please enter your full name.');
       return;
     }
 
     if (!validateEmail(email)) {
-      setError('Please provide a valid email address (e.g. yourname@example.com).');
+      setError('Please enter a valid email address.');
       return;
     }
 
@@ -55,208 +68,202 @@ export const SignUp = () => {
       return;
     }
 
+    if (password !== confirmPassword) {
+      setError('Passwords do not match.');
+      return;
+    }
+
+    if (!agreeTerms) {
+      setError('You must agree to the Terms of Service to create an account.');
+      return;
+    }
+
     setLoading(true);
 
     try {
-      // Call register with name, email, password, and targetRole
       await register({
         name: name.trim(),
         email: email.trim().toLowerCase(),
         password,
-        targetRole
+        targetRole: 'Software Engineer'
       });
-      // Navigate to protected dashboard upon successful sign-up
       navigate('/dashboard', { replace: true });
     } catch (err) {
-      const serverMessage = err.response?.data?.message || err.message || 'Registration failed. Please try again.';
+      const serverMessage =
+        err.response?.data?.message || err.message || 'Registration failed. Please try again.';
       setError(serverMessage);
     } finally {
       setLoading(false);
     }
   };
 
-  /**
-   * Auto-fill demo account details for fast testing
-   */
-  const handleUseDemo = () => {
-    setName('Priya Patel');
-    setEmail(`priya_${Date.now()}@careercopilot.in`);
-    setPassword('Password123!');
-    setTargetRole('SDE-1 (Java & Spring Boot)');
-  };
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-slate-100 p-4 py-12">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-xl border border-slate-100 p-8 sm:p-10">
-        {/* Brand Header */}
-        <div className="flex items-center gap-2 mb-6 text-indigo-600">
-          <div className="p-2 bg-indigo-50 rounded-xl">
-            <Sparkles className="w-6 h-6 text-indigo-600" />
+    <div className="min-h-screen bg-[#F9FAFB] flex flex-col justify-center items-center p-4 py-12">
+      {/* Centered container, max width 400px */}
+      <div className="w-full max-w-[400px] bg-white rounded-[12px] border border-[#E5E7EB] p-8 shadow-[0_1px_3px_rgba(0,0,0,0.1)]">
+        {/* Logo centered at top */}
+        <div className="flex flex-col items-center text-center mb-6">
+          <div className="w-[40px] h-[40px] rounded-[10px] bg-[#3B82F6] flex items-center justify-center text-white mb-3 shadow-sm">
+            <Sparkles className="w-5 h-5" />
           </div>
-          <div>
-            <span className="font-black text-xl tracking-tight text-slate-900 block leading-tight">Career Copilot</span>
-            <span className="text-[10px] text-indigo-600 font-semibold tracking-wider uppercase">Free Indian Tech Prep</span>
-          </div>
-        </div>
-
-        <h1 className="text-2xl font-black text-slate-900 tracking-tight">Create Your Account</h1>
-        <p className="text-xs text-slate-500 mt-1 mb-6">
-          Start accelerating your tech job preparation for top Indian startups & MNCs.
-        </p>
-
-        {/* Google Sign-up Mockup CTA */}
-        <div className="mb-5">
-          <GoogleAuthButton mode="signup" onUseDemo={handleUseDemo} />
-        </div>
-
-        {/* Divider */}
-        <div className="relative flex items-center justify-center mb-6">
-          <div className="border-t border-slate-200 w-full" />
-          <span className="bg-white px-3 text-[11px] font-semibold text-slate-400 uppercase tracking-wider relative">
-            Or sign up with email
-          </span>
+          <h1 className="text-[32px] leading-[40px] font-bold text-[#111827] tracking-[-0.5px]">
+            Create your account
+          </h1>
+          <p className="text-[14px] text-[#6B7280] mt-1">
+            Join thousands of job seekers preparing for success
+          </p>
         </div>
 
         {/* Error Alert */}
         <ErrorMessage message={error} />
 
-        {/* Registration Form */}
+        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Full Name */}
           <div>
-            <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
-              Full Name <span className="text-rose-500">*</span>
+            <label className="block text-[14px] font-semibold text-[#374151] mb-2">
+              Full Name <span className="text-[#EF4444]">*</span>
             </label>
             <div className="relative">
-              <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
+              <User className="w-4 h-4 text-[#9CA3AF] absolute left-4 top-3.5" />
               <input
                 type="text"
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="e.g. Arjun Sharma"
-                className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm transition-all"
+                placeholder="Alex Morgan"
+                className="input-field pl-11"
               />
             </div>
           </div>
 
-          {/* Email Address */}
           <div>
-            <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
-              Email Address <span className="text-rose-500">*</span>
+            <label className="block text-[14px] font-semibold text-[#374151] mb-2">
+              Email Address <span className="text-[#EF4444]">*</span>
             </label>
             <div className="relative">
-              <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
+              <Mail className="w-4 h-4 text-[#9CA3AF] absolute left-4 top-3.5" />
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="arjun@example.com"
-                className={`w-full pl-10 pr-3.5 py-2.5 rounded-xl border ${
-                  email && !isEmailValid ? 'border-amber-400 focus:ring-amber-500' : 'border-slate-300 focus:ring-indigo-500'
-                } focus:outline-none focus:ring-2 text-sm transition-all`}
+                placeholder="alex@example.com"
+                className="input-field pl-11"
               />
             </div>
-            {email && !isEmailValid && (
-              <p className="text-[11px] text-amber-600 mt-1 flex items-center gap-1">
-                <AlertCircle className="w-3 h-3" />
-                Please enter a valid email address format
-              </p>
-            )}
           </div>
 
-          {/* Target Role Selector */}
+          {/* Password with Strength Indicator */}
           <div>
-            <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
-              Target Role (Indian Tech Focus)
+            <label className="block text-[14px] font-semibold text-[#374151] mb-2">
+              Password <span className="text-[#EF4444]">*</span>
             </label>
             <div className="relative">
-              <Target className="w-4 h-4 text-slate-400 absolute left-3.5 top-3 pointer-events-none" />
-              <select
-                value={targetRole}
-                onChange={(e) => setTargetRole(e.target.value)}
-                className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm bg-white transition-all appearance-none cursor-pointer"
-              >
-                <option value="SDE-1 (Java & Spring Boot)">SDE-1 (Java & Spring Boot)</option>
-                <option value="Full Stack Developer">Full Stack Developer (MERN / Next.js)</option>
-                <option value="Backend Engineer">Backend Engineer (Node.js / Go / Python)</option>
-                <option value="Frontend Engineer">Frontend Engineer (React / TypeScript)</option>
-                <option value="DevOps & Cloud Engineer">DevOps & Cloud Engineer (AWS / K8s)</option>
-                <option value="Data Engineer">Data Engineer (PySpark / SQL / Airflow)</option>
-                <option value="Machine Learning Engineer">Machine Learning / AI Engineer</option>
-                <option value="Android Developer">Android Developer (Kotlin / Jetpack)</option>
-              </select>
-            </div>
-            <p className="text-[10px] text-slate-400 mt-1">
-              Customizes your ATS resume checks and coding recommendations.
-            </p>
-          </div>
-
-          {/* Password Field */}
-          <div>
-            <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
-              Password <span className="text-rose-500">*</span>
-            </label>
-            <div className="relative">
-              <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
+              <Lock className="w-4 h-4 text-[#9CA3AF] absolute left-4 top-3.5" />
               <input
                 type={showPassword ? 'text' : 'password'}
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="At least 8 characters"
-                className={`w-full pl-10 pr-10 py-2.5 rounded-xl border ${
-                  password && !isPasswordLengthValid ? 'border-amber-400 focus:ring-amber-500' : 'border-slate-300 focus:ring-indigo-500'
-                } focus:outline-none focus:ring-2 text-sm transition-all`}
+                className="input-field pl-11 pr-11"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-3 text-slate-400 hover:text-slate-600 focus:outline-none"
+                className="absolute right-3.5 top-3.5 text-[#9CA3AF] hover:text-[#374151] focus:outline-none"
               >
                 {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
               </button>
             </div>
 
-            {/* Password Validation Indicator */}
-            <div className="mt-2 flex items-center gap-1.5 text-xs">
-              <div
-                className={`w-4 h-4 rounded-full flex items-center justify-center transition-colors ${
-                  isPasswordLengthValid ? 'bg-emerald-100 text-emerald-600' : 'bg-slate-100 text-slate-400'
-                }`}
-              >
-                <Check className="w-3 h-3" />
+            {/* Visual Password Strength Indicator */}
+            {password && (
+              <div className="mt-2 space-y-1">
+                <div className="w-full bg-[#F3F4F6] h-[6px] rounded-full overflow-hidden">
+                  <div
+                    className={`h-full ${strength.color} transition-all duration-300`}
+                    style={{ width: `${strength.score}%` }}
+                  />
+                </div>
+                <div className="flex justify-between items-center text-[11px]">
+                  <span className={`font-semibold ${strength.textColor}`}>
+                    {strength.text}
+                  </span>
+                  <span className="text-[#6B7280]">Min. 8 characters</span>
+                </div>
               </div>
-              <span
-                className={`text-[11px] transition-colors ${
-                  isPasswordLengthValid ? 'text-emerald-600 font-semibold' : 'text-slate-500'
-                }`}
-              >
-                Minimum 8 characters {password.length > 0 && `(${password.length}/8)`}
-              </span>
+            )}
+          </div>
+
+          {/* Confirm Password */}
+          <div>
+            <label className="block text-[14px] font-semibold text-[#374151] mb-2">
+              Confirm Password <span className="text-[#EF4444]">*</span>
+            </label>
+            <div className="relative">
+              <Lock className="w-4 h-4 text-[#9CA3AF] absolute left-4 top-3.5" />
+              <input
+                type={showPassword ? 'text' : 'password'}
+                required
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                placeholder="Repeat password"
+                className="input-field pl-11"
+              />
             </div>
           </div>
 
-          {/* Submit Button */}
-          <button
+          {/* I agree to terms checkbox */}
+          <div>
+            <Checkbox
+              id="agree-terms"
+              checked={agreeTerms}
+              onChange={(e) => setAgreeTerms(e.target.checked)}
+              label={
+                <span className="text-[13px] text-[#374151]">
+                  I agree to the{' '}
+                  <span className="text-[#3B82F6] hover:underline cursor-pointer">
+                    Terms of Service
+                  </span>{' '}
+                  and{' '}
+                  <span className="text-[#3B82F6] hover:underline cursor-pointer">
+                    Privacy Policy
+                  </span>
+                </span>
+              }
+            />
+          </div>
+
+          {/* Primary Button: "Create account" */}
+          <Button
             type="submit"
-            disabled={loading}
-            className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-lg shadow-indigo-100 transition-all text-sm disabled:opacity-50 mt-2 flex items-center justify-center gap-2"
+            variant="primary"
+            loading={loading}
+            className="w-full mt-2"
           >
-            {loading ? (
-              <span>Creating Your Account...</span>
-            ) : (
-              <span>Sign Up Free</span>
-            )}
-          </button>
+            Create account
+          </Button>
         </form>
 
-        {/* Footer Link to Login */}
-        <div className="mt-6 text-center text-xs text-slate-500">
+        {/* Divider */}
+        <div className="relative flex items-center justify-center my-6">
+          <div className="border-t border-[#E5E7EB] w-full" />
+          <span className="bg-white px-3 text-[12px] font-semibold text-[#9CA3AF] uppercase tracking-wider relative">
+            Or sign up with
+          </span>
+        </div>
+
+        {/* Google sign-up button */}
+        <div className="mb-6">
+          <GoogleAuthButton mode="signup" />
+        </div>
+
+        {/* Footer: "Already have account? Sign in" */}
+        <div className="text-center text-[14px] text-[#6B7280]">
           Already have an account?{' '}
-          <Link to="/login" className="text-indigo-600 font-bold hover:underline">
-            Sign In here
+          <Link to="/login" className="text-[#3B82F6] font-semibold hover:underline">
+            Sign in
           </Link>
         </div>
       </div>

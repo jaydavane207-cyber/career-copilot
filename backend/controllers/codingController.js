@@ -192,19 +192,29 @@ const getProblems = async (req, res, next) => {
       }
     }
 
-    const rawProblems = await CodingProblem.findAll({
+    const total = await CodingProblem.count({ where: filter });
+    const pageNum = req.query.page ? parseInt(req.query.page, 10) : null;
+    const limitNum = req.query.limit ? parseInt(req.query.limit, 10) : (pageNum ? 10 : null);
+
+    const queryOptions = {
       where: filter,
       order: [
-        ['date', 'DESC'],
-        ['createdAt', 'DESC']
+        ['createdAt', 'DESC'],
+        ['date', 'DESC']
       ]
-    });
+    };
+    if (pageNum && limitNum) {
+      queryOptions.limit = limitNum;
+      queryOptions.offset = (pageNum - 1) * limitNum;
+    }
 
+    const rawProblems = await CodingProblem.findAll(queryOptions);
     const problems = rawProblems.map(formatProblem);
 
     res.json({
       success: true,
       count: problems.length,
+      total,
       problems
     });
   } catch (error) {

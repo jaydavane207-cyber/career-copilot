@@ -67,12 +67,18 @@ const startServer = async () => {
   try {
     await testConnection();
     await sequelize.sync({ alter: false });
-    const { CodingProblem, MockInterview } = require('./models');
+    const { CodingProblem, MockInterview, Skill, StudyPlan } = require('./models');
     if (CodingProblem && CodingProblem.syncColumns) {
       await CodingProblem.syncColumns();
     }
     if (MockInterview && MockInterview.syncColumns) {
       await MockInterview.syncColumns();
+    }
+    if (Skill && Skill.syncColumns) {
+      await Skill.syncColumns();
+    }
+    if (StudyPlan && StudyPlan.syncColumns) {
+      await StudyPlan.syncColumns();
     }
     console.log('📦 Database models synchronized.');
 

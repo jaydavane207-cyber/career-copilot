@@ -7,10 +7,11 @@ import JobModal from './JobModal';
 import DeleteConfirmModal from './DeleteConfirmModal';
 import { jobService } from '../../services/jobService';
 import { KANBAN_COLUMNS } from '../../utils/constants';
-import { Plus, Search, Filter, RefreshCw, Briefcase } from 'lucide-react';
+import { Plus, Search, RefreshCw, Briefcase } from 'lucide-react';
 import { LoadingSpinner } from '../Common/LoadingSpinner';
 import { useToast } from '../../hooks/useToast';
 import Toast from '../Common/Toast';
+import { Button } from '../UI/Button';
 
 export const KanbanBoard = () => {
   const [jobs, setJobs] = useState([]);
@@ -19,6 +20,9 @@ export const KanbanBoard = () => {
   const [refreshing, setRefreshing] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
+  // Mobile active column tab ('applied' | 'interview' | 'offer')
+  const [mobileTab, setMobileTab] = useState('applied');
+
   // Modals state
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [jobToEdit, setJobToEdit] = useState(null);
@@ -26,7 +30,6 @@ export const KanbanBoard = () => {
   const [deleteLoading, setDeleteLoading] = useState(false);
   const [initialStageForNew, setInitialStageForNew] = useState('applied');
 
-  // Toast notifications
   const { toast, showToast, hideToast } = useToast();
 
   const fetchJobsAndStats = useCallback(async (isSilent = false) => {
@@ -58,10 +61,8 @@ export const KanbanBoard = () => {
     fetchJobsAndStats();
   }, [fetchJobsAndStats]);
 
-  // Handle Drag & Drop
   const handleDragEnd = async (result) => {
     const { destination, source, draggableId } = result;
-
     if (!destination) return;
     if (destination.droppableId === source.droppableId && destination.index === source.index) {
       return;
@@ -69,15 +70,11 @@ export const KanbanBoard = () => {
 
     const sourceStage = source.droppableId;
     const destStage = destination.droppableId;
-
-    // Find the moved job
     const movedJob = jobs.find((j) => String(j.id) === String(draggableId));
     if (!movedJob) return;
 
-    // Previous jobs state for rollback
     const previousJobs = [...jobs];
 
-    // Optimistically update local state
     if (sourceStage !== destStage) {
       const updatedJobs = jobs.map((j) =>
         String(j.id) === String(draggableId) ? { ...j, stage: destStage } : j
@@ -89,64 +86,52 @@ export const KanbanBoard = () => {
         const res = await jobService.updateStage(draggableId, destStage);
         if (res.success) {
           showToast(`Moved ${movedJob.companyName} to ${stageName}!`, 'success');
-          // Refresh stats
           const statsRes = await jobService.getStats();
           if (statsRes.success) setStats(statsRes.stats);
         } else {
           throw new Error(res.message || 'Stage update failed');
         }
       } catch (err) {
-        // Rollback state on error
         setJobs(previousJobs);
-        showToast(err.response?.data?.message || `Failed to move ${movedJob.companyName}.`, 'error');
+        showToast('Failed to update stage. Rolled back.', 'error');
       }
     }
   };
 
-  // Open modal for Adding new Job
   const handleOpenAddModal = (stage = 'applied') => {
-    setJobToEdit(null);
     setInitialStageForNew(stage);
+    setJobToEdit(null);
     setIsModalOpen(true);
   };
 
-  // Open modal for Editing Job
   const handleEditJob = (job) => {
     setJobToEdit(job);
     setIsModalOpen(true);
   };
 
-  // Callback when job is created or updated
   const handleJobSaved = (savedJob, isEdit) => {
     if (isEdit) {
-      setJobs((prev) => prev.map((j) => (j.id === savedJob.id ? savedJob : j)));
-      showToast(`Updated application for ${savedJob.companyName}!`, 'success');
+      setJobs(jobs.map((j) => (j.id === savedJob.id ? savedJob : j)));
+      showToast('Job application updated successfully!', 'success');
     } else {
-      setJobs((prev) => [savedJob, ...prev]);
-      showToast(`Added application for ${savedJob.companyName}!`, 'success');
+      setJobs([savedJob, ...jobs]);
+      showToast('New job application added to pipeline!', 'success');
     }
-    // Refresh stats
-    jobService.getStats().then((res) => {
-      if (res.success) setStats(res.stats);
-    });
+    fetchJobsAndStats(true);
   };
 
-  // Open Delete Confirmation Modal
   const handleDeleteClick = (job) => {
     setJobToDelete(job);
   };
 
-  // Execute Deletion
   const handleConfirmDelete = async (jobId) => {
     try {
       setDeleteLoading(true);
       const res = await jobService.deleteJob(jobId);
       if (res.success) {
-        const targetJob = jobs.find((j) => j.id === jobId);
-        setJobs((prev) => prev.filter((j) => j.id !== jobId));
+        setJobs(jobs.filter((j) => j.id !== jobId));
         setJobToDelete(null);
-        showToast(`Deleted application for ${targetJob?.companyName || 'job'}.`, 'success');
-        // Refresh stats
+        showToast('Application deleted successfully.', 'info');
         const statsRes = await jobService.getStats();
         if (statsRes.success) setStats(statsRes.stats);
       } else {
@@ -159,7 +144,6 @@ export const KanbanBoard = () => {
     }
   };
 
-  // Filter jobs by search
   const filteredJobs = jobs.filter((job) => {
     if (!searchQuery.trim()) return true;
     const query = searchQuery.toLowerCase();
@@ -173,119 +157,153 @@ export const KanbanBoard = () => {
     return <LoadingSpinner message="Loading your Job Application Kanban Board..." />;
   }
 
+  // Column definitions with specific color accents
+  const columns = [
+    {
+      id: 'applied',
+      title: 'Applied',
+      headerBadge: 'bg-[#EBF5FF] text-[#3B82F6] border border-[#BFDBFE]',
+      dotColor: 'bg-[#3B82F6]',
+      buttonColor: 'text-[#3B82F6]'
+    },
+    {
+      id: 'interview',
+      title: 'Interview',
+      headerBadge: 'bg-[#FEF3C7] text-[#B45309] border border-[#FDE68A]',
+      dotColor: 'bg-[#F59E0B]',
+      buttonColor: 'text-[#F59E0B]'
+    },
+    {
+      id: 'offer',
+      title: 'Offer',
+      headerBadge: 'bg-[#D1FAE5] text-[#065F46] border border-[#A7F3D0]',
+      dotColor: 'bg-[#10B981]',
+      buttonColor: 'text-[#10B981]'
+    }
+  ];
+
   return (
     <div className="space-y-6">
       {/* Toast Notification */}
       <Toast toast={toast} onClose={hideToast} />
 
-      {/* Header & Primary Actions */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      {/* Header Bar */}
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-[#E5E7EB]">
         <div>
-          <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-xl bg-indigo-50 border border-indigo-100 text-indigo-600">
-              <Briefcase className="w-5 h-5" />
-            </div>
-            <div>
-              <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight">
-                Job Application Tracker
-              </h2>
-              <p className="text-xs text-slate-500">
-                Kanban pipeline with automated stage advancement, drag-and-drop, and interview analytics.
-              </p>
-            </div>
-          </div>
+          {/* H1: "My Job Applications" */}
+          <h1 className="text-[32px] leading-[40px] font-bold text-[#111827] tracking-[-0.5px]">
+            My Job Applications
+          </h1>
+          <p className="text-[14px] text-[#6B7280] mt-1">
+            Track applications from submission to technical interviews and offers.
+          </p>
         </div>
 
-        <div className="flex items-center gap-2.5 self-stretch sm:self-auto">
-          <button
-            type="button"
+        <div className="flex items-center gap-3">
+          <Button
+            variant="secondary"
             onClick={() => fetchJobsAndStats(true)}
             disabled={refreshing}
-            title="Refresh pipeline"
-            className="p-2 rounded-xl border border-slate-200 text-slate-500 hover:text-slate-800 hover:bg-slate-50 transition-colors disabled:opacity-50"
+            icon={RefreshCw}
           >
-            <RefreshCw className={`w-4 h-4 ${refreshing ? 'animate-spin' : ''}`} />
-          </button>
-          <button
-            type="button"
+            {refreshing ? 'Updating...' : 'Sync'}
+          </Button>
+
+          <Button
+            variant="primary"
             onClick={() => handleOpenAddModal('applied')}
-            className="btn-primary text-xs flex items-center gap-1.5 shadow-sm hover:shadow"
+            icon={Plus}
           >
-            <Plus className="w-4 h-4" />
-            <span>Add Job Application</span>
-          </button>
+            Add Job
+          </Button>
         </div>
       </div>
 
-      {/* Stats Panel (Total applied, In interview, Offers, Conversion rate) */}
+      {/* Stats Bar (4 columns: Total Applied | Interviews | Offers | Conversion %) */}
       <JobStats stats={stats} />
 
-      {/* Search Bar */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-white p-3 rounded-2xl border border-slate-200/90 shadow-xs">
+      {/* Search and Filters */}
+      <div className="bg-white rounded-[12px] border border-[#E5E7EB] p-3 shadow-[0_1px_3px_rgba(0,0,0,0.1)] flex flex-col sm:flex-row items-center justify-between gap-3">
         <div className="relative w-full sm:w-80">
-          <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+          <Search className="w-4 h-4 text-[#9CA3AF] absolute left-3 top-1/2 -translate-y-1/2" />
           <input
             type="text"
-            placeholder="Search by company or title..."
+            placeholder="Search company or title..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:bg-white transition-all"
+            className="w-full pl-9 pr-3 py-2 text-[14px] bg-[#F9FAFB] border border-[#E5E7EB] rounded-[8px] focus:outline-none focus:border-[#3B82F6] focus:bg-white transition-all"
           />
         </div>
-        <div className="flex items-center gap-2 text-xs text-slate-500 w-full sm:w-auto justify-end">
-          <span>
-            Showing <strong className="text-slate-800">{filteredJobs.length}</strong> of{' '}
-            <strong className="text-slate-800">{jobs.length}</strong> applications
-          </span>
-          {searchQuery && (
-            <button
-              onClick={() => setSearchQuery('')}
-              className="text-xs text-indigo-600 hover:underline font-semibold ml-2"
-            >
-              Clear
-            </button>
-          )}
+        <div className="text-[12px] text-[#6B7280]">
+          Showing <span className="font-bold text-[#374151]">{filteredJobs.length}</span> of{' '}
+          <span className="font-bold text-[#374151]">{jobs.length}</span> applications
         </div>
       </div>
 
-      {/* 3-Column Kanban Board (Applied → Interview → Offer) */}
+      {/* Mobile Column Tabs (Visible on small screens) */}
+      <div className="md:hidden flex items-center justify-between bg-white rounded-[12px] border border-[#E5E7EB] p-1.5 shadow-xs">
+        {columns.map((col) => {
+          const count = filteredJobs.filter((j) => (j.stage || 'applied').toLowerCase() === col.id).length;
+          return (
+            <button
+              key={col.id}
+              type="button"
+              onClick={() => setMobileTab(col.id)}
+              className={`flex-1 py-2 rounded-[8px] text-[13px] font-semibold transition-all flex items-center justify-center gap-1.5 ${
+                mobileTab === col.id
+                  ? 'bg-[#3B82F6] text-white shadow-xs'
+                  : 'text-[#6B7280] hover:text-[#374151]'
+              }`}
+            >
+              <span>{col.title}</span>
+              <span className={`px-1.5 py-0.2 rounded-full text-[11px] ${mobileTab === col.id ? 'bg-white/20 text-white' : 'bg-[#F3F4F6] text-[#6B7280]'}`}>
+                {count}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Three Columns Below (Desktop 3 columns, Mobile 1 column based on tab) */}
       <DragDropContext onDragEnd={handleDragEnd}>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-start">
-          {KANBAN_COLUMNS.map((column) => {
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-[16px] items-start">
+          {columns.map((col) => {
             const columnJobs = filteredJobs.filter(
-              (j) => (j.stage || 'applied').toLowerCase() === column.id
+              (j) => (j.stage || 'applied').toLowerCase() === col.id
             );
+
+            // On mobile, show only active tab column
+            const isVisibleOnMobile = mobileTab === col.id;
 
             return (
               <div
-                key={column.id}
-                className={`bg-slate-50/70 rounded-2xl border ${column.columnBorder} p-3.5 flex flex-col min-h-[580px] transition-colors`}
+                key={col.id}
+                className={`
+                  bg-[#F9FAFB] rounded-[12px] border border-[#E5E7EB] p-4 flex flex-col min-h-[500px]
+                  ${isVisibleOnMobile ? 'block' : 'hidden md:flex'}
+                `}
               >
-                {/* Column Header */}
-                <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-200/80 px-1">
+                {/* Header: Title + count badge */}
+                <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#E5E7EB]">
                   <div className="flex items-center gap-2">
-                    <span className={`w-2.5 h-2.5 rounded-full ${column.dotColor}`} />
-                    <h3 className="font-extrabold text-slate-800 text-sm tracking-tight uppercase">
-                      {column.title}
+                    <span className={`w-2.5 h-2.5 rounded-full ${col.dotColor}`} />
+                    <h3 className="font-bold text-[#111827] text-[15px] tracking-tight">
+                      {col.title}
                     </h3>
                   </div>
-                  <span
-                    className={`text-xs font-bold px-2.5 py-0.5 rounded-full border shadow-2xs ${column.badgeColor}`}
-                  >
+                  <span className={`text-[12px] font-bold px-2.5 py-0.5 rounded-full ${col.headerBadge}`}>
                     {columnJobs.length}
                   </span>
                 </div>
 
-                {/* Droppable Area */}
-                <Droppable droppableId={column.id}>
+                {/* Droppable cards container with 12px spacing */}
+                <Droppable droppableId={col.id}>
                   {(provided, snapshot) => (
                     <div
                       ref={provided.innerRef}
                       {...provided.droppableProps}
-                      className={`flex-1 space-y-3 rounded-xl transition-all duration-150 p-1 ${
-                        snapshot.isDraggingOver
-                          ? 'bg-indigo-50/50 ring-2 ring-indigo-300 ring-dashed'
-                          : ''
+                      className={`flex-1 space-y-[12px] transition-colors rounded-[8px] p-1 ${
+                        snapshot.isDraggingOver ? 'bg-[#EBF5FF]/50 ring-2 ring-[#3B82F6]/30' : ''
                       }`}
                     >
                       {columnJobs.map((job, idx) => (
@@ -297,40 +315,27 @@ export const KanbanBoard = () => {
                           onDelete={handleDeleteClick}
                         />
                       ))}
-
                       {provided.placeholder}
 
-                      {/* Empty Column Placeholder */}
                       {columnJobs.length === 0 && !snapshot.isDraggingOver && (
-                        <div className="h-44 rounded-xl border-2 border-dashed border-slate-200/80 flex flex-col items-center justify-center p-4 text-center">
-                          <p className="text-xs font-semibold text-slate-400">
-                            No applications in {column.title}
+                        <div className="h-36 border-2 border-dashed border-[#E5E7EB] rounded-[8px] flex flex-col items-center justify-center p-4 text-center">
+                          <p className="text-[13px] text-[#9CA3AF]">
+                            No {col.title.toLowerCase()} applications
                           </p>
-                          <p className="text-[11px] text-slate-400 mt-0.5">
-                            Drag a card here or add a new role
-                          </p>
-                          <button
-                            type="button"
-                            onClick={() => handleOpenAddModal(column.id)}
-                            className="mt-3 text-xs font-semibold text-indigo-600 hover:text-indigo-800 flex items-center gap-1 transition-colors"
-                          >
-                            <Plus className="w-3.5 h-3.5" />
-                            <span>Add {column.title}</span>
-                          </button>
                         </div>
                       )}
                     </div>
                   )}
                 </Droppable>
 
-                {/* Quick Add Button at bottom of column */}
+                {/* Add button at bottom: "Add Job" with + icon */}
                 <button
                   type="button"
-                  onClick={() => handleOpenAddModal(column.id)}
-                  className="mt-3 w-full py-2 px-3 rounded-xl border border-dashed border-slate-300 hover:border-indigo-400 hover:bg-white text-xs font-medium text-slate-500 hover:text-indigo-600 transition-all flex items-center justify-center gap-1.5 group"
+                  onClick={() => handleOpenAddModal(col.id)}
+                  className="mt-3 w-full py-2.5 px-3 rounded-[8px] border border-dashed border-[#E5E7EB] hover:border-[#3B82F6] hover:bg-white text-[13px] font-semibold text-[#6B7280] hover:text-[#3B82F6] transition-all flex items-center justify-center gap-1.5"
                 >
-                  <Plus className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
-                  <span>Add to {column.title}</span>
+                  <Plus className="w-4 h-4" />
+                  <span>Add Job</span>
                 </button>
               </div>
             );

@@ -213,7 +213,78 @@ const runTests = async () => {
     console.log('Sample Strong Answer snippet:', feedbackRes.body.feedback[0].strongAnswer.slice(0, 60) + '...');
     console.log('Key Points:', feedbackRes.body.feedback[0].keyPoints);
     console.log('Tips snippet:', feedbackRes.body.feedback[0].tips.slice(0, 50) + '...');
-    console.log('✅ GET /feedback successfully returned detailed sample answers, checklist, and tips.');
+    console.log('\n--- 7. Testing POST /api/mock-interview/start & Single Question Submission ---');
+    const startRes = await makeRequest(server, {
+      path: '/api/mock-interview/start',
+      method: 'POST',
+      headers: authHeader
+    }, {
+      type: 'Technical',
+      numQuestions: 2,
+      role: 'Fullstack Developer'
+    });
+    console.log('Start Status:', startRes.status, 'Interview ID:', startRes.body.interviewId);
+    if (startRes.status !== 201 || !startRes.body.interviewId || startRes.body.questions.length !== 2) {
+      throw new Error('Failed to start interview session via POST /start');
+    }
+    const createdInterviewId = startRes.body.interviewId;
+    const q1 = startRes.body.questions[0];
+    const q2 = startRes.body.questions[1];
+
+    // Submit single answer for question 1
+    const singleAns1 = await makeRequest(server, {
+      path: '/api/mock-interview/submit-answer',
+      method: 'POST',
+      headers: authHeader
+    }, {
+      interviewId: createdInterviewId,
+      questionId: q1.id,
+      userAnswer: 'In Node.js the event loop handles asynchronous operations using libuv thread pool and phases like timers, poll, and check.',
+      confidence: 5
+    });
+    console.log('Single Ans 1 Status:', singleAns1.status, 'isComplete:', singleAns1.body.isComplete);
+    if (singleAns1.status !== 200 || singleAns1.body.isComplete !== false) {
+      throw new Error('Expected first question to not complete the entire session');
+    }
+
+    // Submit single answer for question 2 (completes session)
+    const singleAns2 = await makeRequest(server, {
+      path: '/api/mock-interview/submit-answer',
+      method: 'POST',
+      headers: authHeader
+    }, {
+      interviewId: createdInterviewId,
+      questionId: q2.id,
+      userAnswer: 'React virtual DOM works by computing diffs using a reconciliation algorithm with keys to minimize costly real DOM operations.',
+      confidence: 4
+    });
+    console.log('Single Ans 2 Status:', singleAns2.status, 'isComplete:', singleAns2.body.isComplete);
+    if (singleAns2.status !== 200 || singleAns2.body.isComplete !== true) {
+      throw new Error('Expected second question to complete the session');
+    }
+
+    console.log('\n--- 8. Testing GET /api/mock-interview/:id/results ---');
+    const resultsRes = await makeRequest(server, {
+      path: `/api/mock-interview/${createdInterviewId}/results`,
+      method: 'GET',
+      headers: authHeader
+    });
+    console.log('Results Status:', resultsRes.status, 'Overall score:', resultsRes.body.overallScore);
+    if (resultsRes.status !== 200 || typeof resultsRes.body.overallScore !== 'number') {
+      throw new Error('Failed to get interview results');
+    }
+
+    console.log('\n--- 9. Testing GET /api/mock-interview/:id/answer/:questionId ---');
+    const answerReviewRes = await makeRequest(server, {
+      path: `/api/mock-interview/${createdInterviewId}/answer/${q1.id}`,
+      method: 'GET',
+      headers: authHeader
+    });
+    console.log('Answer Review Status:', answerReviewRes.status, 'Has strong answer:', Boolean(answerReviewRes.body.strongAnswer));
+    if (answerReviewRes.status !== 200 || !answerReviewRes.body.strongAnswer) {
+      throw new Error('Failed to get answer review');
+    }
+    console.log('✅ POST /start, single-answer flow, results, and answer review all verified!');
 
     console.log('\n🎉 ALL BACKEND MOCK INTERVIEW TESTS PASSED FLAWLESSLY!\n');
   } finally {

@@ -1,17 +1,14 @@
 // frontend/src/components/Dashboard/NextSteps.jsx
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
   BookOpen,
   Code2,
   Mic,
   FileText,
-  Send,
-  CheckCircle2,
-  AlertTriangle,
+  Briefcase,
   ArrowRight,
-  Sparkles,
-  Zap
+  CheckCircle2
 } from 'lucide-react';
 
 const iconMap = {
@@ -19,155 +16,141 @@ const iconMap = {
   Code2,
   Mic,
   FileText,
-  Send,
-  CheckCircle2,
-  AlertTriangle,
-  Sparkles,
-  Zap
+  Briefcase,
+  CheckCircle2
 };
 
 export const NextSteps = ({ nextSteps = [], nextActions = [] }) => {
-  // If only raw string nextActions were passed, convert to standard step objects
+  const navigate = useNavigate();
+
+  // Standardize 3-5 action items
   let steps = [];
   if (Array.isArray(nextSteps) && nextSteps.length > 0) {
-    steps = nextSteps;
+    steps = nextSteps.slice(0, 5);
   } else if (Array.isArray(nextActions) && nextActions.length > 0) {
-    steps = nextActions.map((action, idx) => {
+    steps = nextActions.slice(0, 5).map((action, idx) => {
       let icon = 'CheckCircle2';
       let link = '/dashboard';
-      let buttonText = 'Go to Action';
-
       const lower = action.toLowerCase();
-      if (lower.includes('study plan') || lower.includes('study')) {
+
+      if (lower.includes('study') || lower.includes('plan')) {
         icon = 'BookOpen';
         link = '/study-plan';
-        buttonText = 'Go to Study Plan';
-      } else if (lower.includes('question') || lower.includes('coding') || lower.includes('problem')) {
+      } else if (lower.includes('coding') || lower.includes('problem') || lower.includes('dsa')) {
         icon = 'Code2';
         link = '/coding';
-        buttonText = 'Go to Coding Tracker';
       } else if (lower.includes('interview')) {
         icon = 'Mic';
         link = '/mock-interview';
-        buttonText = 'Go to Mock Interview';
       } else if (lower.includes('resume')) {
         icon = 'FileText';
         link = '/resume';
-        buttonText = 'Go to Resume Analyzer';
       } else if (lower.includes('apply') || lower.includes('job')) {
-        icon = 'Send';
+        icon = 'Briefcase';
         link = '/jobs';
-        buttonText = 'Go to Job Tracker';
       }
 
       return {
         id: `step-${idx}`,
-        title: action,
-        action,
-        description: 'Recommended actionable milestone based on your target role.',
+        description: action,
+        progress: (idx + 1) * 20,
         icon,
-        link,
-        buttonText,
-        progress: 40,
-        priority: idx === 0 ? 'High' : 'Medium'
+        link
       };
     });
   }
 
-  return (
-    <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
-      <div className="flex items-center justify-between">
-        <div>
-          <div className="flex items-center gap-2">
-            <div className="p-1.5 rounded-lg bg-indigo-50 text-indigo-600">
-              <Zap className="w-4 h-4" />
-            </div>
-            <h3 className="text-base font-bold text-slate-900 tracking-tight">
-              Prioritized Next Steps
-            </h3>
-          </div>
-          <p className="text-xs text-slate-500 mt-0.5">
-            Targeted actions to increase your overall readiness to "Ready!" (67%+)
-          </p>
-        </div>
+  // Fallback 4 high-value actions if empty
+  if (steps.length === 0) {
+    steps = [
+      {
+        id: 'step-1',
+        description: 'Upload resume and run ATS keyword screening against target job specs',
+        progress: 75,
+        icon: 'FileText',
+        link: '/resume'
+      },
+      {
+        id: 'step-2',
+        description: 'Complete 3 daily LeetCode/DSA problems in your target weak topics',
+        progress: 40,
+        icon: 'Code2',
+        link: '/coding'
+      },
+      {
+        id: 'step-3',
+        description: 'Run a timed Technical & System Design Mock Interview simulation',
+        progress: 20,
+        icon: 'Mic',
+        link: '/mock-interview'
+      },
+      {
+        id: 'step-4',
+        description: 'Track at least 3 new active job applications in your Kanban pipeline',
+        progress: 60,
+        icon: 'Briefcase',
+        link: '/jobs'
+      }
+    ];
+  }
 
-        <span className="text-[11px] font-bold text-indigo-600 bg-indigo-50 border border-indigo-100 px-2.5 py-1 rounded-full uppercase tracking-wider">
-          {steps.length} Actions
+  return (
+    <div id="next-steps-section" className="bg-white rounded-[12px] border border-[#E5E7EB] p-[24px] shadow-[0_1px_3px_rgba(0,0,0,0.1)]">
+      {/* H2: "What to do next" */}
+      <div className="flex items-center justify-between mb-4">
+        <h2 className="text-[24px] font-bold text-[#111827] leading-[32px] tracking-[-0.5px]">
+          What to do next
+        </h2>
+        <span className="text-[12px] font-semibold text-[#3B82F6] bg-[#EBF5FF] px-2.5 py-1 rounded-[12px]">
+          {steps.length} recommended actions
         </span>
       </div>
 
-      <div className="space-y-3">
-        {steps.length > 0 ? (
-          steps.map((step, idx) => {
-            const IconComponent = iconMap[step.icon] || CheckCircle2;
-            const priorityBadge =
-              step.priority === 'High'
-                ? 'bg-rose-50 text-rose-700 border-rose-200'
-                : 'bg-indigo-50 text-indigo-700 border-indigo-200';
+      {/* List of 3-5 action items */}
+      <div className="space-y-[16px]">
+        {steps.map((item) => {
+          const IconComponent = iconMap[item.icon] || CheckCircle2;
+          const progressVal = item.progress || 0;
 
-            const progressVal = typeof step.progress === 'number' ? step.progress : 0;
-
-            return (
-              <div
-                key={step.id || idx}
-                className="p-4 rounded-xl border border-slate-200/80 hover:border-indigo-300 hover:bg-indigo-50/20 transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 group"
-              >
-                <div className="flex items-start gap-3.5 flex-1 min-w-0">
-                  <div className="w-10 h-10 rounded-xl bg-slate-100 group-hover:bg-indigo-100 text-slate-600 group-hover:text-indigo-600 flex items-center justify-center flex-shrink-0 transition-colors shadow-2xs mt-0.5 sm:mt-0">
-                    <IconComponent className="w-5 h-5" />
-                  </div>
-
-                  <div className="space-y-1 flex-1 min-w-0">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="text-xs font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
-                        {step.title || step.action}
-                      </span>
-                      {step.priority && (
-                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${priorityBadge}`}>
-                          {step.priority} Priority
-                        </span>
-                      )}
-                    </div>
-
-                    <p className="text-xs text-slate-500 line-clamp-1">
-                      {step.description}
-                    </p>
-
-                    {/* Progress Indicator */}
-                    <div className="flex items-center gap-2.5 pt-1 max-w-xs">
-                      <div className="flex-1 bg-slate-100 rounded-full h-1.5 overflow-hidden">
-                        <div
-                          className="bg-indigo-600 h-full rounded-full transition-all duration-500"
-                          style={{ width: `${Math.min(100, Math.max(5, progressVal))}%` }}
-                        />
-                      </div>
-                      <span className="text-[10px] font-semibold text-slate-400">
-                        {progressVal}%
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* "Go to..." Button */}
-                <div className="w-full sm:w-auto flex-shrink-0">
-                  <Link
-                    to={step.link || '/dashboard'}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-xs hover:shadow transition-all group-hover:scale-102"
-                  >
-                    <span>{step.buttonText || 'Go to Feature'}</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
+          return (
+            <div
+              key={item.id}
+              onClick={() => navigate(item.link || '/dashboard')}
+              className="bg-[#EBF5FF] p-[16px] rounded-[8px] cursor-pointer hover:bg-[#DBEAFE] transition-all duration-200 flex items-center justify-between gap-4 group"
+            >
+              {/* Blue icon (left) */}
+              <div className="w-[40px] h-[40px] rounded-[8px] bg-white text-[#3B82F6] shadow-sm flex items-center justify-center flex-shrink-0">
+                <IconComponent className="w-5 h-5 text-[#3B82F6]" />
               </div>
-            );
-          })
-        ) : (
-          <div className="p-6 text-center border border-dashed border-slate-200 rounded-xl">
-            <CheckCircle2 className="w-8 h-8 text-emerald-500 mx-auto mb-2" />
-            <p className="text-xs font-bold text-slate-700">All key preparation steps up to date!</p>
-            <p className="text-[11px] text-slate-400 mt-0.5">Explore mock interviews or track job opportunities.</p>
-          </div>
-        )}
+
+              {/* Description + progress (if applicable) */}
+              <div className="flex-1 min-w-0">
+                <p className="text-[14px] font-semibold text-[#1E40AF] group-hover:text-[#1D4ED8] transition-colors leading-snug">
+                  {item.description}
+                </p>
+
+                {progressVal > 0 && (
+                  <div className="flex items-center gap-3 mt-1.5 max-w-xs">
+                    <div className="flex-1 h-[6px] rounded-[3px] bg-white overflow-hidden">
+                      <div
+                        className="h-full bg-[#3B82F6] rounded-[3px] transition-all duration-300"
+                        style={{ width: `${progressVal}%` }}
+                      />
+                    </div>
+                    <span className="text-[12px] font-semibold text-[#3B82F6]">
+                      {progressVal}%
+                    </span>
+                  </div>
+                )}
+              </div>
+
+              {/* Right arrow icon */}
+              <div className="w-[32px] h-[32px] rounded-[8px] bg-white/60 group-hover:bg-white text-[#3B82F6] flex items-center justify-center flex-shrink-0 transition-transform group-hover:translate-x-1 duration-150">
+                <ArrowRight className="w-4 h-4" />
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

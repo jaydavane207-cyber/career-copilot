@@ -64,6 +64,18 @@ const Skill = sequelize.define('Skill', {
     field: 'requiredLevel',
     comment: 'Target proficiency benchmark score (0-100)'
   },
+  userLevel: {
+    type: DataTypes.INTEGER,
+    defaultValue: 50,
+    field: 'userLevel',
+    comment: 'Candidate assessed skill proficiency score (0-100)'
+  },
+  assessedAt: {
+    type: DataTypes.DATE,
+    defaultValue: DataTypes.NOW,
+    field: 'assessedAt',
+    comment: 'Timestamp when candidate assessed this skill'
+  },
   estimatedHours: {
     type: DataTypes.INTEGER,
     defaultValue: 60,
@@ -176,5 +188,28 @@ Object.defineProperty(Skill.prototype, 'is_optional', {
     this.setDataValue('isOptional', val);
   }
 });
+
+// Helper migration function to add missing columns in existing SQLite tables
+Skill.syncColumns = async () => {
+  try {
+    if (sequelize.getDialect() === 'sqlite') {
+      const [cols] = await sequelize.query("PRAGMA table_info('skills');");
+      const existingColNames = cols.map(c => c.name);
+
+      const columnsToAdd = [
+        { name: 'userLevel', type: 'INTEGER DEFAULT 50' },
+        { name: 'assessedAt', type: 'DATETIME' }
+      ];
+
+      for (const col of columnsToAdd) {
+        if (!existingColNames.includes(col.name)) {
+          await sequelize.query(`ALTER TABLE skills ADD COLUMN ${col.name} ${col.type};`);
+        }
+      }
+    }
+  } catch (err) {
+    console.warn('⚠️ [Skill.syncColumns] Notice:', err.message);
+  }
+};
 
 module.exports = Skill;

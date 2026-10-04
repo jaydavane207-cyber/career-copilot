@@ -47,6 +47,50 @@ export const mockInterviewService = {
   },
 
   /**
+   * Start an interview session
+   * @param {string} type - 'Behavioral' | 'Technical' | 'System Design'
+   * @param {number} numQuestions - Number of questions
+   * @param {string} role - Target role
+   */
+  async startInterview(type = 'Technical', numQuestions = 5, role = 'Fullstack Developer') {
+    const payload = typeof type === 'object' ? type : { type, numQuestions, role };
+    const res = await api.post('/mock-interview/start', payload);
+    return res.data;
+  },
+
+  /**
+   * Submit a single answer for an active interview
+   * @param {string} interviewId - Interview UUID
+   * @param {string} questionId - Question identifier
+   * @param {string} userAnswer - Response text
+   * @param {number} confidence - Confidence rating (1-5)
+   */
+  async submitAnswer(interviewId, questionId, userAnswer, confidence = 3) {
+    const payload = typeof interviewId === 'object' ? interviewId : { interviewId, questionId, userAnswer, confidence };
+    const res = await api.post('/mock-interview/submit-answer', payload);
+    return res.data;
+  },
+
+  /**
+   * Get results for an interview session
+   * @param {string} interviewId - Interview UUID
+   */
+  async getResults(interviewId) {
+    const res = await api.get(`/mock-interview/${interviewId}/results`);
+    return res.data;
+  },
+
+  /**
+   * Get model review and sample answer for a specific question
+   * @param {string} interviewId - Interview UUID
+   * @param {string} questionId - Question identifier
+   */
+  async getAnswerReview(interviewId, questionId) {
+    const res = await api.get(`/mock-interview/${interviewId}/answer/${questionId}`);
+    return res.data;
+  },
+
+  /**
    * Legacy startSession adapter
    */
   async startSession(config) {

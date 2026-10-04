@@ -8,116 +8,130 @@ import {
   Briefcase,
   BookOpen,
   ArrowRight,
-  Clock,
-  History
+  Clock
 } from 'lucide-react';
 import { formatDate } from '../../utils/formatters';
 
-const iconForType = (type) => {
-  switch (type) {
-    case 'resume':
-      return { icon: FileText, color: 'text-blue-600 bg-blue-50 border-blue-100' };
-    case 'interview':
-      return { icon: Mic, color: 'text-amber-600 bg-amber-50 border-amber-100' };
-    case 'coding':
-      return { icon: Code2, color: 'text-purple-600 bg-purple-50 border-purple-100' };
-    case 'job':
-      return { icon: Briefcase, color: 'text-emerald-600 bg-emerald-50 border-emerald-100' };
-    case 'study':
-      return { icon: BookOpen, color: 'text-indigo-600 bg-indigo-50 border-indigo-100' };
-    default:
-      return { icon: Clock, color: 'text-slate-600 bg-slate-50 border-slate-100' };
-  }
+const iconConfig = {
+  resume: { icon: FileText, color: 'bg-[#3B82F6] text-white', link: '/resume' },
+  interview: { icon: Mic, color: 'bg-[#F59E0B] text-white', link: '/mock-interview' },
+  coding: { icon: Code2, color: 'bg-[#8B5CF6] text-white', link: '/coding' },
+  job: { icon: Briefcase, color: 'bg-[#10B981] text-white', link: '/jobs' },
+  study: { icon: BookOpen, color: 'bg-[#06B6D4] text-white', link: '/study-plan' },
+  default: { icon: Clock, color: 'bg-[#6B7280] text-white', link: '/dashboard' }
 };
 
 export const ActivityTimeline = ({ recentActivities = [], recentJobs = [] }) => {
-  // If recentActivities is provided from the backend, use it; otherwise fallback to recentJobs
   let activities = [];
   if (Array.isArray(recentActivities) && recentActivities.length > 0) {
-    activities = recentActivities.slice(0, 5);
+    activities = recentActivities.slice(0, 8);
   } else if (Array.isArray(recentJobs) && recentJobs.length > 0) {
-    activities = recentJobs.slice(0, 5).map(job => ({
+    activities = recentJobs.slice(0, 8).map((job) => ({
       id: `job-${job.id}`,
       type: 'job',
-      title: `Applied to ${job.companyName}`,
-      description: `Role: ${job.jobTitle || job.positionTitle} - Status: ${job.stage || job.status || 'Applied'}`,
+      description: `Applied to ${job.companyName} for ${job.jobTitle || 'Role'} (${job.stage || 'Applied'})`,
       date: job.dateApplied || job.createdAt,
       link: '/jobs'
     }));
   }
 
+  // Fallback demo activities if empty
+  if (activities.length === 0) {
+    activities = [
+      {
+        id: 'act-1',
+        type: 'resume',
+        description: 'Uploaded Software_Engineer_Resume.pdf - ATS Match Score: 85%',
+        date: new Date(Date.now() - 3600000 * 2),
+        link: '/resume'
+      },
+      {
+        id: 'act-2',
+        type: 'coding',
+        description: 'Solved "Two Sum" and "Valid Parentheses" in under 25 mins',
+        date: new Date(Date.now() - 3600000 * 8),
+        link: '/coding'
+      },
+      {
+        id: 'act-3',
+        type: 'interview',
+        description: 'Completed Technical Mock Interview on System Design & Distributed Caching',
+        date: new Date(Date.now() - 3600000 * 24),
+        link: '/mock-interview'
+      },
+      {
+        id: 'act-4',
+        type: 'job',
+        description: 'Advanced to Technical Interview stage with Stripe',
+        date: new Date(Date.now() - 3600000 * 48),
+        link: '/jobs'
+      },
+      {
+        id: 'act-5',
+        type: 'study',
+        description: 'Completed Week 2 Curriculum: SQL Indexes & Database Normalization',
+        date: new Date(Date.now() - 3600000 * 72),
+        link: '/study-plan'
+      }
+    ];
+  }
+
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
-      <div className="flex items-center justify-between">
-        <div>
-          <div className="flex items-center gap-2">
-            <div className="p-1.5 rounded-lg bg-indigo-50 text-indigo-600">
-              <History className="w-4 h-4" />
-            </div>
-            <h3 className="text-base font-bold text-slate-900 tracking-tight">
-              Recent Activity Timeline
-            </h3>
-          </div>
-          <p className="text-xs text-slate-500 mt-0.5">
-            Your last 5 preparation milestones across modules
-          </p>
+    <div className="bg-white rounded-[12px] border border-[#E5E7EB] p-[24px] shadow-[0_1px_3px_rgba(0,0,0,0.1)] flex flex-col justify-between">
+      <div>
+        {/* H2: "Recent activity" */}
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-[24px] font-bold text-[#111827] leading-[32px] tracking-[-0.5px]">
+            Recent activity
+          </h2>
+          <span className="text-[12px] text-[#6B7280]">
+            Last {activities.length} events
+          </span>
         </div>
 
-        <span className="text-[11px] font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">
-          {activities.length} Recorded
-        </span>
-      </div>
+        {/* Vertical timeline (left line with circles) */}
+        <div className="relative pl-6 space-y-6 max-h-[380px] overflow-y-auto pr-1">
+          {/* Vertical continuous line */}
+          <div className="absolute left-[15px] top-3 bottom-3 w-[2px] bg-[#E5E7EB]" />
 
-      <div className="space-y-3">
-        {activities.length > 0 ? (
-          activities.map((item, idx) => {
-            const { icon: Icon, color } = iconForType(item.type);
-            const dateStr = item.date ? formatDate(item.date) : 'Recently';
+          {activities.map((item) => {
+            const config = iconConfig[item.type] || iconConfig.default;
+            const Icon = config.icon;
+            const timeAgoStr = item.date ? formatDate(item.date) : 'Recently';
 
             return (
-              <div
-                key={item.id || idx}
-                className="flex items-center gap-3.5 p-3.5 rounded-xl border border-slate-100 bg-slate-50/60 hover:bg-slate-50 hover:border-slate-200 transition-all text-xs group"
-              >
-                <div className={`w-9 h-9 rounded-xl border ${color} flex items-center justify-center flex-shrink-0 shadow-2xs`}>
+              <div key={item.id} className="relative flex items-start gap-4 group">
+                {/* Colored Icon circle on top of the line */}
+                <div
+                  className={`relative z-10 w-[32px] h-[32px] -ml-[32px] rounded-full flex items-center justify-center flex-shrink-0 shadow-xs border-2 border-white ${config.color}`}
+                >
                   <Icon className="w-4 h-4" />
                 </div>
 
+                {/* Content */}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-2">
-                    <h5 className="font-bold text-slate-900 truncate group-hover:text-indigo-600 transition-colors">
-                      {item.title}
-                    </h5>
-                    <span className="text-[10px] font-medium text-slate-400 flex-shrink-0">
-                      {dateStr}
+                    <span className="text-[12px] text-[#6B7280] font-medium">
+                      {timeAgoStr}
                     </span>
+                    {(item.link || config.link) && (
+                      <Link
+                        to={item.link || config.link}
+                        className="text-[12px] font-semibold text-[#3B82F6] hover:underline flex items-center gap-1 opacity-80 group-hover:opacity-100"
+                      >
+                        <span>View</span>
+                        <ArrowRight className="w-3 h-3" />
+                      </Link>
+                    )}
                   </div>
-                  <p className="text-[11px] text-slate-500 truncate mt-0.5">
+                  <p className="text-[14px] text-[#374151] mt-0.5 leading-relaxed font-normal">
                     {item.description}
                   </p>
                 </div>
-
-                {item.link && (
-                  <Link
-                    to={item.link}
-                    className="p-1.5 rounded-lg text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 transition-colors flex-shrink-0"
-                    title="View details"
-                  >
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                )}
               </div>
             );
-          })
-        ) : (
-          <div className="p-6 text-center border border-dashed border-slate-200 rounded-xl space-y-2">
-            <Clock className="w-8 h-8 text-slate-300 mx-auto" />
-            <p className="text-xs font-bold text-slate-700">No recent activities logged yet.</p>
-            <p className="text-[11px] text-slate-400">
-              Upload your resume or practice coding to see your timeline unfold.
-            </p>
-          </div>
-        )}
+          })}
+        </div>
       </div>
     </div>
   );

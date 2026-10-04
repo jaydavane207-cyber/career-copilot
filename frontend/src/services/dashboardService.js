@@ -12,6 +12,11 @@ export const dashboardService = {
     return res.data;
   },
 
+  async getDashboardData() {
+    const res = await api.get('/dashboard');
+    return res.data;
+  },
+
   /**
    * GET /api/dashboard/readiness-score
    * Calculates weighted readiness score and summary

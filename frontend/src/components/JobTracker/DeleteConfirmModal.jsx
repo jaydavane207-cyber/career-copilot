@@ -1,59 +1,43 @@
 // frontend/src/components/JobTracker/DeleteConfirmModal.jsx
 import React from 'react';
-import { Modal } from '../Common/Modal';
-import { AlertTriangle, Trash2 } from 'lucide-react';
+import { Modal } from '../UI/Modal';
+import { Button } from '../UI/Button';
+import { AlertTriangle } from 'lucide-react';
 
 export const DeleteConfirmModal = ({ isOpen, onClose, job, onConfirm, loading }) => {
   if (!job) return null;
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Delete Job Application">
+    <Modal isOpen={isOpen} onClose={onClose} title="Delete Job Application" size="small">
       <div className="space-y-4">
-        <div className="flex items-start gap-3.5 p-3 rounded-xl bg-rose-50 border border-rose-200">
-          <div className="p-2 rounded-lg bg-rose-100 text-rose-600 flex-shrink-0">
-            <AlertTriangle className="w-5 h-5" />
-          </div>
-          <div className="text-xs text-rose-900 leading-relaxed">
-            <p className="font-semibold text-sm text-rose-950 mb-0.5">
-              Confirm Deletion
-            </p>
-            <p>
-              Are you sure you want to delete the job application for{' '}
-              <span className="font-bold">{job.companyName}</span> ({job.jobTitle || job.positionTitle})?
-            </p>
-            <p className="mt-1 text-rose-700 text-[11px]">
-              This action cannot be undone and will remove all interview history and notes associated with this role.
+        <div className="flex items-start gap-3 p-4 rounded-[8px] bg-[#FEF2F2] border border-[#EF4444]/30">
+          <AlertTriangle className="w-5 h-5 text-[#EF4444] flex-shrink-0 mt-0.5" />
+          <div className="space-y-1 text-[14px]">
+            <h3 className="font-bold text-[#7F1D1D] text-[16px]">
+              Are you sure?
+            </h3>
+            <p className="text-[#374151]">
+              This action cannot be undone. You are about to permanently delete{' '}
+              <span className="font-semibold text-[#111827]">
+                {job.companyName} - {job.jobTitle || 'Role'}
+              </span>
+              .
             </p>
           </div>
         </div>
 
-        <div className="flex items-center justify-end gap-2.5 pt-3 border-t border-slate-100">
-          <button
-            type="button"
-            onClick={onClose}
-            disabled={loading}
-            className="btn-secondary text-xs"
-          >
+        {/* Two buttons: Cancel (gray) | Delete (red) */}
+        <div className="flex items-center justify-end gap-3 pt-4 border-t border-[#E5E7EB]">
+          <Button variant="secondary" onClick={onClose} disabled={loading}>
             Cancel
-          </button>
-          <button
-            type="button"
+          </Button>
+          <Button
+            variant="danger"
             onClick={() => onConfirm(job.id)}
-            disabled={loading}
-            className="px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white text-xs font-semibold rounded-lg shadow-sm transition-colors flex items-center gap-1.5 disabled:opacity-50"
+            loading={loading}
           >
-            {loading ? (
-              <>
-                <span className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                <span>Deleting...</span>
-              </>
-            ) : (
-              <>
-                <Trash2 className="w-3.5 h-3.5" />
-                <span>Delete Application</span>
-              </>
-            )}
-          </button>
+            Delete
+          </Button>
         </div>
       </div>
     </Modal>

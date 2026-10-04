@@ -1,22 +1,27 @@
 // frontend/src/components/MockInterview/StartInterviewModal.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   Mic,
   Play,
-  Sparkles,
   Users,
   Code,
   Layers,
   Clock,
   RotateCcw,
   AlertCircle,
-  HelpCircle,
-  CheckCircle2,
   X
 } from 'lucide-react';
 import { mockInterviewService } from '../../services/mockInterviewService';
+import Button from '../UI/Button';
 
-export const StartInterviewModal = ({ isOpen, onClose, onSessionStarted, existingDraft, onResumeDraft, onDiscardDraft }) => {
+export const StartInterviewModal = ({
+  isOpen,
+  onClose,
+  onSessionStarted,
+  existingDraft,
+  onResumeDraft,
+  onDiscardDraft
+}) => {
   const [interviewType, setInterviewType] = useState('Behavioral');
   const [role, setRole] = useState('Fullstack Developer');
   const [questionCount, setQuestionCount] = useState(5);
@@ -27,29 +32,25 @@ export const StartInterviewModal = ({ isOpen, onClose, onSessionStarted, existin
   const tracks = [
     {
       id: 'Behavioral',
-      title: 'Behavioral Track',
-      tagline: 'STAR Method & Culture Fit',
-      description: 'Master leadership, conflict resolution, failure recovery, and communication scenarios.',
-      icon: Users,
-      badgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200'
+      title: 'Behavioral',
+      subtitle: 'STAR Method & Culture Fit',
+      icon: Users
     },
     {
       id: 'Technical',
-      title: 'Technical Fundamentals',
-      tagline: 'Core CS & Framework Internals',
-      description: 'Deep dive into REST, React Fiber, SQL/NoSQL, Docker, Node.js event loop, and web security.',
-      icon: Code,
-      badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200'
+      title: 'Technical',
+      subtitle: 'Core CS & Framework Internals',
+      icon: Code
     },
     {
       id: 'System Design',
-      title: 'System Architecture',
-      tagline: 'High-Scale Distributed Systems',
-      description: 'Architect Twitter feeds, TinyURL, distributed caching, real-time chat, and rate limiters.',
-      icon: Layers,
-      badgeColor: 'bg-purple-50 text-purple-700 border-purple-200'
+      title: 'System Design',
+      subtitle: 'High-Scale Distributed Systems',
+      icon: Layers
     }
   ];
+
+  const estimatedMinutes = questionCount * 3;
 
   const handleStart = async (e) => {
     if (e) e.preventDefault();
@@ -86,23 +87,28 @@ export const StartInterviewModal = ({ isOpen, onClose, onSessionStarted, existin
     }
   };
 
-  const modalContent = (
-    <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-xl max-w-2xl w-full mx-auto space-y-6">
+  const cardContent = (
+    <div className="bg-white rounded-[12px] border border-[#E5E7EB] p-6 sm:p-8 shadow-[0_1px_3px_rgba(0,0,0,0.1)] max-w-[500px] w-full mx-auto space-y-6">
       {/* Header */}
       <div className="flex items-start justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white shadow-md shadow-indigo-100">
+          <div className="w-[40px] h-[40px] rounded-[8px] bg-[#3B82F6] flex items-center justify-center text-white shadow-xs">
             <Mic className="w-5 h-5" />
           </div>
           <div>
-            <h3 className="text-xl font-bold text-slate-900 tracking-tight">Configure Mock Interview</h3>
-            <p className="text-xs text-slate-500">Practice under timed simulation with instant rubric feedback.</p>
+            <h2 className="text-[24px] font-bold text-[#374151] tracking-[-0.5px] leading-tight">
+              Start Interview
+            </h2>
+            <p className="text-[12px] text-[#6B7280] mt-0.5">
+              Simulate real interviews with timed questions & feedback
+            </p>
           </div>
         </div>
         {onClose && (
           <button
             onClick={onClose}
-            className="p-1 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
+            className="w-[36px] h-[36px] rounded-[8px] flex items-center justify-center text-[#6B7280] hover:text-[#374151] hover:bg-[#F3F4F6] transition-colors"
+            aria-label="Close dialog"
           >
             <X className="w-5 h-5" />
           </button>
@@ -111,24 +117,24 @@ export const StartInterviewModal = ({ isOpen, onClose, onSessionStarted, existin
 
       {/* In-Progress Draft Alert Banner */}
       {existingDraft && (
-        <div className="p-4 rounded-xl bg-amber-50 border border-amber-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
-          <div className="flex items-center gap-2 text-amber-800">
-            <AlertCircle className="w-4 h-4 flex-shrink-0" />
+        <div className="p-4 rounded-[8px] bg-[#FFFBEB] border-l-4 border-[#F59E0B] text-[#92400E] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[12px]">
+          <div className="flex items-center gap-2">
+            <AlertCircle className="w-4 h-4 text-[#F59E0B] flex-shrink-0" />
             <span>
-              You have an unfinished <strong>{existingDraft.interviewType}</strong> interview session saved in draft.
+              Unfinished <strong>{existingDraft.interviewType}</strong> session in draft.
             </span>
           </div>
           <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
             <button
               onClick={onResumeDraft}
-              className="px-3 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-700 text-white font-semibold transition-colors flex items-center gap-1"
+              className="px-3 py-1.5 rounded-[8px] bg-[#F59E0B] hover:bg-[#D97706] text-white font-semibold transition-colors flex items-center gap-1 text-[11px]"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               Resume
             </button>
             <button
               onClick={onDiscardDraft}
-              className="px-3 py-1.5 rounded-lg bg-white border border-amber-300 text-amber-700 hover:bg-amber-100 font-semibold transition-colors"
+              className="px-3 py-1.5 rounded-[8px] bg-white border border-[#FDE68A] text-[#92400E] hover:bg-[#FEF3C7] font-semibold transition-colors text-[11px]"
             >
               Discard
             </button>
@@ -137,134 +143,153 @@ export const StartInterviewModal = ({ isOpen, onClose, onSessionStarted, existin
       )}
 
       {error && (
-        <div className="p-3 rounded-lg bg-rose-50 border border-rose-200 text-xs text-rose-700 flex items-center gap-2">
-          <AlertCircle className="w-4 h-4 flex-shrink-0" />
+        <div className="p-3.5 rounded-[8px] bg-[#FEF2F2] border-l-4 border-[#EF4444] text-[13px] text-[#7F1D1D] flex items-center gap-2">
+          <AlertCircle className="w-4 h-4 text-[#EF4444] flex-shrink-0" />
           <span>{error}</span>
         </div>
       )}
 
       <form onSubmit={handleStart} className="space-y-5">
-        {/* Track Selection Cards */}
-        <div className="space-y-2">
-          <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider">
-            1. Select Interview Track
+        {/* Track Selection (3 Radio Options with Icons) */}
+        <div className="space-y-2.5">
+          <label className="block text-[14px] font-semibold text-[#374151]">
+            Track Selection
           </label>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div className="space-y-2">
             {tracks.map((t) => {
               const Icon = t.icon;
               const isSelected = interviewType === t.id;
               return (
-                <div
+                <label
                   key={t.id}
-                  onClick={() => setInterviewType(t.id)}
-                  className={`p-3.5 rounded-xl border cursor-pointer transition-all flex flex-col justify-between space-y-2 ${
+                  className={`flex items-center justify-between p-3.5 rounded-[8px] border cursor-pointer transition-all ${
                     isSelected
-                      ? 'border-indigo-600 bg-indigo-50/40 shadow-sm ring-2 ring-indigo-500/20'
-                      : 'border-slate-200 hover:border-slate-300 bg-white'
+                      ? 'border-[#3B82F6] bg-[#EBF5FF]'
+                      : 'border-[#E5E7EB] bg-white hover:bg-[#F9FAFB]'
                   }`}
                 >
-                  <div className="flex items-center justify-between">
-                    <div className={`p-2 rounded-lg ${t.badgeColor} border`}>
+                  <div className="flex items-center gap-3">
+                    <div
+                      className={`w-[36px] h-[36px] rounded-[8px] flex items-center justify-center ${
+                        isSelected
+                          ? 'bg-[#3B82F6] text-white'
+                          : 'bg-[#F3F4F6] text-[#6B7280]'
+                      }`}
+                    >
                       <Icon className="w-4 h-4" />
                     </div>
-                    {isSelected && <CheckCircle2 className="w-4 h-4 text-indigo-600" />}
+                    <div>
+                      <p className="text-[14px] font-semibold text-[#374151] leading-tight">
+                        {t.title}
+                      </p>
+                      <p className="text-[12px] text-[#6B7280] leading-tight mt-0.5">
+                        {t.subtitle}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-slate-900">{t.title}</h4>
-                    <p className="text-[10px] text-slate-400 font-medium">{t.tagline}</p>
-                  </div>
-                  <p className="text-[10px] text-slate-500 line-clamp-2 leading-relaxed">{t.description}</p>
-                </div>
+
+                  <input
+                    type="radio"
+                    name="interviewTrack"
+                    value={t.id}
+                    checked={isSelected}
+                    onChange={() => setInterviewType(t.id)}
+                    className="w-5 h-5 text-[#3B82F6] border-2 border-[#E5E7EB] focus:ring-[#3B82F6]"
+                  />
+                </label>
               );
             })}
           </div>
         </div>
 
-        {/* Dropdowns Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {/* Question Count Dropdown (3, 5, 10) */}
-          <div className="space-y-1.5">
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider">
-              2. Number of Questions
+        {/* Question Count Slider (3 to 10, default: 5) */}
+        <div className="space-y-2">
+          <div className="flex items-center justify-between">
+            <label className="text-[14px] font-semibold text-[#374151]">
+              Number of Questions: <span className="text-[#3B82F6] font-bold">{questionCount}</span>
             </label>
-            <select
-              value={questionCount}
-              onChange={(e) => setQuestionCount(e.target.value)}
-              className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            >
-              <option value="3">3 Questions — Quick Sprint (6 mins)</option>
-              <option value="5">5 Questions — Standard Interview (10 mins)</option>
-              <option value="10">10 Questions — In-Depth Simulation (20 mins)</option>
-            </select>
+            <span className="text-[12px] text-[#6B7280]">
+              Range: 3 - 10
+            </span>
           </div>
 
-          {/* Role selector */}
-          <div className="space-y-1.5">
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider">
-              3. Target Engineering Role
-            </label>
-            <select
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
-              className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            >
-              <option value="Fullstack Developer">Fullstack Developer</option>
-              <option value="Frontend Developer">Frontend Developer</option>
-              <option value="Backend Developer">Backend Developer</option>
-              <option value="DevOps Engineer">DevOps Engineer</option>
-              <option value="Data Engineer">Data Engineer</option>
-              <option value="QA Engineer">QA Engineer</option>
-            </select>
+          <input
+            type="range"
+            min="3"
+            max="10"
+            step="1"
+            value={questionCount}
+            onChange={(e) => setQuestionCount(parseInt(e.target.value, 10))}
+            className="w-full h-2 bg-[#E5E7EB] rounded-[4px] appearance-none cursor-pointer accent-[#3B82F6]"
+          />
+
+          <div className="flex justify-between text-[11px] text-[#6B7280] pt-0.5">
+            <span>3 questions</span>
+            <span>5 (standard)</span>
+            <span>10 questions</span>
           </div>
         </div>
 
-        {/* Timer Toggle */}
-        <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <Clock className="w-4 h-4 text-indigo-600" />
-            <div>
-              <span className="text-xs font-bold text-slate-800">2-Minute Question Countdown Timer</span>
-              <p className="text-[10px] text-slate-400">Simulates real interview pacing with visual time alerts.</p>
-            </div>
+        {/* Estimated Time (Calculated: 3 mins per question) */}
+        <div className="p-3.5 rounded-[8px] bg-[#F3F4F6] border border-[#E5E7EB] flex items-center justify-between text-[13px]">
+          <div className="flex items-center gap-2 text-[#374151]">
+            <Clock className="w-4 h-4 text-[#3B82F6]" />
+            <span className="font-semibold">Estimated Time:</span>
           </div>
-          <label className="relative inline-flex items-center cursor-pointer">
-            <input
-              type="checkbox"
-              checked={timerEnabled}
-              onChange={(e) => setTimerEnabled(e.target.checked)}
-              className="sr-only peer"
-            />
-            <div className="w-9 h-5 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+          <span className="font-bold text-[#3B82F6]">
+            ~{estimatedMinutes} mins ({questionCount} questions × 3 mins)
+          </span>
+        </div>
+
+        {/* Target Role Selector */}
+        <div className="space-y-1.5">
+          <label className="block text-[14px] font-semibold text-[#374151]">
+            Target Role
           </label>
+          <select
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+            className="w-full px-4 py-2.5 bg-white border border-[#E5E7EB] rounded-[8px] text-[14px] text-[#374151] focus:outline-none focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/20 transition-all"
+          >
+            <option value="Fullstack Developer">Fullstack Developer</option>
+            <option value="Frontend Developer">Frontend Developer</option>
+            <option value="Backend Developer">Backend Developer</option>
+            <option value="DevOps Engineer">DevOps Engineer</option>
+            <option value="Data Engineer">Data Engineer</option>
+            <option value="QA Engineer">QA Engineer</option>
+          </select>
         </div>
 
-        {/* Start Button */}
+        {/* Begin Interview Button (Large Primary Button) */}
         <div className="pt-2">
-          <button
+          <Button
             type="submit"
-            disabled={loading}
-            className="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-md shadow-indigo-100 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+            variant="primary"
+            loading={loading}
+            className="w-full py-3 text-[15px] font-semibold justify-center shadow-md hover:shadow-lg"
           >
-            <Play className="w-4 h-4 fill-white" />
-            {loading ? 'Fetching Questions & Initializing...' : `Start ${interviewType} Interview (${questionCount} Questions)`}
-          </button>
+            <Play className="w-4 h-4 fill-white mr-2" />
+            Begin Interview
+          </Button>
         </div>
       </form>
     </div>
   );
 
-  // If used as modal with isOpen prop
+  // If used as modal
   if (isOpen !== undefined) {
     if (!isOpen) return null;
     return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-sm animate-fadeIn">
-        {modalContent}
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs animate-fade-in">
+        <div className="animate-scale-up w-full max-w-[500px]">
+          {cardContent}
+        </div>
       </div>
     );
   }
 
   // If embedded directly on page
-  return modalContent;
+  return cardContent;
 };
 
 export default StartInterviewModal;

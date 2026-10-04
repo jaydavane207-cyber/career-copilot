@@ -585,14 +585,21 @@ const calculateReadinessScore = async (userId, userTargetRole) => {
     recommendations,
     recentActivities,
     // Backward compatibility fields
-    totalReadiness: readinessScore,
     metrics: {
+      resumeScore,
+      skillCoverage: skillGapScore,
+      studyProgress,
+      interviewScore,
+      jobsApplied: totalJobsApplied,
+      codingSolved: codesProblemsLogged,
       activeInterviews: interviewsScheduled,
       appliedJobs: totalJobsApplied,
       totalTrackedJobs: totalJobsApplied,
       codingProblemsSolved: codesProblemsLogged,
       activeStudyPlanProgress: studyProgress
     },
+    recentActivities,
+    recentActivity: recentActivities,
     recentJobs
   };
 };

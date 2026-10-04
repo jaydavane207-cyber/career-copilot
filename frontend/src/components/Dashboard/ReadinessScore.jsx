@@ -1,46 +1,32 @@
 // frontend/src/components/Dashboard/ReadinessScore.jsx
 import React, { useState, useEffect } from 'react';
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
-import { Target, Clock, RefreshCw, Sparkles, AlertCircle, CheckCircle, Flame } from 'lucide-react';
+import { Target, RefreshCw, Sparkles, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
 
 /**
- * Color coding helper:
- * Red (0-33): "Start Here"
- * Yellow (34-66): "Getting There"
- * Green (67-100): "Ready!"
+ * Helper to determine score status & colors:
+ * Red (0-33%), Yellow (34-66%), Green (67-100%)
  */
-export const getScoreColorConfig = (score = 0) => {
+export const getScoreStatusConfig = (score = 0) => {
   if (score <= 33) {
     return {
-      status: 'Start Here',
-      pathColor: '#EF4444', // Red-500
-      trailColor: '#FEE2E2', // Red-100
-      textColor: '#B91C1C', // Red-700
-      badgeBg: 'bg-rose-50 text-rose-700 border-rose-200',
-      pillColor: 'bg-rose-500',
-      icon: AlertCircle
+      status: 'Needs Preparation',
+      color: '#EF4444',
+      badgeBg: 'bg-red-500/20 text-white border-red-300/40'
     };
   }
   if (score <= 66) {
     return {
       status: 'Getting There',
-      pathColor: '#F59E0B', // Amber-500
-      trailColor: '#FEF3C7', // Amber-100
-      textColor: '#B45309', // Amber-700
-      badgeBg: 'bg-amber-50 text-amber-700 border-amber-200',
-      pillColor: 'bg-amber-500',
-      icon: Flame
+      color: '#F59E0B',
+      badgeBg: 'bg-amber-400/20 text-white border-amber-300/40'
     };
   }
   return {
     status: 'Ready!',
-    pathColor: '#10B981', // Emerald-500
-    trailColor: '#D1FAE5', // Emerald-100
-    textColor: '#047857', // Emerald-700
-    badgeBg: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-    pillColor: 'bg-emerald-500',
-    icon: CheckCircle
+    color: '#10B981',
+    badgeBg: 'bg-emerald-400/20 text-white border-emerald-300/40'
   };
 };
 
@@ -48,23 +34,26 @@ export const ReadinessScore = ({
   score = 0,
   targetRole = 'Frontend Developer',
   readinessLabel,
-  timeEstimate,
   onRefresh,
   isRefreshing = false,
   lastUpdated
 }) => {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  const displayName = user?.name || user?.fullName || 'Candidate';
+  const validScore = Math.min(100, Math.max(0, Math.round(score || 0)));
+
   // Smooth animation for circular score transition
   const [animatedScore, setAnimatedScore] = useState(0);
 
   useEffect(() => {
     let start = 0;
-    const end = Math.min(100, Math.max(0, Math.round(score || 0)));
+    const end = validScore;
     if (end === 0) {
       setAnimatedScore(0);
       return;
     }
-
-    const duration = 800; // ms
+    const duration = 600;
     const stepTime = 16;
     const steps = duration / stepTime;
     const increment = end / steps;
@@ -80,93 +69,133 @@ export const ReadinessScore = ({
     }, stepTime);
 
     return () => clearInterval(timer);
-  }, [score]);
+  }, [validScore]);
 
-  const colorConfig = getScoreColorConfig(score);
-  const StatusIcon = colorConfig.icon;
-  const labelText = readinessLabel || colorConfig.status;
+  const statusConfig = getScoreStatusConfig(validScore);
+  const statusText = readinessLabel || statusConfig.status;
+
+  // SVG Circular progress dimensions (200px diameter)
+  const size = 200;
+  const strokeWidth = 12;
+  const radius = (size - strokeWidth) / 2;
+  const circumference = 2 * Math.PI * radius;
+  const strokeDashoffset = circumference - (animatedScore / 100) * circumference;
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition-shadow">
-      <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-        {/* Left Side: Score & Primary Progress Ring */}
-        <div className="flex flex-col sm:flex-row items-center gap-6 w-full md:w-auto text-center sm:text-left">
-          {/* Large Circular Progress Bar */}
-          <div className="w-32 h-32 sm:w-36 sm:h-36 flex-shrink-0 relative">
-            <CircularProgressbar
-              value={animatedScore}
-              text={`${animatedScore}%`}
-              styles={buildStyles({
-                strokeLinecap: 'round',
-                textSize: '24px',
-                pathTransitionDuration: 0.5,
-                pathColor: colorConfig.pathColor,
-                textColor: '#0F172A', // Slate-900
-                trailColor: colorConfig.trailColor,
-                backgroundColor: '#F8FAFC'
-              })}
-            />
+    <div className="bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white p-[32px] sm:p-[40px_32px] rounded-[12px] mb-[32px] shadow-[0_4px_12px_rgba(59,130,246,0.25)] relative overflow-hidden">
+      {/* Background ambient lighting */}
+      <div className="absolute -right-10 -bottom-10 w-72 h-72 bg-white/10 rounded-full blur-2xl pointer-events-none" />
+
+      <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+        {/* Left Column: Greeting, Subtext, & Large CTA button */}
+        <div className="space-y-4 max-w-xl text-center lg:text-left flex-1">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 backdrop-blur-xs text-[12px] font-semibold border border-white/20">
+            <Sparkles className="w-3.5 h-3.5 text-blue-100" />
+            <span>AI Career Copilot Cockpit</span>
           </div>
 
-          {/* Details column */}
-          <div className="space-y-2">
-            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                Career Readiness Index
-              </span>
-              <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border ${colorConfig.badgeBg}`}>
-                <StatusIcon className="w-3.5 h-3.5" />
-                {labelText}
-              </span>
-            </div>
+          <h1 className="text-[28px] sm:text-[32px] leading-[36px] sm:leading-[40px] font-bold text-white tracking-[-0.5px]">
+            Welcome back, {displayName}!
+          </h1>
 
-            <div>
-              <h2 className="text-2xl font-black text-slate-900 tracking-tight flex items-center justify-center sm:justify-start gap-2">
-                <span>Overall Readiness</span>
-              </h2>
-              <div className="flex items-center justify-center sm:justify-start gap-1.5 text-sm font-semibold text-indigo-600 mt-0.5">
-                <Target className="w-4 h-4 flex-shrink-0" />
-                <span>Target Role: {targetRole || 'Frontend Developer'}</span>
-              </div>
-            </div>
+          <p className="text-[16px] leading-[24px] text-blue-100 tracking-[0.25px]">
+            You're <span className="font-bold text-white">{validScore}%</span> ready for{' '}
+            <span className="font-semibold text-white underline decoration-white/40 underline-offset-4">
+              {targetRole || 'Frontend Developer'}
+            </span>
+          </p>
 
-            {/* Time Estimate to be Ready */}
-            <div className="flex items-center justify-center sm:justify-start gap-2 text-xs text-slate-600 bg-slate-50 border border-slate-200/80 rounded-xl px-3 py-1.5 w-fit mx-auto sm:mx-0">
-              <Clock className="w-3.5 h-3.5 text-indigo-500 flex-shrink-0" />
-              <span>
-                {timeEstimate || (score >= 67 ? 'Ready to apply for jobs!' : '~2-3 weeks at current prep pace')}
-              </span>
-            </div>
+          <p className="text-[13px] text-blue-100/90 leading-relaxed max-w-md hidden sm:block">
+            Weighted index combining ATS Resume Coverage (20%), Skill Matrix (30%), Study Roadmap (25%), and Mock Interview Performance (25%).
+          </p>
+
+          {/* Action Row */}
+          <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+            <button
+              type="button"
+              onClick={() => {
+                const nextSection = document.getElementById('next-steps-section');
+                if (nextSection) {
+                  nextSection.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  navigate('/study-plan');
+                }
+              }}
+              className="bg-white hover:bg-blue-50 text-[#2563EB] text-[15px] font-bold py-[12px] px-[28px] rounded-[8px] shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:shadow-lg active:scale-[0.98] transition-all duration-200 inline-flex items-center gap-2"
+            >
+              <span>Continue Preparation</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+
+            {onRefresh && (
+              <button
+                type="button"
+                onClick={onRefresh}
+                disabled={isRefreshing}
+                className="px-3.5 py-2.5 rounded-[8px] bg-white/15 hover:bg-white/25 text-white text-[13px] font-medium transition-all inline-flex items-center gap-1.5 border border-white/20"
+                title="Sync latest scores"
+              >
+                <RefreshCw className={`w-3.5 h-3.5 ${isRefreshing ? 'animate-spin' : ''}`} />
+                <span>{isRefreshing ? 'Syncing...' : 'Sync'}</span>
+              </button>
+            )}
           </div>
+
+          {lastUpdated && (
+            <p className="text-[11px] text-blue-200/80">
+              Last synchronized: {lastUpdated}
+            </p>
+          )}
         </div>
 
-        {/* Right Side: Score Status, Refresh & Pacing Helper */}
-        <div className="flex flex-col items-center md:items-end justify-between self-stretch gap-4 border-t md:border-t-0 pt-4 md:pt-0 border-slate-100">
-          <div className="flex items-center gap-2">
-            <button
-              onClick={onRefresh}
-              disabled={isRefreshing}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 bg-slate-50 hover:bg-white hover:border-indigo-300 hover:text-indigo-600 transition-all shadow-2xs disabled:opacity-50"
-              title="Refresh dashboard data"
-            >
-              <RefreshCw className={`w-3.5 h-3.5 ${isRefreshing ? 'animate-spin text-indigo-600' : 'text-slate-500'}`} />
-              <span>{isRefreshing ? 'Updating...' : 'Sync Now'}</span>
-            </button>
-            <span className="text-[11px] text-slate-400 font-medium hidden sm:inline">
-              Auto-refreshes every 60s
-            </span>
+        {/* Right Column: Readiness Score Card (Hero) - 200px diameter */}
+        <div className="flex flex-col items-center flex-shrink-0 bg-white/10 backdrop-blur-md rounded-[16px] p-6 border border-white/20 shadow-inner">
+          <div className="relative w-[200px] h-[200px] flex items-center justify-center">
+            <svg width={size} height={size} className="transform -rotate-90">
+              {/* Background ring */}
+              <circle
+                cx={size / 2}
+                cy={size / 2}
+                r={radius}
+                stroke="rgba(255, 255, 255, 0.2)"
+                strokeWidth={strokeWidth}
+                fill="none"
+              />
+              {/* Animated Progress ring */}
+              <circle
+                cx={size / 2}
+                cy={size / 2}
+                r={radius}
+                stroke={statusConfig.color}
+                strokeWidth={strokeWidth}
+                strokeDasharray={circumference}
+                strokeDashoffset={strokeDashoffset}
+                strokeLinecap="round"
+                fill="none"
+                className="transition-all duration-700 ease-out"
+              />
+            </svg>
+
+            {/* Inner Content */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-2">
+              <span className="text-[38px] font-extrabold text-white leading-none tracking-tight">
+                {animatedScore}%
+              </span>
+              <span className="text-[13px] font-semibold text-blue-100 uppercase tracking-wider mt-1">
+                % Ready
+              </span>
+            </div>
           </div>
 
-          <div className="text-center md:text-right space-y-1">
-            <div className="flex items-center justify-center md:justify-end gap-1.5 text-xs font-medium text-slate-500">
-              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-              <span>Weighted: Resume (20%) + Skills (30%) + Study (25%) + Interview (25%)</span>
+          {/* Status Label below */}
+          <div className="mt-3 text-center space-y-1">
+            <div className={`px-3 py-1 rounded-full text-[12px] font-bold border ${statusConfig.badgeBg}`}>
+              {statusText}
             </div>
-            {lastUpdated && (
-              <p className="text-[10px] text-slate-400">
-                Last checked: {lastUpdated}
-              </p>
-            )}
+            <div className="flex items-center justify-center gap-1 text-[12px] text-blue-100 font-medium">
+              <Target className="w-3.5 h-3.5" />
+              <span>Target: {targetRole || 'Frontend Developer'}</span>
+            </div>
           </div>
         </div>
       </div>

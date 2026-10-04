@@ -133,12 +133,14 @@ export const Dashboard = () => {
         lastUpdated={lastUpdated}
       />
 
-      {/* Key Metrics Cards (2x2 Grid) */}
+      {/* Key Metrics Cards (6-Card Responsive Grid) */}
       <MetricsCards
         resumeScore={data?.resumeScore || 0}
         skillGapScore={data?.skillGapScore || 0}
         studyProgress={data?.studyProgress || 0}
         interviewScore={data?.interviewScore || 0}
+        jobsApplied={data?.summary?.totalJobsApplied || data?.metrics?.jobsApplied || 0}
+        codingSolved={data?.summary?.codesProblemsLogged || data?.metrics?.codingSolved || 0}
       />
 
       {/* Quick Stats Section */}

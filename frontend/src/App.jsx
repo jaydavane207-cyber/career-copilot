@@ -10,6 +10,7 @@ import Unauthorized from './pages/Unauthorized';
 import Login from './components/Auth/Login';
 import SignUp from './components/Auth/SignUp';
 import ProtectedRoute from './components/Auth/ProtectedRoute';
+import AppLayout from './components/Layout/AppLayout';
 
 // Module Components
 import ResumeAnalyzer from './components/Resume/ResumeAnalyzer';
@@ -107,11 +108,13 @@ const CodingView = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+    <div className="space-y-6">
       {/* Page Header */}
       <div>
-        <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Coding Practice Tracker</h2>
-        <p className="text-xs text-slate-500">
+        <h1 className="text-[28px] font-bold text-[#374151] tracking-[-0.5px]">
+          Coding Practice Tracker
+        </h1>
+        <p className="text-[14px] text-[#6B7280]">
           Track problem-solving velocity, conquer weak algorithmic topics, and reinforce memory via automated spaced repetition.
         </p>
       </div>
@@ -271,59 +274,59 @@ const MockInterviewView = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+    <div className="space-y-6">
       {/* Page Header & Navigation Tabs */}
       {!activeSession && !result && (
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-2 border-b border-slate-200">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-3 border-b border-[#E5E7EB]">
           <div>
-            <div className="flex items-center gap-2.5">
-              <div className="p-2 rounded-xl bg-indigo-600 text-white shadow-sm">
+            <div className="flex items-center gap-3">
+              <div className="w-[40px] h-[40px] rounded-[8px] bg-[#3B82F6] text-white flex items-center justify-center shadow-xs">
                 <Mic className="w-5 h-5" />
               </div>
-              <h2 className="text-2xl font-black text-slate-900 tracking-tight">
+              <h1 className="text-[28px] font-bold text-[#374151] tracking-[-0.5px]">
                 Simulated Mock Interviews
-              </h2>
+              </h1>
             </div>
-            <p className="text-xs text-slate-500 mt-1">
-              Practice 100 questions across Behavioral, Technical, and System Design tracks with timed simulation, rubric scoring, and model answers.
+            <p className="text-[14px] text-[#6B7280] mt-1">
+              Practice questions across Behavioral, Technical, and System Design tracks with timed simulation, rubric scoring, and model answers.
             </p>
           </div>
 
           {/* Action Tabs & Launch Modal Button */}
-          <div className="flex items-center gap-2.5 w-full sm:w-auto justify-between sm:justify-end">
-            <div className="flex items-center bg-slate-100 p-1 rounded-xl text-xs font-semibold text-slate-600">
+          <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end">
+            <div className="flex items-center bg-[#F3F4F6] p-1 rounded-[8px] text-[13px] font-semibold text-[#6B7280]">
               <button
                 onClick={() => setActiveTab('practice')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-colors ${
-                  activeTab === 'practice' ? 'bg-white text-indigo-600 shadow-2xs font-bold' : 'hover:text-slate-900'
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-[6px] transition-colors ${
+                  activeTab === 'practice' ? 'bg-white text-[#3B82F6] shadow-xs font-bold' : 'hover:text-[#374151]'
                 }`}
               >
-                <Sparkles className="w-3.5 h-3.5" />
+                <Sparkles className="w-4 h-4" />
                 Practice
               </button>
               <button
                 onClick={() => setActiveTab('history')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-colors ${
-                  activeTab === 'history' ? 'bg-white text-indigo-600 shadow-2xs font-bold' : 'hover:text-slate-900'
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-[6px] transition-colors ${
+                  activeTab === 'history' ? 'bg-white text-[#3B82F6] shadow-xs font-bold' : 'hover:text-[#374151]'
                 }`}
               >
-                <History className="w-3.5 h-3.5" />
+                <History className="w-4 h-4" />
                 History ({history.length})
               </button>
               <button
                 onClick={() => setActiveTab('analytics')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-colors ${
-                  activeTab === 'analytics' ? 'bg-white text-indigo-600 shadow-2xs font-bold' : 'hover:text-slate-900'
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-[6px] transition-colors ${
+                  activeTab === 'analytics' ? 'bg-white text-[#3B82F6] shadow-xs font-bold' : 'hover:text-[#374151]'
                 }`}
               >
-                <BarChart2 className="w-3.5 h-3.5" />
+                <BarChart2 className="w-4 h-4" />
                 Analytics
               </button>
             </div>
 
             <button
               onClick={() => setIsModalOpen(true)}
-              className="px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-sm transition-all flex items-center gap-1.5 flex-shrink-0"
+              className="px-4 py-2 rounded-[8px] bg-[#3B82F6] hover:bg-[#2563EB] text-white font-semibold text-[13px] shadow-xs transition-colors flex items-center gap-1.5 flex-shrink-0"
             >
               <Plus className="w-4 h-4" />
               <span className="hidden sm:inline">New Interview</span>
@@ -371,8 +374,8 @@ const MockInterviewView = () => {
         />
       ) : (
         /* Default 'practice' Tab */
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div className="lg:col-span-5 flex justify-center">
             <StartInterviewModal
               onSessionStarted={handleSessionStarted}
               existingDraft={existingDraft}
@@ -380,9 +383,9 @@ const MockInterviewView = () => {
               onDiscardDraft={handleDiscardDraft}
             />
           </div>
-          <div className="lg:col-span-1 space-y-4">
+          <div className="lg:col-span-7 space-y-4">
             <InterviewHistory
-              history={history.slice(0, 4)}
+              history={history.slice(0, 5)}
               onSelectSession={handleSelectPastSession}
               onStartNew={() => setIsModalOpen(true)}
             />
@@ -410,64 +413,42 @@ const MockInterviewView = () => {
 
 export const App = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans">
-      <Navbar />
-      <main className="flex-1">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
+    <Routes>
+      {/* Public Landing & Auth Pages */}
+      <Route
+        path="/"
+        element={
+          <div className="min-h-screen flex flex-col bg-[#F9FAFB] text-[#374151] font-sans antialiased">
+            <Navbar />
+            <main className="flex-1">
+              <Home />
+            </main>
+          </div>
+        }
+      />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<SignUp />} />
 
-          {/* Protected Routes */}
-          <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
-          <Route
-            path="/resume"
-            element={
-              <ProtectedRoute>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                  <ResumeAnalyzer />
-                </div>
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/jobs"
-            element={
-              <ProtectedRoute>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                  <KanbanBoard />
-                </div>
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/skills"
-            element={
-              <ProtectedRoute>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                  <GapAnalysis />
-                </div>
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/study-plan"
-            element={
-              <ProtectedRoute>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                  <PlanDashboard />
-                </div>
-              </ProtectedRoute>
-            }
-          />
-          <Route path="/coding" element={<ProtectedRoute><CodingView /></ProtectedRoute>} />
-          <Route path="/mock-interview" element={<ProtectedRoute><MockInterviewView /></ProtectedRoute>} />
+      {/* Authenticated Application Routes wrapped in AppLayout */}
+      <Route
+        element={
+          <ProtectedRoute>
+            <AppLayout />
+          </ProtectedRoute>
+        }
+      >
+        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/resume" element={<ResumeAnalyzer />} />
+        <Route path="/jobs" element={<KanbanBoard />} />
+        <Route path="/skills" element={<GapAnalysis />} />
+        <Route path="/study-plan" element={<PlanDashboard />} />
+        <Route path="/coding" element={<CodingView />} />
+        <Route path="/mock-interview" element={<MockInterviewView />} />
+      </Route>
 
-          <Route path="/unauthorized" element={<Unauthorized />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </main>
-    </div>
+      <Route path="/unauthorized" element={<Unauthorized />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 };
 

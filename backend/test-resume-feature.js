@@ -168,7 +168,9 @@ async function runTests() {
   if (fs.existsSync(testPdfPath)) fs.unlinkSync(testPdfPath);
   console.log('\n🎉 ALL RESUME ANALYZER BACKEND TESTS PASSED SUCCESSFULLY! 🚀');
   server.close(() => {
-    process.exit(0);
+    setTimeout(() => {
+      process.exit(0);
+    }, 100);
   });
 }
 
