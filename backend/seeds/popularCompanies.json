@@ -1,0 +1,1015 @@
+[
+  {
+    "id": "google-india",
+    "name": "Google India",
+    "category": "Tier-1 Product / Big Tech",
+    "tier": "Tier 1",
+    "headquarters": "Bengaluru",
+    "indiaOffices": [
+      "Bengaluru",
+      "Hyderabad",
+      "Gurugram",
+      "Mumbai"
+    ],
+    "typicalRounds": [
+      "Online Assessment (DSA on HackerRank/Google Portal)",
+      "Technical Phone Screen (DSA - Graphs/DP)",
+      "Onsite Technical Round 1 (DSA & Concurrency)",
+      "Onsite Technical Round 2 (System Design HLD)",
+      "Onsite Technical Round 3 (Low-Level Design LLD)",
+      "Googliness & Leadership Round"
+    ],
+    "focusAreas": [
+      "DSA (DP, Graphs, Trees)",
+      "Distributed System Design",
+      "Concurrency",
+      "Clean Code"
+    ],
+    "salaryRangeByLevel": {
+      "L3 (Software Engineer I)": "₹28 LPA - ₹42 LPA (Total Comp)",
+      "L4 (Software Engineer II)": "₹50 LPA - ₹75 LPA (Total Comp)",
+      "L5 (Senior Software Engineer)": "₹85 LPA - ₹1.4 Cr (Total Comp)",
+      "L6 (Staff Software Engineer)": "₹1.5 Cr - ₹2.5 Cr (Total Comp)"
+    },
+    "interviewTips": [
+      "Over-communicate your thought process before writing any code.",
+      "Be prepared to analyze time and space complexity with exact Big-O proofs.",
+      "In System Design, calculate capacity estimations and write down assumptions clearly.",
+      "For Googliness, give structured answers demonstrating intellectual humility, feedback receptivity, and empathy."
+    ],
+    "popularRoles": [
+      "Senior Software Engineer",
+      "Backend Developer",
+      "Machine Learning Engineer",
+      "System Design Architect"
+    ]
+  },
+  {
+    "id": "microsoft-idc",
+    "name": "Microsoft IDC (India Development Center)",
+    "category": "Tier-1 Product / Big Tech",
+    "tier": "Tier 1",
+    "headquarters": "Hyderabad",
+    "indiaOffices": [
+      "Hyderabad",
+      "Bengaluru",
+      "Noida"
+    ],
+    "typicalRounds": [
+      "Online Assessment (Codility / 3 DSA Questions)",
+      "Technical Round 1 (DSA - Trees, Arrays, Strings)",
+      "Technical Round 2 (DSA - Dynamic Programming & Graphs)",
+      "Technical Round 3 (System Design & Architecture)",
+      "Partner / Hiring Manager Round (Culture & Past Projects)"
+    ],
+    "focusAreas": [
+      "Data Structures & Algorithms",
+      "System Design",
+      "Cloud Concepts (Azure)",
+      "Object-Oriented Design"
+    ],
+    "salaryRangeByLevel": {
+      "L59/L60 (SDE-1)": "₹22 LPA - ₹35 LPA",
+      "L61/L62 (SDE-2)": "₹40 LPA - ₹65 LPA",
+      "L63/L64 (Senior SDE)": "₹70 LPA - ₹1.1 Cr"
+    },
+    "interviewTips": [
+      "Microsoft heavily tests Tree traversals, Graph algorithms, and Linked List edge cases.",
+      "Clean, modular, production-ready code with proper variable naming is strictly evaluated.",
+      "Demonstrate curiosity about distributed cloud architectures (Azure)."
+    ],
+    "popularRoles": [
+      "Senior Software Engineer",
+      "Full Stack Developer",
+      "Cloud Engineer",
+      "Data Engineer"
+    ]
+  },
+  {
+    "id": "amazon-india",
+    "name": "Amazon India",
+    "category": "Tier-1 Product / Big Tech",
+    "tier": "Tier 1",
+    "headquarters": "Bengaluru",
+    "indiaOffices": [
+      "Bengaluru",
+      "Hyderabad",
+      "Chennai",
+      "Gurugram",
+      "Pune"
+    ],
+    "typicalRounds": [
+      "Online Assessment (Debugging, 2 DSA questions, Work Styles Simulation)",
+      "Technical Round 1 (Problem Solving & DSA + Leadership Principles)",
+      "Technical Round 2 (DSA + Leadership Principles)",
+      "Technical Round 3 (System Design / LLD + Leadership Principles)",
+      "Bar Raiser Round (High-bar System Architecture & Deep LP Probing)"
+    ],
+    "focusAreas": [
+      "DSA (Heaps, Trees, Graphs, DP)",
+      "High-Level System Design",
+      "Object-Oriented Design",
+      "Amazon Leadership Principles"
+    ],
+    "salaryRangeByLevel": {
+      "SDE-1": "₹24 LPA - ₹38 LPA",
+      "SDE-2": "₹45 LPA - ₹72 LPA",
+      "SDE-3 (Senior SDE)": "₹80 LPA - ₹1.3 Cr"
+    },
+    "interviewTips": [
+      "EVERY round reserves 20-25 minutes for Amazon Leadership Principles (Customer Obsession, Ownership, Bias for Action).",
+      "Prepare 2 distinct STAR stories for each of the 16 Leadership Principles.",
+      "The Bar Raiser is an external Amazonian specifically tasked with ensuring you raise the engineering average."
+    ],
+    "popularRoles": [
+      "Senior Software Engineer",
+      "Backend Developer",
+      "DevOps Engineer",
+      "Solutions Architect"
+    ]
+  },
+  {
+    "id": "flipkart",
+    "name": "Flipkart",
+    "category": "E-Commerce Unicorn",
+    "tier": "Tier 1",
+    "headquarters": "Bengaluru",
+    "indiaOffices": [
+      "Bengaluru"
+    ],
+    "typicalRounds": [
+      "Online Coding Assessment (HackerRank)",
+      "Machine Coding Round (90 mins to code a fully working, extensible Low-Level Design in Java/Python)",
+      "DSA & Problem Solving Round",
+      "System Design HLD Round (High-scale Big Billion Days traffic)",
+      "Hiring Manager / Culture Fit Round"
+    ],
+    "focusAreas": [
+      "Machine Coding (LLD)",
+      "Design Patterns (Strategy, Factory, Observer)",
+      "System Design",
+      "Concurrency"
+    ],
+    "salaryRangeByLevel": {
+      "SDE-1": "₹22 LPA - ₹34 LPA",
+      "SDE-2": "₹38 LPA - ₹60 LPA",
+      "SDE-3": "₹65 LPA - ₹95 LPA"
+    },
+    "interviewTips": [
+      "The Machine Coding round is Flipkart's signature elimination filter. You must write clean, runnable, modular OOP code with unit tests within 90 minutes.",
+      "Practice problems like Splitwise, Snake and Ladder, In-Memory File System, or Parking Lot before your interview.",
+      "System design rounds focus on flash sales, inventory locking, and high-volume order pipelines."
+    ],
+    "popularRoles": [
+      "Senior Software Engineer",
+      "Frontend Developer",
+      "Backend Developer",
+      "Product Manager"
+    ]
+  },
+  {
+    "id": "swiggy",
+    "name": "Swiggy",
+    "category": "Consumer Tech / Food Delivery Unicorn",
+    "tier": "Tier 1",
+    "headquarters": "Bengaluru",
+    "indiaOffices": [
+      "Bengaluru",
+      "Hyderabad",
+      "Gurugram"
+    ],
+    "typicalRounds": [
+      "Online Assessment / Take-Home Challenge",
+      "Machine Coding Round (OOP Design & Clean Execution)",
+      "DSA & Data Structures Deep Dive",
+      "System Design Round (Real-time tracking, Geohash, Matchmaking)",
+      "Techno-Managerial & Culture Fit Round"
+    ],
+    "focusAreas": [
+      "Machine Coding",
+      "Geospatial Indexing (H3, S2, Geohash)",
+      "Kafka Event Streaming",
+      "Low Latency"
+    ],
+    "salaryRangeByLevel": {
+      "SDE-1": "₹20 LPA - ₹32 LPA",
+      "SDE-2": "₹36 LPA - ₹55 LPA",
+      "SDE-3": "₹60 LPA - ₹88 LPA"
+    },
+    "interviewTips": [
+      "Understand hyperlocal logistics concepts: ETA estimation, driver dispatch, surge algorithms, and order state machines.",
+      "Machine coding round requires clean modular code with zero compilation errors.",
+      "In System Design, explain how to handle Diwali and New Year Eve traffic spikes."
+    ],
+    "popularRoles": [
+      "Backend Developer",
+      "Full Stack Developer",
+      "Android Developer",
+      "Data Scientist"
+    ]
+  },
+  {
+    "id": "razorpay",
+    "name": "Razorpay",
+    "category": "Fintech Unicorn",
+    "tier": "Tier 1",
+    "headquarters": "Bengaluru",
+    "indiaOffices": [
+      "Bengaluru",
+      "Mumbai",
+      "Delhi NCR"
+    ],
+    "typicalRounds": [
+      "Online Assessment (DSA on HackerRank)",
+      "DSA & Algorithms Round",
+      "System Architecture & API Design Round",
+      "Low-Level Design & Code Craftsmanship Round",
+      "Director / Culture Round"
+    ],
+    "focusAreas": [
+      "API Design & Idempotency",
+      "Database Locking & ACID Transactions",
+      "Distributed Systems",
+      "Security"
+    ],
+    "salaryRangeByLevel": {
+      "Software Engineer (SE)": "₹18 LPA - ₹28 LPA",
+      "Senior Software Engineer (SSE)": "₹34 LPA - ₹52 LPA",
+      "Lead Software Engineer": "₹55 LPA - ₹80 LPA"
+    },
+    "interviewTips": [
+      "Payment systems require zero financial discrepancies. Emphasize idempotency, double-entry bookkeeping, and transaction isolation.",
+      "Razorpay engineering values developer tooling, API elegance, and clean architecture.",
+      "Familiarize yourself with UPI flow, payment gateway webhooks, and banking switch reconciliation."
+    ],
+    "popularRoles": [
+      "Senior Software Engineer",
+      "Backend Developer",
+      "Security Engineer",
+      "DevOps Engineer"
+    ]
+  },
+  {
+    "id": "cred",
+    "name": "CRED",
+    "category": "Fintech Unicorn",
+    "tier": "Tier 1",
+    "headquarters": "Bengaluru",
+    "indiaOffices": [
+      "Bengaluru"
+    ],
+    "typicalRounds": [
+      "Take-Home Machine Coding Assignment or Live Coding",
+      "DSA & Problem Solving",
+      "Low-Level Design / Machine Coding Walkthrough",
+      "High-Level System Design (Microservices & High Throughput)",
+      "Bar Raiser / Founder's Office Cultural Alignment"
+    ],
+    "focusAreas": [
+      "Clean Architecture",
+      "Reactive Programming",
+      "High-Fidelity UI (for Frontend)",
+      "Scalable Backend"
+    ],
+    "salaryRangeByLevel": {
+      "Software Engineer": "₹24 LPA - ₹38 LPA",
+      "Senior Software Engineer": "₹45 LPA - ₹75 LPA",
+      "Staff Engineer": "₹80 LPA - ₹1.2 Cr"
+    },
+    "interviewTips": [
+      "CRED sets a very high bar for design aesthetics on frontend and architectural elegance on backend.",
+      "Code submitted in take-home challenges should have production-grade formatting, linting, tests, and Docker support.",
+      "Be prepared for deep questions on concurrency, reactive streams, and distributed caching."
+    ],
+    "popularRoles": [
+      "Frontend Developer",
+      "iOS Developer",
+      "Backend Developer",
+      "Senior Software Engineer"
+    ]
+  },
+  {
+    "id": "phonepe",
+    "name": "PhonePe",
+    "category": "Fintech Unicorn",
+    "tier": "Tier 1",
+    "headquarters": "Bengaluru",
+    "indiaOffices": [
+      "Bengaluru",
+      "Pune",
+      "Mumbai"
+    ],
+    "typicalRounds": [
+      "Online Coding Challenge",
+      "DSA & Algorithmic Problem Solving",
+      "Low-Level Design (Machine Coding)",
+      "High-Level System Design (UPI scale, 15,000+ TPS)",
+      "Hiring Manager & Values Round"
+    ],
+    "focusAreas": [
+      "High TPS Payment Systems",
+      "HBase / Cassandra Distributed Stores",
+      "Aerospike / Redis Caching",
+      "LLD"
+    ],
+    "salaryRangeByLevel": {
+      "Software Engineer": "₹22 LPA - ₹34 LPA",
+      "Senior Software Engineer": "₹42 LPA - ₹68 LPA",
+      "Lead Engineer": "₹70 LPA - ₹1 Cr"
+    },
+    "interviewTips": [
+      "PhonePe handles over 45% of India's UPI transactions. Interviewers test planet-scale concurrency and database sharding.",
+      "Understand how distributed in-memory data grids (Aerospike/Redis) handle millions of read/write operations per second.",
+      "Machine coding requires working code with clean object models."
+    ],
+    "popularRoles": [
+      "Senior Software Engineer",
+      "Backend Developer",
+      "Android Developer",
+      "Database Administrator"
+    ]
+  },
+  {
+    "id": "zomato",
+    "name": "Zomato",
+    "category": "Consumer Tech / Listed Unicorn",
+    "tier": "Tier 1",
+    "headquarters": "Gurugram",
+    "indiaOffices": [
+      "Gurugram",
+      "Bengaluru",
+      "Mumbai"
+    ],
+    "typicalRounds": [
+      "Online Assessment (HackerRank)",
+      "DSA & Data Structures Round",
+      "Machine Coding / Framework Problem Solving",
+      "System Design & Scalability Round",
+      "Cultural & Engineering Values Round"
+    ],
+    "focusAreas": [
+      "Full-Stack Problem Solving",
+      "Real-Time Tracking",
+      "App Performance",
+      "System Design"
+    ],
+    "salaryRangeByLevel": {
+      "SDE-1": "₹18 LPA - ₹28 LPA",
+      "SDE-2": "₹32 LPA - ₹50 LPA",
+      "SDE-3": "₹55 LPA - ₹80 LPA"
+    },
+    "interviewTips": [
+      "Zomato moves fast. Highlight your ability to ship features quickly while maintaining stability.",
+      "Mobile and frontend developers are tested heavily on smooth animations, low app launch latency, and offline support.",
+      "Backend questions often center around search indexing (Elasticsearch) and delivery driver allocation."
+    ],
+    "popularRoles": [
+      "Frontend Developer",
+      "Backend Developer",
+      "Android Developer",
+      "Product Manager"
+    ]
+  },
+  {
+    "id": "zerodha",
+    "name": "Zerodha",
+    "category": "Fintech Unicorn (Bootstrapped)",
+    "tier": "Tier 1",
+    "headquarters": "Bengaluru",
+    "indiaOffices": [
+      "Bengaluru"
+    ],
+    "typicalRounds": [
+      "Technical Screening / Code Review of Open Source Work",
+      "Deep Dive into Go / Python / PostgreSQL / Redis",
+      "Architecture & Low-Latency Systems Round",
+      "Culture & Philosophy Round with Kailash Nadh (CTO) or Senior Tech Leads"
+    ],
+    "focusAreas": [
+      "Low-Latency Programming (Go/C)",
+      "Minimalist Architecture",
+      "PostgreSQL Internals",
+      "FOSS (Free & Open Source)"
+    ],
+    "salaryRangeByLevel": {
+      "Software Engineer": "₹20 LPA - ₹35 LPA",
+      "Senior Software Engineer": "₹40 LPA - ₹70 LPA"
+    },
+    "interviewTips": [
+      "Zerodha famously values minimalism: they reject architectural bloat, unnecessary microservices, and buzzwords.",
+      "Active open-source contributions and deep understanding of operating systems, network sockets, and PostgreSQL are massive advantages.",
+      "Demonstrate why you chose a simple solution over a trendy complex framework."
+    ],
+    "popularRoles": [
+      "Backend Developer",
+      "Senior Software Engineer",
+      "DevOps Engineer",
+      "Frontend Developer"
+    ]
+  },
+  {
+    "id": "uber-india",
+    "name": "Uber India Tech Center",
+    "category": "Tier-1 Product / Big Tech",
+    "tier": "Tier 1",
+    "headquarters": "Bengaluru",
+    "indiaOffices": [
+      "Bengaluru",
+      "Hyderabad"
+    ],
+    "typicalRounds": [
+      "Online Coding Challenge",
+      "DSA Round 1 (Graphs, Trees, Dynamic Programming)",
+      "DSA Round 2 (Algorithms & Data Structures)",
+      "System Design HLD (High-throughput geo-spatial services)",
+      "Architecture / Machine Coding (LLD)",
+      "Hiring Manager / Values Round"
+    ],
+    "focusAreas": [
+      "Geospatial Indexing (Uber H3)",
+      "Distributed Consensus",
+      "Event Streaming (Kafka)",
+      "Microservice Scaling"
+    ],
+    "salaryRangeByLevel": {
+      "Software Engineer I": "₹26 LPA - ₹40 LPA",
+      "Software Engineer II": "₹48 LPA - ₹75 LPA",
+      "Senior Software Engineer": "₹80 LPA - ₹1.3 Cr"
+    },
+    "interviewTips": [
+      "Uber Bangalore/Hyderabad engineering teams own core global systems like Maps, Rider Access, and FinTech.",
+      "Study Uber H3 spatial index and how geospatial queries partition across hexagonal clusters.",
+      "Be prepared for deep dives into Kafka message ordering and exactly-once processing."
+    ],
+    "popularRoles": [
+      "Senior Software Engineer",
+      "Backend Developer",
+      "Data Engineer",
+      "Android Developer"
+    ]
+  },
+  {
+    "id": "meesho",
+    "name": "Meesho",
+    "category": "E-Commerce Unicorn",
+    "tier": "Tier 1",
+    "headquarters": "Bengaluru",
+    "indiaOffices": [
+      "Bengaluru"
+    ],
+    "typicalRounds": [
+      "Online Assessment",
+      "DSA & Algorithms Round",
+      "Machine Coding LLD Round",
+      "System Design HLD Round",
+      "Hiring Manager Round"
+    ],
+    "focusAreas": [
+      "High-Scale Consumer Tech",
+      "Social Commerce Search",
+      "Low-Cost Scaling",
+      "Data Engineering"
+    ],
+    "salaryRangeByLevel": {
+      "SDE-1": "₹18 LPA - ₹28 LPA",
+      "SDE-2": "₹32 LPA - ₹52 LPA",
+      "SDE-3": "₹55 LPA - ₹85 LPA"
+    },
+    "interviewTips": [
+      "Meesho serves India's tier-2 and tier-3 city users. Highlight performance on low-bandwidth networks and budget devices.",
+      "In System Design, talk about multi-language localization and search ranking across vernacular queries."
+    ],
+    "popularRoles": [
+      "Frontend Developer",
+      "Backend Developer",
+      "Data Scientist",
+      "Machine Learning Engineer"
+    ]
+  },
+  {
+    "id": "paytm",
+    "name": "Paytm (One97 Communications)",
+    "category": "Fintech Unicorn",
+    "tier": "Tier 2",
+    "headquarters": "Noida",
+    "indiaOffices": [
+      "Noida",
+      "Bengaluru",
+      "Mumbai"
+    ],
+    "typicalRounds": [
+      "Online Assessment (DSA on HackerRank)",
+      "Technical Round 1 (DSA & Java/Node.js Core)",
+      "Technical Round 2 (Low-Level Design & Concurrency)",
+      "Technical Round 3 (System Design & High TPS Payments)",
+      "HR / Leadership Round"
+    ],
+    "focusAreas": [
+      "Java / Spring Boot",
+      "MySQL & Redis",
+      "Payment Soundbox Architecture",
+      "High Transaction Volume"
+    ],
+    "salaryRangeByLevel": {
+      "Software Engineer": "₹12 LPA - ₹22 LPA",
+      "Senior Software Engineer": "₹24 LPA - ₹42 LPA",
+      "Technical Lead": "₹42 LPA - ₹65 LPA"
+    },
+    "interviewTips": [
+      "Paytm values deep understanding of Java concurrency, memory management, and relational database indexing.",
+      "Be prepared to explain QR-code payment processing and real-time audio soundbox notification architectures."
+    ],
+    "popularRoles": [
+      "Backend Developer",
+      "Full Stack Developer",
+      "Android Developer",
+      "QA Automation Engineer"
+    ]
+  },
+  {
+    "id": "atlassian-india",
+    "name": "Atlassian India",
+    "category": "Tier-1 Product / Big Tech",
+    "tier": "Tier 1",
+    "headquarters": "Bengaluru",
+    "indiaOffices": [
+      "Bengaluru",
+      "Remote"
+    ],
+    "typicalRounds": [
+      "Karat Online Technical Screen (DSA & Code Quality)",
+      "DSA & Data Structures Onsite",
+      "System Design & Architecture Onsite",
+      "Code Design & Craftsmanship Round",
+      "Values Interview (Open company no bullshit, Play as a team)"
+    ],
+    "focusAreas": [
+      "Code Craftsmanship",
+      "System Design",
+      "Distributed Systems",
+      "Atlassian Values"
+    ],
+    "salaryRangeByLevel": {
+      "P3 (Software Engineer)": "₹28 LPA - ₹44 LPA",
+      "P4 (Senior Software Engineer)": "₹52 LPA - ₹80 LPA",
+      "P5 (Principal Engineer)": "₹90 LPA - ₹1.4 Cr"
+    },
+    "interviewTips": [
+      "Atlassian weighs its 5 Core Values very heavily. Authentic examples of transparency and teamwork are essential.",
+      "Karat screen requires clean code and proactive communication within a timed 60-minute window."
+    ],
+    "popularRoles": [
+      "Full Stack Developer",
+      "Frontend Developer",
+      "DevOps Engineer",
+      "Senior Software Engineer"
+    ]
+  },
+  {
+    "id": "walmart-global-tech",
+    "name": "Walmart Global Tech India",
+    "category": "Global Capability Center (GCC) / Product",
+    "tier": "Tier 1",
+    "headquarters": "Bengaluru",
+    "indiaOffices": [
+      "Bengaluru",
+      "Chennai"
+    ],
+    "typicalRounds": [
+      "Online Assessment (HackerEarth / 3 Coding Problems)",
+      "Technical Round 1 (DSA & Core CS Fundamentals)",
+      "Technical Round 2 (Machine Coding / Java Spring Boot)",
+      "Technical Round 3 (System Design & Cloud Architecture)",
+      "Hiring Manager / Leadership Round"
+    ],
+    "focusAreas": [
+      "Enterprise Scale",
+      "Java / Spring Boot",
+      "Kafka Streaming",
+      "Supply Chain Systems"
+    ],
+    "salaryRangeByLevel": {
+      "Software Engineer II": "₹18 LPA - ₹28 LPA",
+      "Senior Software Engineer": "₹32 LPA - ₹50 LPA",
+      "Staff Software Engineer": "₹55 LPA - ₹85 LPA"
+    },
+    "interviewTips": [
+      "Walmart India powers global retail supply chain, replenishment, and e-commerce checkout.",
+      "Expect questions on processing millions of real-time inventory updates using Kafka and Cassandra."
+    ],
+    "popularRoles": [
+      "Data Engineer",
+      "Senior Software Engineer",
+      "Cloud Engineer",
+      "Solutions Architect"
+    ]
+  },
+  {
+    "id": "tcs",
+    "name": "Tata Consultancy Services (TCS)",
+    "category": "IT Services Giant",
+    "tier": "Tier 3",
+    "headquarters": "Mumbai",
+    "indiaOffices": [
+      "Mumbai",
+      "Bengaluru",
+      "Pune",
+      "Hyderabad",
+      "Chennai",
+      "Kolkata",
+      "Noida"
+    ],
+    "typicalRounds": [
+      "TCS NQT (National Qualifier Test) / Cognitive & Coding Test",
+      "Technical Round (OOP concepts, SQL, Java/Python, Final Year Project)",
+      "Managerial Round (Situational & Problem Solving)",
+      "HR Round (Relocation, Shifts, Communication Skills)"
+    ],
+    "focusAreas": [
+      "Java/Python Fundamentals",
+      "SQL Queries & Normalization",
+      "OOP Principles",
+      "Project Explanation"
+    ],
+    "salaryRangeByLevel": {
+      "TCS Ninja (Entry-Level)": "₹3.36 LPA - ₹3.6 LPA",
+      "TCS Digital (Differentiated)": "₹7.0 LPA - ₹7.5 LPA",
+      "TCS Prime (Premier Tier)": "₹9.0 LPA - ₹11.5 LPA",
+      "Lateral IT Analyst (3-6 yrs)": "₹8 LPA - ₹16 LPA"
+    },
+    "interviewTips": [
+      "TCS Digital and Prime tracks test medium DSA problems (DP, Strings, Sorting) and cloud basics.",
+      "Be prepared to explain your resume academic project in complete detail, including database ER diagrams and tech stack.",
+      "Clear communication, adaptability to project locations, and client readiness are prioritized."
+    ],
+    "popularRoles": [
+      "QA Automation Engineer",
+      "Full Stack Developer",
+      "Backend Developer",
+      "IT Infrastructure Engineer"
+    ]
+  },
+  {
+    "id": "infosys",
+    "name": "Infosys",
+    "category": "IT Services Giant",
+    "tier": "Tier 3",
+    "headquarters": "Bengaluru",
+    "indiaOffices": [
+      "Bengaluru",
+      "Pune",
+      "Hyderabad",
+      "Chennai",
+      "Mysuru",
+      "Chandigarh"
+    ],
+    "typicalRounds": [
+      "HackWithInfy / InfyTQ / Online Coding Test",
+      "Technical Interview 1 (DSA, DBMS, Core Java / Python)",
+      "Technical Interview 2 (Frameworks, Web Dev, Projects)",
+      "HR Round (Soft Skills & Verification)"
+    ],
+    "focusAreas": [
+      "Core Java / C++",
+      "DBMS (Joins, Indexing, Normalization)",
+      "Data Structures",
+      "Web Basics"
+    ],
+    "salaryRangeByLevel": {
+      "Systems Engineer (SE)": "₹3.6 LPA - ₹4.0 LPA",
+      "Digital Specialist Engineer (DSE)": "₹6.25 LPA - ₹6.5 LPA",
+      "Specialist Programmer (Power Programmer)": "₹9.5 LPA - ₹10.5 LPA",
+      "Lateral Senior Associate (3-6 yrs)": "₹8 LPA - ₹18 LPA"
+    },
+    "interviewTips": [
+      "Specialist Programmer (Power Programmer) cadre tests LeetCode Hard/Medium Dynamic Programming and Graph problems.",
+      "Know your core computer science fundamentals: OS concepts (threads vs processes, deadlocks) and Networking (TCP vs UDP).",
+      "Prepare thorough explanations of your hands-on coding assignments."
+    ],
+    "popularRoles": [
+      "Full Stack Developer",
+      "QA Automation Engineer",
+      "DevOps Engineer",
+      "Cloud Engineer"
+    ]
+  },
+  {
+    "id": "wipro",
+    "name": "Wipro",
+    "category": "IT Services Giant",
+    "tier": "Tier 3",
+    "headquarters": "Bengaluru",
+    "indiaOffices": [
+      "Bengaluru",
+      "Hyderabad",
+      "Pune",
+      "Chennai",
+      "Kolkata",
+      "Noida"
+    ],
+    "typicalRounds": [
+      "Wipro Elite NLTH / TalentNext Coding Test",
+      "Technical Interview (Programming basics, Data structures, DBMS)",
+      "HR Interview"
+    ],
+    "focusAreas": [
+      "C/C++/Java Basics",
+      "Array & String Manipulation",
+      "SQL Queries",
+      "Project Architecture"
+    ],
+    "salaryRangeByLevel": {
+      "Elite Candidate": "₹3.5 LPA",
+      "Turbo Candidate": "₹6.5 LPA",
+      "Lateral Project Engineer (3-6 yrs)": "₹7 LPA - ₹15 LPA"
+    },
+    "interviewTips": [
+      "Focus on clean basic programming: write error-free loops, sorting algorithms, and SQL joins on the whiteboard or notepad.",
+      "Explain your final year college project confidently."
+    ],
+    "popularRoles": [
+      "QA Automation Engineer",
+      "IT Infrastructure Engineer",
+      "Full Stack Developer"
+    ]
+  },
+  {
+    "id": "cognizant",
+    "name": "Cognizant (CTS)",
+    "category": "IT Services Giant",
+    "tier": "Tier 3",
+    "headquarters": "Chennai",
+    "indiaOffices": [
+      "Chennai",
+      "Bengaluru",
+      "Hyderabad",
+      "Pune",
+      "Kolkata",
+      "Coimbatore"
+    ],
+    "typicalRounds": [
+      "Cognizant GenC / GenC Elevate Assessment",
+      "Technical Interview (Java/Python, Cloud Basics, SQL)",
+      "HR Interview"
+    ],
+    "focusAreas": [
+      "Java / Python",
+      "SQL Joins & Group By",
+      "REST APIs",
+      "Cloud Basics (AWS/Azure)"
+    ],
+    "salaryRangeByLevel": {
+      "GenC": "₹4.0 LPA",
+      "GenC Elevate": "₹4.5 LPA - ₹5.5 LPA",
+      "GenC Next (Product Focus)": "₹6.75 LPA - ₹9.0 LPA",
+      "Lateral Associate (3-6 yrs)": "₹8 LPA - ₹16 LPA"
+    },
+    "interviewTips": [
+      "GenC Next candidates are evaluated on Fullstack development (React + Spring Boot) and DSA algorithms.",
+      "Emphasize willingness to learn new enterprise stacks like Salesforce, ServiceNow, or Cloud migrations."
+    ],
+    "popularRoles": [
+      "QA Automation Engineer",
+      "Cloud Engineer",
+      "Full Stack Developer"
+    ]
+  },
+  {
+    "id": "adobe-india",
+    "name": "Adobe India",
+    "category": "Tier-1 Product / Big Tech",
+    "tier": "Tier 1",
+    "headquarters": "Noida",
+    "indiaOffices": [
+      "Noida",
+      "Bengaluru"
+    ],
+    "typicalRounds": [
+      "Online Assessment (HackerRank)",
+      "DSA Technical Round 1 (Trees, Graphs, Matrix)",
+      "DSA Technical Round 2 (Dynamic Programming, Heaps)",
+      "System Design & Computer Science Fundamentals Round",
+      "Director / Cultural Alignment Round"
+    ],
+    "focusAreas": [
+      "C++ / Java",
+      "Advanced Data Structures",
+      "Computer Graphics / Image Processing",
+      "System Design"
+    ],
+    "salaryRangeByLevel": {
+      "Software Engineer": "₹22 LPA - ₹35 LPA",
+      "Computer Scientist 1 (SDE-2)": "₹42 LPA - ₹65 LPA",
+      "Senior Computer Scientist": "₹75 LPA - ₹1.1 Cr"
+    },
+    "interviewTips": [
+      "Adobe is known for difficult DSA questions with complex tree traversals and dynamic programming.",
+      "Demonstrate strong computer science fundamentals: memory management, pointer manipulation (in C++), and algorithms."
+    ],
+    "popularRoles": [
+      "Senior Software Engineer",
+      "Backend Developer",
+      "Machine Learning Engineer",
+      "Frontend Developer"
+    ]
+  },
+  {
+    "id": "cisco-india",
+    "name": "Cisco India",
+    "category": "Networking & Cloud Systems",
+    "tier": "Tier 2",
+    "headquarters": "Bengaluru",
+    "indiaOffices": [
+      "Bengaluru"
+    ],
+    "typicalRounds": [
+      "Online Assessment (DSA + Computer Networks MCQs)",
+      "Technical Round 1 (Data Structures, C/Python, OS)",
+      "Technical Round 2 (Networking: TCP/IP, Sockets, System Architecture)",
+      "Managerial Round (Leadership & Scenario based)",
+      "HR Round"
+    ],
+    "focusAreas": [
+      "Computer Networks (TCP/IP, OSI)",
+      "Operating Systems & Concurrency",
+      "C / Python",
+      "Data Structures"
+    ],
+    "salaryRangeByLevel": {
+      "Software Engineer": "₹16 LPA - ₹26 LPA",
+      "Senior Software Engineer": "₹28 LPA - ₹45 LPA",
+      "Technical Leader": "₹50 LPA - ₹75 LPA"
+    },
+    "interviewTips": [
+      "Master computer networking: TCP 3-way handshake, subnetting, socket programming, and HTTP vs HTTPS.",
+      "Operating system concepts (virtual memory, page faults, IPC) are mandatory."
+    ],
+    "popularRoles": [
+      "Security Engineer",
+      "DevOps Engineer",
+      "Cloud Engineer",
+      "IT Infrastructure Engineer"
+    ]
+  },
+  {
+    "id": "oracle-india",
+    "name": "Oracle India",
+    "category": "Enterprise Cloud & Database",
+    "tier": "Tier 2",
+    "headquarters": "Bengaluru",
+    "indiaOffices": [
+      "Bengaluru",
+      "Hyderabad",
+      "Pune",
+      "Noida"
+    ],
+    "typicalRounds": [
+      "Online Assessment (Coding + CS Fundamentals)",
+      "Technical Round 1 (Data Structures & Algorithms)",
+      "Technical Round 2 (Database Internals, SQL, OOPS)",
+      "Technical Round 3 (System Design / OCI Cloud Architecture)",
+      "Managerial Round"
+    ],
+    "focusAreas": [
+      "SQL & Database Internals",
+      "Java Core",
+      "System Design",
+      "Cloud Infrastructure (OCI)"
+    ],
+    "salaryRangeByLevel": {
+      "Software Engineer (IC2)": "₹16 LPA - ₹28 LPA",
+      "Senior Software Engineer (IC3)": "₹30 LPA - ₹48 LPA",
+      "Principal Software Engineer (IC4)": "₹55 LPA - ₹85 LPA"
+    },
+    "interviewTips": [
+      "Oracle interviewers love database depth: ACID guarantees, isolation levels, B-Trees, and query optimization.",
+      "Be prepared to write complex SQL queries using window functions and recursive CTEs."
+    ],
+    "popularRoles": [
+      "Database Administrator",
+      "Backend Developer",
+      "Cloud Engineer",
+      "Senior Software Engineer"
+    ]
+  },
+  {
+    "id": "intuit-india",
+    "name": "Intuit India",
+    "category": "Fintech & Small Business Platform",
+    "tier": "Tier 1",
+    "headquarters": "Bengaluru",
+    "indiaOffices": [
+      "Bengaluru"
+    ],
+    "typicalRounds": [
+      "Online Assessment (DSA on Karat or HackerRank)",
+      "Craft Demonstration (Live Coding or Take-Home Presentation)",
+      "Data Structures & Problem Solving",
+      "System Design & Cloud Architecture",
+      "Values Interview (Design for Delight, Customer Driven Innovation)"
+    ],
+    "focusAreas": [
+      "Clean Code & Craftsmanship",
+      "System Design",
+      "Microservices",
+      "Design Thinking"
+    ],
+    "salaryRangeByLevel": {
+      "Software Engineer 1": "₹20 LPA - ₹30 LPA",
+      "Software Engineer 2": "₹34 LPA - ₹52 LPA",
+      "Senior Software Engineer": "₹55 LPA - ₹80 LPA"
+    },
+    "interviewTips": [
+      "Intuit focuses on the 'Craft Demonstration' round: presenting clean, tested code with solid architectural justification.",
+      "Customer empathy and 'Design for Delight' are core company values."
+    ],
+    "popularRoles": [
+      "Full Stack Developer",
+      "Frontend Developer",
+      "Backend Developer",
+      "Product Manager"
+    ]
+  },
+  {
+    "id": "ltimindtree",
+    "name": "LTIMindtree",
+    "category": "IT Services / Consulting",
+    "tier": "Tier 3",
+    "headquarters": "Mumbai",
+    "indiaOffices": [
+      "Mumbai",
+      "Bengaluru",
+      "Pune",
+      "Chennai",
+      "Hyderabad"
+    ],
+    "typicalRounds": [
+      "Online Cognitive & Coding Assessment",
+      "Technical Interview 1 (Java/.NET/Python, SQL, Web Dev)",
+      "Technical Interview 2 (Cloud, Microservices, Project Experience)",
+      "HR Interview"
+    ],
+    "focusAreas": [
+      "Java / Spring Boot",
+      "Cloud Migration",
+      "SQL & Stored Procedures",
+      "Agile Execution"
+    ],
+    "salaryRangeByLevel": {
+      "Graduate Trainee": "₹4.0 LPA - ₹5.0 LPA",
+      "Senior Software Engineer (3-6 yrs)": "₹8 LPA - ₹16 LPA",
+      "Specialist / Lead": "₹16 LPA - ₹25 LPA"
+    },
+    "interviewTips": [
+      "Prepare clear explanations of your recent projects and how you optimized database or API performance.",
+      "Certification in AWS, Azure, or GCP is an immediate hiring booster."
+    ],
+    "popularRoles": [
+      "Cloud Engineer",
+      "Full Stack Developer",
+      "QA Automation Engineer",
+      "Solutions Architect"
+    ]
+  },
+  {
+    "id": "jio-platforms",
+    "name": "Jio Platforms",
+    "category": "Telecom & Digital Tech Giant",
+    "tier": "Tier 2",
+    "headquarters": "Mumbai",
+    "indiaOffices": [
+      "Mumbai",
+      "Bengaluru",
+      "Hyderabad",
+      "Pune"
+    ],
+    "typicalRounds": [
+      "Online Coding Challenge",
+      "Technical Round 1 (Data Structures, Python/Java/Go)",
+      "Technical Round 2 (System Design & High Concurrency)",
+      "Technical Round 3 (Cloud Native, 5G & Media Systems)",
+      "Leadership Round"
+    ],
+    "focusAreas": [
+      "High-Scale Telecom / Media",
+      "Microservices (Go/Java)",
+      "Kafka & Cassandra",
+      "5G Cloud Core"
+    ],
+    "salaryRangeByLevel": {
+      "Graduate Engineer Trainee": "₹6.0 LPA - ₹8.5 LPA",
+      "Software Engineer (2-5 yrs)": "₹14 LPA - ₹26 LPA",
+      "Senior Manager / Lead": "₹28 LPA - ₹48 LPA"
+    },
+    "interviewTips": [
+      "Jio operates at massive scale (450M+ telecom subscribers). Highlight distributed data caching, low latency, and horizontal scalability.",
+      "Knowledge of Docker, Kubernetes, and event-driven architecture is strongly valued."
+    ],
+    "popularRoles": [
+      "DevOps Engineer",
+      "Cloud Engineer",
+      "Backend Developer",
+      "System Design Architect"
+    ]
+  }
+]

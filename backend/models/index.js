@@ -7,8 +7,13 @@ const Skill = require('./Skill');
 const StudyPlan = require('./StudyPlan');
 const CodingProblem = require('./CodingProblem');
 const MockInterview = require('./MockInterview');
+const Role = require('./Role');
+const MockInterviewQuestion = require('./MockInterviewQuestion');
+const Resource = require('./Resource');
+const PopularCompany = require('./PopularCompany');
+const CodingTopic = require('./CodingTopic');
 
-// Setup Associations
+// Associations: User -> Personal Models
 User.hasMany(Resume, { foreignKey: 'userId', as: 'resumes', onDelete: 'CASCADE' });
 Resume.belongsTo(User, { foreignKey: 'userId', as: 'user' });
 
@@ -27,6 +32,11 @@ CodingProblem.belongsTo(User, { foreignKey: 'userId', as: 'user' });
 User.hasMany(MockInterview, { foreignKey: 'userId', as: 'mockInterviews', onDelete: 'CASCADE' });
 MockInterview.belongsTo(User, { foreignKey: 'userId', as: 'user' });
 
+// Associations: Role -> Skills Curriculum (role_id foreign key)
+Role.hasMany(Skill, { foreignKey: 'roleId', as: 'roleSkills', onDelete: 'CASCADE' });
+Role.hasMany(Skill, { foreignKey: 'roleId', as: 'skills', onDelete: 'CASCADE' });
+Skill.belongsTo(Role, { foreignKey: 'roleId', as: 'role' });
+
 module.exports = {
   sequelize,
   User,
@@ -35,5 +45,10 @@ module.exports = {
   Skill,
   StudyPlan,
   CodingProblem,
-  MockInterview
+  MockInterview,
+  Role,
+  MockInterviewQuestion,
+  Resource,
+  PopularCompany,
+  CodingTopic
 };

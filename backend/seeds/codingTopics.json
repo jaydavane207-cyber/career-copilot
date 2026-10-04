@@ -1,0 +1,597 @@
+[
+  {
+    "id": "array",
+    "topicName": "Array",
+    "description": "Contiguous memory structures fundamental to high-speed indexing, two pointers, sliding window, and in-place transformations.",
+    "frequencyInIndiaInterviews": "Very High",
+    "keyPatterns": [
+      "Two Pointers",
+      "Sliding Window",
+      "Kadane's Algorithm",
+      "Prefix Sum",
+      "Dutch National Flag"
+    ],
+    "recommendedProblems": [
+      {
+        "title": "Two Sum",
+        "difficulty": "Easy",
+        "url": "https://leetcode.com/problems/two-sum/"
+      },
+      {
+        "title": "Trapping Rain Water",
+        "difficulty": "Hard",
+        "url": "https://leetcode.com/problems/trapping-rain-water/"
+      },
+      {
+        "title": "Container With Most Water",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/container-with-most-water/"
+      },
+      {
+        "title": "Maximum Subarray (Kadane's)",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/maximum-subarray/"
+      }
+    ]
+  },
+  {
+    "id": "string",
+    "topicName": "String",
+    "description": "Character sequences requiring substring pattern matching, anagram hashing, palindrome verification, and two-pointer traversal.",
+    "frequencyInIndiaInterviews": "Very High",
+    "keyPatterns": [
+      "Sliding Window with Hash Map",
+      "KMP Algorithm",
+      "Rabin-Karp",
+      "Expand Around Center (Palindromes)"
+    ],
+    "recommendedProblems": [
+      {
+        "title": "Longest Substring Without Repeating Characters",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+      },
+      {
+        "title": "Valid Anagram",
+        "difficulty": "Easy",
+        "url": "https://leetcode.com/problems/valid-anagram/"
+      },
+      {
+        "title": "Longest Palindromic Substring",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/longest-palindromic-substring/"
+      },
+      {
+        "title": "Group Anagrams",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/group-anagrams/"
+      }
+    ]
+  },
+  {
+    "id": "matrix",
+    "topicName": "Matrix / 2D Grid",
+    "description": "Two-dimensional data grids modeling board games, image pixels, and graph layouts traversed via BFS/DFS and spiral boundaries.",
+    "frequencyInIndiaInterviews": "High",
+    "keyPatterns": [
+      "Grid DFS / BFS (Flood Fill)",
+      "Spiral Traversal",
+      "In-Place Matrix Rotation",
+      "Row/Column Binary Search"
+    ],
+    "recommendedProblems": [
+      {
+        "title": "Spiral Matrix",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/spiral-matrix/"
+      },
+      {
+        "title": "Rotate Image (90 Degrees Clockwise)",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/rotate-image/"
+      },
+      {
+        "title": "Search a 2D Matrix II",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/search-a-2d-matrix-ii/"
+      },
+      {
+        "title": "Number of Islands",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/number-of-islands/"
+      }
+    ]
+  },
+  {
+    "id": "linked-list",
+    "topicName": "Linked List",
+    "description": "Node-pointer data structures testing pointer manipulation, cycle detection, reordering, and in-place reversal.",
+    "frequencyInIndiaInterviews": "High",
+    "keyPatterns": [
+      "Fast & Slow Pointers (Floyd's Cycle)",
+      "Dummy Head Technique",
+      "In-Place Pointer Reversal",
+      "Merge Sort on Lists"
+    ],
+    "recommendedProblems": [
+      {
+        "title": "Reverse Linked List",
+        "difficulty": "Easy",
+        "url": "https://leetcode.com/problems/reverse-linked-list/"
+      },
+      {
+        "title": "Linked List Cycle II",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/linked-list-cycle-ii/"
+      },
+      {
+        "title": "Merge k Sorted Lists",
+        "difficulty": "Hard",
+        "url": "https://leetcode.com/problems/merge-k-sorted-lists/"
+      },
+      {
+        "title": "LRU Cache (Doubly Linked List + Hash Map)",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/lru-cache/"
+      }
+    ]
+  },
+  {
+    "id": "tree",
+    "topicName": "Tree & Binary Search Tree",
+    "description": "Hierarchical data structures requiring recursive DFS traversals (Pre/In/Post-order) and level-order BFS queue processing.",
+    "frequencyInIndiaInterviews": "Very High",
+    "keyPatterns": [
+      "Level Order Traversal (BFS)",
+      "Subtree Bottom-Up Propagation (Post-Order DFS)",
+      "LCA (Lowest Common Ancestor)",
+      "BST Validation"
+    ],
+    "recommendedProblems": [
+      {
+        "title": "Lowest Common Ancestor of a Binary Tree",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+      },
+      {
+        "title": "Binary Tree Maximum Path Sum",
+        "difficulty": "Hard",
+        "url": "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
+      },
+      {
+        "title": "Serialize and Deserialize Binary Tree",
+        "difficulty": "Hard",
+        "url": "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+      },
+      {
+        "title": "Validate Binary Search Tree",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/validate-binary-search-tree/"
+      }
+    ]
+  },
+  {
+    "id": "graph",
+    "topicName": "Graph",
+    "description": "Networks of vertices and edges modeling dependency resolution, road maps, and social friend networks.",
+    "frequencyInIndiaInterviews": "Very High",
+    "keyPatterns": [
+      "BFS Shortest Path",
+      "DFS Cycle Detection",
+      "Topological Sort (Kahn's Algorithm)",
+      "Dijkstra's Algorithm",
+      "Union-Find (Disjoint Set)"
+    ],
+    "recommendedProblems": [
+      {
+        "title": "Course Schedule (Cycle Detection / Topo Sort)",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/course-schedule/"
+      },
+      {
+        "title": "Word Ladder (Shortest Path BFS)",
+        "difficulty": "Hard",
+        "url": "https://leetcode.com/problems/word-ladder/"
+      },
+      {
+        "title": "Network Delay Time (Dijkstra)",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/network-delay-time/"
+      },
+      {
+        "title": "Number of Connected Components (Union-Find)",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/number-of-provinces/"
+      }
+    ]
+  },
+  {
+    "id": "dynamic-programming",
+    "topicName": "Dynamic Programming",
+    "description": "Optimization technique breaking complex problems into overlapping subproblems with optimal substructure via memoization or tabulation.",
+    "frequencyInIndiaInterviews": "Very High",
+    "keyPatterns": [
+      "0/1 Knapsack & Unbounded Knapsack",
+      "Longest Common Subsequence (LCS)",
+      "Longest Increasing Subsequence (LIS)",
+      "DP on Trees / Graphs",
+      "State Machine DP"
+    ],
+    "recommendedProblems": [
+      {
+        "title": "Climbing Stairs / Coin Change",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/coin-change/"
+      },
+      {
+        "title": "Longest Increasing Subsequence",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/longest-increasing-subsequence/"
+      },
+      {
+        "title": "Edit Distance",
+        "difficulty": "Hard",
+        "url": "https://leetcode.com/problems/edit-distance/"
+      },
+      {
+        "title": "Burst Balloons (Interval DP)",
+        "difficulty": "Hard",
+        "url": "https://leetcode.com/problems/burst-balloons/"
+      }
+    ]
+  },
+  {
+    "id": "sorting",
+    "topicName": "Sorting",
+    "description": "Ordering elements using comparison-based and non-comparison algorithms with custom comparators.",
+    "frequencyInIndiaInterviews": "High",
+    "keyPatterns": [
+      "Quick Select (kth Smallest/Largest)",
+      "Merge Sort (Count Inversions)",
+      "Custom Comparator Sorting"
+    ],
+    "recommendedProblems": [
+      {
+        "title": "Kth Largest Element in an Array",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+      },
+      {
+        "title": "Merge Intervals",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/merge-intervals/"
+      },
+      {
+        "title": "Sort Colors (Dutch National Flag)",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/sort-colors/"
+      }
+    ]
+  },
+  {
+    "id": "searching",
+    "topicName": "Searching / Binary Search",
+    "description": "Logarithmic lookup in sorted spaces, rotated arrays, and binary search on monotonic answer spaces.",
+    "frequencyInIndiaInterviews": "Very High",
+    "keyPatterns": [
+      "Binary Search on Monotonic Answer Range",
+      "Search in Rotated Sorted Array",
+      "First/Last Position Lookup"
+    ],
+    "recommendedProblems": [
+      {
+        "title": "Binary Search",
+        "difficulty": "Easy",
+        "url": "https://leetcode.com/problems/binary-search/"
+      },
+      {
+        "title": "Search in Rotated Sorted Array",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+      },
+      {
+        "title": "Koko Eating Bananas (BS on Answer)",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/koko-eating-bananas/"
+      },
+      {
+        "title": "Median of Two Sorted Arrays",
+        "difficulty": "Hard",
+        "url": "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+      }
+    ]
+  },
+  {
+    "id": "hash-table",
+    "topicName": "Hash Table / Hash Map",
+    "description": "Key-value indexing providing average O(1) lookups, deduplication, frequency counting, and caching.",
+    "frequencyInIndiaInterviews": "Very High",
+    "keyPatterns": [
+      "Frequency Map Counting",
+      "Prefix Sum + Hash Map (Zero Sum Subarrays)",
+      "Index Mapping"
+    ],
+    "recommendedProblems": [
+      {
+        "title": "Two Sum",
+        "difficulty": "Easy",
+        "url": "https://leetcode.com/problems/two-sum/"
+      },
+      {
+        "title": "Subarray Sum Equals K",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/subarray-sum-equals-k/"
+      },
+      {
+        "title": "Longest Consecutive Sequence",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/longest-consecutive-sequence/"
+      }
+    ]
+  },
+  {
+    "id": "heap",
+    "topicName": "Heap / Priority Queue",
+    "description": "Binary heaps maintaining minimum or maximum element at the root for streaming medians and top-K elements.",
+    "frequencyInIndiaInterviews": "High",
+    "keyPatterns": [
+      "Top-K Elements (Min-Heap of Size K)",
+      "Two Heaps (Running Median)",
+      "Merge K Sorted Streams"
+    ],
+    "recommendedProblems": [
+      {
+        "title": "Find Median from Data Stream (Two Heaps)",
+        "difficulty": "Hard",
+        "url": "https://leetcode.com/problems/find-median-from-data-stream/"
+      },
+      {
+        "title": "Top K Frequent Elements",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/top-k-frequent-elements/"
+      },
+      {
+        "title": "Merge k Sorted Lists",
+        "difficulty": "Hard",
+        "url": "https://leetcode.com/problems/merge-k-sorted-lists/"
+      }
+    ]
+  },
+  {
+    "id": "queue",
+    "topicName": "Queue & Deque",
+    "description": "FIFO and double-ended queues essential for level-order BFS traversals and sliding window maximum lookups.",
+    "frequencyInIndiaInterviews": "High",
+    "keyPatterns": [
+      "Monotonic Deque (Sliding Window Maximum)",
+      "BFS Level-by-Level Processing"
+    ],
+    "recommendedProblems": [
+      {
+        "title": "Sliding Window Maximum (Monotonic Deque)",
+        "difficulty": "Hard",
+        "url": "https://leetcode.com/problems/sliding-window-maximum/"
+      },
+      {
+        "title": "Implement Queue using Stacks",
+        "difficulty": "Easy",
+        "url": "https://leetcode.com/problems/implement-queue-using-stacks/"
+      }
+    ]
+  },
+  {
+    "id": "stack",
+    "topicName": "Stack",
+    "description": "LIFO structure fundamental to parentheses validation, expression parsing, and monotonic nearest element problems.",
+    "frequencyInIndiaInterviews": "Very High",
+    "keyPatterns": [
+      "Monotonic Stack (Next Greater Element)",
+      "Parentheses Validation",
+      "Evaluating Reverse Polish Notation"
+    ],
+    "recommendedProblems": [
+      {
+        "title": "Valid Parentheses",
+        "difficulty": "Easy",
+        "url": "https://leetcode.com/problems/valid-parentheses/"
+      },
+      {
+        "title": "Daily Temperatures (Monotonic Stack)",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/daily-temperatures/"
+      },
+      {
+        "title": "Largest Rectangle in Histogram",
+        "difficulty": "Hard",
+        "url": "https://leetcode.com/problems/largest-rectangle-in-histogram/"
+      }
+    ]
+  },
+  {
+    "id": "greedy",
+    "topicName": "Greedy Algorithms",
+    "description": "Iterative locally optimal choices that lead to globally optimal solutions in scheduling and interval merging.",
+    "frequencyInIndiaInterviews": "High",
+    "keyPatterns": [
+      "Interval Scheduling",
+      "Jump Game Traversal",
+      "Huffman / Activity Selection"
+    ],
+    "recommendedProblems": [
+      {
+        "title": "Jump Game",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/jump-game/"
+      },
+      {
+        "title": "Gas Station (Circular Route)",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/gas-station/"
+      },
+      {
+        "title": "Task Scheduler",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/task-scheduler/"
+      }
+    ]
+  },
+  {
+    "id": "math",
+    "topicName": "Math & Number Theory",
+    "description": "Prime factorization, modular arithmetic, greatest common divisors, and combinatorial calculations.",
+    "frequencyInIndiaInterviews": "Medium",
+    "keyPatterns": [
+      "Euclidean GCD",
+      "Sieve of Eratosthenes",
+      "Fast Modular Exponentiation"
+    ],
+    "recommendedProblems": [
+      {
+        "title": "Pow(x, n) (Fast Exponentiation)",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/powx-n/"
+      },
+      {
+        "title": "Count Primes (Sieve)",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/count-primes/"
+      }
+    ]
+  },
+  {
+    "id": "bit-manipulation",
+    "topicName": "Bit Manipulation",
+    "description": "Binary bitwise operations (AND, OR, XOR, shifts) for constant-space arithmetic and mask subsets.",
+    "frequencyInIndiaInterviews": "High",
+    "keyPatterns": [
+      "XOR Property (a ^ a = 0)",
+      "Bit Masking Subsets",
+      "Kernighan's Algorithm (Counting Set Bits)"
+    ],
+    "recommendedProblems": [
+      {
+        "title": "Single Number (XOR)",
+        "difficulty": "Easy",
+        "url": "https://leetcode.com/problems/single-number/"
+      },
+      {
+        "title": "Counting Bits",
+        "difficulty": "Easy",
+        "url": "https://leetcode.com/problems/counting-bits/"
+      },
+      {
+        "title": "Subsets (Bitmask)",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/subsets/"
+      }
+    ]
+  },
+  {
+    "id": "design",
+    "topicName": "Design & Data Structure Implementation",
+    "description": "Combining multiple data structures to meet strict O(1) latency constraints for real-world caching and indexing.",
+    "frequencyInIndiaInterviews": "Very High",
+    "keyPatterns": [
+      "Hash Map + Doubly Linked List",
+      "Trie Prefix Tree",
+      "Segment Tree"
+    ],
+    "recommendedProblems": [
+      {
+        "title": "LRU Cache",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/lru-cache/"
+      },
+      {
+        "title": "LFU Cache",
+        "difficulty": "Hard",
+        "url": "https://leetcode.com/problems/lfu-cache/"
+      },
+      {
+        "title": "Implement Trie (Prefix Tree)",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/implement-trie-prefix-tree/"
+      }
+    ]
+  },
+  {
+    "id": "concurrency",
+    "topicName": "Concurrency & Multithreading",
+    "description": "Thread synchronization, semaphores, mutex locks, and producer-consumer queue architectures.",
+    "frequencyInIndiaInterviews": "High",
+    "keyPatterns": [
+      "Producer-Consumer Buffer",
+      "Dining Philosophers",
+      "Deadlock Prevention"
+    ],
+    "recommendedProblems": [
+      {
+        "title": "Print in Order (Threads)",
+        "difficulty": "Easy",
+        "url": "https://leetcode.com/problems/print-in-order/"
+      },
+      {
+        "title": "The Dining Philosophers",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/the-dining-philosophers/"
+      }
+    ]
+  },
+  {
+    "id": "system-design",
+    "topicName": "System Design (LLD & HLD)",
+    "description": "Architectural decomposition into services, APIs, databases, caches, and low-level design patterns.",
+    "frequencyInIndiaInterviews": "Very High",
+    "keyPatterns": [
+      "Machine Coding OOP Design",
+      "Scalable Microservice Architecture",
+      "Event Streaming & Caching"
+    ],
+    "recommendedProblems": [
+      {
+        "title": "Design Parking Lot (LLD)",
+        "difficulty": "Medium",
+        "url": "https://github.com/ashishps1/awesome-low-level-design"
+      },
+      {
+        "title": "Design Splitwise (LLD)",
+        "difficulty": "Medium",
+        "url": "https://github.com/ashishps1/awesome-low-level-design"
+      },
+      {
+        "title": "Design URL Shortener (HLD)",
+        "difficulty": "Medium",
+        "url": "https://github.com/donnemartin/system-design-primer"
+      }
+    ]
+  },
+  {
+    "id": "sql",
+    "topicName": "SQL & Query Design",
+    "description": "Relational query formulations involving complex joins, subqueries, aggregations, window functions, and CTEs.",
+    "frequencyInIndiaInterviews": "Very High",
+    "keyPatterns": [
+      "Window Functions (RANK, DENSE_RANK, ROW_NUMBER)",
+      "GROUP BY & HAVING",
+      "Common Table Expressions (WITH)",
+      "Self Joins"
+    ],
+    "recommendedProblems": [
+      {
+        "title": "Second Highest Salary",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/second-highest-salary/"
+      },
+      {
+        "title": "Department Top Three Salaries (DENSE_RANK)",
+        "difficulty": "Hard",
+        "url": "https://leetcode.com/problems/department-top-three-salaries/"
+      },
+      {
+        "title": "Consecutive Numbers",
+        "difficulty": "Medium",
+        "url": "https://leetcode.com/problems/consecutive-numbers/"
+      }
+    ]
+  }
+]

@@ -1,0 +1,290 @@
+// backend/seeds/generateIndiaData.js
+/**
+ * Master Data Generator for Career Copilot - India Edition
+ * Generates all fixtures in JSON format:
+ * 1. roles.json (20 Target Roles in Indian Tech Market)
+ * 2. skills.json (Role-specific skill curriculum with requiredLevel & estimatedHours)
+ * 3. questions.json (100 Mock Interview Questions: 35 Behavioral, 40 Technical, 25 System Design)
+ * 4. resources.json (100+ Curated Resources across Skills)
+ * 5. popularCompanies.json (25 Indian Tech Companies & MNCs with rounds & LPA salaries)
+ * 6. codingTopics.json (20 Core Algorithmic Problem Topics)
+ */
+
+const fs = require('fs');
+const path = require('path');
+
+// ============================================================================
+// 1. TARGET ROLES (20 Popular India Tech Jobs)
+// ============================================================================
+const roles = [
+  {
+    id: "senior-software-engineer",
+    title: "Senior Software Engineer",
+    category: "Software Engineering",
+    description: "Leads technical architecture, designs resilient distributed systems, mentors developers, and drives engineering excellence for high-concurrency systems.",
+    experienceLevel: "Senior (5-8+ yrs)",
+    salaryRangeInr: "₹28 LPA - ₹55 LPA (Tier-1: ₹45-80 LPA)",
+    popularLocations: ["Bengaluru", "Hyderabad", "Pune", "Gurugram", "Noida"],
+    marketDemand: "Very High",
+    coreSkills: ["System Design", "Java / Spring Boot", "Distributed Systems", "Microservices Architecture", "PostgreSQL", "Redis", "Concurrency & Multithreading", "Docker & Kubernetes"],
+    optionalSkills: ["Apache Kafka", "AWS Architecture", "Prometheus & Grafana"],
+    topHiringCompanies: ["Google India", "Microsoft IDC", "Amazon India", "Flipkart", "Razorpay", "Swiggy"]
+  },
+  {
+    id: "full-stack-developer",
+    title: "Full Stack Developer",
+    category: "Software Engineering",
+    description: "End-to-end web product development bridging responsive React/Next.js client experiences with high-performance Node.js, Python, or Go server architectures.",
+    experienceLevel: "Mid-Level (2-5 yrs)",
+    salaryRangeInr: "₹14 LPA - ₹32 LPA",
+    popularLocations: ["Bengaluru", "Pune", "Hyderabad", "Gurugram", "Chennai"],
+    marketDemand: "Very High",
+    coreSkills: ["JavaScript / TypeScript", "React", "Node.js", "Express", "PostgreSQL", "MongoDB", "REST & GraphQL APIs", "Git & GitHub"],
+    optionalSkills: ["Next.js", "Redis Caching", "Docker"],
+    topHiringCompanies: ["Swiggy", "Zomato", "CRED", "PhonePe", "Infosys (Digital)", "TCS Digital"]
+  },
+  {
+    id: "frontend-developer",
+    title: "Frontend Developer (React/Vue/Angular)",
+    category: "Frontend Development",
+    description: "Builds high-performance, accessible, responsive web interfaces with modern JavaScript frameworks, state management, and optimized render performance.",
+    experienceLevel: "Mid-Level (2-5 yrs)",
+    salaryRangeInr: "₹12 LPA - ₹28 LPA",
+    popularLocations: ["Bengaluru", "Hyderabad", "Pune", "Gurugram", "Mumbai"],
+    marketDemand: "High",
+    coreSkills: ["JavaScript (ES6+)", "React", "TypeScript", "HTML5 & Semantic Web", "CSS3 & Tailwind CSS", "State Management (Redux/Zustand)", "REST API Integration", "Web Performance Optimization"],
+    optionalSkills: ["Next.js & SSR", "Vue.js / Angular", "Jest & React Testing Library"],
+    topHiringCompanies: ["Flipkart", "Meesho", "CRED", "Myntra", "BrowserStack", "Thoughtworks"]
+  },
+  {
+    id: "backend-developer",
+    title: "Backend Developer (Node.js/Python/Java)",
+    category: "Backend Development",
+    description: "Designs robust server-side services, data models, authentication mechanisms, and high-throughput APIs in Node.js, Python, or Java.",
+    experienceLevel: "Mid-Level (2-5 yrs)",
+    salaryRangeInr: "₹14 LPA - ₹32 LPA",
+    popularLocations: ["Bengaluru", "Hyderabad", "Pune", "Gurugram", "Noida"],
+    marketDemand: "Very High",
+    coreSkills: ["Node.js / Python / Java", "RESTful API Design", "PostgreSQL / MySQL", "Redis Caching", "Microservices", "ORM & Database Modeling", "JWT & OAuth2 Security", "Git & CI/CD"],
+    optionalSkills: ["Apache Kafka", "Docker", "GraphQL"],
+    topHiringCompanies: ["Razorpay", "Juspay", "PhonePe", "Paytm", "Amazon India", "Morgan Stanley India"]
+  },
+  {
+    id: "devops-engineer",
+    title: "DevOps Engineer",
+    category: "Infrastructure & Cloud",
+    description: "Automates CI/CD deployment pipelines, manages Kubernetes clusters, provisions infrastructure as code with Terraform, and ensures 99.99% availability.",
+    experienceLevel: "Mid-to-Senior (3-7 yrs)",
+    salaryRangeInr: "₹16 LPA - ₹36 LPA",
+    popularLocations: ["Bengaluru", "Hyderabad", "Pune", "Chennai", "Gurugram"],
+    marketDemand: "Very High",
+    coreSkills: ["Linux Administration", "Docker", "Kubernetes", "CI/CD (GitHub Actions / Jenkins)", "Terraform (IaC)", "AWS / Cloud Infrastructure", "Bash Scripting", "Prometheus & Grafana"],
+    optionalSkills: ["Ansible", "Helm", "Python for Automation"],
+    topHiringCompanies: ["Jio Platforms", "Ola", "Oracle India", "Cisco India", "Walmart Global Tech", "Infosys"]
+  },
+  {
+    id: "qa-automation-engineer",
+    title: "QA Automation Engineer",
+    category: "Quality Assurance",
+    description: "Engineers comprehensive test automation suites for web, mobile, and APIs using Selenium, Playwright, and Cypress integrated into release pipelines.",
+    experienceLevel: "Mid-Level (2-5 yrs)",
+    salaryRangeInr: "₹10 LPA - ₹24 LPA",
+    popularLocations: ["Bengaluru", "Pune", "Hyderabad", "Chennai", "Noida"],
+    marketDemand: "High",
+    coreSkills: ["Test Automation Strategy", "Selenium WebDriver", "Playwright / Cypress", "Java / Python / JavaScript", "API Testing (Postman / RestAssured)", "TestNG / Jest", "CI/CD Pipeline Integration", "SQL & Database Verification"],
+    optionalSkills: ["Performance Testing (JMeter)", "Mobile Testing (Appium)", "BDD with Cucumber"],
+    topHiringCompanies: ["BrowserStack", "Cognizant", "Wipro", "TCS", "Accenture India", "Amazon India"]
+  },
+  {
+    id: "data-scientist",
+    title: "Data Scientist",
+    category: "Data & AI",
+    description: "Applies statistical modeling, machine learning, and experimental design (A/B testing) to extract predictive business insights from massive datasets.",
+    experienceLevel: "Mid-Level (2-6 yrs)",
+    salaryRangeInr: "₹16 LPA - ₹38 LPA",
+    popularLocations: ["Bengaluru", "Hyderabad", "Pune", "Gurugram", "Mumbai"],
+    marketDemand: "High",
+    coreSkills: ["Python", "SQL", "Statistics & Probability", "Machine Learning (Scikit-Learn)", "Pandas & NumPy", "Data Visualization (Matplotlib/Seaborn)", "A/B Testing & Hypothesis Testing", "Feature Engineering"],
+    optionalSkills: ["Deep Learning (PyTorch)", "Apache Spark", "NLP & LLM Fundamentals"],
+    topHiringCompanies: ["Flipkart", "Swiggy", "Fractal Analytics", "Mu Sigma", "Target India", "Tiger Analytics"]
+  },
+  {
+    id: "android-developer",
+    title: "Android Developer",
+    category: "Mobile Development",
+    description: "Develops native Android applications using Kotlin, Jetpack Compose, MVVM/Clean Architecture, Coroutines, and offline-first Room persistence.",
+    experienceLevel: "Mid-Level (2-5 yrs)",
+    salaryRangeInr: "₹12 LPA - ₹30 LPA",
+    popularLocations: ["Bengaluru", "Hyderabad", "Pune", "Gurugram", "Noida"],
+    marketDemand: "High",
+    coreSkills: ["Kotlin", "Jetpack Compose", "Android SDK & Lifecycle", "Kotlin Coroutines & Flow", "Room Database", "Retrofit & REST APIs", "Dagger Hilt (DI)", "Git & Play Store Publishing"],
+    optionalSkills: ["Unit Testing (JUnit/MockK)", "WorkManager & Background Processing", "Jetpack Navigation"],
+    topHiringCompanies: ["Zomato", "Swiggy", "PhonePe", "CRED", "Paytm", "Urban Company"]
+  },
+  {
+    id: "ios-developer",
+    title: "iOS Developer",
+    category: "Mobile Development",
+    description: "Creates native iOS applications using Swift, SwiftUI, UIKit, and Apple Human Interface Guidelines with secure local persistence and performant networking.",
+    experienceLevel: "Mid-Level (2-5 yrs)",
+    salaryRangeInr: "₹14 LPA - ₹32 LPA",
+    popularLocations: ["Bengaluru", "Hyderabad", "Pune", "Mumbai", "Gurugram"],
+    marketDemand: "Moderate to High",
+    coreSkills: ["Swift", "SwiftUI", "UIKit & AutoLayout", "Combine & Modern Concurrency", "Core Data / SwiftData", "Networking & REST APIs", "Xcode & Instruments Profiling", "App Store Guidelines"],
+    optionalSkills: ["Unit Testing (XCTest)", "Fastlane CI/CD", "Core Animation"],
+    topHiringCompanies: ["Apple India", "CRED", "Uber India", "Swiggy", "Razorpay", "Hotstar"]
+  },
+  {
+    id: "system-design-architect",
+    title: "System Design Architect",
+    category: "Architecture & Leadership",
+    description: "Architects planet-scale distributed architectures, defines data partitioning and replication strategies, and guarantees fault tolerance under massive concurrency.",
+    experienceLevel: "Lead / Principal (8-14+ yrs)",
+    salaryRangeInr: "₹40 LPA - ₹90 LPA",
+    popularLocations: ["Bengaluru", "Hyderabad", "Gurugram", "Pune"],
+    marketDemand: "Very High",
+    coreSkills: ["Distributed Systems Architecture", "High-Level System Design (HLD)", "Low-Level Design (LLD & Patterns)", "Data Partitioning & Sharding", "High Availability & Fault Tolerance", "Distributed Caching (Redis)", "Message Streaming (Kafka)", "Database Scaling & Replication"],
+    optionalSkills: ["Event Sourcing & CQRS", "Multi-Cloud Strategy", "FinOps & Cost Optimization"],
+    topHiringCompanies: ["Google India", "Amazon India", "Flipkart", "Microsoft IDC", "Uber India", "PhonePe"]
+  },
+  {
+    id: "product-manager",
+    title: "Product Manager",
+    category: "Product Management",
+    description: "Defines product vision, writes detailed PRDs, analyzes user behavior and conversion funnels, and drives cross-functional sprint delivery with engineering.",
+    experienceLevel: "Mid-to-Senior (3-7 yrs)",
+    salaryRangeInr: "₹18 LPA - ₹42 LPA",
+    popularLocations: ["Bengaluru", "Gurugram", "Mumbai", "Hyderabad", "Pune"],
+    marketDemand: "High",
+    coreSkills: ["Product Discovery & Roadmapping", "User Research & Persona Definition", "PRD Writing", "Metrics & North Star Definition", "SQL & Product Analytics (Mixpanel/Amplitude)", "Agile Sprint Leadership (Jira)", "A/B Testing & Experimentation", "Stakeholder Communication"],
+    optionalSkills: ["Wireframing (Figma)", "Go-to-Market (GTM) Strategy", "System Architecture Fundamentals"],
+    topHiringCompanies: ["Flipkart", "Swiggy", "Razorpay", "MakeMyTrip", "Paytm", "CRED"]
+  },
+  {
+    id: "data-engineer",
+    title: "Data Engineer",
+    category: "Data Engineering",
+    description: "Builds high-throughput distributed data pipelines, ETL/ELT workflows, real-time Kafka streaming, and modern cloud data warehouses for analytics and AI.",
+    experienceLevel: "Mid-Level (3-6 yrs)",
+    salaryRangeInr: "₹15 LPA - ₹35 LPA",
+    popularLocations: ["Bengaluru", "Hyderabad", "Pune", "Gurugram", "Chennai"],
+    marketDemand: "Very High",
+    coreSkills: ["Python", "Advanced SQL", "Apache Spark (PySpark)", "Apache Kafka", "Cloud Data Warehouses (Snowflake/BigQuery)", "Apache Airflow (Orchestration)", "Data Modeling (Star/Snowflake)", "Docker & Cloud Storage"],
+    optionalSkills: ["dbt (Data Build Tool)", "Delta Lake / Iceberg", "Scala"],
+    topHiringCompanies: ["Walmart Global Tech", "Target India", "Flipkart", "American Express India", "Accenture", "TCS Digital"]
+  },
+  {
+    id: "security-engineer",
+    title: "Security Engineer",
+    category: "Cybersecurity & SecOps",
+    description: "Protects cloud infrastructure and application code, conducts vulnerability scans and pen-testing, enforces DevSecOps practices, and ensures security compliance.",
+    experienceLevel: "Mid-Level (3-6 yrs)",
+    salaryRangeInr: "₹16 LPA - ₹36 LPA",
+    popularLocations: ["Bengaluru", "Hyderabad", "Pune", "Gurugram", "Mumbai"],
+    marketDemand: "High",
+    coreSkills: ["Application Security (OWASP Top 10)", "Cloud Security (AWS/Azure IAM)", "Penetration Testing & Vulnerability Assessment", "Network Security & Firewalls", "Cryptography & PKI", "Threat Modeling", "Security Scripting (Python/Bash)", "SIEM & Incident Response"],
+    optionalSkills: ["Kubernetes Security", "SAST / DAST Tooling", "Compliance Standards (SOC 2, ISO 27001)"],
+    topHiringCompanies: ["Palo Alto Networks India", "Cisco India", "Razorpay", "PhonePe", "CrowdStrike India", "Wipro"]
+  },
+  {
+    id: "machine-learning-engineer",
+    title: "Machine Learning Engineer",
+    category: "Data & AI",
+    description: "Transforms machine learning and LLM research into low-latency production microservices with robust MLOps deployment, monitoring, and scaling.",
+    experienceLevel: "Mid-to-Senior (3-6 yrs)",
+    salaryRangeInr: "₹18 LPA - ₹45 LPA",
+    popularLocations: ["Bengaluru", "Hyderabad", "Pune", "Gurugram"],
+    marketDemand: "Very High",
+    coreSkills: ["Python", "PyTorch / TensorFlow", "MLOps & Model Deployment", "FastAPI / Model Serving (Triton/TorchServe)", "Docker & Kubernetes for ML", "Feature Stores & Data Pipelines", "Model Monitoring & Drift Detection", "Linear Algebra & Optimization"],
+    optionalSkills: ["Hugging Face & Transformers", "ONNX & TensorRT Optimization", "Vector Databases & RAG"],
+    topHiringCompanies: ["Google India", "Microsoft IDC", "Flipkart", "Krutrim AI", "Swiggy", "Adobe India"]
+  },
+  {
+    id: "cloud-engineer",
+    title: "Cloud Engineer (AWS/GCP/Azure)",
+    category: "Infrastructure & Cloud",
+    description: "Provisions, secures, and maintains cloud environments on AWS, Azure, or GCP using Terraform, automated scaling, serverless computing, and IAM policies.",
+    experienceLevel: "Mid-Level (2-5 yrs)",
+    salaryRangeInr: "₹12 LPA - ₹28 LPA",
+    popularLocations: ["Bengaluru", "Hyderabad", "Pune", "Chennai", "Noida"],
+    marketDemand: "Very High",
+    coreSkills: ["AWS / Azure / GCP Core Services", "Terraform (Infrastructure as Code)", "Cloud Networking (VPC, Subnets, DNS, Load Balancers)", "Identity & Access Management (IAM)", "Serverless Architectures (AWS Lambda)", "Cloud Storage & Managed DBs", "CloudWatch / CloudTrail Monitoring", "Linux Fundamentals"],
+    optionalSkills: ["Kubernetes on Cloud (EKS/GKE)", "Cloud FinOps (Cost Optimization)", "Security Posture Management"],
+    topHiringCompanies: ["Amazon Web Services India", "Microsoft India", "LTIMindtree", "Cognizant", "Infosys", "Capgemini India"]
+  },
+  {
+    id: "database-administrator",
+    title: "Database Administrator",
+    category: "Database Administration",
+    description: "Ensures mission-critical relational and NoSQL databases run with high performance, automated failover, optimal indexing, and zero data loss.",
+    experienceLevel: "Mid-to-Senior (4-8 yrs)",
+    salaryRangeInr: "₹14 LPA - ₹30 LPA",
+    popularLocations: ["Bengaluru", "Pune", "Hyderabad", "Chennai", "Mumbai"],
+    marketDemand: "High",
+    coreSkills: ["PostgreSQL / MySQL Administration", "Query Optimization & Execution Plans", "Indexing Strategies", "High Availability & Replication", "Backup & Point-in-Time Recovery", "Database Security & Access Controls", "Schema Partitioning & Sharding", "Linux Shell Scripting"],
+    optionalSkills: ["MongoDB / Cassandra NoSQL Admin", "Cloud Managed Databases (RDS/Aurora)", "Redis Cluster Administration"],
+    topHiringCompanies: ["Oracle India", "IBM India", "TCS", "HCLTech", "State Bank of India (Tech)", "JPMorgan Chase India"]
+  },
+  {
+    id: "solutions-architect",
+    title: "Solutions Architect",
+    category: "Architecture & Consulting",
+    description: "Partners with enterprise customers and engineering teams to translate business requirements into scalable, secure, and cost-effective cloud architectures.",
+    experienceLevel: "Senior / Principal (8-15+ yrs)",
+    salaryRangeInr: "₹35 LPA - ₹75 LPA",
+    popularLocations: ["Bengaluru", "Hyderabad", "Gurugram", "Pune", "Mumbai"],
+    marketDemand: "High",
+    coreSkills: ["Enterprise Architecture & Cloud Migration", "Well-Architected Framework", "Microservices & API Strategy", "Event-Driven Architecture", "Security & Governance Compliance", "TCO Analysis & Infrastructure Sizing", "Executive Stakeholder Communication", "Hybrid Cloud Networking"],
+    optionalSkills: ["TOGAF Framework", "Legacy Monolith Modernization", "Disaster Recovery Governance"],
+    topHiringCompanies: ["AWS India", "Google Cloud India", "Microsoft India", "Accenture India", "Wipro", "Tata Communications"]
+  },
+  {
+    id: "it-infrastructure-engineer",
+    title: "IT Infrastructure Engineer",
+    category: "Infrastructure & Operations",
+    description: "Manages corporate data center networks, VMware virtualization clusters, active directories, enterprise storage arrays, and hybrid infrastructure operations.",
+    experienceLevel: "Mid-Level (3-6 yrs)",
+    salaryRangeInr: "₹10 LPA - ₹22 LPA",
+    popularLocations: ["Bengaluru", "Pune", "Hyderabad", "Chennai", "Noida"],
+    marketDemand: "Steady",
+    coreSkills: ["Windows Server & Active Directory", "Linux Enterprise Administration", "Enterprise Networking (VLANs, Routing, VPN)", "Virtualization (VMware vSphere / Hyper-V)", "Storage Management (SAN/NAS)", "Firewall & Endpoint Security", "Backup & Patch Management", "PowerShell & Bash Automation"],
+    optionalSkills: ["Cloud Fundamentals (Azure/AWS)", "Microsoft 365 / Entra ID Admin", "ITIL Service Management"],
+    topHiringCompanies: ["TCS", "Infosys", "Wipro", "HCLTech", "Cognizant", "Tech Mahindra"]
+  },
+  {
+    id: "blockchain-developer",
+    title: "Blockchain Developer",
+    category: "Web3 & Decentralized Systems",
+    description: "Develops Ethereum and Polygon smart contracts, decentralized applications (dApps), tokenomics systems, and audits contract code against reentrancy vulnerabilities.",
+    experienceLevel: "Mid-Level (2-5 yrs)",
+    salaryRangeInr: "₹16 LPA - ₹38 LPA",
+    popularLocations: ["Bengaluru", "Gurugram", "Hyderabad", "Remote"],
+    marketDemand: "Moderate to High",
+    coreSkills: ["Solidity", "Ethereum / EVM Architecture", "Web3.js / Ethers.js", "Hardhat / Foundry Development Frameworks", "Smart Contract Security & Reentrancy Mitigation", "Cryptography & Hashing", "Node.js / TypeScript", "IPFS & Decentralized Storage"],
+    optionalSkills: ["Rust for Solana / Polkadot", "Layer-2 Rollups (Arbitrum/Polygon)", "DeFi Protocols & AMM Math"],
+    topHiringCompanies: ["Polygon Labs", "CoinSwitch", "CoinDCX", "Biconomy", "Push Protocol", "Infosys Blockchain"]
+  },
+  {
+    id: "game-developer",
+    title: "Game Developer (Unity/Unreal)",
+    category: "Gaming & Interactive Media",
+    description: "Programs gameplay loops, physics interactions, shaders, multiplayer networking, and performance optimizations using Unity (C#) or Unreal Engine (C++).",
+    experienceLevel: "Mid-Level (2-5 yrs)",
+    salaryRangeInr: "₹10 LPA - ₹26 LPA",
+    popularLocations: ["Bengaluru", "Hyderabad", "Pune", "Mumbai", "Noida"],
+    marketDemand: "Growing Fast",
+    coreSkills: ["Unity Engine & C# (or Unreal Engine & C++)", "Game Physics & Collision Detection", "Object-Oriented Game Architecture", "3D/2D Mathematics & Linear Algebra", "Gameplay Mechanics & State Machines", "Memory Management & Frame-Rate Profiling", "Git for Game Development (Git LFS)", "UI/UX for Interactive Games"],
+    optionalSkills: ["Shader Programming (HLSL/Shader Graph)", "Multiplayer Networking (Photon/Mirror)", "Unreal Engine Blueprints"],
+    topHiringCompanies: ["Nazara Technologies", "Dream11", "Games24x7", "Ubisoft India", "Electronic Arts India", "Krafton India"]
+  }
+];
+
+// Helper to write files
+const writeJSON = (filename, data) => {
+  const filePath = path.join(__dirname, filename);
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
+  console.log(`✅ Saved ${filename} (${Array.isArray(data) ? data.length + ' items' : Object.keys(data).length + ' keys'})`);
+};
+
+console.log('Generating India-specific data fixtures...');
+writeJSON('roles.json', roles);

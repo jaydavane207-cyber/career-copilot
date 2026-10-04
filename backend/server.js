@@ -15,8 +15,7 @@ const skillsRoutes = require('./routes/skills');
 const studyPlanRoutes = require('./routes/studyPlan');
 const codingRoutes = require('./routes/coding');
 const mockInterviewRoutes = require('./routes/mockInterview');
-const dashboardController = require('./controllers/dashboardController');
-const authenticate = require('./middleware/auth');
+const dashboardRoutes = require('./routes/dashboard');
 const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
@@ -51,10 +50,7 @@ app.use('/api/skills', skillsRoutes);
 app.use('/api/study-plan', studyPlanRoutes);
 app.use('/api/coding', codingRoutes);
 app.use('/api/mock-interview', mockInterviewRoutes);
-
-// Dashboard routes
-app.get('/api/dashboard/readiness', authenticate, dashboardController.getReadinessScore);
-app.get('/api/dashboard/summary', authenticate, dashboardController.getDashboardSummary);
+app.use('/api/dashboard', dashboardRoutes);
 
 // 404 Handler
 app.use('/api/*', (req, res) => {

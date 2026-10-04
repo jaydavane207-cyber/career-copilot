@@ -1,35 +1,1060 @@
 {
+  "HTML/CSS": [
+    {
+      "skill": "HTML/CSS",
+      "title": "MDN Web Docs: HTML & Web Standards",
+      "type": "Documentation",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+      "free": true,
+      "level": "Beginner",
+      "provider": "MDN"
+    },
+    {
+      "skill": "HTML/CSS",
+      "title": "FreeCodeCamp Responsive Web Design Certification",
+      "type": "Course",
+      "url": "https://www.freecodecamp.org/learn/2022/responsive-web-design/",
+      "free": true,
+      "level": "Beginner",
+      "provider": "FreeCodeCamp"
+    },
+    {
+      "skill": "HTML/CSS",
+      "title": "Kevin Powell: Modern CSS & Flexbox/Grid",
+      "type": "Video",
+      "url": "https://www.youtube.com/@KevinPowell",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "YouTube / Kevin Powell"
+    },
+    {
+      "skill": "HTML/CSS",
+      "title": "CSS-Tricks: A Complete Guide to Flexbox & Grid",
+      "type": "Articles",
+      "url": "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "CSS-Tricks"
+    },
+    {
+      "skill": "HTML/CSS",
+      "title": "Frontend Mentor: Practice UI Challenges",
+      "type": "Interactive",
+      "url": "https://www.frontendmentor.io/challenges",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "Frontend Mentor"
+    }
+  ],
+  "JavaScript": [
+    {
+      "skill": "JavaScript",
+      "title": "JavaScript.info - The Modern JavaScript Tutorial",
+      "type": "Documentation",
+      "url": "https://javascript.info",
+      "free": true,
+      "level": "All Levels",
+      "provider": "JavaScript.info"
+    },
+    {
+      "skill": "JavaScript",
+      "title": "Eloquent JavaScript (4th Edition)",
+      "type": "Book",
+      "url": "https://eloquentjavascript.net",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "Marijn Haverbeke"
+    },
+    {
+      "skill": "JavaScript",
+      "title": "Namaste JavaScript by Akshay Saini",
+      "type": "Video",
+      "url": "https://www.youtube.com/playlist?list=PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "YouTube / Akshay Saini"
+    },
+    {
+      "skill": "JavaScript",
+      "title": "You Don't Know JS Yet (Book Series)",
+      "type": "GitHub Repo",
+      "url": "https://github.com/getify/You-Dont-Know-JS",
+      "free": true,
+      "level": "Advanced",
+      "provider": "Kyle Simpson"
+    },
+    {
+      "skill": "JavaScript",
+      "title": "Chai aur JavaScript by Hitesh Choudhary",
+      "type": "Video",
+      "url": "https://www.youtube.com/playlist?list=PLu71SKxNbfoBuX3f4EOACle2y-tRC5Q37",
+      "free": true,
+      "level": "Beginner",
+      "provider": "YouTube / Chai aur Code"
+    }
+  ],
   "React": [
-    { "title": "Official React Documentation", "type": "Documentation", "url": "https://react.dev", "free": true },
-    { "title": "Epic React by Kent C. Dodds", "type": "Course", "url": "https://epicreact.dev", "free": false },
-    { "title": "Full Stack Open - Modern React", "type": "Interactive", "url": "https://fullstackopen.com/en/", "free": true }
+    {
+      "skill": "React",
+      "title": "Official React Documentation (react.dev)",
+      "type": "Documentation",
+      "url": "https://react.dev",
+      "free": true,
+      "level": "All Levels",
+      "provider": "React Team"
+    },
+    {
+      "skill": "React",
+      "title": "Full Stack Open: Modern React Deep Dive",
+      "type": "Course",
+      "url": "https://fullstackopen.com/en/part1",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "University of Helsinki"
+    },
+    {
+      "skill": "React",
+      "title": "React Design Patterns & Architecture",
+      "type": "Articles",
+      "url": "https://react-patterns.com",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "Community"
+    },
+    {
+      "skill": "React",
+      "title": "Scrimba: Interactive Learn React Course",
+      "type": "Interactive",
+      "url": "https://scrimba.com/learn/learnreact",
+      "free": true,
+      "level": "Beginner",
+      "provider": "Scrimba"
+    },
+    {
+      "skill": "React",
+      "title": "Epic React by Kent C. Dodds",
+      "type": "Course",
+      "url": "https://epicreact.dev",
+      "free": false,
+      "level": "Advanced",
+      "provider": "Kent C. Dodds"
+    },
+    {
+      "skill": "React",
+      "title": "Overreacted: Dan Abramov's React Deep Dives",
+      "type": "Articles",
+      "url": "https://overreacted.io",
+      "free": true,
+      "level": "Advanced",
+      "provider": "Dan Abramov"
+    }
   ],
   "TypeScript": [
-    { "title": "TypeScript Handbook", "type": "Documentation", "url": "https://www.typescriptlang.org/docs/", "free": true },
-    { "title": "Total TypeScript Tutorials", "type": "Interactive", "url": "https://www.totaltypescript.com/tutorials", "free": true }
+    {
+      "skill": "TypeScript",
+      "title": "TypeScript Handbook & Official Docs",
+      "type": "Documentation",
+      "url": "https://www.typescriptlang.org/docs/",
+      "free": true,
+      "level": "All Levels",
+      "provider": "Microsoft"
+    },
+    {
+      "skill": "TypeScript",
+      "title": "Total TypeScript Interactive Tutorials by Matt Pocock",
+      "type": "Interactive",
+      "url": "https://www.totaltypescript.com/tutorials",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "Total TypeScript"
+    },
+    {
+      "skill": "TypeScript",
+      "title": "TypeScript Deep Dive by Basarat",
+      "type": "Book",
+      "url": "https://basarat.gitbook.io/typescript/",
+      "free": true,
+      "level": "Advanced",
+      "provider": "GitBook"
+    },
+    {
+      "skill": "TypeScript",
+      "title": "TypeScript Type Challenges (GitHub)",
+      "type": "GitHub Repo",
+      "url": "https://github.com/type-challenges/type-challenges",
+      "free": true,
+      "level": "Advanced",
+      "provider": "GitHub Community"
+    }
   ],
   "Node.js": [
-    { "title": "Node.js Best Practices", "type": "GitHub Repo", "url": "https://github.com/goldbergyoni/nodebestpractices", "free": true },
-    { "title": "Node.js Documentation", "type": "Documentation", "url": "https://nodejs.org/docs/latest/api/", "free": true }
-  ],
-  "PostgreSQL": [
-    { "title": "PostgreSQL Tutorial", "type": "Documentation", "url": "https://www.postgresqltutorial.com/", "free": true },
-    { "title": "Use The Index, Luke (SQL Indexing)", "type": "Guide", "url": "https://use-the-index-luke.com/", "free": true }
-  ],
-  "Docker": [
-    { "title": "Docker Getting Started Guide", "type": "Documentation", "url": "https://docs.docker.com/get-started/", "free": true },
-    { "title": "Play with Docker Classroom", "type": "Interactive", "url": "https://training.play-with-docker.com/", "free": true }
-  ],
-  "System Design": [
-    { "title": "System Design Primer", "type": "GitHub Repo", "url": "https://github.com/donnemartin/system-design-primer", "free": true },
-    { "title": "ByteByteGo System Design Newsletter", "type": "Articles", "url": "https://blog.bytebytego.com/", "free": true }
-  ],
-  "AWS": [
-    { "title": "AWS Skill Builder", "type": "Course", "url": "https://explore.skillbuilder.aws/", "free": true },
-    { "title": "AWS Architecture Center", "type": "Guide", "url": "https://aws.amazon.com/architecture/", "free": true }
+    {
+      "skill": "Node.js",
+      "title": "Node.js Official Documentation",
+      "type": "Documentation",
+      "url": "https://nodejs.org/docs/latest/api/",
+      "free": true,
+      "level": "All Levels",
+      "provider": "Node.js"
+    },
+    {
+      "skill": "Node.js",
+      "title": "Node.js Best Practices Repository (95k+ Stars)",
+      "type": "GitHub Repo",
+      "url": "https://github.com/goldbergyoni/nodebestpractices",
+      "free": true,
+      "level": "Advanced",
+      "provider": "Goldberg Yoni"
+    },
+    {
+      "skill": "Node.js",
+      "title": "The Odin Project - NodeJS Curriculum",
+      "type": "Course",
+      "url": "https://www.theodinproject.com/paths/full-stack-javascript/courses/nodejs",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "The Odin Project"
+    },
+    {
+      "skill": "Node.js",
+      "title": "Traversy Media: Node.js & Express API Crash Course",
+      "type": "Video",
+      "url": "https://www.youtube.com/watch?v=Oe421EPjeBE",
+      "free": true,
+      "level": "Beginner",
+      "provider": "YouTube / Traversy Media"
+    }
   ],
   "Python": [
-    { "title": "Official Python Tutorial", "type": "Documentation", "url": "https://docs.python.org/3/tutorial/", "free": true },
-    { "title": "Real Python Tutorials", "type": "Articles", "url": "https://realpython.com/", "free": true }
+    {
+      "skill": "Python",
+      "title": "Official Python 3 Documentation & Tutorial",
+      "type": "Documentation",
+      "url": "https://docs.python.org/3/tutorial/",
+      "free": true,
+      "level": "All Levels",
+      "provider": "Python Software Foundation"
+    },
+    {
+      "skill": "Python",
+      "title": "Real Python In-Depth Tutorials & Quizzes",
+      "type": "Articles",
+      "url": "https://realpython.com",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "Real Python"
+    },
+    {
+      "skill": "Python",
+      "title": "Corey Schafer: Python Programming YouTube Series",
+      "type": "Video",
+      "url": "https://www.youtube.com/playlist?list=PL-osiE80TeTskrapNbzXhCoqe43Hpq97C",
+      "free": true,
+      "level": "Beginner to Intermediate",
+      "provider": "Corey Schafer"
+    },
+    {
+      "skill": "Python",
+      "title": "Automate the Boring Stuff with Python",
+      "type": "Book",
+      "url": "https://automatetheboringstuff.com",
+      "free": true,
+      "level": "Beginner",
+      "provider": "Al Sweigart"
+    }
+  ],
+  "Java": [
+    {
+      "skill": "Java",
+      "title": "Baeldung: Comprehensive Spring Boot & Java Guides",
+      "type": "Articles",
+      "url": "https://www.baeldung.com",
+      "free": true,
+      "level": "All Levels",
+      "provider": "Baeldung"
+    },
+    {
+      "skill": "Java",
+      "title": "Spring.io Official Guides & Tutorials",
+      "type": "Documentation",
+      "url": "https://spring.io/guides",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "VMware / Spring"
+    },
+    {
+      "skill": "Java",
+      "title": "Java Brains by Koushik Kothagal",
+      "type": "Video",
+      "url": "https://www.youtube.com/@JavaBrainsChannel",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "YouTube / Java Brains"
+    },
+    {
+      "skill": "Java",
+      "title": "Hyperskill / JetBrains Academy Java Developer Track",
+      "type": "Course",
+      "url": "https://hyperskill.org/tracks/8",
+      "free": false,
+      "level": "Intermediate",
+      "provider": "JetBrains"
+    }
+  ],
+  "SQL": [
+    {
+      "skill": "SQL",
+      "title": "PostgreSQL Tutorial for Developers",
+      "type": "Documentation",
+      "url": "https://www.postgresqltutorial.com",
+      "free": true,
+      "level": "All Levels",
+      "provider": "PostgreSQL Tutorial"
+    },
+    {
+      "skill": "SQL",
+      "title": "Use The Index, Luke! (SQL Indexing Mastery)",
+      "type": "Guide",
+      "url": "https://use-the-index-luke.com",
+      "free": true,
+      "level": "Advanced",
+      "provider": "Markus Winand"
+    },
+    {
+      "skill": "SQL",
+      "title": "SQLZoo Interactive SQL Practice Playground",
+      "type": "Interactive",
+      "url": "https://sqlzoo.net",
+      "free": true,
+      "level": "Beginner to Intermediate",
+      "provider": "SQLZoo"
+    },
+    {
+      "skill": "SQL",
+      "title": "Mode Analytics Advanced SQL Tutorial",
+      "type": "Tutorial",
+      "url": "https://mode.com/sql-tutorial/",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "Mode Analytics"
+    }
+  ],
+  "Docker": [
+    {
+      "skill": "Docker",
+      "title": "Docker Official Get Started Documentation",
+      "type": "Documentation",
+      "url": "https://docs.docker.com/get-started/",
+      "free": true,
+      "level": "All Levels",
+      "provider": "Docker"
+    },
+    {
+      "skill": "Docker",
+      "title": "Play with Docker Interactive Classroom",
+      "type": "Interactive",
+      "url": "https://training.play-with-docker.com",
+      "free": true,
+      "level": "Beginner",
+      "provider": "Docker"
+    },
+    {
+      "skill": "Docker",
+      "title": "TechWorld with Nana: Docker Full Course for Beginners",
+      "type": "Video",
+      "url": "https://www.youtube.com/watch?v=3c-iBn73dDE",
+      "free": true,
+      "level": "Beginner",
+      "provider": "TechWorld with Nana"
+    },
+    {
+      "skill": "Docker",
+      "title": "Docker Curriculum by Prakhar Srivastav",
+      "type": "Guide",
+      "url": "https://docker-curriculum.com",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "Prakhar Srivastav"
+    }
+  ],
+  "Kubernetes": [
+    {
+      "skill": "Kubernetes",
+      "title": "Kubernetes Official Documentation & Tasks",
+      "type": "Documentation",
+      "url": "https://kubernetes.io/docs/home/",
+      "free": true,
+      "level": "All Levels",
+      "provider": "CNCF / Linux Foundation"
+    },
+    {
+      "skill": "Kubernetes",
+      "title": "KodeKloud Kubernetes Certified Administrator (CKA)",
+      "type": "Course",
+      "url": "https://kodekloud.com/courses/certified-kubernetes-administrator-cka/",
+      "free": false,
+      "level": "Advanced",
+      "provider": "KodeKloud (Mumshad Mannambeth)"
+    },
+    {
+      "skill": "Kubernetes",
+      "title": "TechWorld with Nana: Kubernetes 4-Hour Crash Course",
+      "type": "Video",
+      "url": "https://www.youtube.com/watch?v=X48VuDVv0do",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "TechWorld with Nana"
+    }
+  ],
+  "AWS": [
+    {
+      "skill": "AWS",
+      "title": "AWS Skill Builder: Official Free Training Modules",
+      "type": "Course",
+      "url": "https://explore.skillbuilder.aws",
+      "free": true,
+      "level": "All Levels",
+      "provider": "Amazon Web Services"
+    },
+    {
+      "skill": "AWS",
+      "title": "AWS Architecture Center: Reference Blueprints",
+      "type": "Guide",
+      "url": "https://aws.amazon.com/architecture/",
+      "free": true,
+      "level": "Advanced",
+      "provider": "AWS"
+    },
+    {
+      "skill": "AWS",
+      "title": "Stephane Maarek AWS Solutions Architect Course",
+      "type": "Course",
+      "url": "https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c03/",
+      "free": false,
+      "level": "Intermediate",
+      "provider": "Stephane Maarek"
+    },
+    {
+      "skill": "AWS",
+      "title": "FreeCodeCamp AWS Certified Cloud Practitioner Full Course",
+      "type": "Video",
+      "url": "https://www.youtube.com/watch?v=Ia-UEYYR44s",
+      "free": true,
+      "level": "Beginner",
+      "provider": "FreeCodeCamp / Andrew Brown"
+    }
+  ],
+  "System Design": [
+    {
+      "skill": "System Design",
+      "title": "The System Design Primer (270k+ Stars)",
+      "type": "GitHub Repo",
+      "url": "https://github.com/donnemartin/system-design-primer",
+      "free": true,
+      "level": "Advanced",
+      "provider": "Donne Martin"
+    },
+    {
+      "skill": "System Design",
+      "title": "ByteByteGo Newsletter & System Design Framework by Alex Xu",
+      "type": "Articles",
+      "url": "https://blog.bytebytego.com",
+      "free": true,
+      "level": "All Levels",
+      "provider": "Alex Xu"
+    },
+    {
+      "skill": "System Design",
+      "title": "Gaurav Sen (GKCS) System Design YouTube Channel",
+      "type": "Video",
+      "url": "https://www.youtube.com/@gkcs",
+      "free": true,
+      "level": "Intermediate to Advanced",
+      "provider": "Gaurav Sen"
+    },
+    {
+      "skill": "System Design",
+      "title": "Designing Data-Intensive Applications (DDIA)",
+      "type": "Book",
+      "url": "https://dataintensive.net",
+      "free": false,
+      "level": "Advanced",
+      "provider": "Martin Kleppmann"
+    },
+    {
+      "skill": "System Design",
+      "title": "High Scalability Real-World Architecture Architecture Case Studies",
+      "type": "Articles",
+      "url": "http://highscalability.com",
+      "free": true,
+      "level": "Advanced",
+      "provider": "Todd Hoff"
+    }
+  ],
+  "DSA": [
+    {
+      "skill": "DSA",
+      "title": "Striver's SDE Sheet (TakeUforward) - India's #1 Interview Sheet",
+      "type": "Guide",
+      "url": "https://takeuforward.org/interviews/strivers-sde-sheet-top-coding-interview-problems/",
+      "free": true,
+      "level": "All Levels",
+      "provider": "Raj Vikramaditya (Striver)"
+    },
+    {
+      "skill": "DSA",
+      "title": "NeetCode 150 Practice Roadmap & Video Solutions",
+      "type": "Interactive",
+      "url": "https://neetcode.io/practice",
+      "free": true,
+      "level": "All Levels",
+      "provider": "NeetCode"
+    },
+    {
+      "skill": "DSA",
+      "title": "Abdul Bari: Algorithms & Data Structures YouTube Series",
+      "type": "Video",
+      "url": "https://www.youtube.com/@abdul_bari",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "Abdul Bari"
+    },
+    {
+      "skill": "DSA",
+      "title": "LeetCode Top Interview 150",
+      "type": "Interactive",
+      "url": "https://leetcode.com/studyplan/top-interview-150/",
+      "free": true,
+      "level": "Intermediate to Hard",
+      "provider": "LeetCode"
+    },
+    {
+      "skill": "DSA",
+      "title": "GeeksforGeeks SDE Preparation Portal",
+      "type": "Articles",
+      "url": "https://www.geeksforgeeks.org",
+      "free": true,
+      "level": "All Levels",
+      "provider": "GeeksforGeeks"
+    },
+    {
+      "skill": "DSA",
+      "title": "CSES Problem Set (Classic Algorithmic Practice)",
+      "type": "Interactive",
+      "url": "https://cses.fi/problemset/",
+      "free": true,
+      "level": "Intermediate to Hard",
+      "provider": "University of Helsinki"
+    },
+    {
+      "skill": "DSA",
+      "title": "VisuAlgo: Visualizing Data Structures and Algorithms",
+      "type": "Interactive",
+      "url": "https://visualgo.net",
+      "free": true,
+      "level": "Beginner to Intermediate",
+      "provider": "Dr. Steven Halim"
+    },
+    {
+      "skill": "DSA",
+      "title": "Techie Delight: 500+ Data Structures & Coding Problems",
+      "type": "Guide",
+      "url": "https://www.techiedelight.com",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "Techie Delight"
+    }
+  ],
+  "Git": [
+    {
+      "skill": "Git",
+      "title": "Pro Git Official Free Book",
+      "type": "Book",
+      "url": "https://git-scm.com/book/en/v2",
+      "free": true,
+      "level": "All Levels",
+      "provider": "Scott Chacon & Ben Straub"
+    },
+    {
+      "skill": "Git",
+      "title": "Learn Git Branching Interactive Sandbox Game",
+      "type": "Interactive",
+      "url": "https://learngitbranching.js.org",
+      "free": true,
+      "level": "Beginner",
+      "provider": "Peter Cottle"
+    },
+    {
+      "skill": "Git",
+      "title": "Dangit, Git!?! (Practical Solutions to Common Git Mistakes)",
+      "type": "Guide",
+      "url": "https://dangitgit.com",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "Katie Sylor-Miller"
+    }
+  ],
+  "Linux": [
+    {
+      "skill": "Linux",
+      "title": "Linux Journey: Grassroots Linux Tutorials",
+      "type": "Tutorial",
+      "url": "https://linuxjourney.com",
+      "free": true,
+      "level": "Beginner to Intermediate",
+      "provider": "Linux Journey"
+    },
+    {
+      "skill": "Linux",
+      "title": "OverTheWire Bandit Wargame (Command Line Security)",
+      "type": "Interactive",
+      "url": "https://overthewire.org/wargames/bandit/",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "OverTheWire"
+    },
+    {
+      "skill": "Linux",
+      "title": "Ryan's Linux Tutorials & Bash Scripting",
+      "type": "Guide",
+      "url": "https://ryanstutorials.net/linuxtutorial/",
+      "free": true,
+      "level": "Beginner",
+      "provider": "Ryan Chadwick"
+    }
+  ],
+  "Testing/QA": [
+    {
+      "skill": "Testing/QA",
+      "title": "Selenium WebDriver Official Documentation",
+      "type": "Documentation",
+      "url": "https://www.selenium.dev/documentation/",
+      "free": true,
+      "level": "All Levels",
+      "provider": "SeleniumHQ"
+    },
+    {
+      "skill": "Testing/QA",
+      "title": "Playwright Official Docs & Fast End-to-End Testing",
+      "type": "Documentation",
+      "url": "https://playwright.dev/docs/intro",
+      "free": true,
+      "level": "All Levels",
+      "provider": "Microsoft"
+    },
+    {
+      "skill": "Testing/QA",
+      "title": "Naveen AutomationLabs YouTube Channel",
+      "type": "Video",
+      "url": "https://www.youtube.com/@NaveenAutomationLabs",
+      "free": true,
+      "level": "All Levels",
+      "provider": "Naveen AutomationLabs"
+    },
+    {
+      "skill": "Testing/QA",
+      "title": "Test Automation University (Free Courses)",
+      "type": "Course",
+      "url": "https://testautomationu.applitools.com",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "Applitools"
+    }
+  ],
+  "Data Science": [
+    {
+      "skill": "Data Science",
+      "title": "Fast.ai: Practical Deep Learning for Coders",
+      "type": "Course",
+      "url": "https://course.fast.ai",
+      "free": true,
+      "level": "All Levels",
+      "provider": "Jeremy Howard"
+    },
+    {
+      "skill": "Data Science",
+      "title": "Kaggle Learn: Free Micro-Courses in Python & ML",
+      "type": "Interactive",
+      "url": "https://www.kaggle.com/learn",
+      "free": true,
+      "level": "Beginner to Intermediate",
+      "provider": "Kaggle"
+    },
+    {
+      "skill": "Data Science",
+      "title": "StatQuest with Josh Starmer YouTube Channel",
+      "type": "Video",
+      "url": "https://www.youtube.com/@statquest",
+      "free": true,
+      "level": "All Levels",
+      "provider": "Josh Starmer"
+    },
+    {
+      "skill": "Data Science",
+      "title": "Krish Naik Machine Learning & Data Science Series",
+      "type": "Video",
+      "url": "https://www.youtube.com/@krishnaik06",
+      "free": true,
+      "level": "All Levels",
+      "provider": "Krish Naik"
+    },
+    {
+      "skill": "Data Science",
+      "title": "Andrew Ng Machine Learning Specialization (Coursera/DeepLearning.AI)",
+      "type": "Course",
+      "url": "https://www.coursera.org/specializations/machine-learning-introduction",
+      "free": false,
+      "level": "Intermediate",
+      "provider": "Andrew Ng"
+    },
+    {
+      "skill": "Data Science",
+      "title": "DeepLearning.AI: Generative AI with LLMs",
+      "type": "Course",
+      "url": "https://www.deeplearning.ai/courses/generative-ai-with-llms/",
+      "free": false,
+      "level": "Advanced",
+      "provider": "DeepLearning.AI"
+    },
+    {
+      "skill": "Data Science",
+      "title": "Hugging Face NLP Course (Free & Interactive)",
+      "type": "Interactive",
+      "url": "https://huggingface.co/learn/nlp-course",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "Hugging Face"
+    },
+    {
+      "skill": "Data Science",
+      "title": "Pinecone: Learn Vector Embeddings & Vector Databases",
+      "type": "Guide",
+      "url": "https://www.pinecone.io/learn/",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "Pinecone"
+    }
+  ],
+  "Android": [
+    {
+      "skill": "Android",
+      "title": "Android Developers Official Codelabs & Guides",
+      "type": "Documentation",
+      "url": "https://developer.android.com/courses",
+      "free": true,
+      "level": "All Levels",
+      "provider": "Google"
+    },
+    {
+      "skill": "Android",
+      "title": "Philipp Lackner Android & Jetpack Compose YouTube",
+      "type": "Video",
+      "url": "https://www.youtube.com/@PhilippLackner",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "Philipp Lackner"
+    },
+    {
+      "skill": "Android",
+      "title": "Kotlin by JetBrains Official Documentation",
+      "type": "Documentation",
+      "url": "https://kotlinlang.org/docs/home.html",
+      "free": true,
+      "level": "All Levels",
+      "provider": "JetBrains"
+    },
+    {
+      "skill": "Android",
+      "title": "Android Jetpack Architecture Blueprints (GitHub)",
+      "type": "GitHub Repo",
+      "url": "https://github.com/android/architecture-samples",
+      "free": true,
+      "level": "Advanced",
+      "provider": "Google"
+    }
+  ],
+  "iOS": [
+    {
+      "skill": "iOS",
+      "title": "100 Days of SwiftUI by Paul Hudson (Hacking with Swift)",
+      "type": "Course",
+      "url": "https://www.hackingwithswift.com/100/swiftui",
+      "free": true,
+      "level": "Beginner to Intermediate",
+      "provider": "Paul Hudson"
+    },
+    {
+      "skill": "iOS",
+      "title": "Apple Developer Documentation for Swift & SwiftUI",
+      "type": "Documentation",
+      "url": "https://developer.apple.com/documentation/",
+      "free": true,
+      "level": "All Levels",
+      "provider": "Apple"
+    },
+    {
+      "skill": "iOS",
+      "title": "Sean Allen iOS Development YouTube Channel",
+      "type": "Video",
+      "url": "https://www.youtube.com/@seanallen",
+      "free": true,
+      "level": "All Levels",
+      "provider": "Sean Allen"
+    },
+    {
+      "skill": "iOS",
+      "title": "Kodeco (Ray Wenderlich) iOS & Swift Tutorials",
+      "type": "Articles",
+      "url": "https://www.kodeco.com/ios",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "Kodeco"
+    }
+  ],
+  "Blockchain": [
+    {
+      "skill": "Blockchain",
+      "title": "CryptoZombies: Learn Solidity by Building a Game",
+      "type": "Interactive",
+      "url": "https://cryptozombies.io",
+      "free": true,
+      "level": "Beginner",
+      "provider": "Loom Network"
+    },
+    {
+      "skill": "Blockchain",
+      "title": "Ethereum.org Developer Documentation",
+      "type": "Documentation",
+      "url": "https://ethereum.org/en/developers/docs/",
+      "free": true,
+      "level": "All Levels",
+      "provider": "Ethereum Foundation"
+    },
+    {
+      "skill": "Blockchain",
+      "title": "Patrick Collins 32-Hour Solidity & Foundry Course",
+      "type": "Video",
+      "url": "https://www.youtube.com/watch?v=sas02qSFZ74",
+      "free": true,
+      "level": "Intermediate to Advanced",
+      "provider": "Patrick Collins"
+    },
+    {
+      "skill": "Blockchain",
+      "title": "OpenZeppelin Contracts & Security Audits",
+      "type": "Documentation",
+      "url": "https://docs.openzeppelin.com/contracts",
+      "free": true,
+      "level": "Advanced",
+      "provider": "OpenZeppelin"
+    }
+  ],
+  "Product Management": [
+    {
+      "skill": "Product Management",
+      "title": "Lenny's Newsletter & Podcast on Product Strategy",
+      "type": "Articles",
+      "url": "https://www.lennysnewsletter.com",
+      "free": false,
+      "level": "All Levels",
+      "provider": "Lenny Rachitsky"
+    },
+    {
+      "skill": "Product Management",
+      "title": "Shreyas Doshi Product Frameworks & Threads",
+      "type": "Articles",
+      "url": "https://shreyasdoshi.substack.com",
+      "free": true,
+      "level": "Advanced",
+      "provider": "Shreyas Doshi"
+    },
+    {
+      "skill": "Product Management",
+      "title": "Reforge Product Leadership Briefs",
+      "type": "Articles",
+      "url": "https://www.reforge.com/brief",
+      "free": true,
+      "level": "Advanced",
+      "provider": "Reforge"
+    },
+    {
+      "skill": "Product Management",
+      "title": "Mind the Product Global Community & Articles",
+      "type": "Articles",
+      "url": "https://www.mindtheproduct.com",
+      "free": true,
+      "level": "All Levels",
+      "provider": "Mind the Product"
+    }
+  ],
+  "Frontend": [
+    {
+      "skill": "Frontend",
+      "title": "TanStack Query (React Query) Documentation",
+      "type": "Documentation",
+      "url": "https://tanstack.com/query/latest",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "Tanner Linsley"
+    },
+    {
+      "skill": "Frontend",
+      "title": "Zustand State Management Documentation",
+      "type": "Documentation",
+      "url": "https://zustand.docs.pmnd.rs",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "Poimandres"
+    },
+    {
+      "skill": "Frontend",
+      "title": "Redux Toolkit Official Modern Tutorial",
+      "type": "Documentation",
+      "url": "https://redux-toolkit.js.org/tutorials/quick-start",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "Redux Team"
+    },
+    {
+      "skill": "Frontend",
+      "title": "Next.js 14 App Router Complete Documentation",
+      "type": "Documentation",
+      "url": "https://nextjs.org/docs",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "Vercel"
+    },
+    {
+      "skill": "Frontend",
+      "title": "Web.dev: Learn Performance & Core Web Vitals",
+      "type": "Guide",
+      "url": "https://web.dev/learn/performance/",
+      "free": true,
+      "level": "Advanced",
+      "provider": "Google Chrome Team"
+    }
+  ],
+  "Backend": [
+    {
+      "skill": "Backend",
+      "title": "FastAPI Modern Python Web Framework",
+      "type": "Documentation",
+      "url": "https://fastapi.tiangolo.com",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "Tiangolo"
+    },
+    {
+      "skill": "Backend",
+      "title": "gRPC Documentation & Protocol Buffers",
+      "type": "Documentation",
+      "url": "https://grpc.io/docs/",
+      "free": true,
+      "level": "Advanced",
+      "provider": "CNCF"
+    },
+    {
+      "skill": "Backend",
+      "title": "Confluent: Kafka 101 Beginner Course",
+      "type": "Course",
+      "url": "https://developer.confluent.io/courses/apache-kafka/events/",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "Confluent"
+    },
+    {
+      "skill": "Backend",
+      "title": "Martin Fowler: Microservices Architectural Guide",
+      "type": "Articles",
+      "url": "https://martinfowler.com/articles/microservices.html",
+      "free": true,
+      "level": "Advanced",
+      "provider": "Martin Fowler"
+    },
+    {
+      "skill": "Backend",
+      "title": "Redis University: RU101 Introduction to Redis Data Structures",
+      "type": "Course",
+      "url": "https://university.redis.com",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "Redis"
+    }
+  ],
+  "DevOps": [
+    {
+      "skill": "DevOps",
+      "title": "Terraform Up & Running by Yevgeniy Brikman",
+      "type": "Book",
+      "url": "https://www.terraformupandrunning.com",
+      "free": false,
+      "level": "Advanced",
+      "provider": "O'Reilly"
+    },
+    {
+      "skill": "DevOps",
+      "title": "GitHub Actions Official Automation Docs",
+      "type": "Documentation",
+      "url": "https://docs.github.com/en/actions",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "GitHub"
+    },
+    {
+      "skill": "DevOps",
+      "title": "ArgoCD Declarative GitOps for Kubernetes",
+      "type": "Documentation",
+      "url": "https://argo-cd.readthedocs.io",
+      "free": true,
+      "level": "Advanced",
+      "provider": "CNCF"
+    },
+    {
+      "skill": "DevOps",
+      "title": "Grafana Official Learning Dashboard Tutorials",
+      "type": "Interactive",
+      "url": "https://grafana.com/tutorials/",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "Grafana Labs"
+    }
+  ],
+  "PostgreSQL": [
+    {
+      "skill": "SQL",
+      "title": "PostgreSQL Tutorial for Developers",
+      "type": "Documentation",
+      "url": "https://www.postgresqltutorial.com",
+      "free": true,
+      "level": "All Levels",
+      "provider": "PostgreSQL Tutorial"
+    },
+    {
+      "skill": "SQL",
+      "title": "Use The Index, Luke! (SQL Indexing Mastery)",
+      "type": "Guide",
+      "url": "https://use-the-index-luke.com",
+      "free": true,
+      "level": "Advanced",
+      "provider": "Markus Winand"
+    },
+    {
+      "skill": "SQL",
+      "title": "SQLZoo Interactive SQL Practice Playground",
+      "type": "Interactive",
+      "url": "https://sqlzoo.net",
+      "free": true,
+      "level": "Beginner to Intermediate",
+      "provider": "SQLZoo"
+    },
+    {
+      "skill": "SQL",
+      "title": "Mode Analytics Advanced SQL Tutorial",
+      "type": "Tutorial",
+      "url": "https://mode.com/sql-tutorial/",
+      "free": true,
+      "level": "Intermediate",
+      "provider": "Mode Analytics"
+    }
   ]
 }
