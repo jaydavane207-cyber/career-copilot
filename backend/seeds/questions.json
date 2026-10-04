@@ -1,92 +1,2782 @@
 [
   {
-    "id": "q1",
-    "role": "Frontend Developer",
-    "type": "Technical",
-    "category": "React Internals",
-    "question": "Explain how React's Virtual DOM and Reconciliation algorithm (Fiber) work, and how keys optimize list re-rendering.",
-    "expectedKeywords": ["virtual dom", "reconciliation", "fiber", "diffing", "keys", "render tree", "batching"],
-    "difficulty": "Medium"
-  },
-  {
-    "id": "q2",
-    "role": "Frontend Developer",
-    "type": "Technical",
-    "category": "Performance",
-    "question": "What techniques would you implement to optimize Largest Contentful Paint (LCP) and minimize bundle size in a React application?",
-    "expectedKeywords": ["code splitting", "lazy loading", "tree shaking", "cdn", "memo", "webp", "critical css"],
-    "difficulty": "Hard"
-  },
-  {
-    "id": "q3",
-    "role": "Backend Developer",
-    "type": "Technical",
-    "category": "Concurrency & Node.js",
-    "question": "How does the Node.js event loop handle asynchronous I/O, timers, microtasks, and thread pools (libuv)?",
-    "expectedKeywords": ["event loop", "libuv", "microtask", "process.nextTick", "call stack", "thread pool", "async non-blocking"],
-    "difficulty": "Hard"
-  },
-  {
-    "id": "q4",
-    "role": "Backend Developer",
-    "type": "Technical",
-    "category": "Databases",
-    "question": "Explain database indexing in PostgreSQL. How do B-tree indexes speed up queries and what are the trade-offs on writes?",
-    "expectedKeywords": ["b-tree", "indexes", "query planner", "explain analyze", "write latency", "seek time", "composite index"],
-    "difficulty": "Medium"
-  },
-  {
-    "id": "q5",
-    "role": "Fullstack Developer",
-    "type": "Technical",
-    "category": "Authentication & Security",
-    "question": "Contrast JWT stored in localStorage vs httpOnly secure cookies. How do you protect against XSS and CSRF attacks?",
-    "expectedKeywords": ["httponly", "jwt", "xss", "csrf", "samesite", "refresh token", "cors", "secure cookie"],
-    "difficulty": "Medium"
-  },
-  {
-    "id": "q6",
+    "id": "beh-1",
+    "type": "Behavioral",
+    "category": "Introduction",
     "role": "General",
+    "difficulty": "Easy",
+    "question": "Tell me about yourself",
+    "sampleAnswer": {
+      "strongAnswer": "I am a software engineer with over 3 years of experience specializing in full-stack web development. Currently at my current role, I lead the core services team where I architected a microservices-based order processing system that reduced checkout latency by 35%. Prior to that, I built scalable React frontends and integrated third-party payment gateways. I am passionate about distributed systems, developer tooling, and writing clean, maintainable code. What excites me about this role is the opportunity to solve high-scale scalability challenges while contributing to your developer-centric culture.",
+      "keyPoints": [
+        "Follow the Present, Past, Future structure concisely.",
+        "Highlight 1-2 major technical accomplishments with measurable metrics (e.g. 35% latency reduction).",
+        "Explain why this specific role and company align with your career goals.",
+        "Keep the entire answer under 2 minutes (approx. 150-220 words)."
+      ],
+      "tips": "Avoid reciting your resume line by line. Focus on your unique value proposition and tailor your narrative to the team's tech stack."
+    },
+    "expectedKeywords": [
+      "present past future",
+      "software engineer",
+      "full-stack",
+      "experience",
+      "latency",
+      "scalable",
+      "excited",
+      "impact"
+    ]
+  },
+  {
+    "id": "beh-2",
+    "type": "Behavioral",
+    "category": "Motivation",
+    "role": "General",
+    "difficulty": "Easy",
+    "question": "Why do you want this job?",
+    "sampleAnswer": {
+      "strongAnswer": "I have followed your product's journey closely, particularly how you migrated your core architecture to support real-time collaboration with sub-second sync latency. My technical background in distributed state synchronization and React aligns directly with the problems your team is tackling. Furthermore, speaking with members of your team highlighted your strong emphasis on engineering rigor, blameless post-mortems, and continuous mentorship. I want to bring my background in frontend performance and backend API design to help scale your platform to the next million users.",
+      "keyPoints": [
+        "Demonstrate specific knowledge of the company's product, architecture, or mission.",
+        "Connect your past accomplishments and strengths to their immediate technical needs.",
+        "Mention team values, culture, or growth opportunities that genuinely resonate with you.",
+        "Convey authentic enthusiasm without generic flattery."
+      ],
+      "tips": "Mention recent engineering blogs, open-source initiatives, or features the company launched to show authentic homework."
+    },
+    "expectedKeywords": [
+      "mission",
+      "architecture",
+      "growth",
+      "culture",
+      "scale",
+      "alignment",
+      "impact",
+      "engineering"
+    ]
+  },
+  {
+    "id": "beh-3",
+    "type": "Behavioral",
+    "category": "Problem Solving",
+    "role": "General",
+    "difficulty": "Medium",
+    "question": "Describe a challenging project you worked on",
+    "sampleAnswer": {
+      "strongAnswer": "At my previous company, our legacy monolithic database was experiencing catastrophic CPU spikes during flash sales, resulting in 504 gateway timeouts for 12% of shoppers. (Situation) As the backend lead, I was tasked with decoupling the inventory reservation workflow without disrupting ongoing transactions. (Task) I introduced a Redis-backed distributed lock with a transactional outbox pattern to queue order processing asynchronously via Kafka. I also added client-side optimistic UI updates. (Action) Within three weeks, we load-tested the pipeline to 25,000 requests per second. During the next major sale, zero timeouts occurred, and checkout throughput increased by 400%. (Result)",
+      "keyPoints": [
+        "Structure strictly with STAR (Situation, Task, Action, Result).",
+        "Define the stakes clearly (e.g., 12% timeouts, catastrophic CPU spikes).",
+        "Detail your personal technical decisions and execution.",
+        "Quantify business and engineering results (400% throughput increase, zero timeouts)."
+      ],
+      "tips": "Use 'I' instead of 'we' when discussing your personal technical contributions, architectural choices, and coding actions."
+    },
+    "expectedKeywords": [
+      "star method",
+      "situation",
+      "task",
+      "action",
+      "result",
+      "redis",
+      "kafka",
+      "latency",
+      "throughput",
+      "metrics"
+    ]
+  },
+  {
+    "id": "beh-4",
     "type": "Behavioral",
     "category": "Conflict Resolution",
-    "question": "Describe a situation where you had a strong technical disagreement with a teammate or lead. How did you resolve it?",
-    "expectedKeywords": ["star method", "data-driven", "consensus", "compromise", "code review", "constructive feedback"],
-    "difficulty": "Medium"
+    "role": "General",
+    "difficulty": "Medium",
+    "question": "How do you handle conflicts with teammates?",
+    "sampleAnswer": {
+      "strongAnswer": "During a major refactoring initiative, a senior peer strongly advocated for rewriting our client-side state in a complex custom state machine, while I advocated for extending our existing lightweight Zustand store to minimize delivery risk and onboarding friction. Rather than turning it into a debate of opinions, I scheduled a 30-minute sync where we established objective evaluation criteria: bundle size, developer ramp-up time, and edge-case bug rates. We both created 1-day proof-of-concept PRs and benchmarked them against our critical user flows. The data showed that while the state machine was robust, Zustand solved 95% of our requirements with 60% less boilerplate. My colleague agreed, and we documented our findings in an architectural decision record (ADR).",
+      "keyPoints": [
+        "De-escalate emotional friction and separate the problem from the person.",
+        "Rely on objective data, benchmarks, and architectural decision records (ADRs).",
+        "Build consensus through collaborative proof-of-concept testing.",
+        "Show respect, humility, and commitment to the team's shared goals."
+      ],
+      "tips": "Never blame your peer or paint them as unreasonable; highlight how healthy debate produces superior technical outcomes."
+    },
+    "expectedKeywords": [
+      "data-driven",
+      "consensus",
+      "benchmarks",
+      "adr",
+      "objective",
+      "listen",
+      "respect",
+      "proof of concept"
+    ]
   },
   {
-    "id": "q7",
-    "role": "General",
+    "id": "beh-5",
     "type": "Behavioral",
     "category": "Handling Failure",
-    "question": "Tell me about a time an outage or critical bug was introduced in production by your code. What steps did you take?",
-    "expectedKeywords": ["incident response", "rollback", "post-mortem", "root cause analysis", "monitoring", "accountability"],
-    "difficulty": "Medium"
+    "role": "General",
+    "difficulty": "Medium",
+    "question": "Tell me about a time you failed",
+    "sampleAnswer": {
+      "strongAnswer": "Early in my career, I deployed a database migration script on Friday afternoon that altered a table column with an exclusive lock, inadvertently blocking incoming write connections for 8 minutes and taking down user logins. I immediately owned the mistake, initiated an emergency rollback within 4 minutes, and updated the incident status page. Once the system stabilized, I led a blameless post-mortem. I identified two systemic flaws: lack of zero-downtime migration guidelines and absence of a pre-production load simulator. I drafted our team's zero-downtime schema migration policy, introduced automated pre-deployment lock checks, and banned non-emergency Friday deployments. We never experienced a migration outage again.",
+      "keyPoints": [
+        "Take immediate ownership without deflecting blame onto tools or coworkers.",
+        "Describe rapid mitigation actions (rollback within 4 minutes).",
+        "Explain systemic root cause analysis conducted during the blameless post-mortem.",
+        "Demonstrate long-term preventative measures implemented (policies, automated checks)."
+      ],
+      "tips": "Choose a genuine technical failure rather than a disguised strength. Focus 70% of your time on recovery, reflection, and permanent process improvements."
+    },
+    "expectedKeywords": [
+      "ownership",
+      "rollback",
+      "blameless post-mortem",
+      "root cause",
+      "prevention",
+      "learning",
+      "incident response"
+    ]
   },
   {
-    "id": "q8",
+    "id": "beh-6",
+    "type": "Behavioral",
+    "category": "Continuous Learning",
+    "role": "General",
+    "difficulty": "Easy",
+    "question": "How do you stay updated with technology?",
+    "sampleAnswer": {
+      "strongAnswer": "I maintain a deliberate daily and weekly learning routine. Daily, I read engineering blogs from companies like Netflix, Uber, and Figma, alongside following GitHub release notes and Hacker News. Weekly, I dedicate 2-3 hours on weekends to hands-on experimentation—building small proof-of-concept apps to test new tools like Bun, React Server Components, or vector databases. I also participate in local developer meetups and contribute to open source, which allows me to see real-world architectural patterns outside my day job. When a new technology proves valuable, I synthesize my findings into team lunch-and-learn presentations.",
+      "keyPoints": [
+        "Show a systematic habit rather than passive browsing.",
+        "Combine theoretical learning (blogs, RFCs) with hands-on coding experiments.",
+        "Mention specific high-quality sources (e.g. engineering blogs, GitHub repos, RFCs).",
+        "Demonstrate how you bring knowledge back to benefit your engineering team."
+      ],
+      "tips": "Cite a concrete example of a technology you learned recently and how you applied it to solve a real problem."
+    },
+    "expectedKeywords": [
+      "engineering blogs",
+      "hands-on",
+      "proof of concept",
+      "rfc",
+      "open source",
+      "lunch and learn",
+      "experimentation"
+    ]
+  },
+  {
+    "id": "beh-7",
+    "type": "Behavioral",
+    "category": "Technical Disagreement",
+    "role": "General",
+    "difficulty": "Medium",
+    "question": "Describe a time you disagreed with a technical decision",
+    "sampleAnswer": {
+      "strongAnswer": "Our team was under pressure to deliver a customer reporting module, and management proposed writing raw SQL queries directly in client-side server actions without parameterized wrappers to save time. I had strong concerns regarding SQL injection vulnerabilities and maintainability. I scheduled a quick meeting with the tech lead, demonstrated the security exploit vectors with an example payload, and provided an alternative using our existing ORM query builder with prepared statements that only added two hours of development time. By presenting a working alternative rather than simply objecting, the team agreed to adopt the secure approach.",
+      "keyPoints": [
+        "Focus on security, maintainability, or system integrity.",
+        "Present concrete alternatives rather than just complaining.",
+        "Demonstrate professional communication and diplomacy.",
+        "Emphasize protecting the product and user trust."
+      ],
+      "tips": "Highlight how you balanced business delivery speed with engineering standards."
+    },
+    "expectedKeywords": [
+      "sql injection",
+      "security",
+      "alternative",
+      "constructive",
+      "orm",
+      "trade-off",
+      "risk"
+    ]
+  },
+  {
+    "id": "beh-8",
+    "type": "Behavioral",
+    "category": "Time Management",
+    "role": "General",
+    "difficulty": "Medium",
+    "question": "Tell me about a time you had to meet a tight deadline",
+    "sampleAnswer": {
+      "strongAnswer": "We had a contractual commitment to deliver a multi-tenant SSO integration for an enterprise client within 10 business days, a task originally estimated at 3 weeks. I broke the project down into three phases: core SAML/OAuth authentication, automated user provisioning, and advanced audit logs. I met with the product manager and agreed on an MVP that shipped the core authentication and provisioning on day 8, deferring non-blocking audit exports to the next sprint. I set up automated integration tests early to prevent regressions, conducted daily 5-minute blockers check-ins, and successfully launched with zero customer defects on deadline day.",
+      "keyPoints": [
+        "Demonstrate scope triage and MVP definition with product managers.",
+        "Break complex deliverables into incremental testable milestones.",
+        "Maintain high code quality and test coverage despite time pressure.",
+        "Communicate early and transparently regarding trade-offs."
+      ],
+      "tips": "Show that you did not cut dangerous corners on testing or security just to hit a date."
+    },
+    "expectedKeywords": [
+      "mvp",
+      "prioritization",
+      "scope triage",
+      "milestones",
+      "communication",
+      "deadline",
+      "automated tests"
+    ]
+  },
+  {
+    "id": "beh-9",
+    "type": "Behavioral",
+    "category": "Prioritization",
+    "role": "General",
+    "difficulty": "Medium",
+    "question": "How do you prioritize competing tasks and deadlines?",
+    "sampleAnswer": {
+      "strongAnswer": "I use an Eisenhower matrix combined with business impact analysis. First, I assess urgency versus long-term impact: P0 production incidents and security vulnerabilities take immediate precedence. For feature work and tech debt, I evaluate the return on engineering investment—how many users are unblocked or how much latency/cost is saved. I reserve the first 90 minutes of my day for high-focus deep work (complex architecture or challenging algorithms) before attending meetings or reviewing PRs. When competing priorities collide, I communicate proactively with stakeholders, present the trade-offs, and establish a clear execution sequence.",
+      "keyPoints": [
+        "Articulate a clear framework (impact vs effort, urgency vs importance).",
+        "Protect dedicated deep-work blocks for complex engineering.",
+        "Communicate trade-offs transparently with managers and product partners.",
+        "Maintain high availability for critical P0/P1 production issues."
+      ],
+      "tips": "Give an example of turning down or rescheduling low-value tasks to deliver high-impact engineering milestones."
+    },
+    "expectedKeywords": [
+      "impact vs effort",
+      "prioritization",
+      "deep work",
+      "communication",
+      "stakeholder",
+      "trade-offs",
+      "eisenhower"
+    ]
+  },
+  {
+    "id": "beh-10",
+    "type": "Behavioral",
+    "category": "Communication",
+    "role": "General",
+    "difficulty": "Medium",
+    "question": "Describe a time you had to explain a complex technical concept to a non-technical stakeholder",
+    "sampleAnswer": {
+      "strongAnswer": "Our marketing and sales directors wanted to understand why our database migration to read replicas was necessary and why it required a 30-minute scheduled maintenance window. Instead of talking about write-ahead logs, replication lag, and connection pools, I used an analogy: I compared our primary database to a single kitchen chef who was trying to cook meals and also answer customer phone calls at the same time. The read replica was like hiring a dedicated receptionist so the chef could focus purely on cooking. They immediately understood the throughput bottleneck and approved the maintenance schedule with enthusiastic support.",
+      "keyPoints": [
+        "Avoid impenetrable technical jargon.",
+        "Use relatable analogies grounded in everyday operations.",
+        "Frame the technical change in terms of business value (conversion, speed, reliability).",
+        "Check for stakeholder comprehension and invite questions."
+      ],
+      "tips": "Emphasize empathy for business partners and your ability to connect code to business outcomes."
+    },
+    "expectedKeywords": [
+      "analogy",
+      "jargon-free",
+      "stakeholder",
+      "business value",
+      "clarity",
+      "empathy",
+      "communication"
+    ]
+  },
+  {
+    "id": "beh-11",
+    "type": "Behavioral",
+    "category": "Constructive Feedback",
+    "role": "General",
+    "difficulty": "Easy",
+    "question": "Tell me about a time you received constructive criticism and how you handled it",
+    "sampleAnswer": {
+      "strongAnswer": "During a quarterly review, my engineering manager pointed out that while my code quality was exceptional, my pull requests were frequently too large (often 800+ lines), which created bottlenecks for peer reviewers and delayed release cycles. I thanked my manager for the insight and recognized that my desire to deliver complete features in one go was slowing the team down. I researched small-batch development techniques, started adopting stacked PRs with feature flags, and capped my PRs at 250 lines. Within two months, our team's PR review turnaround time dropped from 2.5 days to under 4 hours, and my teammates praised the clarity of my incremental commits.",
+      "keyPoints": [
+        "Receive feedback receptively without defensiveness.",
+        "Understand the underlying impact of your behavior on team velocity.",
+        "Take concrete, measurable action (e.g., stacked PRs, 250-line cap).",
+        "Show sustained behavioral improvement verified by metrics."
+      ],
+      "tips": "Demonstrate high coachability and an eagerness to evolve your engineering workflow."
+    },
+    "expectedKeywords": [
+      "coachability",
+      "pull requests",
+      "stacked prs",
+      "growth mindset",
+      "velocity",
+      "turnaround",
+      "actionable"
+    ]
+  },
+  {
+    "id": "beh-12",
+    "type": "Behavioral",
+    "category": "Handling Ambiguity",
+    "role": "General",
+    "difficulty": "Hard",
+    "question": "Give an example of how you handled an ambiguous project requirement",
+    "sampleAnswer": {
+      "strongAnswer": "I was handed a one-line initiative from leadership: 'Make our dashboard faster.' There were no baselines, target numbers, or definitions of what 'faster' meant. Rather than guessing, I instrumented OpenTelemetry tracing and Google Core Web Vitals across our frontend. I discovered that Largest Contentful Paint (LCP) was 4.8 seconds on 4G connections due to uncompressed 6MB hero assets and unmemoized data grids. I synthesized this into a 1-page proposal defining three concrete SLOs: reduce LCP to <1.8s, paginate tables beyond 50 rows, and implement code splitting. Leadership approved the targets, and we delivered a 62% perceived speed improvement.",
+      "keyPoints": [
+        "Transform vague directives into measurable metrics and concrete SLOs.",
+        "Instrument telemetry and gather empirical data before writing code.",
+        "Draft a clear one-page technical proposal for stakeholder sign-off.",
+        "Deliver against explicit targets with validated before/after numbers."
+      ],
+      "tips": "Senior engineers thrive in ambiguity by creating structure, definitions, and data-driven milestones."
+    },
+    "expectedKeywords": [
+      "ambiguity",
+      "telemetry",
+      "core web vitals",
+      "metrics",
+      "slo",
+      "proposal",
+      "benchmarks",
+      "clarity"
+    ]
+  },
+  {
+    "id": "beh-13",
+    "type": "Behavioral",
+    "category": "Leadership & Initiative",
+    "role": "General",
+    "difficulty": "Medium",
+    "question": "Tell me about a situation where you showed technical leadership or initiative",
+    "sampleAnswer": {
+      "strongAnswer": "Noticing that our engineering team was spending an average of 4 hours debugging flaky Cypress end-to-end tests every sprint, I took the initiative during our innovation week to address it. I analyzed our CI failure logs and identified that 80% of flakes stemmed from hard-coded timeouts and nondeterministic mock server states. I created a standardized test harness using Playwright with auto-waiting locators and isolated ephemeral databases per worker. I documented the setup in our team wiki and ran a 30-minute workshop. Within a month, CI failure rates dropped from 22% to less than 1.5%, saving our 12-person team over 40 hours of lost productivity per month.",
+      "keyPoints": [
+        "Identify systemic friction points without being explicitly assigned.",
+        "Build a working proof of concept that solves the root cause.",
+        "Document and evangelize the solution through workshops and developer guides.",
+        "Quantify time and morale savings across the broader team."
+      ],
+      "tips": "Leadership is about multiplying the effectiveness of everyone around you, not just writing code in isolation."
+    },
+    "expectedKeywords": [
+      "initiative",
+      "ci cd",
+      "flaky tests",
+      "playwright",
+      "workshop",
+      "productivity",
+      "multiplier",
+      "leadership"
+    ]
+  },
+  {
+    "id": "beh-14",
+    "type": "Behavioral",
+    "category": "Collaboration",
+    "role": "General",
+    "difficulty": "Medium",
+    "question": "Describe a time when you had to collaborate with a difficult coworker",
+    "sampleAnswer": {
+      "strongAnswer": "I worked with a senior architect who was notorious for being dismissive during code reviews, often leaving terse comments like 'rewrite this' without explanation. Instead of reacting emotionally or venting, I requested a 1-on-1 coffee chat. I asked for his perspective on our architecture and shared that while I deeply valued his expertise, actionable feedback helped the team learn faster. I proposed a simple PR convention: tagging comments as [Blocking], [Suggestion], or [Nitpick] with code snippets. He appreciated the direct, respectful conversation and adopted the format. Over the next year, our PR collaboration became one of the most productive partnerships on the team.",
+      "keyPoints": [
+        "Approach the situation with empathy and direct private communication.",
+        "Assume positive intent while establishing clear professional standards.",
+        "Propose pragmatic structural conventions (e.g. conventional PR comments).",
+        "Turn an adversarial dynamic into a collaborative working relationship."
+      ],
+      "tips": "Show high emotional intelligence (EQ) and conflict resolution skills."
+    },
+    "expectedKeywords": [
+      "empathy",
+      "communication",
+      "pr conventions",
+      "respect",
+      "feedback",
+      "collaboration",
+      "eq"
+    ]
+  },
+  {
+    "id": "beh-15",
+    "type": "Behavioral",
+    "category": "Achievement",
+    "role": "General",
+    "difficulty": "Medium",
+    "question": "Tell me about your proudest technical achievement",
+    "sampleAnswer": {
+      "strongAnswer": "My proudest achievement was architecting our automated resume ATS parser and scoring engine. We had thousands of candidates uploading resumes in arbitrary formats (PDF, DOCX, scanned images) with 45-second processing times. I redesigned the ingestion pipeline using Node.js streams, worker threads for text extraction, and an asynchronous vector embedding cache in Redis. I also built a robust fallback parser for corrupted binary buffers. The new pipeline processed resumes in under 850 milliseconds—a 50x speedup—while improving keyword extraction accuracy from 72% to 94%. Seeing our platform scale smoothly from 1,000 to 100,000 monthly candidates without a single infrastructure alert was deeply gratifying.",
+      "keyPoints": [
+        "Pick a technically ambitious project with real business scale.",
+        "Explain architectural decisions (streams, worker threads, caching).",
+        "Highlight speedups and accuracy improvements (50x speedup, 94% accuracy).",
+        "Convey genuine pride in software craft and system reliability."
+      ],
+      "tips": "Make sure you can speak deeply about every technical component, edge case, and architectural trade-off."
+    },
+    "expectedKeywords": [
+      "achievement",
+      "architecture",
+      "worker threads",
+      "streams",
+      "redis",
+      "latency",
+      "accuracy",
+      "scale"
+    ]
+  },
+  {
+    "id": "beh-16",
+    "type": "Behavioral",
+    "category": "Engineering Rigor",
+    "role": "General",
+    "difficulty": "Medium",
+    "question": "How do you balance code quality and shipping speed under pressure?",
+    "sampleAnswer": {
+      "strongAnswer": "I view speed and quality not as opposing forces, but as complementary: cutting corners without tests creates tech debt that destroys future velocity. When under intense pressure, I negotiate scope rather than quality. I keep the architecture clean and cover core domain logic with unit tests, but I will defer non-critical polish like advanced animations or complex administrative tooling. If taking deliberate technical debt is necessary to meet an urgent business milestone, I document it explicitly as a tracked Jira ticket with a defined repayment date within the next two sprints.",
+      "keyPoints": [
+        "Reject the false dichotomy between speed and quality.",
+        "Triage scope instead of sacrificing testing or security.",
+        "Treat technical debt as a conscious loan that must be documented and repaid.",
+        "Maintain clean modular code so future iterations remain fast."
+      ],
+      "tips": "Emphasize that un-tested code is an illusion of speed that inevitably backfires in production."
+    },
+    "expectedKeywords": [
+      "technical debt",
+      "scope triage",
+      "velocity",
+      "testing",
+      "jira",
+      "repayment",
+      "maintainability"
+    ]
+  },
+  {
+    "id": "beh-17",
+    "type": "Behavioral",
+    "category": "Adaptability",
+    "role": "General",
+    "difficulty": "Medium",
+    "question": "Tell me about a time you had to learn a new technology or programming language quickly",
+    "sampleAnswer": {
+      "strongAnswer": "When our company won a contract requiring a Go microservice for high-throughput WebSocket ingestion, our team only had Node.js and Python experience. I volunteered to build the prototype despite having zero Go experience. Over a weekend, I completed the official Go Tour, studied Go concurrency patterns (goroutines and channels), and reviewed open-source networking servers. By Wednesday, I had built a load-tested WebSocket hub handling 50,000 concurrent connections. I established our repository linting, testing, and Docker configs, and held a knowledge-share session to onboard the rest of the team within the week.",
+      "keyPoints": [
+        "Demonstrate proactive willingness to step outside your comfort zone.",
+        "Show a structured learning process (official docs, open source code, concurrency models).",
+        "Build a tangible, tested prototype under tight timelines.",
+        "Teach and empower the rest of the engineering team."
+      ],
+      "tips": "Focus on how your foundational computer science knowledge transfers across languages and frameworks."
+    },
+    "expectedKeywords": [
+      "adaptability",
+      "go",
+      "concurrency",
+      "goroutines",
+      "prototype",
+      "onboarding",
+      "fast learner"
+    ]
+  },
+  {
+    "id": "beh-18",
+    "type": "Behavioral",
+    "category": "Incident Response",
+    "role": "General",
+    "difficulty": "Hard",
+    "question": "Describe a time you identified a critical bug in production and handled incident response",
+    "sampleAnswer": {
+      "strongAnswer": "During a Black Friday traffic surge, our Datadog alerts fired showing payment webhook failures spiking to 8%. As on-call engineer, I immediately joined the incident bridge, declared a SEV-1 incident, and notified customer support with a status page update. Looking at trace logs, I noticed that third-party webhook signature verification was timing out due to thread pool exhaustion. I coordinated an immediate circuit-breaker configuration to queue incoming webhooks into SQS for delayed processing rather than failing immediately. Within 12 minutes, failure rates dropped to 0%. After the incident, we processed all queued events without losing a single dollar.",
+      "keyPoints": [
+        "Follow structured incident command protocol (SEV declaration, status updates).",
+        "Diagnose root cause using distributed tracing and observability tools.",
+        "Implement rapid mitigation (circuit breaker, queuing) before deep debugging.",
+        "Ensure zero data loss and conduct post-incident reconciliation."
+      ],
+      "tips": "Highlight calm decision-making and systematic diagnosis under high stress."
+    },
+    "expectedKeywords": [
+      "sev-1",
+      "incident response",
+      "circuit breaker",
+      "sqs",
+      "datadog",
+      "observability",
+      "post-mortem"
+    ]
+  },
+  {
+    "id": "beh-19",
+    "type": "Behavioral",
+    "category": "Scope Management",
+    "role": "General",
+    "difficulty": "Medium",
+    "question": "Tell me about a time you said 'no' to a feature request or scope creep",
+    "sampleAnswer": {
+      "strongAnswer": "Two days before shipping a critical billing engine overhaul, a product manager asked to sneak in custom tiered coupon codes for a marketing partnership. While the request was understandable, adding ad-hoc discounts to our financial ledger calculations without thorough regression testing posed huge financial risk. I scheduled a quick conversation, showed our risk assessment, and explained that shipping this unvalidated could cause billing inaccuracies. Instead of a flat refusal, I proposed a compromise: we shipped the core billing engine on schedule, and created an isolated manual discount override tool for support to handle the marketing campaign until v1.1 launched two weeks later.",
+      "keyPoints": [
+        "Protect system reliability and user data from unvetted last-minute changes.",
+        "Frame the pushback around shared business risk rather than laziness.",
+        "Provide a viable operational or phased alternative.",
+        "Maintain a strong, collaborative partnership with product managers."
+      ],
+      "tips": "Saying 'no' effectively means saying 'not yet, but here is how we achieve the underlying goal safely'."
+    },
+    "expectedKeywords": [
+      "scope creep",
+      "risk assessment",
+      "compromise",
+      "reliability",
+      "alternative",
+      "product manager",
+      "boundaries"
+    ]
+  },
+  {
+    "id": "beh-20",
+    "type": "Behavioral",
+    "category": "Automation",
+    "role": "General",
+    "difficulty": "Easy",
+    "question": "How do you handle repetitive or tedious engineering tasks?",
+    "sampleAnswer": {
+      "strongAnswer": "I follow the Rule of Three: the first time I do a manual task, I just do it; the second time, I take detailed notes; the third time, I automate it. For instance, our team used to manually generate database seed mocks and run five manual curl commands to test OAuth token refreshing across three environments. I spent half a day writing a simple Node CLI script with interactive prompts and seeded fixtures. What used to take 25 minutes of error-prone manual setup now takes a single command (`npm run seed:local`), saving every developer on the team time every single morning.",
+      "keyPoints": [
+        "Articulate the Rule of Three or systematic threshold for automation.",
+        "Recognize that developer experience and toil reduction directly impact morale.",
+        "Build intuitive, reusable tools for teammates.",
+        "Balance the time spent automating against the time saved."
+      ],
+      "tips": "Demonstrate that you eliminate repetitive toil through clean scripting and developer tooling."
+    },
+    "expectedKeywords": [
+      "rule of three",
+      "automation",
+      "cli",
+      "toil",
+      "developer experience",
+      "productivity",
+      "scripting"
+    ]
+  },
+  {
+    "id": "beh-21",
+    "type": "Behavioral",
+    "category": "Cross-Functional",
+    "role": "General",
+    "difficulty": "Medium",
+    "question": "Describe a project where you collaborated with cross-functional teams (Product, Design, QA)",
+    "sampleAnswer": {
+      "strongAnswer": "I led the frontend engineering for our company's new onboarding flow, which involved working closely with a product designer, a PM, and our QA automation lead. Design had proposed complex multi-step canvas animations that our initial performance benchmarks revealed would drop frame rates on budget mobile devices. I set up a weekly tri-party sync with Design and Product where we reviewed live Storybook prototypes. By collaborating directly, we replaced the heavy canvas rendering with CSS transform animations that preserved 95% of the visual fidelity while guaranteeing 60 FPS on all devices. QA was looped in early to write automated Cypress acceptance tests in parallel, allowing us to ship on time with zero visual or functional regressions.",
+      "keyPoints": [
+        "Involve Design, Product, and QA early in the engineering lifecycle.",
+        "Use tools like Storybook and shared prototypes to bridge communication gaps.",
+        "Find creative technical compromises that preserve design intent and performance.",
+        "Enable parallel work streams with QA to accelerate release velocity."
+      ],
+      "tips": "Highlight that you view designers and QA engineers as essential partners in product excellence."
+    },
+    "expectedKeywords": [
+      "cross-functional",
+      "storybook",
+      "design",
+      "qa",
+      "collaboration",
+      "fps",
+      "performance",
+      "communication"
+    ]
+  },
+  {
+    "id": "beh-22",
+    "type": "Behavioral",
+    "category": "Mentorship",
+    "role": "General",
+    "difficulty": "Easy",
+    "question": "Tell me about a time you mentored or onboarded a junior engineer",
+    "sampleAnswer": {
+      "strongAnswer": "When an associate engineer joined our team, I was assigned as their onboarding buddy. I noticed our repo readme was outdated, so I guided them through their first setup while having them document every friction point to update the onboarding wiki for future hires. Rather than writing code for them, I used guided questioning and pair programming to teach debugging techniques like inspecting browser network waterfalls and setting breakpoints. When they submitted their first PR, I left positive, explanatory comments highlighting what they did well alongside architectural tips. Within three months, they independently shipped a major customer-facing notification feature and were recognized as top newcomer.",
+      "keyPoints": [
+        "Empower junior engineers through Socratic questions and pair programming.",
+        "Foster confidence through psychological safety and positive reinforcement.",
+        "Turn the onboarding process into an opportunity to improve team documentation.",
+        "Measure success by the mentee's independence and growth."
+      ],
+      "tips": "Show patience, empathy, and a genuine investment in the career growth of others."
+    },
+    "expectedKeywords": [
+      "mentorship",
+      "onboarding",
+      "pair programming",
+      "psychological safety",
+      "growth",
+      "empowerment",
+      "documentation"
+    ]
+  },
+  {
+    "id": "beh-23",
+    "type": "Behavioral",
+    "category": "Code Review",
+    "role": "General",
+    "difficulty": "Medium",
+    "question": "How do you approach code reviews when reviewing a senior colleague's code?",
+    "sampleAnswer": {
+      "strongAnswer": "I approach all code reviews with curiosity, humility, and rigorous attention to detail, regardless of seniority. I review with three lenses: correctness (race conditions, edge cases, security), maintainability (clarity, naming conventions, architectural consistency), and performance. When reviewing senior engineers' code, if I see an unfamiliar pattern, I ask open-ended questions like 'Can you help me understand the reasoning behind choosing this concurrency lock here instead of an atomic counter?' rather than making assertions. Several times, this curious dialogue uncovered unhandled edge cases that the author appreciated, while also deepening my own architectural knowledge.",
+      "keyPoints": [
+        "Maintain high standards of correctness and security regardless of author seniority.",
+        "Frame review comments as respectful questions rather than aggressive critiques.",
+        "Treat code reviews as a two-way learning opportunity.",
+        "Look for edge cases, race conditions, and test coverage."
+      ],
+      "tips": "Demonstrate that you hold code to objective standards while fostering collaborative respect."
+    },
+    "expectedKeywords": [
+      "code review",
+      "humility",
+      "curiosity",
+      "correctness",
+      "edge cases",
+      "learning",
+      "open-ended questions"
+    ]
+  },
+  {
+    "id": "beh-24",
+    "type": "Behavioral",
+    "category": "Decision Making",
+    "role": "General",
+    "difficulty": "Hard",
+    "question": "Describe a situation where you had to make a technical trade-off with imperfect information",
+    "sampleAnswer": {
+      "strongAnswer": "We were building a real-time presence system for collaborative workspaces. We had incomplete telemetry on future peak concurrent connections (projections ranged from 10,000 to 500,000). Building a distributed Redis Cluster with custom gossip protocol immediately would have taken 6 weeks, while a simple Redis Pub/Sub instance could be delivered in 4 days. I made the conscious decision to build the lightweight Redis Pub/Sub approach first, but encapsulated the presence interface behind an abstract adapter layer. This allowed us to hit our product launch window. Six months later, when concurrency exceeded 80,000, we swapped the underlying adapter to Redis Streams without rewriting a single line of application code.",
+      "keyPoints": [
+        "Acknowledge the ambiguity and incomplete metrics.",
+        "Apply modular abstraction (Adapter / Facade patterns) to make decisions reversible.",
+        "Balance immediate time-to-market against future scalability.",
+        "Validate decisions with real telemetry as the system grows."
+      ],
+      "tips": "Distinguish between Type 1 (irreversible) and Type 2 (reversible) decisions."
+    },
+    "expectedKeywords": [
+      "trade-off",
+      "reversible decision",
+      "adapter pattern",
+      "redis",
+      "abstraction",
+      "imperfect information",
+      "pragmatism"
+    ]
+  },
+  {
+    "id": "beh-25",
+    "type": "Behavioral",
+    "category": "Project Recovery",
+    "role": "General",
+    "difficulty": "Hard",
+    "question": "Tell me about a time a project was falling behind schedule. What did you do?",
+    "sampleAnswer": {
+      "strongAnswer": "During a major platform migration, we were two weeks behind schedule with only one week remaining before our hard enterprise launch date. As lead engineer, I called a mid-sprint realignment meeting. We conducted a merciless scope triage: we categorized every remaining task into Must-Have, Should-Have, and Nice-to-Have. We discovered that 40% of remaining backlog consisted of edge-case automated reports that only 2% of users touched. We deferred those to post-launch, swarm-paired on the critical data sync path, and introduced daily 10-minute unblocking standups. We launched on the scheduled date with zero core functionality defects, and delivered the deferred reports the following sprint.",
+      "keyPoints": [
+        "Detect and address schedule slippage early rather than concealing it.",
+        "Conduct objective scope triage with product stakeholders.",
+        "Mobilize team pairing and eliminate blockers on critical path.",
+        "Deliver the core business value without sacrificing quality."
+      ],
+      "tips": "Show composure, leadership, and analytical problem-solving under deadline pressure."
+    },
+    "expectedKeywords": [
+      "scope triage",
+      "realignment",
+      "critical path",
+      "pairing",
+      "unblocking",
+      "delivery",
+      "must-have"
+    ]
+  },
+  {
+    "id": "beh-26",
+    "type": "Behavioral",
+    "category": "Resilience",
+    "role": "General",
+    "difficulty": "Easy",
+    "question": "How do you maintain focus and prevent burnout during intense release cycles?",
+    "sampleAnswer": {
+      "strongAnswer": "I manage energy, not just time. During high-intensity release sprints, I maintain strict boundaries around sleep, hydration, and daily exercise, which keeps cognitive focus sharp. Technically, I use the Pomodoro technique (50 minutes of deep focus followed by a 10-minute screen break) to prevent mental fatigue and careless bugs. I also champion team well-being: if I notice a teammate working late into the night, I encourage them to sign off and offer to pair on their blocker the next morning. Celebrating small incremental milestones keeps team morale elevated.",
+      "keyPoints": [
+        "Proactively manage cognitive energy and physical well-being.",
+        "Use structured focus techniques (Pomodoro, calendar time-blocking).",
+        "Support team members and build a sustainable engineering culture.",
+        "Recognize that exhaustion produces bugs that increase workload."
+      ],
+      "tips": "Highlight that sustainable pace is a core principle of high-performing engineering teams."
+    },
+    "expectedKeywords": [
+      "burnout",
+      "sustainable pace",
+      "focus",
+      "pomodoro",
+      "well-being",
+      "energy management",
+      "team morale"
+    ]
+  },
+  {
+    "id": "beh-27",
+    "type": "Behavioral",
+    "category": "Customer Obsession",
+    "role": "General",
+    "difficulty": "Medium",
+    "question": "Tell me about user or customer feedback that fundamentally changed your product approach",
+    "sampleAnswer": {
+      "strongAnswer": "We built an advanced filtering modal for our job application tracker with 14 detailed criteria like salary ranges, tech stack combinations, and company size. We thought users would love the granular control. However, watching FullStory session replays and reading customer tickets revealed that 78% of users abandoned the modal because it was overwhelming. I advocated for simplifying the UI: we replaced the 14-field modal with a single smart search input backed by fuzzy full-text indexing, while tucking advanced filters into an expandable drawer. User search completion surged by 210%, and customer satisfaction ratings increased significantly.",
+      "keyPoints": [
+        "Listen to behavioral data and customer support feedback over developer ego.",
+        "Favor intuitive simplicity over complex over-engineering.",
+        "Validate hypotheses with session recordings and quantitative metrics.",
+        "Iterate quickly based on user feedback."
+      ],
+      "tips": "Great software engineers build for the end user, not for their own technical complexity."
+    },
+    "expectedKeywords": [
+      "customer feedback",
+      "simplicity",
+      "fullstory",
+      "user experience",
+      "fuzzy search",
+      "metrics",
+      "iteration"
+    ]
+  },
+  {
+    "id": "beh-28",
+    "type": "Behavioral",
+    "category": "Process Improvement",
+    "role": "General",
+    "difficulty": "Medium",
+    "question": "Describe a time you automated a manual process to save team engineering hours",
+    "sampleAnswer": {
+      "strongAnswer": "Our release process required engineers to manually write release notes, tag git commits, update semantic versions in three package.json files, and notify the company Slack channel—a process taking 45 minutes per release that often had human errors. I built a GitHub Actions CI workflow using semantic-release and conventional commits. Now, whenever a PR merges into main, the workflow automatically calculates the semver bump, compiles release notes from commit titles, publishes Docker images, and posts a rich Slack webhook update. This saved approximately 6 engineering hours every week and eliminated broken tag incidents completely.",
+      "keyPoints": [
+        "Identify repetitive manual operational bottlenecks.",
+        "Use industry-standard tooling (GitHub Actions, semantic-release, conventional commits).",
+        "Eliminate human error and ensure repeatable deployments.",
+        "Quantify time saved (6 hours/week) and reliability gains."
+      ],
+      "tips": "Demonstrate initiative in improving release engineering and developer productivity."
+    },
+    "expectedKeywords": [
+      "github actions",
+      "semantic release",
+      "conventional commits",
+      "ci cd",
+      "automation",
+      "slack webhook",
+      "semver"
+    ]
+  },
+  {
+    "id": "beh-29",
+    "type": "Behavioral",
+    "category": "Calculated Risk",
+    "role": "General",
+    "difficulty": "Hard",
+    "question": "Tell me about a time you took a calculated technical risk. Did it pay off?",
+    "sampleAnswer": {
+      "strongAnswer": "Our monolithic reporting queries were taking over 18 seconds, and upgrading database hardware would have tripled cloud costs. I proposed adopting SQLite in-process read caches with litestream replication for our read-heavy analytics dashboard. It was a bold architectural departure from our standard Postgres setup. To mitigate the risk, I set up a shadow traffic test: we mirrored 10% of read traffic to the SQLite cache alongside Postgres, verified response parity to 100%, and implemented an automated circuit-breaker fallback. The risk paid off spectacularly: p95 query latency dropped from 18 seconds to 12 milliseconds, and our monthly AWS RDS spend decreased by $2,400.",
+      "keyPoints": [
+        "Frame the risk as deliberate and calculated with rigorous safety rails.",
+        "Use shadow traffic and automated fallback mechanisms to eliminate downside.",
+        "Demonstrate high technical ingenuity and cost consciousness.",
+        "Measure results with latency metrics and infrastructure savings."
+      ],
+      "tips": "Never describe reckless risks; always emphasize your mitigation strategies and fallbacks."
+    },
+    "expectedKeywords": [
+      "calculated risk",
+      "shadow traffic",
+      "mitigation",
+      "circuit breaker",
+      "latency",
+      "cost savings",
+      "fallbacks"
+    ]
+  },
+  {
+    "id": "beh-30",
+    "type": "Behavioral",
+    "category": "Agility",
+    "role": "General",
+    "difficulty": "Medium",
+    "question": "How do you handle a situation where requirements change midway through a sprint?",
+    "sampleAnswer": {
+      "strongAnswer": "Requirements changing midway through a sprint is a normal reality in fast-moving industries. When this happens, I remain calm and objective. First, I assess the blast radius of the change on our existing code and schema. Next, I consult with the product manager to review sprint commitments: if new story points come in, an equivalent volume of existing non-critical story points must move back to the backlog to protect delivery quality and prevent burnout. Finally, I write modular, loosely coupled code from day one so that shifting business logic requires editing single services rather than rewriting entire codebases.",
+      "keyPoints": [
+        "Accept change as part of agile product development without frustration.",
+        "Assess architectural blast radius before making code changes.",
+        "Enforce sprint scope balance: work in requires work out.",
+        "Write modular, loosely coupled software that adapts gracefully."
+      ],
+      "tips": "Demonstrate professional flexibility and architectural foresight."
+    },
+    "expectedKeywords": [
+      "agile",
+      "blast radius",
+      "sprint scope",
+      "backlog",
+      "modular",
+      "loose coupling",
+      "pragmatic"
+    ]
+  },
+  {
+    "id": "beh-31",
+    "type": "Behavioral",
+    "category": "Ethics & Security",
+    "role": "General",
+    "difficulty": "Hard",
+    "question": "Tell me about an ethical dilemma or security concern you encountered in software engineering",
+    "sampleAnswer": {
+      "strongAnswer": "While integrating a third-party analytics SDK, I noticed the library was scraping unmasked form inputs, which captured user passwords and billing phone numbers in plain text before submission. The marketing team was eager to ship the integration for an upcoming campaign. I immediately flagged this as a critical security and privacy violation under GDPR and PCI-DSS standards. I paused the rollout, met with our legal counsel and security lead, and demonstrated the captured payloads. I wrote custom input sanitization wrappers that strictly scrubbed sensitive fields before passing telemetry to the vendor, ensuring full compliance while meeting marketing's core tracking needs.",
+      "keyPoints": [
+        "Stand firm on security, user privacy, and legal compliance.",
+        "Provide factual proof (demonstrated payloads) to leadership and legal.",
+        "Pause unsafe deployments proactively.",
+        "Engineer a secure technical solution that satisfies business objectives safely."
+      ],
+      "tips": "Show uncompromised integrity when handling customer data and privacy."
+    },
+    "expectedKeywords": [
+      "security",
+      "privacy",
+      "gdpr",
+      "sanitization",
+      "ethics",
+      "integrity",
+      "pci-dss",
+      "compliance"
+    ]
+  },
+  {
+    "id": "beh-32",
+    "type": "Behavioral",
+    "category": "Persuasion",
+    "role": "General",
+    "difficulty": "Medium",
+    "question": "Describe a time you had to persuade your team to adopt a new tool, pattern, or practice",
+    "sampleAnswer": {
+      "strongAnswer": "Our frontend codebase was riddled with runtime `TypeError: cannot read property of undefined` errors in production, but several senior teammates were hesitant to adopt TypeScript, fearing slower development speed and steep learning curves. Rather than pushing for a mandates, I created a small 3-step rollout plan. First, I converted our shared utility functions to TypeScript in a single afternoon and enabled loose type checking. Second, I showed how VS Code auto-completion and compile-time checks immediately caught two subtle billing calculation bugs in existing PRs. Impressed by the safety and IDE ergonomics, the team voluntarily agreed to adopt TypeScript for all new features.",
+      "keyPoints": [
+        "Lead through demonstration and proof of value rather than mandates.",
+        "Start small with non-disruptive pilot conversions (utilities first).",
+        "Highlight immediate developer experience benefits (autocomplete, bug prevention).",
+        "Respect team concerns and foster bottom-up buy-in."
+      ],
+      "tips": "Persuasion in engineering works best when backed by ergonomic demonstrations and error reduction."
+    },
+    "expectedKeywords": [
+      "persuasion",
+      "typescript",
+      "incremental rollout",
+      "buy-in",
+      "developer experience",
+      "bug prevention"
+    ]
+  },
+  {
+    "id": "beh-33",
+    "type": "Behavioral",
+    "category": "Debugging Under Pressure",
+    "role": "General",
+    "difficulty": "Hard",
+    "question": "Tell me about a time you had to debug an issue without adequate logs or documentation",
+    "sampleAnswer": {
+      "strongAnswer": "A critical customer reported intermittent data corruption where their saved job listings vanished upon editing, yet our application server logs showed clean 200 OK responses with no errors. With zero informative logs, I reproduced the issue in a staging environment with a cloned database snapshot. I attached a low-level database query profiler and wireshark network packet trace. I discovered that a client-side race condition was firing two concurrent PUT requests with stale timestamps, causing the older empty payload to overwrite the newer one. I resolved it by implementing optimistic concurrency control with version numbers in the database schema.",
+      "keyPoints": [
+        "Formulate systematic hypotheses rather than guessing blindly.",
+        "Use low-level tools (query profilers, network inspection, staging replicas).",
+        "Identify root cause (race condition and stale overwrite).",
+        "Implement a permanent architectural fix (optimistic locking with versioning)."
+      ],
+      "tips": "Show deep forensic debugging methodology and scientific elimination of variables."
+    },
+    "expectedKeywords": [
+      "profiler",
+      "reproduce",
+      "race condition",
+      "optimistic concurrency",
+      "root cause",
+      "forensic debugging"
+    ]
+  },
+  {
+    "id": "beh-34",
+    "type": "Behavioral",
+    "category": "Culture Fit",
+    "role": "General",
+    "difficulty": "Easy",
+    "question": "What do you look for in company culture and an ideal engineering team?",
+    "sampleAnswer": {
+      "strongAnswer": "I thrive in an engineering culture characterized by three values: high psychological safety, engineering rigor, and customer empathy. Psychological safety means teammates can freely admit mistakes, ask questions, and conduct blameless post-mortems without fear. Engineering rigor means holding code to high standards with comprehensive automated testing, CI/CD, and thoughtful code reviews. Customer empathy means we don't just build technology for its own sake, but understand how our code impacts real users. When an engineering team pairs autonomy with ownership, extraordinary work happens.",
+      "keyPoints": [
+        "Articulate well-defined values (psychological safety, technical rigor, user focus).",
+        "Explain how culture connects directly to code quality and delivery velocity.",
+        "Emphasize collaboration, shared ownership, and blameless learning.",
+        "Show that you contribute positively to the culture you desire."
+      ],
+      "tips": "Be authentic and demonstrate that you are a positive, empowering team player."
+    },
+    "expectedKeywords": [
+      "psychological safety",
+      "engineering rigor",
+      "blameless",
+      "ownership",
+      "culture",
+      "collaboration",
+      "empathy"
+    ]
+  },
+  {
+    "id": "beh-35",
+    "type": "Behavioral",
+    "category": "Career Vision",
+    "role": "General",
+    "difficulty": "Easy",
+    "question": "Where do you see your engineering career evolving over the next 3-5 years?",
+    "sampleAnswer": {
+      "strongAnswer": "Over the next 3-5 years, I see myself growing into a Staff Software Engineer and technical lead. On the technical side, I want to deepen my mastery of high-scale distributed systems and real-time infrastructure, contributing to core architectural decisions that scale platforms to millions of active users. On the team side, I want to expand my impact as a mentor, guiding junior and mid-level engineers, running architectural design reviews, and shaping engineering standards across multiple squads. I want to remain hands-on with code while multiplying the capabilities of my entire team.",
+      "keyPoints": [
+        "Balance deep technical mastery with technical leadership and mentorship.",
+        "Align your personal growth with organizational scale.",
+        "Express commitment to staying hands-on while expanding architectural impact.",
+        "Show ambition grounded in realistic progression."
+      ],
+      "tips": "Demonstrate that you view leadership as service to the team and technical excellence."
+    },
+    "expectedKeywords": [
+      "staff engineer",
+      "tech lead",
+      "distributed systems",
+      "mentorship",
+      "architecture",
+      "growth",
+      "vision"
+    ]
+  },
+  {
+    "id": "tech-1",
+    "type": "Technical",
+    "category": "Web & API Architecture",
     "role": "Fullstack Developer",
-    "type": "System Design",
-    "category": "Scalability",
-    "question": "Design a URL shortening service like TinyURL. Walk through API design, database schema, hashing/encoding strategy, and caching.",
-    "expectedKeywords": ["base62", "redis cache", "nosql vs sql", "load balancer", "unique hash", "throughput", "rate limiting"],
-    "difficulty": "Hard"
+    "difficulty": "Easy",
+    "question": "What is a REST API and what are the core HTTP methods and status codes?",
+    "sampleAnswer": {
+      "strongAnswer": "REST (Representational State Transfer) is an architectural style for networked applications that relies on stateless, client-server communication over HTTP with standardized resource-oriented URIs. The core HTTP methods are GET (retrieve resource, idempotent & safe), POST (create resource, non-idempotent), PUT (replace entire resource, idempotent), PATCH (partial resource modification), and DELETE (remove resource, idempotent). Core HTTP status codes are organized into ranges: 2xx Success (200 OK, 201 Created, 204 No Content), 3xx Redirection (301 Moved Permanently, 304 Not Modified), 4xx Client Errors (400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found, 429 Too Many Requests), and 5xx Server Errors (500 Internal Server Error, 502 Bad Gateway, 503 Service Unavailable, 504 Gateway Timeout).",
+      "keyPoints": [
+        "Explain statelessness, client-server separation, and resource-based URI structure.",
+        "Define GET, POST, PUT, PATCH, DELETE and their idempotency characteristics.",
+        "Explain key HTTP status code families (2xx, 3xx, 4xx, 5xx) with concrete examples.",
+        "Distinguish between 401 (Unauthenticated) and 403 (Unauthorized/Forbidden)."
+      ],
+      "tips": "Always mention idempotency when discussing HTTP methods—interviewers listen closely for it."
+    },
+    "expectedKeywords": [
+      "rest",
+      "stateless",
+      "http methods",
+      "idempotent",
+      "get post put delete",
+      "status codes",
+      "200 201",
+      "401 403 404",
+      "500"
+    ]
   },
   {
-    "id": "q9",
+    "id": "tech-2",
+    "type": "Technical",
+    "category": "Databases",
+    "role": "Backend Developer",
+    "difficulty": "Medium",
+    "question": "Explain SQL vs NoSQL databases: when would you choose one over the other?",
+    "sampleAnswer": {
+      "strongAnswer": "SQL databases (PostgreSQL, MySQL) are relational, schema-enforced, and prioritize ACID compliance (Atomicity, Consistency, Isolation, Durability). They use structured tables with foreign keys and excel at complex joins, transactions, and structured financial or inventory domains. NoSQL databases (MongoDB, DynamoDB, Cassandra, Redis) are non-relational, flexible or schema-less, and prioritize horizontal scalability and partition tolerance under the CAP theorem. You choose SQL when data integrity, complex relational queries, and transactional guarantees are paramount. You choose NoSQL (document, key-value, column-family, graph) when dealing with massive throughput, unstructured or rapidly shifting payloads, hierarchical nested documents, or when horizontal sharding across hundreds of distributed nodes is required.",
+      "keyPoints": [
+        "Compare relational/schema-bound vs document/key-value/flexible schemas.",
+        "Contrast ACID guarantees (SQL) with BASE / eventual consistency models (NoSQL).",
+        "Discuss vertical scaling vs horizontal sharding capabilities.",
+        "Provide concrete decision criteria and real-world technology examples."
+      ],
+      "tips": "Don't say 'NoSQL is faster'. Explain that NoSQL trades away relational joins and strict consistency to achieve horizontal partitioning."
+    },
+    "expectedKeywords": [
+      "acid",
+      "schema",
+      "relational",
+      "postgresql",
+      "nosql",
+      "mongodb",
+      "horizontal scaling",
+      "joins",
+      "cap theorem"
+    ]
+  },
+  {
+    "id": "tech-3",
+    "type": "Technical",
+    "category": "Frontend & React",
+    "role": "Frontend Developer",
+    "difficulty": "Medium",
+    "question": "How does React rendering work and what is the Virtual DOM reconciliation algorithm?",
+    "sampleAnswer": {
+      "strongAnswer": "React rendering operates in two distinct phases: the Render Phase and the Commit Phase. During the Render Phase, React executes component functions and produces a lightweight JavaScript object tree known as the Virtual DOM. React Fiber—React's reconciliation engine—breaks this work into incremental units of work that can be paused, prioritized, or aborted. React diffs the new Virtual DOM against the previous tree using an O(n) heuristic: elements of different types produce entirely different trees, and lists utilize unique 'key' props to match children across renders without unmounting. Once diffing is complete, the Commit Phase synchronously applies the minimal set of DOM mutations (appendChild, removeChild) to the real browser DOM, followed by lifecycle and effect executions.",
+      "keyPoints": [
+        "Distinguish between the Render Phase (pure computation) and Commit Phase (DOM mutations).",
+        "Explain Virtual DOM as an in-memory JS representation of the UI.",
+        "Describe React Fiber's cooperative multitasking and interruptible rendering.",
+        "Explain reconciliation heuristics and why stable, unique keys are required in lists."
+      ],
+      "tips": "Mention that re-rendering does NOT always mean real DOM manipulation; only the diffed changes touch the real DOM."
+    },
+    "expectedKeywords": [
+      "virtual dom",
+      "reconciliation",
+      "fiber",
+      "render phase",
+      "commit phase",
+      "diffing",
+      "keys",
+      "heuristics"
+    ]
+  },
+  {
+    "id": "tech-4",
+    "type": "Technical",
+    "category": "Software Design",
+    "role": "Fullstack Developer",
+    "difficulty": "Medium",
+    "question": "What are common software design patterns (Singleton, Factory, Observer, Strategy) and when to use them?",
+    "sampleAnswer": {
+      "strongAnswer": "Design patterns are reusable solutions to common software design problems. Singleton ensures a class has only one instance with a global point of access, commonly used for database connection pools or telemetry clients. Factory Method delegates object instantiation to subclasses or dedicated creators without exposing concrete constructors, ideal for instantiating different notification providers (Email, SMS, Push). Observer establishes a one-to-many dependency where state changes automatically notify subscribers, forming the foundation of event emitters, Redux subscriptions, and DOM event listeners. Strategy defines a family of interchangeable algorithms behind a common interface, allowing behavior to be selected at runtime, such as swapping between Stripe, PayPal, and Crypto payment processors without altering checkout logic.",
+      "keyPoints": [
+        "Define creational, behavioral, and structural categories.",
+        "Explain Singleton with its trade-offs (global state, testing difficulty).",
+        "Explain Factory for decoupling instantiation from consumption.",
+        "Explain Observer for event-driven reactive architectures.",
+        "Explain Strategy for swappable runtime business rules and algorithms."
+      ],
+      "tips": "Provide a quick, concrete real-world code use case for each pattern."
+    },
+    "expectedKeywords": [
+      "singleton",
+      "factory",
+      "observer",
+      "strategy",
+      "design patterns",
+      "decoupling",
+      "interface",
+      "event emitter"
+    ]
+  },
+  {
+    "id": "tech-5",
+    "type": "Technical",
+    "category": "DevOps & Containers",
     "role": "DevOps Engineer",
-    "type": "Technical",
-    "category": "Containerization",
-    "question": "How do Docker layers work, and what best practices do you follow to produce slim and secure multi-stage Docker images?",
-    "expectedKeywords": ["multi-stage build", "layer caching", "alpine", "non-root user", "caching", "dockerfile"],
-    "difficulty": "Medium"
+    "difficulty": "Medium",
+    "question": "Explain Docker containers, images, and the concept of containerization vs virtualization.",
+    "sampleAnswer": {
+      "strongAnswer": "Containerization packages application code and all dependencies into an isolated user-space environment that shares the host OS kernel. In contrast, Virtual Machines (VMs) run on a hypervisor (e.g., ESXi, KVM) where each VM includes a full guest operating system, resulting in gigabytes of disk overhead and slow boot times. Containers use Linux kernel primitives—specifically Namespaces (for isolating process trees, network interfaces, mounts) and Cgroups (for limiting CPU, memory, and I/O resources). A Docker Image is an immutable, read-only template composed of stacked layered filesystems (UnionFS), while a Docker Container is a runnable, read-write instance of an image. Multi-stage builds compile code in a builder image and copy only final binaries into a minimal Alpine or distroless image to minimize attack surface and size.",
+      "keyPoints": [
+        "Contrast containers (shared kernel, lightweight, fast boot) with VMs (guest OS, hypervisor, heavy).",
+        "Explain Linux kernel primitives: Namespaces (isolation) and Cgroups (resource limits).",
+        "Define images (immutable layer stack) vs containers (active runtime instance).",
+        "Highlight best practices: multi-stage builds, non-root users, minimal base images."
+      ],
+      "tips": "Mentioning namespaces and cgroups demonstrates that you understand how containers actually work under the hood."
+    },
+    "expectedKeywords": [
+      "cgroups",
+      "namespaces",
+      "shared kernel",
+      "virtual machine",
+      "hypervisor",
+      "docker image",
+      "multi-stage build",
+      "layers"
+    ]
   },
   {
-    "id": "q10",
-    "role": "Data Engineer",
+    "id": "tech-6",
     "type": "Technical",
-    "category": "Pipelines",
-    "question": "What is the difference between batch and streaming processing? When would you choose Apache Spark vs Apache Kafka / Flink?",
-    "expectedKeywords": ["streaming", "batch", "latency", "spark", "kafka", "backpressure", "exactly-once semantics"],
-    "difficulty": "Medium"
+    "category": "Node.js Internals",
+    "role": "Backend Developer",
+    "difficulty": "Hard",
+    "question": "How does the Node.js Event Loop work with Libuv, microtasks, and macrotasks?",
+    "sampleAnswer": {
+      "strongAnswer": "Node.js runs single-threaded JavaScript execution on the V8 engine backed by Libuv, an asynchronous C library providing an event loop and a thread pool (default 4 threads) for blocking system tasks like file I/O, DNS resolution, and crypto. The Event Loop processes six major phases in order: Timers (setTimeout/setInterval callbacks), Pending I/O callbacks, Idle/Prepare, Poll (retrieves new I/O events and executes their callbacks), Check (setImmediate callbacks), and Close callbacks. Between every phase and before moving to the next tick, Node drains the Microtask queues: first `process.nextTick` callbacks, followed by resolved Promise microtasks. Because microtasks run immediately with higher priority, a recursive microtask loop can starve the event loop of I/O.",
+      "keyPoints": [
+        "Explain the role of V8 (JS execution) and Libuv (C library, event loop, worker thread pool).",
+        "List key event loop phases: Timers, Poll, Check (setImmediate), and Close.",
+        "Explain Microtasks (process.nextTick, Promise.then) running between every phase.",
+        "Contrast setImmediate (Check phase) with process.nextTick and setTimeout."
+      ],
+      "tips": "Emphasize that the JavaScript code is single-threaded, but underlying I/O operations are handled asynchronously by the OS kernel or Libuv thread pool."
+    },
+    "expectedKeywords": [
+      "event loop",
+      "libuv",
+      "thread pool",
+      "microtask",
+      "process.nexttick",
+      "promises",
+      "setimmediate",
+      "poll phase"
+    ]
+  },
+  {
+    "id": "tech-7",
+    "type": "Technical",
+    "category": "JavaScript",
+    "role": "Frontend Developer",
+    "difficulty": "Easy",
+    "question": "Explain JavaScript asynchronous execution: Callbacks vs Promises vs Async/Await.",
+    "sampleAnswer": {
+      "strongAnswer": "JavaScript is single-threaded, using an asynchronous non-blocking model to handle long-running operations. Historically, Callbacks were passed as functions to be invoked upon completion, but deeply nested callbacks led to 'callback hell', inversion of control, and fragile error handling. Promises were introduced to represent an eventual completion or failure of an asynchronous operation, providing chainable `.then()`, `.catch()`, and `.finally()` methods with deterministic states (Pending, Fulfilled, Rejected). Async/Await, introduced in ES2017, is syntactic sugar built directly on top of Promises and Generators. It allows asynchronous code to be read and written sequentially, supporting synchronous `try/catch` error handling while keeping execution non-blocking under the hood.",
+      "keyPoints": [
+        "Trace the evolution: Callbacks -> Promises -> Async/Await.",
+        "Explain Callback Hell (pyramid of doom) and error handling difficulties.",
+        "Define Promise states: Pending, Fulfilled, Rejected.",
+        "Explain Async/Await as Promise syntactic sugar enabling synchronous-looking try/catch control flow."
+      ],
+      "tips": "Point out that `await` pauses execution of the enclosing async function without blocking the main browser thread."
+    },
+    "expectedKeywords": [
+      "callbacks",
+      "promises",
+      "async await",
+      "callback hell",
+      "non-blocking",
+      "try catch",
+      "microtask",
+      "chaining"
+    ]
+  },
+  {
+    "id": "tech-8",
+    "type": "Technical",
+    "category": "Databases",
+    "role": "Backend Developer",
+    "difficulty": "Hard",
+    "question": "How does database indexing work (B-Trees) and what are the trade-offs on writes?",
+    "sampleAnswer": {
+      "strongAnswer": "Database indexes are auxiliary data structures that allow the storage engine to locate rows in O(log N) time instead of performing an O(N) full table scan. The standard index structure is a B-Tree (or B+ Tree in PostgreSQL and InnoDB). In a B+ Tree, all data records are pointed to by leaf nodes, which are doubly linked for rapid range queries, while internal nodes store keys and page pointers to guide navigation. The trade-off is write amplification: whenever an INSERT, UPDATE, or DELETE occurs, the database must not only modify the table heap page but also update every index on that table, potentially triggering expensive page splits and tree rebalancing. Additionally, indexes consume significant RAM in the buffer pool.",
+      "keyPoints": [
+        "Explain B-Tree / B+ Tree hierarchy: root, internal routing nodes, linked leaf nodes.",
+        "Contrast O(log N) index seeks vs O(N) sequential table scans.",
+        "Explain range scan optimization enabled by linked leaf nodes in B+ Trees.",
+        "Detail write amplification, page splits, and memory consumption trade-offs."
+      ],
+      "tips": "Mention composite index column ordering (Leftmost Prefix Rule) and EXPLAIN ANALYZE for verifying index usage."
+    },
+    "expectedKeywords": [
+      "b-tree",
+      "b+ tree",
+      "leaf nodes",
+      "write amplification",
+      "o(log n)",
+      "page split",
+      "table scan",
+      "composite index"
+    ]
+  },
+  {
+    "id": "tech-9",
+    "type": "Technical",
+    "category": "Version Control",
+    "role": "Fullstack Developer",
+    "difficulty": "Easy",
+    "question": "Explain Git merge vs rebase and best practices for trunk-based development.",
+    "sampleAnswer": {
+      "strongAnswer": "Both Git merge and Git rebase integrate changes from one branch into another, but with different commit history topologies. Git merge performs a 3-way merge and creates a new merge commit that ties the two branch histories together, preserving exact chronological order. Git rebase takes your branch's unique commits, rewinds your branch to the base, and replays your commits one by one on top of the latest target branch commit, producing a linear, clean commit history. The golden rule is: never rebase a shared public branch, as rewriting commit hashes breaks collaborators' histories. In trunk-based development, engineers maintain short-lived feature branches (< 1-2 days), rebase frequently onto main, and use squash-merge with CI verification and feature flags for production deployment.",
+      "keyPoints": [
+        "Contrast merge (preserves history, creates merge commit) with rebase (linear history, rewrites commit hashes).",
+        "State the Golden Rule of Rebase: never rebase public shared branches.",
+        "Explain Trunk-Based Development: short-lived branches, frequent merges, feature flags.",
+        "Discuss squash merging for clean, atomic main branch commits."
+      ],
+      "tips": "Articulate how interactive rebase (`git rebase -i`) allows squashing local WIP commits before opening a PR."
+    },
+    "expectedKeywords": [
+      "git merge",
+      "git rebase",
+      "commit history",
+      "linear",
+      "trunk-based development",
+      "feature flags",
+      "squash"
+    ]
+  },
+  {
+    "id": "tech-10",
+    "type": "Technical",
+    "category": "CI/CD & Automation",
+    "role": "DevOps Engineer",
+    "difficulty": "Medium",
+    "question": "What is a CI/CD pipeline and how do automated build, test, and deploy stages work?",
+    "sampleAnswer": {
+      "strongAnswer": "CI/CD stands for Continuous Integration and Continuous Delivery (or Deployment). CI automates the frequent integration of code from multiple contributors: on every pull request, a runner executes static code analysis, linting, compilation, and automated unit/integration tests to ensure no regressions enter the trunk. CD automates the release pipeline: Continuous Delivery packages artifacts (Docker containers, npm packages) and deploys them to staging environments with manual one-click production approval; Continuous Deployment eliminates manual gates and automatically deploys all passing changes directly to production. Production deployments utilize zero-downtime deployment strategies like Blue-Green deployments or Canary releases with automated rollback triggers.",
+      "keyPoints": [
+        "Define CI: automated linting, building, and unit/integration testing on every commit.",
+        "Differentiate Continuous Delivery (manual production gate) from Continuous Deployment (fully automated).",
+        "Explain deployment strategies: Blue-Green, Rolling updates, Canary releases.",
+        "Emphasize automated rollback triggers based on APM error rate thresholds."
+      ],
+      "tips": "Mention shift-left security (SAST/DAST vulnerability scanning) in modern CI pipelines."
+    },
+    "expectedKeywords": [
+      "ci cd",
+      "continuous integration",
+      "continuous deployment",
+      "blue green",
+      "canary",
+      "automated tests",
+      "artifacts"
+    ]
+  },
+  {
+    "id": "tech-11",
+    "type": "Technical",
+    "category": "Architecture",
+    "role": "Backend Developer",
+    "difficulty": "Hard",
+    "question": "Compare Microservices architecture vs Monolithic architecture: benefits and trade-offs.",
+    "sampleAnswer": {
+      "strongAnswer": "A Monolithic architecture packages all business domains into a single codebase and deployment unit with a shared database. Its benefits include rapid initial development, trivial end-to-end debugging, simple ACID transactions, and zero network serialization overhead. However, as teams scale, tight coupling, slow build times, and blast radius of failures become bottlenecks. Microservices decompose the system into independently deployable, domain-bounded services (following Domain-Driven Design) communicating via REST, gRPC, or message brokers. Benefits include independent scalability, polyglot tech stacks, and team autonomy. Trade-offs include distributed data consistency (requiring Saga patterns instead of ACID), network latency, partial failures, distributed tracing complexity, and significant DevOps overhead.",
+      "keyPoints": [
+        "Contrast single deployment unit/database (Monolith) vs decentralized domain services (Microservices).",
+        "Acknowledge Monolith advantages: simplicity, transactional consistency, easy debugging.",
+        "Acknowledge Microservices advantages: independent deployability, fault isolation, team scaling.",
+        "Highlight Microservices costs: distributed transactions, network latency, observability complexity."
+      ],
+      "tips": "Advocate for 'Modular Monolith first' until team size or distinct scaling requirements demand microservice decoupling."
+    },
+    "expectedKeywords": [
+      "monolith",
+      "microservices",
+      "bounded context",
+      "saga pattern",
+      "distributed systems",
+      "fault isolation",
+      "coupling"
+    ]
+  },
+  {
+    "id": "tech-12",
+    "type": "Technical",
+    "category": "Security & Auth",
+    "role": "Fullstack Developer",
+    "difficulty": "Medium",
+    "question": "Explain Authentication mechanisms: JWT vs Session-based authentication with httpOnly cookies.",
+    "sampleAnswer": {
+      "strongAnswer": "Session-based authentication is stateful: upon login, the server generates a unique session ID stored in a server-side store (Redis, DB) and returns it in a secure, httpOnly cookie. The client sends this cookie with every request, and the server validates it against memory. Revocation is instantaneous, but it requires centralized session state. JWT (JSON Web Tokens) are stateless: the token contains base64-encoded header, payload (claims), and a cryptographic signature. The server validates the signature mathematically without database lookups. However, JWTs cannot be easily revoked before expiration unless a blacklist is maintained. Storing JWTs in localStorage exposes them to XSS attacks; best practice is storing short-lived access tokens in memory and refresh tokens in secure httpOnly, SameSite=Strict cookies.",
+      "keyPoints": [
+        "Contrast stateful session IDs (stored in Redis/DB) with stateless signed JWTs.",
+        "Explain token revocation trade-offs (sessions are instantly revocable; JWTs require expiration/blacklists).",
+        "Highlight XSS vulnerabilities when storing tokens in localStorage.",
+        "Recommend industry best practice: short-lived access tokens + httpOnly SameSite refresh cookies."
+      ],
+      "tips": "Emphasize why storing JWTs in localStorage is a severe security vulnerability."
+    },
+    "expectedKeywords": [
+      "jwt",
+      "session",
+      "httponly",
+      "samesite",
+      "xss",
+      "stateless",
+      "revocation",
+      "refresh token",
+      "redis"
+    ]
+  },
+  {
+    "id": "tech-13",
+    "type": "Technical",
+    "category": "Web Security",
+    "role": "Frontend Developer",
+    "difficulty": "Medium",
+    "question": "What is CORS and how do browsers handle preflight OPTIONS requests?",
+    "sampleAnswer": {
+      "strongAnswer": "CORS (Cross-Origin Resource Sharing) is a browser security mechanism enforcing the Same-Origin Policy (matching protocol, domain, and port). It allows servers to explicitly specify which external origins are permitted to access their resources. For 'simple requests' (GET, HEAD, POST with standard headers), the browser sends the request with an `Origin` header, and the server responds with `Access-Control-Allow-Origin`. For non-simple requests (methods like PUT/DELETE or custom headers like `Authorization`), the browser automatically sends a preflight `OPTIONS` request before the actual request. The server must respond to the preflight with `Access-Control-Allow-Methods`, `Access-Control-Allow-Headers`, and optional `Access-Control-Max-Age` caching before the browser executes the real payload.",
+      "keyPoints": [
+        "Define Same-Origin Policy (protocol, domain, port).",
+        "Explain that CORS is enforced by the client browser, not the server.",
+        "Explain preflight OPTIONS requests triggered by non-simple methods/headers.",
+        "List key headers: Access-Control-Allow-Origin, Methods, Headers, Allow-Credentials."
+      ],
+      "tips": "Clarify that CORS does not protect the server from curl or backend requests; it protects users from malicious cross-origin scripts in browsers."
+    },
+    "expectedKeywords": [
+      "cors",
+      "same origin policy",
+      "preflight",
+      "options request",
+      "access control allow origin",
+      "headers",
+      "browser security"
+    ]
+  },
+  {
+    "id": "tech-14",
+    "type": "Technical",
+    "category": "Security",
+    "role": "Fullstack Developer",
+    "difficulty": "Hard",
+    "question": "What are common web security vulnerabilities (XSS, CSRF, SQL Injection) and how do you prevent them?",
+    "sampleAnswer": {
+      "strongAnswer": "Cross-Site Scripting (XSS) occurs when an attacker injects malicious client-side JavaScript into a web page viewed by other users. Prevention involves contextual output encoding, Content Security Policy (CSP) headers, avoiding dangerous methods like `innerHTML`, and storing auth tokens in httpOnly cookies. Cross-Site Request Forgery (CSRF) tricks an authenticated browser into sending unauthorized commands to a trusted application. Prevention includes `SameSite=Lax/Strict` cookie flags, anti-CSRF synchronizer tokens, and custom request headers. SQL Injection (SQLi) occurs when untrusted user input alters database query logic. Prevention strictly requires parameterized queries (prepared statements) or ORMs, never concatenating raw user strings into SQL queries.",
+      "keyPoints": [
+        "Explain XSS (Stored, Reflected, DOM-based) and defense via output encoding, CSP, httpOnly cookies.",
+        "Explain CSRF and defense via SameSite cookies and anti-CSRF tokens.",
+        "Explain SQL Injection and defense via parameterized prepared statements.",
+        "Mention additional hygiene: least privilege principles, rate limiting, dependency auditing."
+      ],
+      "tips": "Structure your answer into Vulnerability -> Attack Vector -> Concrete Defense for each item."
+    },
+    "expectedKeywords": [
+      "xss",
+      "csrf",
+      "sql injection",
+      "csp",
+      "httponly",
+      "samesite",
+      "prepared statements",
+      "parameterized queries"
+    ]
+  },
+  {
+    "id": "tech-15",
+    "type": "Technical",
+    "category": "Caching & Performance",
+    "role": "Backend Developer",
+    "difficulty": "Medium",
+    "question": "Explain caching strategies: Cache-Aside, Write-Through, Write-Back, and cache eviction policies (LRU).",
+    "sampleAnswer": {
+      "strongAnswer": "Caching accelerates read performance and relieves database load. In Cache-Aside (Lazy Loading), the application checks the cache: on a cache hit, data is returned; on a cache miss, data is queried from the DB, written to the cache, and returned. In Write-Through, the application writes to the cache, which synchronously updates the database before returning, ensuring strong consistency at the expense of write latency. In Write-Back (Write-Behind), writes are saved to the cache and asynchronously batched to the database, delivering high write throughput at the risk of data loss on cache crashes. Because cache memory is bounded, eviction policies dictate which keys are purged when full: LRU (Least Recently Used) evicts items with the oldest access timestamp, LFU (Least Frequently Used) evicts items with the lowest access count, and FIFO evicts the oldest inserted item.",
+      "keyPoints": [
+        "Contrast Cache-Aside (read-on-demand) vs Write-Through (synchronous DB write) vs Write-Back (async batched write).",
+        "Discuss cache invalidation challenges and TTL (Time-To-Live) strategies.",
+        "Explain eviction policies: LRU, LFU, FIFO.",
+        "Highlight cache penetration, cache stampede (thundering herd), and cache avalanche mitigations."
+      ],
+      "tips": "Mention the famous quote: 'There are only two hard things in Computer Science: cache invalidation and naming things.'"
+    },
+    "expectedKeywords": [
+      "cache aside",
+      "write through",
+      "write back",
+      "lru",
+      "eviction",
+      "redis",
+      "ttl",
+      "cache invalidation",
+      "stampede"
+    ]
+  },
+  {
+    "id": "tech-16",
+    "type": "Technical",
+    "category": "Messaging & Queues",
+    "role": "Backend Developer",
+    "difficulty": "Medium",
+    "question": "What is a Message Broker (e.g., Kafka / RabbitMQ) and how does it decouple microservices?",
+    "sampleAnswer": {
+      "strongAnswer": "A message broker is an architectural middleware that facilitates asynchronous, decoupled communication between producers and consumers. Instead of Service A making a synchronous HTTP call to Service B, Service A publishes an event payload to a queue or topic, allowing Service A to return immediately without waiting. RabbitMQ is an AMQP-based message broker with complex routing (exchanges, bindings) where messages are acknowledged and deleted from queues upon consumption. Apache Kafka is a distributed, append-only commit log partitioned across brokers where consumers track their own read offsets, enabling high throughput (millions of events/sec), event replayability, and stream processing. Message brokers decouple systems temporally, absorb traffic spikes (buffering), and prevent cascading service outages.",
+      "keyPoints": [
+        "Explain decoupling: producer does not need to know consumer network identity or availability.",
+        "Contrast RabbitMQ (queue-based, message transient upon ack) with Kafka (distributed commit log, partitioned, replayable).",
+        "Discuss delivery guarantees: at-most-once, at-least-once (idempotency required), exactly-once.",
+        "Highlight benefits: load leveling, backpressure management, asynchronous processing."
+      ],
+      "tips": "Point out that at-least-once delivery requires consumers to be strictly idempotent."
+    },
+    "expectedKeywords": [
+      "kafka",
+      "rabbitmq",
+      "decoupling",
+      "asynchronous",
+      "commit log",
+      "partitions",
+      "idempotency",
+      "backpressure"
+    ]
+  },
+  {
+    "id": "tech-17",
+    "type": "Technical",
+    "category": "Quality Assurance & Testing",
+    "role": "QA Engineer",
+    "difficulty": "Medium",
+    "question": "What is Test-Driven Development (TDD) and what are the differences between Unit, Integration, and E2E tests?",
+    "sampleAnswer": {
+      "strongAnswer": "TDD is a software development methodology following the Red-Green-Refactor cycle: write a failing test first (Red), write the minimal production code to make the test pass (Green), and refactor the code for clean design while keeping tests green. Automated tests are organized into the Testing Pyramid: Unit Tests test isolated functions or classes in pure memory with all dependencies mocked; they are fast (milliseconds) and cheap. Integration Tests verify that multiple interconnected components work together properly (e.g. testing an Express controller with a real PostgreSQL database instance). End-to-End (E2E) tests run against a fully deployed environment using browser automation tools (Cypress, Playwright) simulating real user journeys from UI to database; they offer highest fidelity but are slow and fragile.",
+      "keyPoints": [
+        "Explain Red-Green-Refactor cycle of TDD.",
+        "Describe the Testing Pyramid: Unit (broad base), Integration (middle), E2E (narrow top).",
+        "Compare speed, cost, and confidence across the three test types.",
+        "Highlight mocking strategies and test isolation."
+      ],
+      "tips": "Mention that spending 70% of effort on unit tests, 20% on integration, and 10% on E2E produces optimal velocity and stability."
+    },
+    "expectedKeywords": [
+      "tdd",
+      "red green refactor",
+      "testing pyramid",
+      "unit tests",
+      "integration tests",
+      "e2e tests",
+      "playwright",
+      "mocking"
+    ]
+  },
+  {
+    "id": "tech-18",
+    "type": "Technical",
+    "category": "DevOps & Cloud",
+    "role": "DevOps Engineer",
+    "difficulty": "Hard",
+    "question": "Explain Kubernetes core primitives: Pods, Deployments, Services, and Ingress.",
+    "sampleAnswer": {
+      "strongAnswer": "Kubernetes is a container orchestration platform. A Pod is the smallest deployable computing unit, encapsulating one or more tightly coupled containers sharing network namespace (IP address and localhost) and storage volumes. A Deployment is a higher-level controller that declaratively manages Pod lifecycles, enabling rolling updates, automated rollbacks, and self-healing scaling via ReplicaSets. A Service provides a persistent internal IP and DNS name that acts as a Layer 4 load balancer routing traffic across dynamic, ephemeral Pods selected by labels. An Ingress acts as an HTTP/HTTPS Layer 7 reverse proxy and API gateway exposing internal Services to external internet traffic with host-based routing, path routing, and SSL/TLS termination.",
+      "keyPoints": [
+        "Define Pod as smallest atomic unit sharing localhost and volumes.",
+        "Explain Deployment managing ReplicaSets for rolling updates and self-healing.",
+        "Explain Service as stable Layer 4 virtual IP/load balancer matching Pod labels.",
+        "Explain Ingress as Layer 7 router handling SSL termination and URL routing."
+      ],
+      "tips": "Trace an incoming HTTP request: Internet -> Ingress (L7) -> Service (L4) -> Pod (container)."
+    },
+    "expectedKeywords": [
+      "kubernetes",
+      "pods",
+      "deployments",
+      "services",
+      "ingress",
+      "replicaset",
+      "layer 4 layer 7",
+      "labels selectors"
+    ]
+  },
+  {
+    "id": "tech-19",
+    "type": "Technical",
+    "category": "Runtimes & Memory",
+    "role": "Backend Developer",
+    "difficulty": "Hard",
+    "question": "How does Garbage Collection work in V8 / modern runtimes and how do memory leaks occur?",
+    "sampleAnswer": {
+      "strongAnswer": "V8 manages memory using Generational Garbage Collection based on the Weak Generational Hypothesis (most objects die young). Memory is divided into Young Generation (Nursery and Intermediate spaces) and Old Generation. Young generation uses a fast 'Scavenge' copying collector that moves surviving objects to Old generation. Old generation uses a 'Mark-Sweep-Compact' algorithm: it traces roots (global variables, current stack frames, DOM nodes), marks reachable objects, sweeps away unreferenced memory, and compacts fragmented pages. Memory leaks occur when unreachable objects are unintentionally retained by active root references: common culprits in JavaScript include forgotten setInterval timers, global variables, event listeners attached to unmounted elements, and closures retaining large outer scopes.",
+      "keyPoints": [
+        "Explain the Weak Generational Hypothesis.",
+        "Describe Young Generation (Scavenger copying collector) vs Old Generation (Mark-Sweep-Compact).",
+        "Define roots: global objects, active execution stacks, DOM references.",
+        "Identify common JavaScript memory leak causes: closures, unremoved event listeners, forgotten intervals."
+      ],
+      "tips": "Mention debugging memory leaks using Chrome DevTools Memory Heap Snapshots and allocation timelines."
+    },
+    "expectedKeywords": [
+      "garbage collection",
+      "v8",
+      "mark sweep compact",
+      "scavenge",
+      "memory leak",
+      "heap snapshot",
+      "closures",
+      "event listeners"
+    ]
+  },
+  {
+    "id": "tech-20",
+    "type": "Technical",
+    "category": "Networking & Protocols",
+    "role": "Fullstack Developer",
+    "difficulty": "Medium",
+    "question": "Compare WebSockets, Server-Sent Events (SSE), and HTTP Long-Polling for real-time communication.",
+    "sampleAnswer": {
+      "strongAnswer": "HTTP Long-Polling is an emulation of real-time: the client requests data, the server holds the connection open until data arrives or a timeout occurs, responds, and the client immediately opens a new HTTP request. It works everywhere but has high header overhead and connection latency. Server-Sent Events (SSE) establish a persistent unidirectional HTTP connection from server to client streaming text data (MIME type text/event-stream). It features built-in reconnection, event IDs, and HTTP/2 multiplexing, making it ideal for live tickers, LLM streaming, and notifications. WebSockets provide a persistent, bidirectional, full-duplex TCP connection established via an HTTP Upgrade handshake with minimal 2-byte framing overhead, making it the premier choice for low-latency interactive games, collaborative whiteboards, and real-time chat applications.",
+      "keyPoints": [
+        "Compare Long-Polling (high overhead, request-response cycle) with persistent connections.",
+        "Explain SSE: unidirectional (server-to-client), text-based, HTTP/2 multiplexed, built-in reconnection.",
+        "Explain WebSockets: bidirectional, full-duplex, low-framing overhead, custom binary support.",
+        "Provide selection criteria based on whether client needs to send frequent bidirectional messages."
+      ],
+      "tips": "Highlight that SSE runs over standard HTTP/2 without requiring custom firewall or WebSocket gateway configurations."
+    },
+    "expectedKeywords": [
+      "websockets",
+      "server-sent events",
+      "sse",
+      "long-polling",
+      "bidirectional",
+      "full-duplex",
+      "http upgrade",
+      "latency"
+    ]
+  },
+  {
+    "id": "tech-21",
+    "type": "Technical",
+    "category": "Frontend & CSS",
+    "role": "Frontend Developer",
+    "difficulty": "Easy",
+    "question": "Explain CSS Flexbox vs CSS Grid and modern responsive design techniques.",
+    "sampleAnswer": {
+      "strongAnswer": "CSS Flexbox is a one-dimensional layout model designed for distributing space along either a single row or column. It excels at component-level micro-layouts: aligning items, centering elements, distributing spacing evenly, and handling dynamic content sizing. CSS Grid is a two-dimensional layout model designed for positioning elements across rows and columns simultaneously. It excels at macro-layouts: full-page page structures, complex dashboard widgets, and overlapping layouts. Modern responsive design combines fluid typography (`clamp()`), CSS Grid (`repeat(auto-fit, minmax(280px, 1fr))`), container queries (`@container`) which adapt styles based on parent container width rather than viewport width, and modern CSS variables for design system theming.",
+      "keyPoints": [
+        "Contrast 1D Flexbox (row OR column) with 2D Grid (rows AND columns simultaneously).",
+        "Explain common Flexbox alignment axes: main axis (justify-content) and cross axis (align-items).",
+        "Describe CSS Grid template areas and auto-fit minmax responsive grids without media queries.",
+        "Highlight modern techniques: Container Queries, clamp(), and CSS variables."
+      ],
+      "tips": "Mention Container Queries as the modern replacement for brittle global viewport media queries."
+    },
+    "expectedKeywords": [
+      "flexbox",
+      "css grid",
+      "one-dimensional",
+      "two-dimensional",
+      "responsive",
+      "container queries",
+      "clamp",
+      "auto-fit minmax"
+    ]
+  },
+  {
+    "id": "tech-22",
+    "type": "Technical",
+    "category": "TypeScript",
+    "role": "Frontend Developer",
+    "difficulty": "Medium",
+    "question": "What are TypeScript Generics and how do they provide compile-time type safety?",
+    "sampleAnswer": {
+      "strongAnswer": "Generics allow developers to write flexible, reusable functions, interfaces, and classes that work across a variety of types while preserving full compile-time type safety. Instead of using `any`—which disables the type checker—generics introduce type parameters (e.g., `<T>`) that act as placeholders for types provided when the code is invoked. TypeScript can often infer `T` automatically from arguments. Generics support constraints using `extends` (e.g., `<T extends { id: string }>` guarantees that `T` has an `id` property), default type arguments, and utility types like `Partial<T>`, `Pick<T, K>`, and `Record<K, V>`. Generics catch type mismatches at compile time, eliminate manual type assertions, and enable powerful IDE auto-completion.",
+      "keyPoints": [
+        "Explain type variables (`<T>`) preserving relationships between inputs and outputs.",
+        "Contrast Generics with `any` (which discards type safety).",
+        "Explain generic constraints (`extends`) to require specific properties.",
+        "Mention common built-in utility types (Record, Pick, Omit, Partial)."
+      ],
+      "tips": "Give a quick code example like `function fetchApi<T>(url: string): Promise<T>`."
+    },
+    "expectedKeywords": [
+      "generics",
+      "type safety",
+      "type parameters",
+      "extends",
+      "constraints",
+      "utility types",
+      "compile-time"
+    ]
+  },
+  {
+    "id": "tech-23",
+    "type": "Technical",
+    "category": "Web & API",
+    "role": "Backend Developer",
+    "difficulty": "Medium",
+    "question": "Compare GraphQL vs REST: what problems does GraphQL solve and what are its caveats?",
+    "sampleAnswer": {
+      "strongAnswer": "REST exposes multiple fixed resource endpoints where each endpoint returns a fixed payload structure. This can lead to over-fetching (retrieving unnecessary fields) and under-fetching (requiring multiple waterfall round-trips to fetch related data). GraphQL exposes a single endpoint where clients submit structured declarative queries specifying the exact fields needed, resolving complex relational data in a single round-trip via a strongly typed schema. However, GraphQL introduces significant caveats: caching is complex (since all requests are HTTP POST to a single URL, bypassing browser/CDN HTTP caching), N+1 database query problems require DataLoader batching, and unrestricted client queries can cause severe server denial-of-service unless query complexity and depth limits are enforced.",
+      "keyPoints": [
+        "Explain over-fetching and under-fetching in traditional REST.",
+        "Explain GraphQL client-specified query shape and single endpoint flexibility.",
+        "Highlight GraphQL challenges: CDN caching complexity, N+1 problem (solved via DataLoader).",
+        "Discuss security risks: deeply nested queries and denial-of-service vulnerabilities."
+      ],
+      "tips": "Acknowledge that REST with HTTP/2 and sparse fieldsets remains simpler and superior for many public APIs."
+    },
+    "expectedKeywords": [
+      "graphql",
+      "rest",
+      "over-fetching",
+      "under-fetching",
+      "dataloader",
+      "n+1 problem",
+      "schema",
+      "caching"
+    ]
+  },
+  {
+    "id": "tech-24",
+    "type": "Technical",
+    "category": "Operating Systems",
+    "role": "DevOps Engineer",
+    "difficulty": "Medium",
+    "question": "Explain Linux process management: PID, signals (SIGTERM, SIGKILL), and background daemon processes.",
+    "sampleAnswer": {
+      "strongAnswer": "In Linux, every executing instance is a process identified by a unique Process ID (PID), starting with systemd (PID 1). Processes are managed via POSIX signals. SIGTERM (Signal 15) is the polite termination signal, allowing the process to catch the signal, finish in-flight requests, close database connections, and exit cleanly (graceful shutdown). SIGKILL (Signal 9) cannot be caught or ignored; the Linux kernel immediately terminates the process and releases its memory, which can leave lock files or corrupted state. A daemon is a long-running background process without an attached controlling terminal, typically managed by systemd or container entrypoints, monitored for health, and automatically restarted on unhandled crashes.",
+      "keyPoints": [
+        "Define PID and role of PID 1 (init / systemd).",
+        "Contrast SIGTERM (catchable graceful shutdown) with SIGKILL (un-catchable immediate termination).",
+        "Explain graceful shutdown: closing sockets, finishing in-flight transactions, flushing logs.",
+        "Explain background daemons and supervision systems (systemd, runc)."
+      ],
+      "tips": "Always explain why web services should trap SIGTERM to implement graceful zero-downtime container termination."
+    },
+    "expectedKeywords": [
+      "pid",
+      "sigterm",
+      "sigkill",
+      "graceful shutdown",
+      "linux",
+      "signals",
+      "daemon",
+      "systemd"
+    ]
+  },
+  {
+    "id": "tech-25",
+    "type": "Technical",
+    "category": "Databases",
+    "role": "Backend Developer",
+    "difficulty": "Hard",
+    "question": "What are ACID properties in database transactions and what are transaction isolation levels?",
+    "sampleAnswer": {
+      "strongAnswer": "ACID guarantees transactional database reliability: Atomicity (all operations succeed or entire transaction rolls back), Consistency (data transitions from one valid schema/constraint state to another), Isolation (concurrent transactions execute without interfering with one another), and Durability (committed changes persist permanently even after hardware crashes, backed by Write-Ahead Logging). Transaction Isolation Levels defined by SQL-92 trade isolation against concurrency performance: Read Uncommitted (allows dirty reads), Read Committed (default in Postgres, prevents dirty reads but allows non-repeatable reads), Repeatable Read (guarantees reading the same snapshot, prevents non-repeatable reads but can permit phantom reads), and Serializable (highest level, strictly emulates sequential execution, preventing all anomalies via two-phase locking or SSI).",
+      "keyPoints": [
+        "Define ACID: Atomicity, Consistency, Isolation, Durability.",
+        "Explain Write-Ahead Logging (WAL) providing durability.",
+        "List 4 Isolation Levels: Read Uncommitted, Read Committed, Repeatable Read, Serializable.",
+        "Explain read anomalies: Dirty Reads, Non-repeatable Reads, Phantom Reads."
+      ],
+      "tips": "Mention that most production databases default to Read Committed or Repeatable Read because Serializable introduces severe locking overhead and serialization failures."
+    },
+    "expectedKeywords": [
+      "acid",
+      "atomicity",
+      "consistency",
+      "isolation",
+      "durability",
+      "read committed",
+      "repeatable read",
+      "serializable",
+      "wal"
+    ]
+  },
+  {
+    "id": "tech-26",
+    "type": "Technical",
+    "category": "Site Reliability",
+    "role": "DevOps Engineer",
+    "difficulty": "Medium",
+    "question": "Explain Site Reliability Engineering (SRE) concepts: SLI, SLO, SLA, and error budgets.",
+    "sampleAnswer": {
+      "strongAnswer": "In SRE, SLI (Service Level Indicator) is a quantifiable metric tracking real-time service behavior, such as 'percentage of HTTP requests returning < 500ms'. SLO (Service Level Objective) is the internal target reliability goal agreed upon by engineering and product, such as '99.9% of requests meet the SLI over a rolling 30-day window'. SLA (Service Level Agreement) is the external contractual commitment with customers with legal or financial penalties (credits) if breached, set looser than the SLO (e.g. 99.5%). The Error Budget is the inverse of the SLO (e.g. 100% - 99.9% = 0.1% allowable failure). When the error budget is healthy, teams ship features rapidly; when the error budget is burned, feature releases pause to focus exclusively on stability, reliability, and bug fixes.",
+      "keyPoints": [
+        "Define SLI (measurement metric), SLO (internal target), SLA (contractual promise with penalties).",
+        "Explain Error Budget as the allowable headroom for failure and experimentation.",
+        "Describe how Error Budgets balance engineering innovation against production stability.",
+        "Explain budget freeze policies when error budgets are exhausted."
+      ],
+      "tips": "Highlight that 100% uptime is virtually never the right target because the cost to achieve it escalates exponentially while starving feature velocity."
+    },
+    "expectedKeywords": [
+      "sli",
+      "slo",
+      "sla",
+      "error budget",
+      "sre",
+      "uptime",
+      "availability",
+      "reliability"
+    ]
+  },
+  {
+    "id": "tech-27",
+    "type": "Technical",
+    "category": "Networking & Infrastructure",
+    "role": "DevOps Engineer",
+    "difficulty": "Easy",
+    "question": "What is the difference between Load Balancing algorithms (Round Robin, Least Connections, IP Hash)?",
+    "sampleAnswer": {
+      "strongAnswer": "Load balancers distribute incoming network traffic across a pool of backend servers to optimize resource utilization and prevent server overload. Round Robin distributes sequential requests across servers in cyclical order, ideal when servers have identical hardware and requests have uniform processing times. Least Connections directs new requests to the server currently handling the fewest active connections, superior when requests have heterogeneous lifespans (e.g., long-lived WebSockets or complex reporting queries). IP Hash hashes the client's IP address to deterministically route requests from the same user to the same server, enabling sticky sessions without shared storage, though susceptible to hotspotting if many users share a corporate proxy.",
+      "keyPoints": [
+        "Explain Round Robin (simple cycle, assumes uniform requests and capacity).",
+        "Explain Least Connections (routes to lowest active workload, ideal for varied request durations).",
+        "Explain IP Hash (deterministic routing for sticky sessions).",
+        "Mention weighted variants (Weighted Round Robin) for heterogeneous server sizes."
+      ],
+      "tips": "Distinguish between Layer 4 (TCP/UDP transport level) and Layer 7 (HTTP/application level) load balancing."
+    },
+    "expectedKeywords": [
+      "load balancing",
+      "round robin",
+      "least connections",
+      "ip hash",
+      "sticky sessions",
+      "layer 4 layer 7",
+      "health checks"
+    ]
+  },
+  {
+    "id": "tech-28",
+    "type": "Technical",
+    "category": "Networking & Security",
+    "role": "Security Engineer",
+    "difficulty": "Medium",
+    "question": "How does HTTPS / TLS handshake work to encrypt traffic between client and server?",
+    "sampleAnswer": {
+      "strongAnswer": "HTTPS wraps HTTP inside TLS (Transport Layer Security) encryption. In a modern TLS 1.3 handshake: 1) The client sends a `ClientHello` with supported cipher suites and a key share. 2) The server responds with `ServerHello`, its chosen cipher suite, key share, and its digital Certificate signed by a trusted Certificate Authority (CA). 3) The client validates the certificate chain against its local root trust store. 4) Using Diffie-Hellman key exchange, both client and server independently derive an identical shared symmetric session key without transmitting it over the wire. 5) Subsequent application data is encrypted using this high-speed symmetric session key (AES-GCM or ChaCha20). TLS 1.3 completes this handshake in just 1 round-trip (1-RTT) or 0-RTT on resumption.",
+      "keyPoints": [
+        "Explain asymmetric cryptography for initial authentication and key exchange.",
+        "Explain symmetric cryptography (AES-GCM) for fast bulk data encryption.",
+        "Describe Certificate Authority (CA) validation verifying server authenticity.",
+        "Highlight Diffie-Hellman ephemeral key exchange and TLS 1.3 single round-trip efficiency."
+      ],
+      "tips": "Differentiate between asymmetric keys (used only for identity and establishing secret) and symmetric keys (used for high-speed payload encryption)."
+    },
+    "expectedKeywords": [
+      "https",
+      "tls handshake",
+      "asymmetric encryption",
+      "symmetric encryption",
+      "diffie-hellman",
+      "certificate authority",
+      "tls 1.3"
+    ]
+  },
+  {
+    "id": "tech-29",
+    "type": "Technical",
+    "category": "Databases",
+    "role": "Backend Developer",
+    "difficulty": "Hard",
+    "question": "What is Database Sharding vs Partitioning vs Replication?",
+    "sampleAnswer": {
+      "strongAnswer": "These are distinct techniques for scaling database capacity and availability. Replication creates copies of the full database across multiple nodes: Primary handles writes and replicates data asynchronously or synchronously to Read Replicas, boosting read throughput and high availability during failovers. Partitioning divides a single table into smaller logical subsets on the same physical server (e.g., partitioning an orders table by year or range) to accelerate query scanning and index maintenance without distributing hardware. Sharding is horizontal partitioning across multiple distinct physical database servers, where a Shard Key (e.g. hash of userId) dictates which server holds the data. Sharding enables near-infinite horizontal write scalability, but introduces complex distributed joins, cross-shard transactions, and re-sharding operational overhead.",
+      "keyPoints": [
+        "Define Replication: full data copies across nodes for read scale and redundancy.",
+        "Define Partitioning: splitting large tables into smaller logical chunks on the same machine.",
+        "Define Sharding: horizontal partitioning across independent physical database servers using a shard key.",
+        "Highlight sharding trade-offs: cross-shard joins, distributed transactions, rebalancing complexity."
+      ],
+      "tips": "Always recommend exhausting vertical scaling, read replication, and caching before introducing sharding."
+    },
+    "expectedKeywords": [
+      "sharding",
+      "partitioning",
+      "replication",
+      "shard key",
+      "horizontal scaling",
+      "read replicas",
+      "failover"
+    ]
+  },
+  {
+    "id": "tech-30",
+    "type": "Technical",
+    "category": "React & Frontend",
+    "role": "Frontend Developer",
+    "difficulty": "Medium",
+    "question": "Explain React useEffect lifecycle, dependency array pitfalls, and cleanup functions.",
+    "sampleAnswer": {
+      "strongAnswer": "`useEffect` synchronizes a React component with an external system (DOM events, timers, network requests). It executes after rendering and screen painting. Its second argument is the dependency array: passing no array runs the effect on every render; an empty array `[]` runs it once on mount; an array with values `[id, query]` runs the effect whenever any dependency changes by `Object.is` comparison. Pitfalls occur when dependencies are omitted (stale closures capturing outdated state), or when non-primitive objects/functions are recreated inside the component body on every render, causing infinite re-render loops (solved via `useCallback` or `useMemo`). The optional cleanup function returned by `useEffect` executes before re-running the effect and upon component unmount, essential for clearing timers, closing WebSocket connections, and aborting in-flight fetch requests via `AbortController`.",
+      "keyPoints": [
+        "Explain synchronization with external systems and post-render execution.",
+        "Describe dependency array behavior and stale closure risks.",
+        "Explain infinite loops caused by non-primitive dependencies.",
+        "Explain cleanup functions and canceling fetch requests with AbortController."
+      ],
+      "tips": "Mention React 18 Strict Mode double-invoking effects in development to verify cleanup robustness."
+    },
+    "expectedKeywords": [
+      "useeffect",
+      "dependency array",
+      "cleanup function",
+      "abortcontroller",
+      "stale closures",
+      "usecallback",
+      "react 18"
+    ]
+  },
+  {
+    "id": "tech-31",
+    "type": "Technical",
+    "category": "Databases & Concurrency",
+    "role": "Backend Developer",
+    "difficulty": "Medium",
+    "question": "What is the difference between optimistic locking and pessimistic locking in databases?",
+    "sampleAnswer": {
+      "strongAnswer": "Both strategies manage concurrent updates to prevent lost updates in multi-user databases. Pessimistic Locking assumes conflicts are frequent: a transaction explicitly locks the target row upon reading it using `SELECT ... FOR UPDATE`, blocking other transactions until the lock is released upon commit or rollback. It guarantees safety but degrades throughput and risks deadlocks. Optimistic Locking assumes conflicts are rare: rows include a `version` integer or timestamp column. The application reads data without locking; when saving, it executes an update like `UPDATE inventory SET stock = 5, version = version + 1 WHERE id = 1 AND version = 3`. If another transaction modified the row first, affected row count is 0, signaling a collision that triggers a retry or user error. Optimistic locking maximizes throughput in read-heavy applications.",
+      "keyPoints": [
+        "Explain Pessimistic Locking: acquires exclusive row lock immediately (SELECT FOR UPDATE).",
+        "Explain Optimistic Locking: validates version column at write time without blocking reads.",
+        "Contrast performance impact: pessimistic causes contention; optimistic enables high read concurrency.",
+        "Explain conflict handling in optimistic locking (application-level retries)."
+      ],
+      "tips": "Give an e-commerce inventory or collaborative document editing example to demonstrate practical trade-offs."
+    },
+    "expectedKeywords": [
+      "optimistic locking",
+      "pessimistic locking",
+      "select for update",
+      "version column",
+      "concurrency",
+      "deadlock",
+      "retry"
+    ]
+  },
+  {
+    "id": "tech-32",
+    "type": "Technical",
+    "category": "Performance & Frontend",
+    "role": "Frontend Developer",
+    "difficulty": "Medium",
+    "question": "How do you measure and optimize Web Vitals (LCP, FID/INP, CLS) in a modern web app?",
+    "sampleAnswer": {
+      "strongAnswer": "Google Core Web Vitals measure real-world user experience across three dimensions: 1) Largest Contentful Paint (LCP) measures loading speed: target is < 2.5s. Optimized by prioritizing hero images (`fetchpriority='high'`), preloading critical fonts, implementing server-side rendering (SSR), and CDN edge caching. 2) Interaction to Next Paint (INP) measures interactivity responsiveness: target is < 200ms. Optimized by yielding long tasks to the main thread via `requestAnimationFrame` or `scheduler.yield()`, debouncing input handlers, and using Web Workers for heavy compute. 3) Cumulative Layout Shift (CLS) measures visual stability: target is < 0.1. Optimized by specifying explicit `width` and `height` on images and videos, reserving container space for dynamic ads/embeds, and using `font-display: optional` to eliminate layout jank.",
+      "keyPoints": [
+        "Define LCP (< 2.5s), INP (< 200ms), and CLS (< 0.1).",
+        "Detail LCP optimizations: image preloading, CDN caching, SSR.",
+        "Detail INP optimizations: breaking up long tasks, Web Workers, debouncing.",
+        "Detail CLS optimizations: explicit aspect ratios and reserved dimensions."
+      ],
+      "tips": "Note that INP officially replaced FID (First Input Delay) as a Core Web Vital in 2024 to measure responsiveness across the full page lifecycle."
+    },
+    "expectedKeywords": [
+      "core web vitals",
+      "lcp",
+      "inp",
+      "cls",
+      "web workers",
+      "aspect ratio",
+      "cdn",
+      "long tasks"
+    ]
+  },
+  {
+    "id": "tech-33",
+    "type": "Technical",
+    "category": "Distributed Systems",
+    "role": "Backend Developer",
+    "difficulty": "Hard",
+    "question": "Explain the CAP theorem and PACELC theorem in distributed systems.",
+    "sampleAnswer": {
+      "strongAnswer": "The CAP theorem states that in any distributed data store, across a Network Partition (P), you can only guarantee Consistency (C - every read receives the most recent write) OR Availability (A - every non-failing node returns a response, though not guaranteed to be freshest). Because network partitions are inevitable in real-world distributed networks, you must choose between CP (e.g. HBase, Zookeeper, MongoDB with majority write) or AP (e.g. Cassandra, DynamoDB). The PACELC theorem extends CAP by addressing normal operation: If there is a Partition (P), how do you trade Availability (A) and Consistency (C)? Else (E), when the network is healthy, how do you trade Latency (L) and Consistency (C)? For example, DynamoDB is PA/EL (Availability during partitions, Latency during normal operations).",
+      "keyPoints": [
+        "Define Consistency, Availability, Partition Tolerance.",
+        "Explain why Partition Tolerance cannot be avoided in distributed systems.",
+        "Categorize CP vs AP systems with real-world examples.",
+        "Explain PACELC extension addressing latency vs consistency under normal operations."
+      ],
+      "tips": "Clarify that CAP consistency means Linearizability (single copy consistency), not ACID consistency."
+    },
+    "expectedKeywords": [
+      "cap theorem",
+      "pacelc",
+      "consistency",
+      "availability",
+      "partition tolerance",
+      "dynamodb",
+      "cassandra",
+      "linearizability"
+    ]
+  },
+  {
+    "id": "tech-34",
+    "type": "Technical",
+    "category": "Cloud Architecture",
+    "role": "Fullstack Developer",
+    "difficulty": "Medium",
+    "question": "What is the role of an API Gateway in cloud microservices architecture?",
+    "sampleAnswer": {
+      "strongAnswer": "An API Gateway is a reverse proxy positioned between external clients and internal microservices, serving as a centralized entry point. Key responsibilities include: 1) Request Routing: mapping public URLs to internal services and aggregating multiple backend responses into a single payload. 2) Security: centralized authentication (JWT validation, API keys) and SSL/TLS termination. 3) Traffic Management: rate limiting, token-bucket throttling, and DDoS mitigation. 4) Observability: distributed correlation ID injection, request logging, and latency metrics. 5) Cross-cutting concerns: response compression, CORS handling, and protocol translation (e.g. converting external HTTP/JSON into internal gRPC).",
+      "keyPoints": [
+        "Position as single entry point decoupling clients from internal service topology.",
+        "List core features: routing, SSL termination, auth validation, rate limiting.",
+        "Explain aggregation: combining data from multiple services to reduce client round-trips.",
+        "Highlight protocol transformation (HTTP/REST to internal gRPC)."
+      ],
+      "tips": "Warn against turning the API Gateway into a 'smart monolith' with business logic; keep it focused strictly on routing and cross-cutting infrastructure."
+    },
+    "expectedKeywords": [
+      "api gateway",
+      "reverse proxy",
+      "rate limiting",
+      "ssl termination",
+      "routing",
+      "grpc",
+      "authentication",
+      "correlation id"
+    ]
+  },
+  {
+    "id": "tech-35",
+    "type": "Technical",
+    "category": "Databases & I/O",
+    "role": "Backend Developer",
+    "difficulty": "Medium",
+    "question": "What is the difference between synchronous and asynchronous database I/O?",
+    "sampleAnswer": {
+      "strongAnswer": "In synchronous database I/O, the executing thread issues a query to the database socket and enters a blocked wait state, relinquishing CPU execution until the database completes disk seeks and returns bytes over the network. In multi-threaded servers (e.g. traditional Java/Tomcat), this requires dedicating an OS thread per concurrent connection, hitting memory limits and high context-switching overhead at scale. In asynchronous non-blocking I/O (e.g. Node.js with libuv or Netty), the thread sends the query, registers an event listener with the OS kernel (via epoll/kqueue), and immediately returns to the event loop to process other requests. When the database responds, an I/O interrupt wakes the event loop to execute the callback. This allows a single thread to handle tens of thousands of concurrent database queries efficiently.",
+      "keyPoints": [
+        "Explain thread blocking in synchronous I/O.",
+        "Explain non-blocking event-driven I/O utilizing epoll/kqueue.",
+        "Contrast thread-per-request memory footprint with event-loop concurrency.",
+        "Discuss context-switching overhead in high-concurrency systems."
+      ],
+      "tips": "Connect asynchronous I/O directly to high throughput and low memory footprint in Node.js."
+    },
+    "expectedKeywords": [
+      "synchronous",
+      "asynchronous",
+      "non-blocking",
+      "epoll",
+      "event loop",
+      "thread blocking",
+      "concurrency",
+      "socket"
+    ]
+  },
+  {
+    "id": "tech-36",
+    "type": "Technical",
+    "category": "API Security",
+    "role": "Backend Developer",
+    "difficulty": "Medium",
+    "question": "Explain the purpose and implementation of rate limiting in backend APIs.",
+    "sampleAnswer": {
+      "strongAnswer": "Rate limiting controls the rate of incoming requests to protect backend services from denial-of-service attacks, brute-force password attempts, web scraping, and cascading failures. The four primary algorithms are: 1) Token Bucket: tokens are added to a bucket at a constant rate up to a max capacity; requests consume tokens. Allows bursts while maintaining average throughput. 2) Leaky Bucket: requests enter a queue and process at a fixed constant rate, smoothing traffic spikes. 3) Fixed Window Counter: counts requests per time window (e.g., 100 req/min), susceptible to 2x bursts at window boundaries. 4) Sliding Window Log/Counter: tracks timestamped requests or combines weighted adjacent windows for accurate enforcement. In distributed systems, rate limiting is implemented in Redis using atomic Lua scripts or Redis cell modules to prevent race conditions across server nodes.",
+      "keyPoints": [
+        "Explain why rate limiting is essential: DDoS protection, resource conservation, fair usage.",
+        "Compare Token Bucket, Leaky Bucket, Fixed Window, and Sliding Window Counter.",
+        "Explain standard response headers: X-RateLimit-Limit, Remaining, Reset, and 429 Too Many Requests.",
+        "Explain distributed implementation using Redis and atomic Lua scripts."
+      ],
+      "tips": "Mention returning `Retry-After` header with HTTP status code 429."
+    },
+    "expectedKeywords": [
+      "rate limiting",
+      "token bucket",
+      "sliding window",
+      "redis",
+      "429 too many requests",
+      "ddos",
+      "lua script",
+      "retry-after"
+    ]
+  },
+  {
+    "id": "tech-37",
+    "type": "Technical",
+    "category": "Security & Auth",
+    "role": "Security Engineer",
+    "difficulty": "Hard",
+    "question": "What is OAuth 2.0 authorization framework and how does the Authorization Code flow work?",
+    "sampleAnswer": {
+      "strongAnswer": "OAuth 2.0 is an industry-standard authorization framework that enables third-party applications to obtain limited access to user resources without exposing user credentials. The standard Authorization Code Flow with PKCE (Proof Key for Code Exchange) works in steps: 1) Client redirects user to the Authorization Server with client ID, requested scopes, and a cryptographic code challenge. 2) User logs in and consents to scopes. 3) Authorization Server redirects back to client's redirect URI with a short-lived authorization code. 4) Client sends a secure backend POST request to the token endpoint exchanging the code (and PKCE code verifier) for an Access Token and Refresh Token. 5) Client uses the Access Token in the Bearer Authorization header to query protected Resource Servers. PKCE prevents authorization code interception attacks.",
+      "keyPoints": [
+        "Define roles: Resource Owner, Client, Authorization Server, Resource Server.",
+        "Explain why Authorization Code flow is secure (tokens never exposed in browser URL hash).",
+        "Explain PKCE (code_verifier and code_challenge) preventing code injection/interception.",
+        "Contrast OAuth 2.0 (Authorization / access delegation) with OpenID Connect (OIDC / Identity)."
+      ],
+      "tips": "Clarify the difference between OAuth 2.0 (Authorization) and OpenID Connect (Authentication/Identity)."
+    },
+    "expectedKeywords": [
+      "oauth 2.0",
+      "authorization code flow",
+      "pkce",
+      "access token",
+      "refresh token",
+      "oidc",
+      "scopes",
+      "redirect uri"
+    ]
+  },
+  {
+    "id": "tech-38",
+    "type": "Technical",
+    "category": "Operating Systems & Concurrency",
+    "role": "Backend Developer",
+    "difficulty": "Hard",
+    "question": "What is Deadlock in concurrent programming and what are the 4 Coffman conditions?",
+    "sampleAnswer": {
+      "strongAnswer": "A deadlock occurs in concurrent computing when two or more processes or threads are blocked indefinitely, each waiting for a resource held by the other. Deadlock can occur if and only if all four Coffman Conditions hold simultaneously: 1) Mutual Exclusion: at least one resource must be held in a non-shareable mode. 2) Hold and Wait: a process holds at least one resource while waiting to acquire additional resources held by others. 3) No Preemption: resources cannot be forcibly confiscated; they can only be released voluntarily by the holding process. 4) Circular Wait: a closed chain of processes exists where each process waits for a resource held by the next process in the chain. Prevention strategies break one of these conditions, most commonly by enforcing a strict global resource acquisition ordering (eliminating Circular Wait) or using lock timeouts and try-lock semantics.",
+      "keyPoints": [
+        "Define deadlock with a concrete example (Thread A holds Lock 1, waits for Lock 2; Thread B holds Lock 2, waits for Lock 1).",
+        "Detail the 4 Coffman Conditions: Mutual Exclusion, Hold and Wait, No Preemption, Circular Wait.",
+        "Explain prevention via strict global resource acquisition ordering.",
+        "Explain deadlock detection via wait-for graphs and timeouts."
+      ],
+      "tips": "Mention database deadlock detection engines which automatically terminate one transaction to allow the other to proceed."
+    },
+    "expectedKeywords": [
+      "deadlock",
+      "coffman conditions",
+      "mutual exclusion",
+      "hold and wait",
+      "no preemption",
+      "circular wait",
+      "resource ordering"
+    ]
+  },
+  {
+    "id": "tech-39",
+    "type": "Technical",
+    "category": "DevOps & Infrastructure",
+    "role": "DevOps Engineer",
+    "difficulty": "Medium",
+    "question": "Explain Infrastructure as Code (IaC) and the difference between Terraform and Ansible.",
+    "sampleAnswer": {
+      "strongAnswer": "Infrastructure as Code (IaC) manages and provisions computer data centers and cloud resources through machine-readable definition files rather than manual interactive configuration. Benefits include reproducibility, version-controlled audit trails, and automated CI/CD environment spin-up. Terraform is an open-source orchestration tool that uses a declarative paradigm (HashiCorp Configuration Language): you describe the desired end-state of your cloud infrastructure (VPCs, EC2, RDS, IAM), and Terraform calculates the diff against its state file and provisions it via cloud provider APIs. Ansible is primarily a configuration management and automation tool that uses a procedural/task-based YAML paradigm: it connects agentlessly over SSH to configure software, patch packages, and manage files on existing compute instances.",
+      "keyPoints": [
+        "Define IaC benefits: consistency, version control, automated teardown/reproduction.",
+        "Contrast Terraform (declarative, provisioning infrastructure, state-managed) with Ansible (configuration management, software setup, agentless SSH).",
+        "Explain the role of Terraform state file tracking cloud infrastructure.",
+        "Highlight combining them: Terraform provisions the VMs; Ansible configures the software on them."
+      ],
+      "tips": "Use the analogy: Terraform builds the house; Ansible decorates and furnishes the rooms."
+    },
+    "expectedKeywords": [
+      "infrastructure as code",
+      "terraform",
+      "ansible",
+      "declarative",
+      "state file",
+      "configuration management",
+      "agentless ssh"
+    ]
+  },
+  {
+    "id": "tech-40",
+    "type": "Technical",
+    "category": "Quality Assurance",
+    "role": "QA Engineer",
+    "difficulty": "Easy",
+    "question": "What is regression testing and automated test regression suite management in QA?",
+    "sampleAnswer": {
+      "strongAnswer": "Regression testing verifies that recent code commits, bug fixes, or enhancements have not unintentionally broken existing functionality or re-introduced previously resolved defects. As codebases grow, running full manual regression suites becomes impossible. Managing an automated regression suite involves: 1) Test Categorization: running fast unit and smoke tests on every PR commit (5 minutes), while scheduling broad integration and E2E regression suites for nightly CI builds. 2) Flaky Test Remediation: isolating and fixing non-deterministic tests immediately to prevent undermining team trust in CI. 3) Test Data Management: provisioning isolated, ephemeral test databases or seeded fixtures per test run. 4) Traceability: linking automated tests directly to user stories and bug ticket IDs to ensure continuous requirement coverage.",
+      "keyPoints": [
+        "Define regression testing: ensuring new changes do not break existing working code.",
+        "Distinguish between Smoke Tests (critical happy paths) and Full Regression Suites.",
+        "Explain strategies for managing test duration (parallel execution, nightly runs).",
+        "Address flaky test management and deterministic test data provisioning."
+      ],
+      "tips": "Emphasize that a flaky test is worse than no test because it trains developers to ignore CI failures."
+    },
+    "expectedKeywords": [
+      "regression testing",
+      "smoke tests",
+      "automated test suite",
+      "flaky tests",
+      "ci cd",
+      "test data",
+      "parallel execution"
+    ]
+  },
+  {
+    "id": "sys-1",
+    "type": "System Design",
+    "category": "Social Network",
+    "role": "Fullstack Developer",
+    "difficulty": "Hard",
+    "question": "Design Twitter / Social Feed",
+    "sampleAnswer": {
+      "strongAnswer": "At scale (500M users, 200M DAU), Twitter's core architectural challenge is the read/write asymmetry: posting a tweet is write-light (~5,000 tweets/sec), but viewing timelines is read-heavy (~300,000 queries/sec). We split the architecture into Tweet Ingestion and Timeline Generation. For normal users, we use Fan-out on Write (Push model): when a user posts, a worker pushes the tweet ID into the Redis in-memory timeline lists of all their followers. Reading a timeline is an instantaneous O(1) Redis LRU read. However, for celebrity users with millions of followers (e.g. 50M+ followers), pushing to 50M lists causes severe write amplification. We use a Hybrid Model: celebrity tweets are NOT fanned out on write; instead, when a regular user opens their feed, we pull the latest tweets from any celebrities they follow and merge them with their precomputed Redis timeline using a k-way merge. Media assets are uploaded directly to S3 via pre-signed URLs and delivered via CDN.",
+      "keyPoints": [
+        "Address scale: 500M users, 200M DAU, calculate read/write QPS.",
+        "Contrast Fan-out on Write (push) vs Fan-out on Read (pull).",
+        "Propose the Hybrid Fan-out model to solve the celebrity problem.",
+        "Design Redis in-memory timeline caching with LRU eviction.",
+        "Explain pre-signed S3 URLs for media uploads and CDN edge distribution."
+      ],
+      "tips": "Always calculate the celebrity fan-out math: 50 million followers * 100 bytes = 5GB memory write per single tweet without hybrid fan-out."
+    },
+    "expectedKeywords": [
+      "fan-out on write",
+      "fan-out on read",
+      "hybrid model",
+      "celebrity problem",
+      "redis timeline",
+      "cdn",
+      "k-way merge",
+      "s3"
+    ]
+  },
+  {
+    "id": "sys-2",
+    "type": "System Design",
+    "category": "URL Infrastructure",
+    "role": "Fullstack Developer",
+    "difficulty": "Medium",
+    "question": "Design a URL Shortener (TinyURL)",
+    "sampleAnswer": {
+      "strongAnswer": "TinyURL takes a long URL and generates a unique 7-character short URL (e.g., `tiny.url/aBc123X`). Requirements: high availability, low latency (<50ms redirect), 100:1 read-to-write ratio. Encoding: with Base62 ([a-zA-Z0-9]), a 7-character string yields 62^7 = ~3.5 trillion unique URLs, easily sufficient for decades. Generating the ID: instead of hashing the URL (which requires collision resolution), we use a distributed Key Generation Service (KGS) or Twitter Snowflake distributed ID generator that hands out unique 64-bit integers pre-converted to Base62. Database: a NoSQL key-value store (DynamoDB or Cassandra) with schema `short_hash (PK), original_url, user_id, created_at, expires_at`. Caching: 20% of hot URLs generate 80% of read traffic; we cache hot URLs in a Redis cluster with an LRU eviction policy. Redirects: we return HTTP 302 Found (temporary redirect) if we want to track click analytics on each visit, or HTTP 301 Moved Permanently if we want browsers to cache the redirect and minimize server load.",
+      "keyPoints": [
+        "Perform capacity estimation (62^7 = 3.5 trillion URLs).",
+        "Propose Base62 encoding and unique ID generation (KGS or Snowflake).",
+        "Differentiate HTTP 301 (browser caches redirect) vs 302 (server tracks analytics).",
+        "Design Redis caching tier utilizing the 80/20 Pareto principle.",
+        "Choose high-throughput NoSQL key-value database schema."
+      ],
+      "tips": "Highlight the subtle trade-off between HTTP 301 (saves server bandwidth) vs HTTP 302 (accurate click tracking analytics)."
+    },
+    "expectedKeywords": [
+      "base62",
+      "kgs",
+      "redis cache",
+      "301 vs 302",
+      "dynamodb",
+      "lru",
+      "read-heavy",
+      "unique id generator"
+    ]
+  },
+  {
+    "id": "sys-3",
+    "type": "System Design",
+    "category": "Caching Infrastructure",
+    "role": "Backend Developer",
+    "difficulty": "Hard",
+    "question": "Design a Distributed Caching System",
+    "sampleAnswer": {
+      "strongAnswer": "A distributed cache stores hot data across multiple nodes in RAM. Core components: 1) Data Structure: on each node, an LRU cache is implemented using a Hash Map paired with a Doubly Linked List for O(1) get and put operations, protected by read-write mutex locks. 2) Distribution & Routing: clients route keys across cache nodes using Consistent Hashing on a virtual ring (100-200 virtual nodes per physical node). This minimizes key remapping to only K/N keys when nodes are added or removed, preventing cache storms. 3) High Availability: each shard uses a primary-replica model with asynchronous replication. 4) Eviction & Expiration: passive TTL expiration on access combined with active background sampling. 5) Mitigations: Cache Stampede (thundering herd) is solved using distributed mutex locks or probabilistic early recomputation (XFetch algorithm).",
+      "keyPoints": [
+        "Design single-node LRU: Hash Map + Doubly Linked List for O(1) operations.",
+        "Explain Consistent Hashing with virtual nodes to prevent hot spots and minimize key shuffling.",
+        "Detail cache invalidation and TTL expiration strategies.",
+        "Address failure scenarios: cache stampede (mutex locking) and node failover."
+      ],
+      "tips": "Draw out the consistent hashing ring and explain why virtual nodes are essential for uniform key distribution."
+    },
+    "expectedKeywords": [
+      "consistent hashing",
+      "virtual nodes",
+      "lru",
+      "hash map doubly linked list",
+      "cache stampede",
+      "replication",
+      "ttl"
+    ]
+  },
+  {
+    "id": "sys-4",
+    "type": "System Design",
+    "category": "Real-Time Communication",
+    "role": "Fullstack Developer",
+    "difficulty": "Hard",
+    "question": "Design a Real-Time Chat Application (WhatsApp / Slack)",
+    "sampleAnswer": {
+      "strongAnswer": "A real-time chat application must deliver sub-100ms 1-on-1 and group messaging with offline delivery guarantees. Architecture: 1) Connection Tier: clients establish persistent full-duplex WebSockets to a pool of Gateway Servers. 2) Session & Presence: a Redis cluster stores user-to-server connection mappings (`userId -> gatewayServerId`). 3) Message Routing: when User A sends a message to User B, Gateway A checks Redis for User B's active gateway and routes the payload via a Kafka or Redis Pub/Sub topic to Gateway B, which pushes it over User B's open WebSocket. If User B is offline, the message is written to a persistent message queue and push notifications are dispatched via APNs/FCM. 4) Storage: messages are stored in a distributed wide-column store like Apache Cassandra partitioned by `chat_id` and clustered by `message_id (timeuuid)` for high-throughput append writes and fast historical range pagination.",
+      "keyPoints": [
+        "Use persistent WebSockets for client connections and Redis for user session tracking.",
+        "Use Pub/Sub or Kafka message brokers for inter-gateway server communication.",
+        "Handle offline recipients via push notifications (FCM/APNs) and unread message queues.",
+        "Choose Cassandra/ScyllaDB with composite keys (chat_id, timeuuid) for scalable message storage.",
+        "Explain message statuses: Sent, Delivered, Read."
+      ],
+      "tips": "Explain why relational databases fail for chat at scale due to write contention and partition overhead."
+    },
+    "expectedKeywords": [
+      "websockets",
+      "presence server",
+      "cassandra",
+      "kafka",
+      "redis pub/sub",
+      "push notifications",
+      "timeuuid"
+    ]
+  },
+  {
+    "id": "sys-5",
+    "type": "System Design",
+    "category": "Data Ingestion",
+    "role": "Data Engineer",
+    "difficulty": "Hard",
+    "question": "Design a Distributed Web Crawler",
+    "sampleAnswer": {
+      "strongAnswer": "A distributed web crawler crawls billions of web pages monthly to build a search engine index. Core architecture: 1) URL Frontier: manages URLs to crawl. To avoid overloading target hosts, it implements Politeness: host-based queues with delayed worker access respecting `robots.txt`. To prioritize high-value content, a Priority Queue sorts URLs by PageRank and freshness. 2) Fetcher: distributed worker pool using asynchronous HTTP clients with DNS caching. 3) Content Parser & Deduplication: checks fetched HTML against an inverted Document Fingerprint database using 64-bit SimHash or MinHash to discard duplicate pages. 4) URL Extractor & Filter: extracts links, normalizes them, checks a Bloom Filter to verify the URL has never been seen before, and pushes novel URLs back into the URL Frontier. 5) Storage: raw page HTML is written to distributed blob storage (S3/GCS) with Bigtable metadata indexing.",
+      "keyPoints": [
+        "Explain the URL Frontier with Politeness queues (rate limiting per domain) and Priority queues.",
+        "Implement DNS caching to avoid DNS lookup bottlenecks.",
+        "Use Bloom Filters for fast, space-efficient check of visited URLs.",
+        "Use SimHash / MinHash for near-duplicate content detection.",
+        "Respect robots.txt and store crawl state durably."
+      ],
+      "tips": "Mention Bloom Filters as a classic system design pattern for checking set membership in minimal RAM."
+    },
+    "expectedKeywords": [
+      "url frontier",
+      "politeness",
+      "bloom filter",
+      "simhash",
+      "robots.txt",
+      "dns cache",
+      "pagerank",
+      "distributed crawler"
+    ]
+  },
+  {
+    "id": "sys-6",
+    "type": "System Design",
+    "category": "Traffic Management",
+    "role": "Backend Developer",
+    "difficulty": "Medium",
+    "question": "Design an API Rate Limiter",
+    "sampleAnswer": {
+      "strongAnswer": "An API Rate Limiter protects services from abuse by throttling excess traffic. Architecture: 1) Deployment: placed as an API Gateway plugin or sidecar proxy in front of backend microservices. 2) Algorithm: Token Bucket or Sliding Window Counter. Sliding Window Counter combines request counts from the previous 1-minute window and the current window proportionally, preventing burst spikes at minute boundaries without storing infinite timestamps. 3) Distributed Storage: Redis Cluster stores keys formatted as `rate_limit:{clientId}:{endpoint}:{window}`. 4) Concurrency: atomic operations are executed using an embedded Redis Lua script, eliminating race conditions between concurrent requests. 5) Headers: responses include `X-RateLimit-Limit`, `X-RateLimit-Remaining`, and `X-RateLimit-Reset`. Exceeded limits return HTTP 429 Too Many Requests with a `Retry-After` header. 6) Reliability: if Redis fails, the limiter fails open (allows requests) to prevent taking down the platform.",
+      "keyPoints": [
+        "Position at API Gateway / Reverse Proxy layer.",
+        "Choose Sliding Window Counter or Token Bucket algorithm.",
+        "Use Redis with Lua scripts for atomic increment and TTL setting.",
+        "Include standard RFC rate limit headers and HTTP 429 status.",
+        "Design 'fail-open' fallback to protect application availability if Redis degrades."
+      ],
+      "tips": "Always discuss what happens when the rate limiter itself goes down (fail open vs fail closed)."
+    },
+    "expectedKeywords": [
+      "token bucket",
+      "sliding window counter",
+      "redis",
+      "lua script",
+      "429 too many requests",
+      "fail-open",
+      "api gateway"
+    ]
+  },
+  {
+    "id": "sys-7",
+    "type": "System Design",
+    "category": "E-Commerce",
+    "role": "Backend Developer",
+    "difficulty": "Hard",
+    "question": "Design an E-Commerce Checkout & Flash Sale System",
+    "sampleAnswer": {
+      "strongAnswer": "During flash sales (e.g., 10,000 items selling out in 3 seconds to 1,000,000 buyers), the primary danger is database write locking and overselling inventory. Architecture: 1) Rate Limiting & Virtual Waiting Room: API Gateway throttles requests and uses a queue (e.g. Cloudflare Waiting Room) to admit only allowed traffic. 2) Inventory Pre-allocation in Redis: inventory counts are decremented directly in Redis using atomic Lua scripts (`redis.call('DECRBY', key, qty)`). If stock drops below zero, the transaction is rejected in RAM in sub-milliseconds without touching the database. 3) Asynchronous Processing: successful claims generate an order token pushed to a Kafka queue. 4) Idempotency: payments include a unique client idempotency key to prevent double charging. 5) Two-Phase Reservation: inventory is held for 10 minutes; if the payment webhook is not received, an automated delayed message releases the stock back into Redis.",
+      "keyPoints": [
+        "Protect relational database by handling high-concurrency inventory checks in Redis RAM.",
+        "Use atomic Redis Lua scripts to eliminate race conditions and prevent overselling.",
+        "Decouple checkout writes via Kafka asynchronous message queues.",
+        "Implement Idempotency Keys on payment APIs.",
+        "Implement reservation expiration timers releasing unclaimed inventory."
+      ],
+      "tips": "Emphasize zero overselling: Redis atomic decrements guarantee inventory integrity under extreme concurrency."
+    },
+    "expectedKeywords": [
+      "flash sale",
+      "redis lua",
+      "atomic decrement",
+      "overselling",
+      "kafka",
+      "idempotency key",
+      "inventory reservation"
+    ]
+  },
+  {
+    "id": "sys-8",
+    "type": "System Design",
+    "category": "Media Streaming",
+    "role": "Fullstack Developer",
+    "difficulty": "Hard",
+    "question": "Design a Video Streaming Service (YouTube / Netflix)",
+    "sampleAnswer": {
+      "strongAnswer": "Video streaming platforms manage petabytes of video data with low-latency playback across diverse networks and screen sizes. Architecture is split into Video Ingestion and Video Distribution: 1) Upload & Transcoding Pipeline: users upload raw MP4s to temporary S3 buckets via multipart pre-signed URLs. An S3 upload event triggers an asynchronous distributed transcoding pipeline (using Kafka and FFmpeg workers). Videos are chunked into 4-6 second segments and encoded into multiple resolutions (1080p, 720p, 480p) using modern codecs (H.264, AV1, VP9). 2) Adaptive Bitrate Streaming (ABR): manifest files (HLS `.m3u8` or MPEG-DASH `.mpd`) list chunk URLs for each bitrate. The client video player dynamically switches resolutions based on real-time network bandwidth. 3) Edge Distribution: 95% of video traffic is served directly from globally distributed Content Delivery Networks (CDNs) and ISP Open Connect appliances, keeping origin server load negligible.",
+      "keyPoints": [
+        "Divide into Ingestion (Transcoding pipeline) and Playback (CDN delivery).",
+        "Explain Adaptive Bitrate Streaming (HLS / MPEG-DASH) with manifest files and chunking.",
+        "Use FFmpeg worker pools for parallel chunk encoding across bitrates.",
+        "Leverage global CDNs and edge caching for video segment delivery.",
+        "Store metadata in a relational/document database with read replication."
+      ],
+      "tips": "Explain how video players fetch the manifest file first, then dynamically adjust requested segment quality based on network throughput."
+    },
+    "expectedKeywords": [
+      "hls",
+      "mpeg-dash",
+      "transcoding",
+      "ffmpeg",
+      "cdn",
+      "adaptive bitrate streaming",
+      "manifest file",
+      "s3 chunks"
+    ]
+  },
+  {
+    "id": "sys-9",
+    "type": "System Design",
+    "category": "Storage Systems",
+    "role": "Backend Developer",
+    "difficulty": "Hard",
+    "question": "Design a Cloud File Storage Service (Google Drive / Dropbox)",
+    "sampleAnswer": {
+      "strongAnswer": "A cloud file sync service provides file storage, synchronization across devices, and revision history. Architecture: 1) Client Chunking & Hashing: files are split client-side into 4MB chunks and hashed using SHA-256. 2) Deduplication: before uploading a chunk, the client queries the metadata service with the hash. If the chunk already exists globally in storage (uploaded by any user), the upload is skipped entirely, saving massive bandwidth and storage costs. 3) Storage: unique chunks are stored in an encrypted blob store (S3); file metadata (directory trees, chunk lists, user permissions) is stored in a relational database (PostgreSQL with read replicas). 4) Sync & Conflict Resolution: a continuous long-polling or WebSocket notification service alerts clients when files change. Conflicts (concurrent edits) are handled by saving conflicting copies with device timestamps. 5) Differential Sync: when a file is edited, only modified 4MB chunks are uploaded.",
+      "keyPoints": [
+        "Explain client-side 4MB chunking and SHA-256 hashing.",
+        "Implement block-level deduplication to eliminate redundant storage.",
+        "Decouple Metadata Service (relational database) from Blob Storage (S3).",
+        "Explain delta sync (uploading only modified chunks rather than full files).",
+        "Describe conflict resolution strategy for concurrent multi-device edits."
+      ],
+      "tips": "Mention rsync-style rolling checksum algorithms or Content-Defined Chunking (CDC) for advanced chunk alignment."
+    },
+    "expectedKeywords": [
+      "chunking",
+      "deduplication",
+      "sha-256",
+      "delta sync",
+      "metadata service",
+      "blob storage s3",
+      "conflict resolution"
+    ]
+  },
+  {
+    "id": "sys-10",
+    "type": "System Design",
+    "category": "Geospatial Systems",
+    "role": "Backend Developer",
+    "difficulty": "Hard",
+    "question": "Design a Ride-Sharing Service (Uber / Lyft)",
+    "sampleAnswer": {
+      "strongAnswer": "Uber requires real-time location tracking for millions of moving drivers and matching them with nearby riders. Architecture: 1) Geospatial Indexing: the world is partitioned using Uber's open-source H3 hexagonal hierarchical spatial index or Google S2 geometry (mapping latitude/longitude into 64-bit integer cell IDs). 2) Location Ingestion: drivers broadcast GPS updates every 4 seconds over persistent WebSockets/gRPC. A location service updates an in-memory Redis geospatial cache (`GEOADD` or H3 cell sets) with TTL. 3) Dispatch & Matching: when a rider requests a pickup, the Dispatch Service calculates the rider's H3 cell, queries adjacent cells in expanding rings (k-ring search), filters eligible online drivers, and ranks them by Estimated Time of Arrival (ETA) calculated via a routing engine. 4) Concurrency: a distributed lock in Redis ensures a driver is offered to only one rider at a time.",
+      "keyPoints": [
+        "Explain geospatial indexing: H3 hexagonal grid or Google S2 cells over naive SQL bounding box queries.",
+        "Handle high-frequency location updates (millions every 4s) in in-memory Redis.",
+        "Explain driver-rider matching algorithm using expanding k-ring geospatial searches.",
+        "Prevent race conditions using distributed locks when offering trips to drivers.",
+        "Calculate ETAs using routing graph engines and real-time traffic weights."
+      ],
+      "tips": "Explain why hexagonal cells (H3) are preferred over square grids: all adjacent neighbors are equidistant from the center."
+    },
+    "expectedKeywords": [
+      "h3 geospatial",
+      "geohash",
+      "google s2",
+      "redis geoadd",
+      "k-ring",
+      "dispatch service",
+      "distributed lock",
+      "eta"
+    ]
+  },
+  {
+    "id": "sys-11",
+    "type": "System Design",
+    "category": "Notification Pipeline",
+    "role": "Backend Developer",
+    "difficulty": "Medium",
+    "question": "Design a Notification System",
+    "sampleAnswer": {
+      "strongAnswer": "A notification system delivers billions of transactional and marketing notifications across multiple channels (Push, SMS, Email). Architecture: 1) API Ingestion: microservices submit notification requests via an internal API. Requests are validated, deduplicated, and enriched with user preferences. 2) User Preferences & Opt-Outs: a dedicated service checks user settings, notification caps, and quiet hours. 3) Priority Queuing: notifications are routed into Kafka topics partitioned by priority (P0 Security/OTP, P1 Transactional Updates, P2 Promotional/Marketing). 4) Rate Limiting & Throttling: prevents spamming users if multiple alerts trigger simultaneously. 5) Channel Dispatchers: worker pools consume from queues and call third-party providers (APNs/FCM for push, Twilio for SMS, SendGrid/SES for email) with circuit breakers and fallback providers. 6) Analytics & Status Tracking: webhooks track delivery, opens, and failures in a time-series database.",
+      "keyPoints": [
+        "Support multi-channel delivery: Push (APNs/FCM), SMS (Twilio), Email (SES).",
+        "Implement priority queues ensuring OTPs are never delayed by bulk marketing.",
+        "Enforce user preferences, quiet hours, and rate limiting per user.",
+        "Use circuit breakers and fallback third-party vendors for high availability.",
+        "Track delivery receipts via async webhook ingestion."
+      ],
+      "tips": "Always emphasize prioritizing critical OTP/security codes over marketing broadcasts."
+    },
+    "expectedKeywords": [
+      "notifications",
+      "apns fcm",
+      "twilio sendgrid",
+      "priority queue",
+      "kafka",
+      "rate limiting",
+      "circuit breaker",
+      "deduplication"
+    ]
+  },
+  {
+    "id": "sys-12",
+    "type": "System Design",
+    "category": "Search & Information Retrieval",
+    "role": "Fullstack Developer",
+    "difficulty": "Medium",
+    "question": "Design an Autocomplete / Typeahead Search Suggestion System",
+    "sampleAnswer": {
+      "strongAnswer": "An autocomplete system returns the top 5-10 query suggestions as a user types, requiring sub-30ms response times at massive query volume. Architecture: 1) Data Structure: a Trie (prefix tree) where each node represents a character. To avoid expensive traversal at query time, each node stores the top 10 historical completions pre-computed and sorted by popularity frequency. 2) Caching: the Trie is hosted in an in-memory distributed cache cluster (or Redis) partitioned alphabetically or by consistent hashing. Browser client caches responses for common prefixes. 3) Data Pipeline: user search logs are streamed into Kafka and aggregated asynchronously using Apache Spark/Flink to compute rolling weekly frequency scores. An offline batch job rebuilds the Trie snapshots daily and pushes them to serving nodes. 4) Client-side Optimization: debounce input requests (300ms) and use abortable fetch controllers.",
+      "keyPoints": [
+        "Choose Trie (prefix tree) with top-K suggestions cached at every node.",
+        "Separate real-time serving tier (read-only in-memory Trie) from offline aggregation pipeline (Spark).",
+        "Implement client-side debouncing and browser caching.",
+        "Handle cold starts, offensive phrase filtering, and personal search history overlays."
+      ],
+      "tips": "Highlight pre-computing the top 10 suggestions on Trie nodes so query time is O(1) instead of traversing all subtrees."
+    },
+    "expectedKeywords": [
+      "autocomplete",
+      "trie",
+      "prefix tree",
+      "debounce",
+      "spark aggregation",
+      "in-memory cache",
+      "top-k",
+      "frequency ranking"
+    ]
+  },
+  {
+    "id": "sys-13",
+    "type": "System Design",
+    "category": "Distributed Scheduling",
+    "role": "Backend Developer",
+    "difficulty": "Hard",
+    "question": "Design a Distributed Job Scheduler",
+    "sampleAnswer": {
+      "strongAnswer": "A distributed job scheduler executes millions of recurring and one-off tasks reliably across a cluster of worker nodes. Architecture: 1) Job Store: jobs are persisted in a distributed database with columns `job_id, cron_expression, next_run_time, status, payload`. 2) Leader Election & Coordinator: Coordinator nodes use Raft/Zookeeper or database advisory locks to elect a primary leader. 3) Time Wheel / Dispatcher: the coordinator queries jobs due within the next minute, loads them into an in-memory Hashed Wheel Timer, and dispatches job tokens into partitioned Kafka task queues. 4) Worker Pool: worker nodes pull tasks from Kafka, acquire an execution lease, execute the code inside sandboxed containers, and send heartbeats. 5) Failure Handling: if a worker crashes before completion, the lease expires and the job is re-dispatched to another worker. Idempotency guarantees prevent duplicate side effects.",
+      "keyPoints": [
+        "Explain persistent job metadata store and next_run_time indexing.",
+        "Detail coordinator leader election (Zookeeper / Raft).",
+        "Use Hashed Wheel Timer or partitioned message queues for precision dispatching.",
+        "Implement worker heartbeat leases and automatic retry policies.",
+        "Require task idempotency for safe at-least-once task execution."
+      ],
+      "tips": "Mention the Hashed Wheel Timer data structure for efficiently scheduling millions of timer events."
+    },
+    "expectedKeywords": [
+      "job scheduler",
+      "hashed wheel timer",
+      "leader election",
+      "zookeeper",
+      "worker pool",
+      "heartbeat",
+      "idempotency",
+      "cron"
+    ]
+  },
+  {
+    "id": "sys-14",
+    "type": "System Design",
+    "category": "Monitoring & Observability",
+    "role": "DevOps Engineer",
+    "difficulty": "Hard",
+    "question": "Design a Metrics Monitoring and Alerting System (Prometheus / Datadog)",
+    "sampleAnswer": {
+      "strongAnswer": "A metrics system ingests, stores, and evaluates millions of time-series data points per second to trigger alerts and populate dashboards. Architecture: 1) Ingestion Model: Push vs Pull. Prometheus uses a Pull model (scrapes `/metrics` HTTP endpoints on targets discovered via Service Discovery); Datadog uses a Push model (agents send metrics via UDP/StatsD to local collectors). 2) Time-Series Database (TSDB): metrics are formatted as `metric_name{labels} timestamp value`. We utilize a specialized TSDB (like Gorilla compression or VictoriaMetrics) employing double-delta encoding for timestamps and XOR floating-point compression for values, reducing memory to 1.3 bytes per sample. 3) Downsampling & Rollups: raw metrics are retained for 14 days, downsampled to 1-minute averages for 90 days, and 1-hour rollups for 1 year. 4) Alert Engine: evaluates rules continuously and routes alerts to PagerDuty/Slack.",
+      "keyPoints": [
+        "Contrast Push model (StatsD/Datadog) with Pull model (Prometheus scraper + Service Discovery).",
+        "Explain Time-Series Database (TSDB) compression (Gorilla double-delta and XOR compression).",
+        "Design downsampling and retention tiers (raw -> 1m rollups -> 1h rollups).",
+        "Design the Alert Evaluation Engine with deduplication and notification routing."
+      ],
+      "tips": "Mention Gorilla time-series compression algorithm—it is the industry benchmark developed by Facebook."
+    },
+    "expectedKeywords": [
+      "prometheus",
+      "datadog",
+      "tsdb",
+      "gorilla compression",
+      "pull vs push",
+      "downsampling",
+      "alerting",
+      "time-series"
+    ]
+  },
+  {
+    "id": "sys-15",
+    "type": "System Design",
+    "category": "Compute & Sandboxing",
+    "role": "Fullstack Developer",
+    "difficulty": "Hard",
+    "question": "Design an Online Code Judge / LeetCode Platform",
+    "sampleAnswer": {
+      "strongAnswer": "An online judge platform compiles and executes untrusted user-submitted code in arbitrary languages, evaluating correctness, execution time, and memory limits safely. Architecture: 1) Submission Ingestion: user code is submitted via API and pushed to a Kafka submission queue. 2) Dispatcher: pulls submissions and matches them with available sandbox workers. 3) Secure Sandboxing: untrusted code must be strictly isolated to prevent host compromise. We use lightweight microVMs (AWS Firecracker) or hardened Docker containers with Linux cgroups (hard limits on CPU, memory), namespaces (network access disabled via `--net=none`), and Seccomp filters (blocking unauthorized syscalls like `socket`, `fork`, `execve`). 4) Execution & Testing: the worker feeds test inputs, captures stdout/stderr, compares against expected outputs, and records wall-clock time and peak memory. 5) Result Publication: publishes Verdict (Accepted, Wrong Answer, TLE, MLE, Runtime Error) via WebSockets to the user.",
+      "keyPoints": [
+        "Isolate untrusted code using microVMs (Firecracker) or hardened Docker with Seccomp and Cgroups.",
+        "Disable network interfaces completely to prevent external attacks or data exfiltration.",
+        "Enforce strict execution timeouts (kill on TLE) and memory limits (MLE).",
+        "Queue submissions via Kafka for decoupled asynchronous worker scaling.",
+        "Stream real-time evaluation verdict back to the client via WebSockets."
+      ],
+      "tips": "Security is the #1 priority here: focus heavily on how you isolate untrusted code and prevent malicious syscalls."
+    },
+    "expectedKeywords": [
+      "online judge",
+      "sandboxing",
+      "firecracker",
+      "cgroups",
+      "seccomp",
+      "network isolation",
+      "tle mle",
+      "kafka"
+    ]
+  },
+  {
+    "id": "sys-16",
+    "type": "System Design",
+    "category": "Fintech & Payments",
+    "role": "Backend Developer",
+    "difficulty": "Hard",
+    "question": "Design a Payment Gateway Integration System",
+    "sampleAnswer": {
+      "strongAnswer": "A payment integration system requires 100% financial consistency, exactly-once charging semantics, and high resilience against external PSP (Payment Service Provider like Stripe, Adyen) outages. Architecture: 1) Idempotency: every charge request requires a unique Idempotency Key generated by the client. The payment service stores this in Redis with an atomic lock; duplicate requests return the cached original response without re-charging. 2) Double-Entry Bookkeeping: financial transactions write balanced debits and credits to an immutable ledger database; balances are computed by summing ledger entries, never storing editable balance floats. 3) State Machine & Two-Phase Commit: payments progress through strict states: Created -> Authorized -> Capturing -> Settled (or Failed). 4) Webhook Reconciliation: PSP webhooks are verified via HMAC signatures, processed idempotently, and backed by a nightly reconciliation job that matches bank settlement files against internal ledger records.",
+      "keyPoints": [
+        "Enforce end-to-end Idempotency Keys preventing duplicate card charges.",
+        "Implement Double-Entry Ledger accounting (every transaction has balanced debit and credit).",
+        "Use strict State Machine transitions (Authorized vs Captured).",
+        "Verify webhooks via cryptographic signatures and reconcile nightly against bank settlement reports.",
+        "Maintain PCI-DSS compliance: never touch raw credit card numbers (use tokenization)."
+      ],
+      "tips": "Mention Double-Entry Bookkeeping and never using floating-point types for currency."
+    },
+    "expectedKeywords": [
+      "idempotency key",
+      "double-entry bookkeeping",
+      "payment gateway",
+      "state machine",
+      "stripe",
+      "reconciliation",
+      "pci-dss",
+      "hmac"
+    ]
+  },
+  {
+    "id": "sys-17",
+    "type": "System Design",
+    "category": "Collaborative Applications",
+    "role": "Fullstack Developer",
+    "difficulty": "Hard",
+    "question": "Design a Collaborative Real-Time Document Editor (Google Docs)",
+    "sampleAnswer": {
+      "strongAnswer": "A collaborative document editor allows multiple concurrent users to edit the same rich document simultaneously without losing edits or experiencing conflicts. Architecture: 1) Communication: clients connect to a Document Gateway via persistent WebSockets. 2) Concurrency Conflict Resolution: two major models exist: Operational Transformation (OT) and Conflict-free Replicated Data Types (CRDTs). Google Docs uses OT with a centralized server: client edits are decomposed into atomic operations (Insert, Delete, Retain) with revision numbers; the central server transforms concurrent incoming operations against the master sequence before broadcasting. Modern decentralized editors often prefer CRDTs (like Yjs or Automerge) where characters have unique fractional identifiers that can merge deterministically in any order without a central coordinator. 3) Persistence: document snapshots are stored periodically in S3, while operational logs are written to an append-only database.",
+      "keyPoints": [
+        "Contrast Operational Transformation (OT - centralized server transformation) with CRDTs (deterministic decentralized merging).",
+        "Explain character positioning and concurrent edit collisions.",
+        "Maintain low-latency full-duplex communication via WebSockets.",
+        "Implement periodic document snapshotting combined with operational change logs.",
+        "Display collaborator presence, cursors, and selection highlights."
+      ],
+      "tips": "Distinguish between OT (used by Google Docs, requires central authority) and CRDTs (modern state-of-the-art for local-first software)."
+    },
+    "expectedKeywords": [
+      "operational transformation",
+      "crdt",
+      "ot",
+      "yjs",
+      "google docs",
+      "websockets",
+      "snapshots",
+      "conflict resolution"
+    ]
+  },
+  {
+    "id": "sys-18",
+    "type": "System Design",
+    "category": "Distributed Storage",
+    "role": "Backend Developer",
+    "difficulty": "Hard",
+    "question": "Design a Distributed Key-Value Store (DynamoDB / Cassandra)",
+    "sampleAnswer": {
+      "strongAnswer": "A distributed key-value store provides horizontal read/write scalability, high availability, and tunable consistency based on the Amazon Dynamo paper. Architecture: 1) Data Partitioning: keys are mapped to storage nodes using Consistent Hashing on a virtual ring. 2) Replication: each key is replicated across N successive nodes on the ring. 3) Tunable Consistency (Quorum): reads and writes configure quorum values where R + W > N guarantees reading the latest write (Strong Consistency), while R + W <= N provides Eventual Consistency with lower latency. 4) Storage Engine: each node uses an LSM-Tree (Log-Structured Merge-Tree) featuring an in-memory MemTable, write-ahead commit log, and immutable SSTables with Bloom filters on disk for ultra-fast append writes. 5) Failure Detection & Repair: nodes exchange cluster state via a Gossip Protocol, resolve write conflicts using Vector Clocks, and repair data anti-entropy via Merkle Trees.",
+      "keyPoints": [
+        "Partition data using Consistent Hashing on a virtual ring.",
+        "Explain Quorum consistency formula: R + W > N for strong consistency.",
+        "Explain LSM-Tree storage engine: MemTable, SSTables, Bloom Filters.",
+        "Explain cluster health and data repair: Gossip Protocol, Vector Clocks, Merkle Trees."
+      ],
+      "tips": "Walk through the lifecycle of a write: Commit Log -> MemTable -> Flush to SSTable."
+    },
+    "expectedKeywords": [
+      "lsm-tree",
+      "consistent hashing",
+      "quorum",
+      "dynamodb",
+      "memtable",
+      "sstable",
+      "vector clocks",
+      "gossip protocol"
+    ]
+  },
+  {
+    "id": "sys-19",
+    "type": "System Design",
+    "category": "Search Systems",
+    "role": "Backend Developer",
+    "difficulty": "Hard",
+    "question": "Design a Web Search Engine Indexing Pipeline",
+    "sampleAnswer": {
+      "strongAnswer": "A search indexing pipeline ingests crawled web documents and transforms them into a low-latency queryable index. Architecture: 1) Text Processing Pipeline: raw HTML is stripped, tokenized, converted to lowercase, filtered for stop words ('the', 'is'), and normalized using stemming (e.g. Porter Stemmer). 2) Inverted Index: the foundational data structure mapping terms to Postings Lists (`term -> [(docId, termFrequency, positions), ...]`). Postings lists are compressed using Variable-Byte or Elias-Fano encoding. 3) Distributed Indexing: map-reduce workers partition documents across Shards by Term (term partitioning) or Document (document partitioning - industry standard for search). 4) Ranking: documents are scored using BM25 relevance combined with PageRank link authority and machine learning ranking models. 5) Serving: query processors distribute searches across document shards, merge top-K postings lists in parallel, and return results.",
+      "keyPoints": [
+        "Explain Inverted Index data structure mapping words to Postings Lists.",
+        "Detail text normalization: tokenization, stop-word removal, stemming.",
+        "Contrast Document Partitioning vs Term Partitioning across distributed shards.",
+        "Explain ranking algorithms: BM25 (text relevance) + PageRank (link authority).",
+        "Describe postings list compression and fast intersection algorithms."
+      ],
+      "tips": "Highlight why Document Partitioning is preferred over Term Partitioning: it avoids a single query bottlenecking on common terms like 'computer'."
+    },
+    "expectedKeywords": [
+      "inverted index",
+      "postings list",
+      "bm25",
+      "pagerank",
+      "tokenization",
+      "stemming",
+      "document partitioning",
+      "search engine"
+    ]
+  },
+  {
+    "id": "sys-20",
+    "type": "System Design",
+    "category": "IoT & Real-Time Systems",
+    "role": "Fullstack Developer",
+    "difficulty": "Medium",
+    "question": "Design a Smart Parking Lot Reservation System",
+    "sampleAnswer": {
+      "strongAnswer": "A smart parking lot system monitors parking spot availability in real time, handles spot reservations, and routes drivers to spots. Architecture: 1) Hardware & Ingestion: IoT ultrasonic or camera sensors detect spot occupancy and publish telemetry over MQTT to an IoT Gateway. 2) Real-Time State: an in-memory Redis database maintains spot states (`lotId:spotId -> {status: Available|Occupied|Reserved, vehicleType: Compact|EV|Handicapped}`). 3) Reservation Engine: users can reserve a spot for up to 30 minutes. Concurrency is handled by optimistic locking or Redis distributed locks to prevent two drivers from booking the same spot. 4) Space Allocation Algorithm: assigns the closest available spot to the entrance matching vehicle criteria (e.g., EV charger requirements). 5) Billing: automated gate cameras use Automatic Number Plate Recognition (ANPR) to log entry/exit timestamps and calculate dynamic parking fees.",
+      "keyPoints": [
+        "Use lightweight MQTT protocol for IoT sensor telemetry.",
+        "Manage real-time spot occupancy states in an in-memory Redis cache.",
+        "Prevent double bookings using distributed locks or atomic state transitions.",
+        "Design spot allocation algorithms based on vehicle dimensions, EV charging, and distance to elevators.",
+        "Implement automated ANPR license plate recognition for frictionless billing."
+      ],
+      "tips": "Address network failures: edge gateways in the parking garage should maintain offline operational capabilities if cloud internet is interrupted."
+    },
+    "expectedKeywords": [
+      "mqtt",
+      "iot",
+      "redis state",
+      "distributed lock",
+      "reservation",
+      "anpr",
+      "optimistic locking",
+      "concurrency"
+    ]
+  },
+  {
+    "id": "sys-21",
+    "type": "System Design",
+    "category": "Gaming & Ranking",
+    "role": "Backend Developer",
+    "difficulty": "Medium",
+    "question": "Design a Real-Time Gaming Leaderboard System",
+    "sampleAnswer": {
+      "strongAnswer": "A gaming leaderboard tracks scores for 50 million players with instant rank retrieval and high write throughput. Architecture: 1) In-Memory Ranking Engine: we use Redis Sorted Sets (ZSET). A Redis Sorted Set combines a Hash Map (for O(1) player score lookup) with a Skip List (for O(log N) score insertion, score updates, and rank range retrieval). 2) Core Operations: `ZADD leaderboard score userId` updates scores in O(log N). `ZREVRANK leaderboard userId` retrieves exact player global rank in O(log N). `ZREVRANGE leaderboard 0 9 WITHSCORES` fetches the Top 10 players in O(log N + M). 3) Scaling at Massive Volume: to avoid memory bottlenecks on a single Redis node, players are partitioned across multiple Redis shards by score ranges or geographical game regions. 4) Persistence & Periodic Snapshots: score update events are streamed to Kafka and written to a cold relational database for historical archival, while daily/weekly leaderboards use time-bucketed Redis keys (`leaderboard:2026:w40`).",
+      "keyPoints": [
+        "Use Redis Sorted Sets (ZSET) powered by Skip Lists and Hash Maps.",
+        "Detail core Redis commands: ZADD, ZREVRANK, ZREVRANGE.",
+        "Explain O(log N) time complexity for rank updates and queries.",
+        "Partition leaderboards across shards for high concurrency.",
+        "Use time-bucketed keys for daily, weekly, and all-time leaderboards."
+      ],
+      "tips": "Explain how a Skip List works: layered linked lists allowing fast logarithmic search without complex tree balancing."
+    },
+    "expectedKeywords": [
+      "redis sorted sets",
+      "zset",
+      "skip list",
+      "zadd",
+      "zrevrank",
+      "o(log n)",
+      "leaderboard",
+      "kafka"
+    ]
+  },
+  {
+    "id": "sys-22",
+    "type": "System Design",
+    "category": "CDN & Edge Infrastructure",
+    "role": "DevOps Engineer",
+    "difficulty": "Hard",
+    "question": "Design a Content Delivery Network (CDN) Edge Architecture",
+    "sampleAnswer": {
+      "strongAnswer": "A Content Delivery Network (CDN) caches content at geographically distributed Edge Points of Presence (PoPs) to minimize latency to end users. Architecture: 1) Routing: uses BGP Anycast routing: all PoP servers announce the exact same IP address to the global Internet routing table. User DNS queries and TCP connections are automatically routed by Internet service providers to the topologically nearest PoP. 2) PoP Architecture: each PoP contains a Layer 4 Load Balancer (Maglev/Katran), reverse proxy cache servers (Nginx/Envoy), and SSD storage. 3) Caching Hierarchy: Edge PoPs check local memory/SSD; on a miss, they query a Regional Origin Shield PoP before falling back to the customer's Origin Server, protecting the origin from cache stampedes. 4) Purge & Invalidation: global cache invalidation messages are propagated via Pub/Sub to all edge servers within 150 milliseconds. 5) Security: DDoS protection (Anycast scrubbing) and TLS termination at the edge.",
+      "keyPoints": [
+        "Explain BGP Anycast routing directing clients to topologically nearest PoP.",
+        "Describe two-tier caching: Edge PoPs and Regional Origin Shields.",
+        "Detail cache eviction (LRU) and cache invalidation via global Pub/Sub.",
+        "Highlight edge security: DDoS absorption and TLS termination.",
+        "Support HTTP/2 and HTTP/3 (QUIC) at edge nodes."
+      ],
+      "tips": "Explain why BGP Anycast is superior to simple GeoDNS for routing traffic to the nearest data center."
+    },
+    "expectedKeywords": [
+      "cdn",
+      "bgp anycast",
+      "pop",
+      "edge caching",
+      "origin shield",
+      "cache invalidation",
+      "tls termination",
+      "ddos"
+    ]
+  },
+  {
+    "id": "sys-23",
+    "type": "System Design",
+    "category": "Gateway Architecture",
+    "role": "Backend Developer",
+    "difficulty": "Hard",
+    "question": "Design an API Gateway Service",
+    "sampleAnswer": {
+      "strongAnswer": "An API Gateway serves as the single secure entry point into a cloud microservices infrastructure. Architecture: 1) High-Performance Core: built on an asynchronous, non-blocking reverse proxy runtime (Envoy Proxy, Kong, or Go/Netty). 2) Dynamic Configuration: routes and upstream service endpoints are discovered dynamically using a Control Plane (e.g. Kubernetes Service Discovery or Consul) without restarting gateways. 3) Middleware Pipeline: incoming HTTP requests pass through an extensible filter chain: SSL Termination -> Rate Limiting (Redis token bucket) -> Authentication (JWT signature validation via cached JWKS public keys) -> Request Transformation & Header Enrichment (injecting `X-User-Id` and distributed tracing `Traceparent` headers) -> Upstream Routing. 4) Circuit Breaking: automatically trips open when an upstream microservice exhibits >50% errors, returning cached fallbacks or 503s immediately to prevent cascade failures.",
+      "keyPoints": [
+        "Decouple Control Plane (configuration, discovery) from Data Plane (high-speed proxying).",
+        "Detail the sequential filter chain: SSL, Rate Limit, Auth, Tracing, Routing.",
+        "Validate JWTs locally using cached JWKS public keys without calling auth services.",
+        "Implement Circuit Breakers protecting internal services from cascading overload."
+      ],
+      "tips": "Emphasize local JWT signature verification via JWKS public keys to avoid making the gateway dependent on a remote auth service call for every request."
+    },
+    "expectedKeywords": [
+      "api gateway",
+      "envoy proxy",
+      "control plane data plane",
+      "jwks",
+      "circuit breaker",
+      "rate limiting",
+      "service discovery"
+    ]
+  },
+  {
+    "id": "sys-24",
+    "type": "System Design",
+    "category": "Observability & Tracing",
+    "role": "DevOps Engineer",
+    "difficulty": "Hard",
+    "question": "Design a Distributed Logging and Distributed Tracing System (ELK / Jaeger)",
+    "sampleAnswer": {
+      "strongAnswer": "In microservices, a single user request can touch 20 services, requiring distributed logging and distributed tracing to troubleshoot latency and errors. Architecture: 1) Context Propagation: based on the W3C Trace Context standard, when a request enters the API Gateway, a unique `TraceId` and `SpanId` are generated and propagated across all HTTP/gRPC headers. Every downstream service logs these IDs. 2) Log Collection: lightweight agents (Fluentbit / Vector) run as daemonsets on every node, tailing container log files and shipping them asynchronously to a Kafka buffer. 3) Log Storage & Indexing: Logstash consumers pull from Kafka and index logs into Elasticsearch / OpenSearch with time-partitioned indices (e.g. `logs-2026-10-04`). 4) Trace Ingestion: OpenTelemetry collectors receive distributed spans and write trace trees to a wide-column store (Cassandra or ClickHouse). 5) UI & Visualization: Kibana for full-text log search; Jaeger for visualizing span waterfall latency graphs.",
+      "keyPoints": [
+        "Explain W3C Trace Context propagation (TraceId and SpanId) across network hops.",
+        "Decouple collection using Daemonset agents (Fluentbit) and Kafka buffering.",
+        "Store logs in Elasticsearch/OpenSearch with time-partitioned indices.",
+        "Store distributed traces in ClickHouse or Cassandra for waterfall latency inspection.",
+        "Implement adaptive trace sampling (e.g., 5% normal traffic, 100% error traces) to control costs."
+      ],
+      "tips": "Mention tail-based sampling: saving 100% of traces that produced errors or high latency while sampling only 1% of fast successful requests."
+    },
+    "expectedKeywords": [
+      "distributed tracing",
+      "w3c trace context",
+      "opentelemetry",
+      "jaeger",
+      "elasticsearch",
+      "kafka",
+      "fluentbit",
+      "tail-based sampling"
+    ]
+  },
+  {
+    "id": "sys-25",
+    "type": "System Design",
+    "category": "Ticketing & High Concurrency",
+    "role": "Backend Developer",
+    "difficulty": "Hard",
+    "question": "Design a Ticketmaster / Event Ticketing System",
+    "sampleAnswer": {
+      "strongAnswer": "Event ticketing requires managing massive concurrent traffic spikes for popular stadium concerts while guaranteeing that no seat is double-booked. Architecture: 1) Virtual Waiting Room: a high-throughput edge queue (Cloudflare Waiting Room or AWS SQS) throttles user entry to match database processing capacity. 2) Seat Map Caching: venue layouts and seat statuses (Available, Held, Sold) are cached in Redis and served via CDN. 3) Temporary Reservation Lock: when a user clicks 'Reserve Seat', the system acquires a distributed temporary reservation lock in Redis for 10 minutes (`SET seat:{id}:lock {userId} EX 600 NX`). The seat status flips to 'Held'. 4) Relational Transaction: once the user submits payment, a PostgreSQL transaction validates the reservation, marks the seat 'Sold', generates an encrypted QR code ticket, and commits. 5) Timeout Release: if payment fails or 10 minutes expire without checkout, a Redis TTL expiration event publishes to a topic and releases the seat back to 'Available'.",
+      "keyPoints": [
+        "Use a Virtual Waiting Room to smooth traffic spikes at ticket release time.",
+        "Implement temporary 10-minute reservation locks in Redis (`SET ... NX EX 600`).",
+        "Enforce strict ACID guarantees in the database upon final payment checkout.",
+        "Handle abandoned carts automatically via TTL expiration release mechanisms.",
+        "Generate cryptographic QR code tickets to prevent counterfeiting."
+      ],
+      "tips": "Highlight that seat selection requires temporary holding before payment, whereas typical e-commerce only holds inventory during checkout."
+    },
+    "expectedKeywords": [
+      "ticketmaster",
+      "distributed lock",
+      "temporary reservation",
+      "virtual waiting room",
+      "redis nx ex",
+      "acid transaction",
+      "seat locking"
+    ]
   }
 ]

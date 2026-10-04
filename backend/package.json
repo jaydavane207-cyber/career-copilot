@@ -8,7 +8,8 @@
     "dev": "nodemon server.js",
     "seed": "node seeds/seed.js",
     "test": "node test-auth-profile.js",
-    "test:resume": "node test-resume-feature.js"
+    "test:resume": "node test-resume-feature.js",
+    "test:interview": "node test-mock-interview.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

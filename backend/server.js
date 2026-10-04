@@ -71,6 +71,13 @@ const startServer = async () => {
   try {
     await testConnection();
     await sequelize.sync({ alter: false });
+    const { CodingProblem, MockInterview } = require('./models');
+    if (CodingProblem && CodingProblem.syncColumns) {
+      await CodingProblem.syncColumns();
+    }
+    if (MockInterview && MockInterview.syncColumns) {
+      await MockInterview.syncColumns();
+    }
     console.log('📦 Database models synchronized.');
 
     app.listen(PORT, () => {

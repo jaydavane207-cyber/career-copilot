@@ -1,5 +1,6 @@
 // frontend/src/services/dashboardService.js
 import api from './api';
+import { mockInterviewService } from './mockInterviewService';
 
 export const dashboardService = {
   async getReadinessScore() {
@@ -13,24 +14,4 @@ export const dashboardService = {
   }
 };
 
-export const mockInterviewService = {
-  async startSession(config) {
-    const res = await api.post('/mock-interview/start', config);
-    return res.data;
-  },
-
-  async submitSession(payload) {
-    const res = await api.post('/mock-interview/submit', payload);
-    return res.data;
-  },
-
-  async getHistory() {
-    const res = await api.get('/mock-interview/history');
-    return res.data;
-  },
-
-  async getSessionById(id) {
-    const res = await api.get(`/mock-interview/${id}`);
-    return res.data;
-  }
-};
+export { mockInterviewService };
