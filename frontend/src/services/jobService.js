@@ -55,6 +55,34 @@ export const jobService = {
   async getStats() {
     const res = await api.get('/jobs/stats');
     return res.data;
+  },
+
+  /**
+   * Scrape and analyze a real job posting from a URL
+   * @param {string} jobURL
+   * @returns {Promise<{ job: Object, analysis: Object, jobId: string }>}
+   */
+  async analyzeJobFromURL(jobURL) {
+    const res = await api.post('/jobs/analyze', { jobURL });
+    return res.data;
+  },
+
+  /**
+   * Fetch saved analysis details for a job
+   * @param {string} jobId
+   */
+  async getJobAnalysis(jobId) {
+    const res = await api.get(`/jobs/${jobId}/analysis`);
+    return res.data;
+  },
+
+  /**
+   * Fetch preparation plan and mock interview recommendations for a job
+   * @param {string} jobId
+   */
+  async getJobPreparation(jobId) {
+    const res = await api.get(`/jobs/${jobId}/preparation`);
+    return res.data;
   }
 };
 

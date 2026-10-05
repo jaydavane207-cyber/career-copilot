@@ -22,4 +22,10 @@ router.delete('/history/:analysisId', resumeController.deleteAnalysis);
 router.get('/:id', resumeController.getResumeById);
 router.delete('/:id', resumeController.deleteResume);
 
+// AI Resume Feedback & Improvement (Gemini API)
+router.post('/:id/ai-feedback', resumeController.generateAIFeedback);
+router.get('/:id/ai-feedback', resumeController.getAIFeedback);
+router.get('/:id/improved', resumeController.getImprovedResume);
+router.get('/:id/improved/download', resumeController.downloadImprovedResume);
+
 module.exports = router;

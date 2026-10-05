@@ -20,5 +20,8 @@ module.exports = {
     PASSWORD: process.env.DB_PASSWORD || 'postgres',
     SSL: process.env.DB_SSL === 'true',
     FALLBACK_SQLITE: process.env.USE_SQLITE_FALLBACK !== 'false'
-  }
+  },
+  GEMINI_API_KEY: process.env.GEMINI_API_KEY || '',
+  SCRAPER_TIMEOUT: parseInt(process.env.SCRAPER_TIMEOUT, 10) || 10000,
+  SCRAPER_CACHE_DAYS: parseInt(process.env.SCRAPER_CACHE_DAYS, 10) || 1
 };

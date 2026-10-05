@@ -9,6 +9,11 @@ router.use(authenticate);
 // Backend stats endpoint: Total applications, Applications in each stage, Conversion rate, Average days between stages
 router.get('/stats', jobController.getJobStats);
 
+// Real Job Postings Integration endpoints
+router.post('/analyze', jobController.analyzeJobFromURL);
+router.get('/:id/analysis', jobController.getJobAnalysis);
+router.get('/:id/preparation', jobController.suggestPreparation);
+
 // REST Job endpoints
 router.get('/', jobController.getJobs);
 router.post('/', jobController.createJob);

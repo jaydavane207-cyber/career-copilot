@@ -37,6 +37,20 @@ Role.hasMany(Skill, { foreignKey: 'roleId', as: 'roleSkills', onDelete: 'CASCADE
 Role.hasMany(Skill, { foreignKey: 'roleId', as: 'skills', onDelete: 'CASCADE' });
 Skill.belongsTo(Role, { foreignKey: 'roleId', as: 'role' });
 
+// Ensure custom columns are synchronized whenever sequelize.sync() is executed
+sequelize.afterSync(async () => {
+  try {
+    if (Resume && Resume.syncColumns) await Resume.syncColumns();
+    if (Job && Job.syncColumns) await Job.syncColumns();
+    if (CodingProblem && CodingProblem.syncColumns) await CodingProblem.syncColumns();
+    if (MockInterview && MockInterview.syncColumns) await MockInterview.syncColumns();
+    if (Skill && Skill.syncColumns) await Skill.syncColumns();
+    if (StudyPlan && StudyPlan.syncColumns) await StudyPlan.syncColumns();
+  } catch (e) {
+    // ignore
+  }
+});
+
 module.exports = {
   sequelize,
   User,

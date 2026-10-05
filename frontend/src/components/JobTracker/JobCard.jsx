@@ -1,10 +1,11 @@
 // frontend/src/components/JobTracker/JobCard.jsx
 import React from 'react';
 import { Draggable } from '@hello-pangea/dnd';
-import { Calendar, AlertCircle, Edit, Trash2, Star } from 'lucide-react';
+import { Calendar, AlertCircle, Edit, Trash2, Star, Sparkles } from 'lucide-react';
 import { formatDate } from '../../utils/formatters';
+import JobAnalysisCard from './JobAnalysisCard';
 
-export const JobCard = ({ job, index, onEdit, onDelete }) => {
+export const JobCard = ({ job, index, onEdit, onDelete, onViewAnalysis }) => {
   const dateAppliedFormatted = formatDate(job.dateApplied);
   const interviewDateFormatted = job.interviewDate ? formatDate(job.interviewDate) : null;
 
@@ -51,7 +52,7 @@ export const JobCard = ({ job, index, onEdit, onDelete }) => {
                 )}
               </div>
               {/* Job title (14px) */}
-              <p className="text-[14px] text-[#374151] mt-0.5 truncate">
+              <p className="text-[14px] text-[#374151] mt-0.5 truncate font-medium">
                 {job.jobTitle || 'Role'}
               </p>
             </div>
@@ -107,6 +108,25 @@ export const JobCard = ({ job, index, onEdit, onDelete }) => {
               {isInterviewSoon && <span className="text-[10px] font-bold uppercase ml-1">Soon!</span>}
             </div>
           )}
+
+          {/* Real Job Posting AI Analysis & Match Badge Card */}
+          {(job.matchScore !== null && job.matchScore !== undefined) || job.aiAnalysis || job.jobSource ? (
+            <JobAnalysisCard job={job} onViewAnalysis={onViewAnalysis} />
+          ) : onViewAnalysis ? (
+            <div className="mt-2.5 pt-2 border-t border-[#E5E7EB]">
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onViewAnalysis(job);
+                }}
+                className="text-[11px] font-semibold text-[#3B82F6] hover:text-[#1D4ED8] flex items-center gap-1"
+              >
+                <Sparkles className="w-3 h-3" />
+                Analyze Match
+              </button>
+            </div>
+          ) : null}
 
           {/* Gray separator line */}
           <div className="border-t border-[#E5E7EB] my-3" />

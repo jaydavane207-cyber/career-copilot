@@ -67,7 +67,10 @@ const startServer = async () => {
   try {
     await testConnection();
     await sequelize.sync({ alter: false });
-    const { CodingProblem, MockInterview, Skill, StudyPlan } = require('./models');
+    const { CodingProblem, MockInterview, Skill, StudyPlan, Resume } = require('./models');
+    if (Resume && Resume.syncColumns) {
+      await Resume.syncColumns();
+    }
     if (CodingProblem && CodingProblem.syncColumns) {
       await CodingProblem.syncColumns();
     }

@@ -10,6 +10,10 @@ const {
   checkAtsReadiness,
   analyzeResumeAgainstJD
 } = require('../utils/keywordMatcher');
+const {
+  analyzeResumeWithAI,
+  generateImprovedResume
+} = require('../utils/aiResumeAnalyzer');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 
@@ -394,6 +398,284 @@ const deleteAnalysis = async (req, res, next) => {
   }
 };
 
+/**
+ * POST /api/resume/:id/ai-feedback
+ * Generates structured AI resume feedback using Google Gemini API
+ * Caches feedback for up to 30 days unless forceRefresh is specified
+ */
+const generateAIFeedback = async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+    const resumeId = req.params.id;
+
+    if (!resumeId) {
+      return res.status(400).json({
+        success: false,
+        error: 'INVALID_REQUEST',
+        message: 'Resume ID parameter is required.'
+      });
+    }
+
+    const resume = await Resume.findOne({
+      where: { id: resumeId, userId }
+    });
+
+    if (!resume) {
+      return res.status(404).json({
+        success: false,
+        error: 'NOT_FOUND',
+        message: 'Resume not found.'
+      });
+    }
+
+    // Check if valid feedback already exists and is recent (< 30 days)
+    const existingFeedback = resume.aiFeedback || resume.ai_feedback;
+    const feedbackDate = resume.aiFeedbackGeneratedAt || resume.ai_feedback_generated_at;
+    const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+
+    const isRecent = feedbackDate && new Date(feedbackDate) > thirtyDaysAgo;
+
+    if (existingFeedback && isRecent && !req.body?.forceRefresh) {
+      return res.json({
+        success: true,
+        data: existingFeedback,
+        cached: true
+      });
+    }
+
+    // Get text content: from extractedText or fallback to reading PDF
+    let resumeText = (resume.extractedText || '').trim();
+
+    if (!resumeText && resume.filePath && fs.existsSync(resume.filePath)) {
+      try {
+        const parsed = await extractTextFromPDF(resume.filePath);
+        resumeText = (typeof parsed === 'string' ? parsed : (parsed.text || '')).trim();
+        if (resumeText) {
+          resume.extractedText = resumeText;
+        }
+      } catch (parseErr) {
+        console.error('❌ [generateAIFeedback] PDF parse error:', parseErr.message);
+      }
+    }
+
+    if (!resumeText || resumeText.length < 50) {
+      return res.status(400).json({
+        success: false,
+        error: 'TEXT_EXTRACTION_FAILED',
+        message: 'Could not extract sufficient text from resume PDF for AI analysis. Please verify your PDF file.'
+      });
+    }
+
+    // Call Gemini AI analyzer
+    const feedback = await analyzeResumeWithAI(resumeText);
+
+    // Save to database
+    resume.aiFeedback = feedback;
+    resume.aiScore = feedback.overallScore || 0;
+    resume.aiFeedbackGeneratedAt = new Date();
+    await resume.save();
+
+    return res.json({
+      success: true,
+      data: feedback,
+      cached: false
+    });
+  } catch (error) {
+    console.error('❌ [resumeController] generateAIFeedback error:', error.message);
+    const statusCode = error.statusCode || 500;
+    return res.status(statusCode).json({
+      success: false,
+      error: error.code || 'AI_FEEDBACK_ERROR',
+      message: error.message || 'An error occurred while generating AI resume feedback.'
+    });
+  }
+};
+
+/**
+ * GET /api/resume/:id/ai-feedback
+ * Retrieves stored AI feedback for the specified resume
+ */
+const getAIFeedback = async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+    const resumeId = req.params.id;
+
+    const resume = await Resume.findOne({
+      where: { id: resumeId, userId }
+    });
+
+    if (!resume) {
+      return res.status(404).json({
+        success: false,
+        error: 'NOT_FOUND',
+        message: 'Resume not found.'
+      });
+    }
+
+    let feedback = resume.aiFeedback || resume.ai_feedback;
+    if (typeof feedback === 'string') {
+      try {
+        feedback = JSON.parse(feedback);
+      } catch (e) {}
+    }
+
+    if (!feedback) {
+      return res.status(404).json({
+        success: false,
+        error: 'NOT_FOUND',
+        message: 'No AI feedback found for this resume. Please generate feedback first.'
+      });
+    }
+
+    return res.json({
+      success: true,
+      data: feedback
+    });
+  } catch (error) {
+    console.error('❌ [resumeController] getAIFeedback error:', error.message);
+    next(error);
+  }
+};
+
+/**
+ * GET /api/resume/:id/improved
+ * Retrieves or generates an AI-improved rewritten resume
+ */
+const getImprovedResume = async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+    const resumeId = req.params.id;
+
+    const resume = await Resume.findOne({
+      where: { id: resumeId, userId }
+    });
+
+    if (!resume) {
+      return res.status(404).json({
+        success: false,
+        error: 'NOT_FOUND',
+        message: 'Resume not found.'
+      });
+    }
+
+    // Return cached improved resume if already generated and force is not set
+    const existingImproved = resume.aiImprovedResume || resume.ai_improved_resume;
+    if (existingImproved && !req.query?.refresh) {
+      return res.json({
+        success: true,
+        data: {
+          improvedResume: existingImproved
+        }
+      });
+    }
+
+    // Need AI feedback first
+    const feedback = resume.aiFeedback || resume.ai_feedback;
+    if (!feedback) {
+      return res.status(400).json({
+        success: false,
+        error: 'FEEDBACK_REQUIRED',
+        message: 'Please generate AI feedback first before generating an improved resume.'
+      });
+    }
+
+    let resumeText = (resume.extractedText || '').trim();
+    if (!resumeText && resume.filePath && fs.existsSync(resume.filePath)) {
+      try {
+        const parsed = await extractTextFromPDF(resume.filePath);
+        resumeText = (typeof parsed === 'string' ? parsed : (parsed.text || '')).trim();
+      } catch (e) {}
+    }
+
+    if (!resumeText) {
+      return res.status(400).json({
+        success: false,
+        error: 'RESUME_TEXT_MISSING',
+        message: 'Resume content is unavailable for rewriting.'
+      });
+    }
+
+    const improvedResume = await generateImprovedResume(resumeText, feedback);
+
+    resume.aiImprovedResume = improvedResume;
+    await resume.save();
+
+    return res.json({
+      success: true,
+      data: {
+        improvedResume
+      }
+    });
+  } catch (error) {
+    console.error('❌ [resumeController] getImprovedResume error:', error.message);
+    const statusCode = error.statusCode || 500;
+    return res.status(statusCode).json({
+      success: false,
+      error: error.code || 'IMPROVED_RESUME_ERROR',
+      message: error.message || 'Failed to generate improved resume.'
+    });
+  }
+};
+
+/**
+ * GET /api/resume/:id/improved/download
+ * Downloads the AI improved resume as a plain text attachment
+ */
+const downloadImprovedResume = async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+    const resumeId = req.params.id;
+
+    const resume = await Resume.findOne({
+      where: { id: resumeId, userId }
+    });
+
+    if (!resume) {
+      return res.status(404).json({
+        success: false,
+        error: 'NOT_FOUND',
+        message: 'Resume not found.'
+      });
+    }
+
+    let improvedResume = resume.aiImprovedResume || resume.ai_improved_resume;
+
+    // If not generated yet, try to generate it if feedback exists
+    if (!improvedResume) {
+      const feedback = resume.aiFeedback || resume.ai_feedback;
+      if (!feedback) {
+        return res.status(400).json({
+          success: false,
+          error: 'FEEDBACK_REQUIRED',
+          message: 'Please generate AI feedback first before downloading improved resume.'
+        });
+      }
+
+      let resumeText = (resume.extractedText || '').trim();
+      if (!resumeText && resume.filePath && fs.existsSync(resume.filePath)) {
+        const parsed = await extractTextFromPDF(resume.filePath);
+        resumeText = (typeof parsed === 'string' ? parsed : (parsed.text || '')).trim();
+      }
+
+      improvedResume = await generateImprovedResume(resumeText, feedback);
+      resume.aiImprovedResume = improvedResume;
+      await resume.save();
+    }
+
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+    res.setHeader('Content-Disposition', 'attachment; filename="improved-resume.txt"');
+    return res.send(improvedResume);
+  } catch (error) {
+    console.error('❌ [resumeController] downloadImprovedResume error:', error.message);
+    const statusCode = error.statusCode || 500;
+    return res.status(statusCode).json({
+      success: false,
+      error: error.code || 'DOWNLOAD_ERROR',
+      message: error.message || 'Failed to download improved resume.'
+    });
+  }
+};
+
 module.exports = {
   uploadResume,
   analyzeResume,
@@ -401,5 +683,9 @@ module.exports = {
   getResumeHistory: getHistory,
   getResumeById,
   deleteResume,
-  deleteAnalysis
+  deleteAnalysis,
+  generateAIFeedback,
+  getAIFeedback,
+  getImprovedResume,
+  downloadImprovedResume
 };

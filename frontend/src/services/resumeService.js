@@ -95,6 +95,54 @@ export const resumeService = {
   async deleteAnalysis(analysisId) {
     const res = await api.delete(`/resume/history/${analysisId}`);
     return res.data;
+  },
+
+  /**
+   * Generate AI-powered feedback for a resume using Google Gemini
+   * @param {string} resumeId - Resume UUID
+   */
+  async generateAIFeedback(resumeId) {
+    const res = await api.post(`/resume/${resumeId}/ai-feedback`);
+    return res.data;
+  },
+
+  /**
+   * Get cached AI feedback for a resume if available
+   * @param {string} resumeId - Resume UUID
+   */
+  async getAIFeedback(resumeId) {
+    const res = await api.get(`/resume/${resumeId}/ai-feedback`);
+    return res.data;
+  },
+
+  /**
+   * Get AI-generated improved resume text
+   * @param {string} resumeId - Resume UUID
+   */
+  async getImprovedResume(resumeId) {
+    const res = await api.get(`/resume/${resumeId}/improved`);
+    return res.data;
+  },
+
+  /**
+   * Download AI-improved resume as a text file
+   * @param {string} resumeId - Resume UUID
+   */
+  async downloadImprovedResume(resumeId) {
+    const res = await api.get(`/resume/${resumeId}/improved/download`, {
+      responseType: 'blob'
+    });
+
+    const blob = new Blob([res.data], { type: 'text/plain;charset=utf-8' });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', 'improved-resume.txt');
+    document.body.appendChild(link);
+    link.click();
+    link.parentNode.removeChild(link);
+    window.URL.revokeObjectURL(url);
+    return true;
   }
 };
 

@@ -5,9 +5,10 @@ import JobCard from './JobCard';
 import JobStats from './JobStats';
 import JobModal from './JobModal';
 import DeleteConfirmModal from './DeleteConfirmModal';
+import JobAnalyzerModal from './JobAnalyzerModal';
 import { jobService } from '../../services/jobService';
 import { KANBAN_COLUMNS } from '../../utils/constants';
-import { Plus, Search, RefreshCw, Briefcase } from 'lucide-react';
+import { Plus, Search, RefreshCw, Briefcase, Sparkles, Link2 } from 'lucide-react';
 import { LoadingSpinner } from '../Common/LoadingSpinner';
 import { useToast } from '../../hooks/useToast';
 import Toast from '../Common/Toast';
@@ -25,8 +26,10 @@ export const KanbanBoard = () => {
 
   // Modals state
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAnalyzerModalOpen, setIsAnalyzerModalOpen] = useState(false);
   const [jobToEdit, setJobToEdit] = useState(null);
   const [jobToDelete, setJobToDelete] = useState(null);
+  const [jobForAnalysis, setJobForAnalysis] = useState(null);
   const [deleteLoading, setDeleteLoading] = useState(false);
   const [initialStageForNew, setInitialStageForNew] = useState('applied');
 
@@ -199,7 +202,7 @@ export const KanbanBoard = () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5 flex-wrap">
           <Button
             variant="secondary"
             onClick={() => fetchJobsAndStats(true)}
@@ -209,12 +212,24 @@ export const KanbanBoard = () => {
             {refreshing ? 'Updating...' : 'Sync'}
           </Button>
 
+          <button
+            type="button"
+            onClick={() => {
+              setJobForAnalysis(null);
+              setIsAnalyzerModalOpen(true);
+            }}
+            className="px-3.5 py-2 rounded-[8px] bg-gradient-to-r from-[#3B82F6] to-[#2563EB] hover:from-[#2563EB] hover:to-[#1D4ED8] text-white text-[13px] font-semibold transition-all shadow-xs flex items-center gap-1.5 cursor-pointer active:scale-98"
+          >
+            <Sparkles className="w-4 h-4 text-[#FDE047]" />
+            <span>Add Job from URL</span>
+          </button>
+
           <Button
-            variant="primary"
+            variant="secondary"
             onClick={() => handleOpenAddModal('applied')}
             icon={Plus}
           >
-            Add Job
+            Manual Add
           </Button>
         </div>
       </div>
@@ -313,6 +328,10 @@ export const KanbanBoard = () => {
                           index={idx}
                           onEdit={handleEditJob}
                           onDelete={handleDeleteClick}
+                          onViewAnalysis={(j) => {
+                            setJobForAnalysis(j);
+                            setIsAnalyzerModalOpen(true);
+                          }}
                         />
                       ))}
                       {provided.placeholder}
@@ -353,6 +372,20 @@ export const KanbanBoard = () => {
         jobToEdit={jobToEdit ? { ...jobToEdit, stage: jobToEdit.stage || initialStageForNew } : { stage: initialStageForNew }}
         onJobSaved={handleJobSaved}
         onError={(errMsg) => showToast(errMsg, 'error')}
+      />
+
+      {/* Real Job Posting URL Analyzer Modal */}
+      <JobAnalyzerModal
+        isOpen={isAnalyzerModalOpen}
+        onClose={() => {
+          setIsAnalyzerModalOpen(false);
+          setJobForAnalysis(null);
+        }}
+        existingJob={jobForAnalysis}
+        onJobAdded={(newJob) => {
+          fetchJobsAndStats(true);
+          showToast(`Added ${newJob.company || newJob.companyName || 'job'} to pipeline!`, 'success');
+        }}
       />
 
       {/* Delete Confirmation Modal */}

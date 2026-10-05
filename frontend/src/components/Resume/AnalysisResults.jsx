@@ -13,6 +13,7 @@ import { CircularProgress } from '../UI/ProgressIndicators';
 import { PillTag } from '../UI/Badge';
 import { Button } from '../UI/Button';
 import { downloadAnalysisPDF } from '../../utils/pdfReport';
+import { AIFeedbackSection } from './AIFeedbackSection';
 
 export const AnalysisResults = ({ analysis, resume, onAnalyzeAnother }) => {
   const [downloading, setDownloading] = useState(false);
@@ -20,6 +21,8 @@ export const AnalysisResults = ({ analysis, resume, onAnalyzeAnother }) => {
   const [showAllKeywords, setShowAllKeywords] = useState(false);
 
   if (!analysis) return null;
+
+  const resumeId = analysis.resumeId || resume?.id || resume?.resumeId;
 
   const matchScore = analysis.matchScore !== undefined ? analysis.matchScore : 0;
   const missingKeywords = analysis.missingKeywords || [];
@@ -234,6 +237,11 @@ export const AnalysisResults = ({ analysis, resume, onAnalyzeAnother }) => {
             <li>Adding quantified metrics (e.g. "Increased test coverage by 35%").</li>
           </ul>
         </div>
+      </div>
+
+      {/* AI-Powered Resume Feedback & Rewrite Section (Gemini) */}
+      <div className="mt-8">
+        <AIFeedbackSection resumeId={resumeId} />
       </div>
     </div>
   );

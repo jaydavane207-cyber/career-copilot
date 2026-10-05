@@ -203,6 +203,10 @@ CREATE TABLE IF NOT EXISTS resumes (
     "matchingKeywords" JSONB DEFAULT '[]'::jsonb,
     "extractedText" TEXT,
     "feedback" TEXT,
+    ai_feedback JSONB,
+    ai_improved_resume TEXT,
+    ai_score INTEGER,
+    ai_feedback_generated_at TIMESTAMP WITH TIME ZONE,
     "createdAt" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );

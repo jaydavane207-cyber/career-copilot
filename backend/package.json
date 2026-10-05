@@ -9,10 +9,16 @@
     "seed": "node seeds/seed.js",
     "test": "node test-auth-profile.js",
     "test:resume": "node test-resume-feature.js",
-    "test:interview": "node test-mock-interview.js"
+    "test:interview": "node test-mock-interview.js",
+    "test:ai": "node test-ai-resume.js",
+    "test:ai:e2e": "node test-ai-resume-e2e.js",
+    "test:jobs": "node test-job-scraping.js"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "axios": "^1.20.0",
     "bcryptjs": "^2.4.3",
+    "cheerio": "^1.2.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
