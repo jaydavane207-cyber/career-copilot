@@ -95,8 +95,22 @@ export const ProfileDropdown = () => {
             </div>
           )}
 
+          {/* Profile & Integrations Link */}
+          <div className="pt-1 border-t border-slate-100">
+            <button
+              onClick={() => {
+                setIsOpen(false);
+                navigate('/profile');
+              }}
+              className="w-full px-4 py-2 text-left text-xs font-semibold text-slate-700 hover:bg-slate-50 flex items-center gap-2 transition-colors"
+            >
+              <User className="w-4 h-4 text-indigo-600" />
+              <span>Profile & Integrations</span>
+            </button>
+          </div>
+
           {/* Sign Out CTA */}
-          <div className="pt-1 mt-1 border-t border-slate-100">
+          <div className="pt-1 border-t border-slate-100">
             <button
               onClick={handleSignOut}
               className="w-full px-4 py-2 text-left text-xs font-semibold text-rose-600 hover:bg-rose-50 flex items-center gap-2 transition-colors"

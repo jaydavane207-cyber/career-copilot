@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/authController');
+const oauthController = require('../controllers/oauthController');
 const authenticate = require('../middleware/auth');
 const { validateRegister, validateLogin } = require('../middleware/validation');
 
@@ -32,5 +33,51 @@ router.post('/logout', authenticate, authController.logout);
  * @access  Private
  */
 router.get('/me', authenticate, authController.me);
+
+/* ============================================================================
+ * OAuth Integration Routes (LinkedIn & GitHub)
+ * ============================================================================ */
+
+/**
+ * @route   GET /api/auth/linkedin
+ * @desc    Initiate LinkedIn OAuth authentication
+ * @access  Public
+ */
+router.get('/linkedin', oauthController.initiateLinkedInLogin);
+
+/**
+ * @route   GET /api/auth/linkedin/callback
+ * @desc    LinkedIn OAuth callback handler
+ * @access  Public
+ */
+router.get('/linkedin/callback', oauthController.handleLinkedInCallback);
+
+/**
+ * @route   GET /api/auth/github
+ * @desc    Initiate GitHub OAuth authentication
+ * @access  Public
+ */
+router.get('/github', oauthController.initiateGitHubLogin);
+
+/**
+ * @route   GET /api/auth/github/callback
+ * @desc    GitHub OAuth callback handler
+ * @access  Public
+ */
+router.get('/github/callback', oauthController.handleGitHubCallback);
+
+/**
+ * @route   GET /api/auth/preview/:previewToken
+ * @desc    Retrieve temporary cached OAuth import preview
+ * @access  Public
+ */
+router.get('/preview/:previewToken', oauthController.getImportPreview);
+
+/**
+ * @route   GET /api/auth/demo-preview/:provider
+ * @desc    Get instant simulated demo preview data (linkedin | github)
+ * @access  Public
+ */
+router.get('/demo-preview/:provider', oauthController.getDemoPreview);
 
 module.exports = router;

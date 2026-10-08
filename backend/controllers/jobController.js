@@ -43,7 +43,6 @@ const getJobs = async (req, res, next) => {
       ]
     });
 
-    // Group by stage and sort newest first within each stage
     const applied = allUserJobs.filter(j => (j.stage || '').toLowerCase() === 'applied');
     const interview = allUserJobs.filter(j => (j.stage || '').toLowerCase() === 'interview');
     const offer = allUserJobs.filter(j => (j.stage || '').toLowerCase() === 'offer');
@@ -64,9 +63,6 @@ const getJobs = async (req, res, next) => {
 /**
  * POST /api/jobs
  * Body: { companyName, jobTitle, jobLink, stage, dateApplied, interviewDate, notes, salary }
- * Validates required fields: companyName, jobTitle, stage
- * Validates stage enum: applied|interview|offer
- * Inserts into jobs table and returns created job
  */
 const createJob = async (req, res, next) => {
   try {
@@ -82,6 +78,8 @@ const createJob = async (req, res, next) => {
       matchScore,
       requiredSkills,
       missingSkills,
+      criticalSkills,
+      jobAnalysis,
       aiAnalysis,
       stage,
       status,
@@ -103,7 +101,6 @@ const createJob = async (req, res, next) => {
     const notesContent = notes !== undefined ? notes : '';
     const salaryVal = salary || salaryRange || null;
 
-    // Validate required fields
     if (!company) {
       return res.status(400).json({
         success: false,
@@ -139,7 +136,9 @@ const createJob = async (req, res, next) => {
       matchScore: matchScore !== undefined ? matchScore : null,
       requiredSkills: requiredSkills || [],
       missingSkills: missingSkills || [],
-      aiAnalysis: aiAnalysis || null,
+      criticalSkills: criticalSkills || null,
+      jobAnalysis: jobAnalysis || aiAnalysis || null,
+      aiAnalysis: aiAnalysis || jobAnalysis || null,
       scrapedAt: jobDescription ? new Date() : null,
       stage: initialStage,
       dateApplied: applied,
@@ -160,7 +159,6 @@ const createJob = async (req, res, next) => {
 
 /**
  * PUT /api/jobs/:id
- * Validate job belongs to user, update only provided fields, update updatedAt, return updated job
  */
 const updateJob = async (req, res, next) => {
   try {
@@ -188,6 +186,8 @@ const updateJob = async (req, res, next) => {
       matchScore,
       requiredSkills,
       missingSkills,
+      criticalSkills,
+      jobAnalysis,
       aiAnalysis,
       stage,
       status,
@@ -220,28 +220,16 @@ const updateJob = async (req, res, next) => {
       job.jobPostingUrl = newLink ? newLink.trim() : null;
     }
 
-    if (jobDescription !== undefined) {
-      job.jobDescription = jobDescription;
-    }
-
-    if (jobSource !== undefined) {
-      job.jobSource = jobSource;
-    }
-
-    if (matchScore !== undefined) {
-      job.matchScore = matchScore;
-    }
-
-    if (requiredSkills !== undefined) {
-      job.requiredSkills = requiredSkills;
-    }
-
-    if (missingSkills !== undefined) {
-      job.missingSkills = missingSkills;
-    }
-
-    if (aiAnalysis !== undefined) {
-      job.aiAnalysis = aiAnalysis;
+    if (jobDescription !== undefined) job.jobDescription = jobDescription;
+    if (jobSource !== undefined) job.jobSource = jobSource;
+    if (matchScore !== undefined) job.matchScore = matchScore;
+    if (requiredSkills !== undefined) job.requiredSkills = requiredSkills;
+    if (missingSkills !== undefined) job.missingSkills = missingSkills;
+    if (criticalSkills !== undefined) job.criticalSkills = criticalSkills;
+    if (jobAnalysis !== undefined || aiAnalysis !== undefined) {
+      const a = jobAnalysis || aiAnalysis;
+      job.jobAnalysis = a;
+      job.aiAnalysis = a;
     }
 
     const newStageRaw = stage !== undefined ? stage : status;
@@ -257,25 +245,14 @@ const updateJob = async (req, res, next) => {
       job.stage = normalized;
     }
 
-    const newApplied = dateApplied !== undefined ? dateApplied : appliedDate;
-    if (newApplied !== undefined) {
-      job.dateApplied = newApplied || null;
-    }
-
-    if (interviewDate !== undefined) {
-      job.interviewDate = interviewDate || null;
-    }
-
-    if (notes !== undefined) {
-      job.notes = notes;
-    }
+    const newDateApplied = dateApplied !== undefined ? dateApplied : appliedDate;
+    if (newDateApplied !== undefined) job.dateApplied = newDateApplied;
+    if (interviewDate !== undefined) job.interviewDate = interviewDate;
+    if (notes !== undefined) job.notes = notes;
 
     const newSalary = salary !== undefined ? salary : salaryRange;
-    if (newSalary !== undefined) {
-      job.salary = newSalary || null;
-    }
+    if (newSalary !== undefined) job.salary = newSalary;
 
-    job.updatedAt = new Date();
     await job.save();
 
     res.json({
@@ -294,9 +271,18 @@ const updateJob = async (req, res, next) => {
 const updateJobStatus = async (req, res, next) => {
   try {
     const { stage, status } = req.body;
-    const targetStage = normalizeStage(stage || status);
+    const rawStage = stage || status;
 
-    if (!ALLOWED_STAGES.includes(targetStage)) {
+    if (!rawStage) {
+      return res.status(400).json({
+        success: false,
+        error: 'VALIDATION_ERROR',
+        message: 'Stage is required.'
+      });
+    }
+
+    const normalized = normalizeStage(rawStage);
+    if (!ALLOWED_STAGES.includes(normalized)) {
       return res.status(400).json({
         success: false,
         error: 'VALIDATION_ERROR',
@@ -316,13 +302,12 @@ const updateJobStatus = async (req, res, next) => {
       });
     }
 
-    job.stage = targetStage;
-    job.updatedAt = new Date();
+    job.stage = normalized;
     await job.save();
 
     res.json({
       success: true,
-      message: `Job stage updated to ${targetStage}`,
+      message: `Job status updated to ${normalized}`,
       job
     });
   } catch (error) {
@@ -332,7 +317,6 @@ const updateJobStatus = async (req, res, next) => {
 
 /**
  * DELETE /api/jobs/:id
- * Validate job belongs to user, delete from jobs table, return success message
  */
 const deleteJob = async (req, res, next) => {
   try {
@@ -361,8 +345,6 @@ const deleteJob = async (req, res, next) => {
 
 /**
  * GET /api/jobs/stats
- * Count jobs by stage, calculate conversion: (interviews / applied) * 100,
- * calculate average days in each stage, return stats object
  */
 const getJobStats = async (req, res, next) => {
   try {
@@ -377,7 +359,6 @@ const getJobStats = async (req, res, next) => {
     const interviewCount = interviewJobs.length;
     const offerCount = offerJobs.length;
 
-    // Conversion rate: (interviews / applied) * 100
     let conversionRate = 0;
     if (appliedCount > 0) {
       conversionRate = Math.round((interviewCount / appliedCount) * 100);
@@ -389,7 +370,6 @@ const getJobStats = async (req, res, next) => {
       ? Math.round(((interviewCount + offerCount) / totalApplications) * 100)
       : 0;
 
-    // Calculate average days between stages
     const stageIntervals = [];
     for (const job of jobs) {
       const appliedStr = job.dateApplied || (job.createdAt ? new Date(job.createdAt).toISOString().split('T')[0] : null);
@@ -400,15 +380,11 @@ const getJobStats = async (req, res, next) => {
       if (job.interviewDate) {
         const interviewTime = new Date(job.interviewDate).getTime();
         const diffDays = Math.round((interviewTime - appliedTime) / (1000 * 60 * 60 * 24));
-        if (diffDays >= 0) {
-          stageIntervals.push(diffDays);
-        }
+        if (diffDays >= 0) stageIntervals.push(diffDays);
       } else if (job.stage === 'interview' || job.stage === 'offer') {
         const stageTime = new Date(job.updatedAt || job.createdAt).getTime();
         const diffDays = Math.round((stageTime - appliedTime) / (1000 * 60 * 60 * 24));
-        if (diffDays >= 0) {
-          stageIntervals.push(diffDays);
-        }
+        if (diffDays >= 0) stageIntervals.push(diffDays);
       }
     }
 
@@ -448,26 +424,28 @@ const getJobStats = async (req, res, next) => {
 };
 
 /**
- * POST /api/jobs/analyze
+ * POST /api/jobs/analyze-url AND POST /api/jobs/analyze
  * Scrapes and analyzes job posting from URL, compares with user resume, auto-saves to tracker
  */
 const analyzeJobFromURL = async (req, res, next) => {
   try {
-    const { jobURL } = req.body;
+    const rawUrl = req.body.jobURL || req.body.jobUrl || req.body.url;
 
-    if (!jobURL || typeof jobURL !== 'string' || !jobURL.trim()) {
+    if (!rawUrl || typeof rawUrl !== 'string' || !rawUrl.trim()) {
       return res.status(400).json({
         success: false,
         error: 'INVALID_URL',
+        code: 'INVALID_URL',
         message: 'Please enter a valid job URL.'
       });
     }
 
-    const cleanURL = jobURL.trim();
+    const cleanURL = rawUrl.trim();
     if (!jobScraper.isValidURL(cleanURL)) {
       return res.status(400).json({
         success: false,
         error: 'INVALID_URL',
+        code: 'INVALID_URL',
         message: 'Please enter a valid HTTP or HTTPS job link (e.g., LinkedIn, Indeed, Glassdoor).'
       });
     }
@@ -485,14 +463,14 @@ const analyzeJobFromURL = async (req, res, next) => {
       order: [['scrapedAt', 'DESC']]
     });
 
-    let jobDetails;
+    let jobData;
     const isCacheFresh = existingScraped &&
       existingScraped.jobDescription &&
       existingScraped.scrapedAt &&
       (Date.now() - new Date(existingScraped.scrapedAt).getTime() < cacheWindowMs);
 
     if (isCacheFresh) {
-      jobDetails = {
+      jobData = {
         jobTitle: existingScraped.jobTitle,
         company: existingScraped.companyName,
         location: 'Remote / Hybrid',
@@ -505,88 +483,19 @@ const analyzeJobFromURL = async (req, res, next) => {
         fromCache: true
       };
     } else {
-      jobDetails = await jobScraper.scrapeJobFromURL(cleanURL);
+      jobData = await jobScraper.scrapeJobFromURL(cleanURL);
     }
 
-    // 2. Analyze Job Requirements (Required, Preferred, Seniority, Exp)
-    const requirements = jobAnalyzer.analyzeJobRequirements(jobDetails.jobDescription);
+    // 2. Perform Full Analysis using jobAnalyzer
+    const fullAnalysis = await jobAnalyzer.analyzeJobAndCompareWithResume(userId, jobData);
 
-    // 3. Retrieve User Skills and Latest Resume
-    const [userSkills, latestResume, user] = await Promise.all([
-      Skill.findAll({ where: { userId } }),
-      Resume.findOne({ where: { userId }, order: [['createdAt', 'DESC']] }),
-      User.findByPk(userId)
-    ]);
+    const matchScore = fullAnalysis.matchAnalysis?.matchScore ?? fullAnalysis.matchScore ?? 75;
+    const reqSkills = fullAnalysis.job?.requirements?.requiredSkills || [];
+    const missingSkills = fullAnalysis.matchAnalysis?.skillMatches?.missing || [];
+    const criticalSkills = fullAnalysis.preparation?.criticalSkills || [];
+    const prepEstimate = fullAnalysis.preparation?.criticalSkills?.reduce((a, b) => a + (b.estimatedHours || 30), 0) || 60;
 
-    const userSkillList = [];
-    if (userSkills && userSkills.length > 0) {
-      for (const s of userSkills) {
-        userSkillList.push({
-          skillName: s.skillName,
-          userLevel: s.userLevel || 70
-        });
-      }
-    }
-
-    const resumeText = latestResume ? (latestResume.extractedText || '') : '';
-    if (latestResume && latestResume.matchedKeywords && Array.isArray(latestResume.matchedKeywords)) {
-      for (const kw of latestResume.matchedKeywords) {
-        userSkillList.push({ skillName: kw, userLevel: 75 });
-      }
-    }
-
-    let candidateYears = null;
-    if (user && user.experienceLevel) {
-      const exp = user.experienceLevel.toLowerCase();
-      if (exp.includes('senior') || exp.includes('5+')) candidateYears = 5;
-      else if (exp.includes('mid') || exp.includes('3-5')) candidateYears = 3;
-      else if (exp.includes('entry') || exp.includes('junior')) candidateYears = 1;
-    }
-
-    // 4. Compare User Skills/Resume against Job Requirements
-    const comparison = jobAnalyzer.compareResumeWithJob(
-      userSkillList,
-      requirements,
-      resumeText,
-      candidateYears
-    );
-
-    // 5. Generate human-readable summary and preparation suggestions
-    const analysisSummary = jobAnalyzer.generateJobAnalysisSummary(
-      comparison,
-      {
-        ...jobDetails,
-        seniority: requirements.seniority
-      }
-    );
-
-    const fullAnalysis = {
-      matchScore: comparison.matchScore,
-      matchPercentage: comparison.matchPercentage,
-      matchLevel: comparison.matchLevel,
-      skillMatches: comparison.skillMatches,
-      missingSkills: comparison.skillMatches.missing,
-      missingCriticalSkills: comparison.missingCriticalSkills,
-      missingImportantSkills: comparison.missingImportantSkills,
-      experienceMatch: comparison.experienceMatch,
-      requirements: {
-        requiredSkills: requirements.requiredSkills,
-        preferredSkills: requirements.preferredSkills,
-        experienceRequired: requirements.experienceRequired,
-        seniority: requirements.seniority,
-        jobType: requirements.jobType,
-        keywordFrequency: requirements.keywordFrequency
-      },
-      summary: analysisSummary.summary,
-      strengths: analysisSummary.strengths,
-      gaps: analysisSummary.gaps,
-      recommendedPrep: analysisSummary.recommendedPrep,
-      timeToReady: analysisSummary.timeToReady,
-      scrapedAt: new Date(),
-      fromCache: Boolean(jobDetails.fromCache)
-    };
-
-    // 6. Save or Update in User's Job Applications Tracker
+    // 3. Save or Update in User's Job Applications Tracker
     let userJob = await Job.findOne({
       where: {
         userId,
@@ -595,48 +504,71 @@ const analyzeJobFromURL = async (req, res, next) => {
     });
 
     if (userJob) {
-      userJob.companyName = jobDetails.company || userJob.companyName;
-      userJob.jobTitle = jobDetails.jobTitle || userJob.jobTitle;
+      userJob.companyName = jobData.company || userJob.companyName;
+      userJob.jobTitle = jobData.jobTitle || userJob.jobTitle;
       userJob.jobLink = cleanURL;
-      userJob.jobSource = jobDetails.sourceWebsite || userJob.jobSource;
-      userJob.jobDescription = jobDetails.jobDescription;
-      userJob.salary = jobDetails.salary || userJob.salary;
-      userJob.matchScore = comparison.matchScore;
-      userJob.requiredSkills = requirements.requiredSkills;
-      userJob.missingSkills = comparison.skillMatches.missing;
+      userJob.jobPostingUrl = cleanURL;
+      userJob.jobSource = jobData.sourceWebsite || userJob.jobSource;
+      userJob.jobDescription = jobData.jobDescription;
+      userJob.salary = jobData.salary || userJob.salary;
+      userJob.matchScore = matchScore;
+      userJob.requiredSkills = reqSkills;
+      userJob.missingSkills = missingSkills;
+      userJob.criticalSkills = criticalSkills;
+      userJob.jobAnalysis = fullAnalysis;
       userJob.aiAnalysis = fullAnalysis;
+      userJob.userMatchLevel = fullAnalysis.matchAnalysis?.matchLevel || 'Good Match';
+      userJob.prepTimeEstimate = prepEstimate;
+      userJob.prepRecommendations = fullAnalysis.preparation;
+      userJob.redFlags = fullAnalysis.redFlags || [];
       userJob.scrapedAt = new Date();
+      userJob.jobScrapedAt = new Date();
+      userJob.scrapedSuccessfully = true;
       await userJob.save();
     } else {
       userJob = await Job.create({
         userId,
-        companyName: jobDetails.company || 'Company',
-        jobTitle: jobDetails.jobTitle || 'Software Engineer',
+        companyName: jobData.company || 'Company',
+        jobTitle: jobData.jobTitle || 'Software Engineer',
         jobLink: cleanURL,
         jobPostingUrl: cleanURL,
-        jobSource: jobDetails.sourceWebsite || 'other',
-        jobDescription: jobDetails.jobDescription,
+        jobSource: jobData.sourceWebsite || 'other',
+        jobDescription: jobData.jobDescription,
         stage: 'applied',
         dateApplied: new Date().toISOString().split('T')[0],
-        salary: jobDetails.salary || null,
-        matchScore: comparison.matchScore,
-        requiredSkills: requirements.requiredSkills,
-        missingSkills: comparison.skillMatches.missing,
+        salary: jobData.salary || null,
+        matchScore: matchScore,
+        requiredSkills: reqSkills,
+        missingSkills: missingSkills,
+        criticalSkills: criticalSkills,
+        jobAnalysis: fullAnalysis,
         aiAnalysis: fullAnalysis,
+        userMatchLevel: fullAnalysis.matchAnalysis?.matchLevel || 'Good Match',
+        prepTimeEstimate: prepEstimate,
+        prepRecommendations: fullAnalysis.preparation,
+        redFlags: fullAnalysis.redFlags || [],
         scrapedAt: new Date(),
-        autoSaved: true
+        jobScrapedAt: new Date(),
+        autoSaved: true,
+        scrapedSuccessfully: true
       });
     }
 
+    fullAnalysis.jobId = userJob.id;
+
+    // Response matching both exact Part 4 and frontend expectations
     res.status(200).json({
       success: true,
       message: 'Job posting analyzed and saved to your application tracker!',
+      jobId: userJob.id,
+      url: cleanURL,
+      analysis: fullAnalysis,
       data: {
         job: {
           id: userJob.id,
           title: userJob.jobTitle,
           company: userJob.companyName,
-          location: jobDetails.location || 'Remote / Hybrid',
+          location: jobData.location || 'Remote / Hybrid',
           salary: userJob.salary,
           source: userJob.jobSource,
           url: cleanURL,
@@ -650,7 +582,13 @@ const analyzeJobFromURL = async (req, res, next) => {
       }
     });
   } catch (error) {
-    next(error);
+    const statusCode = error.statusCode || (error.message.includes('not found') ? 404 : 500);
+    res.status(statusCode).json({
+      success: false,
+      error: error.message || 'Job posting could not be analyzed.',
+      code: error.code || 'JOB_ANALYSIS_ERROR',
+      suggestions: 'Try copying the complete job URL from LinkedIn, Indeed, or Glassdoor.'
+    });
   }
 };
 
@@ -672,50 +610,36 @@ const getJobAnalysis = async (req, res, next) => {
       });
     }
 
-    if (job.aiAnalysis) {
+    const savedAnalysis = job.jobAnalysis || job.aiAnalysis;
+    if (savedAnalysis) {
       return res.json({
         success: true,
         job,
-        analysis: job.aiAnalysis
+        analysis: savedAnalysis
       });
     }
 
-    // If analysis hasn't been computed yet
+    // Re-generate if description is available
     if (job.jobDescription) {
-      const requirements = jobAnalyzer.analyzeJobRequirements(job.jobDescription);
-      const userSkills = await Skill.findAll({ where: { userId: req.user.id } });
-      const comparison = jobAnalyzer.compareResumeWithJob(userSkills, requirements);
-      const summary = jobAnalyzer.generateJobAnalysisSummary(comparison, {
+      const fullAnalysis = await jobAnalyzer.analyzeJobAndCompareWithResume(req.user.id, {
         jobTitle: job.jobTitle,
-        company: job.companyName
+        company: job.companyName,
+        jobDescription: job.jobDescription,
+        sourceWebsite: job.jobSource,
+        jobLink: job.jobLink
       });
 
-      const analysis = {
-        matchScore: comparison.matchScore,
-        matchPercentage: comparison.matchPercentage,
-        matchLevel: comparison.matchLevel,
-        skillMatches: comparison.skillMatches,
-        missingSkills: comparison.skillMatches.missing,
-        missingCriticalSkills: comparison.missingCriticalSkills,
-        missingImportantSkills: comparison.missingImportantSkills,
-        experienceMatch: comparison.experienceMatch,
-        summary: summary.summary,
-        strengths: summary.strengths,
-        gaps: summary.gaps,
-        recommendedPrep: summary.recommendedPrep,
-        timeToReady: summary.timeToReady
-      };
-
-      job.aiAnalysis = analysis;
-      job.matchScore = comparison.matchScore;
-      job.requiredSkills = requirements.requiredSkills;
-      job.missingSkills = comparison.skillMatches.missing;
+      job.jobAnalysis = fullAnalysis;
+      job.aiAnalysis = fullAnalysis;
+      job.matchScore = fullAnalysis.matchAnalysis?.matchScore || job.matchScore;
+      job.requiredSkills = fullAnalysis.job?.requirements?.requiredSkills || job.requiredSkills;
+      job.missingSkills = fullAnalysis.matchAnalysis?.skillMatches?.missing || job.missingSkills;
       await job.save();
 
       return res.json({
         success: true,
         job,
-        analysis
+        analysis: fullAnalysis
       });
     }
 
@@ -732,9 +656,9 @@ const getJobAnalysis = async (req, res, next) => {
 
 /**
  * GET /api/jobs/:id/preparation
- * Get preparation plan and suggested practice for this job
+ * Get preparation suggestions
  */
-const suggestPreparation = async (req, res, next) => {
+const getJobPreparation = async (req, res, next) => {
   try {
     const job = await Job.findOne({
       where: { id: req.params.id, userId: req.user.id }
@@ -748,46 +672,186 @@ const suggestPreparation = async (req, res, next) => {
       });
     }
 
-    const analysis = job.aiAnalysis || {};
-    const recommendedPrep = analysis.recommendedPrep || [];
-    const missingCritical = analysis.missingCriticalSkills || job.missingSkills || [];
+    const analysis = job.jobAnalysis || job.aiAnalysis || {};
+    const prepObj = analysis.preparation || {};
+    const critical = prepObj.criticalSkills || [];
+    const important = prepObj.importantSkills || [];
 
-    const suggestedCourses = missingCritical.map(skill => ({
-      skill,
-      course: `${skill} Practical Mastery for Software Engineers`,
-      provider: 'Career Copilot Curated Library',
-      type: 'Hands-on Module'
+    const allSkillsToLearn = [...critical, ...important];
+    if (allSkillsToLearn.length === 0 && Array.isArray(job.missingSkills)) {
+      for (const s of job.missingSkills) {
+        allSkillsToLearn.push({ skill: s, priority: 'HIGH', estimatedHours: 35 });
+      }
+    }
+
+    const skillsWithResources = allSkillsToLearn.map(item => ({
+      skill: item.skill,
+      priority: item.priority || 'HIGH',
+      hours: item.estimatedHours || 30,
+      resources: [
+        { title: `${item.skill} Official Interactive Docs & Walkthrough`, url: 'https://roadmap.sh', type: 'Documentation' },
+        { title: `${item.skill} System Architecture & Patterns`, url: 'https://github.com', type: 'Hands-on Repository' }
+      ]
     }));
 
-    const mockInterviews = [
-      {
-        track: job.jobTitle?.toLowerCase().includes('senior') ? 'System Design' : 'Technical Coding',
-        title: `${job.companyName || 'Technical'} Role Interview Simulation`,
-        description: `Simulate interview questions expected for ${job.jobTitle || 'Software Engineer'}.`,
-        durationMinutes: 45
-      },
-      {
-        track: 'Behavioral',
-        title: `${job.companyName || 'Company'} Behavioral & Leadership`,
-        description: 'Practice high-impact STAR answers addressing company culture.',
-        durationMinutes: 30
-      }
-    ];
-
-    const totalHours = recommendedPrep.reduce((acc, p) => acc + (p.estimatedHours || 15), 0);
-    const estimatedDays = Math.max(7, Math.ceil(totalHours / 2.5));
+    const mockInterviews = job.jobTitle?.toLowerCase().includes('senior') ? 4 : 2;
+    const studyPlan = prepObj.estimatedPrepTime ? `${prepObj.estimatedPrepTime} intensive plan` : '3-4 weeks intensive';
 
     res.json({
       success: true,
+      skills: skillsWithResources,
+      mockInterviews,
+      studyPlan,
+      recommendations: analysis.recommendation?.nextSteps || [
+        'Complete system design mock interview simulation',
+        'Brush up on missing required technical skills',
+        'Review architecture trade-offs for technical screening'
+      ],
       data: {
         jobId: job.id,
         jobTitle: job.jobTitle,
         companyName: job.companyName,
-        recommendedSkills: recommendedPrep,
-        suggestedCourses,
+        recommendedSkills: skillsWithResources,
         mockInterviews,
-        estimatedDays
+        studyPlan
       }
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
+ * POST /api/jobs/:id/save-to-tracker
+ * Save analyzed job to applications tracker
+ */
+const saveAnalyzedJobToTracker = async (req, res, next) => {
+  try {
+    const job = await Job.findOne({
+      where: { id: req.params.id, userId: req.user.id }
+    });
+
+    if (!job) {
+      return res.status(404).json({
+        success: false,
+        error: 'NOT_FOUND',
+        message: 'Job application not found.'
+      });
+    }
+
+    const targetStage = req.body.stage ? normalizeStage(req.body.stage) : 'applied';
+    job.stage = targetStage;
+    if (req.body.notes !== undefined) {
+      job.notes = req.body.notes;
+    }
+    job.autoSaved = true;
+    await job.save();
+
+    res.json({
+      success: true,
+      jobId: job.id,
+      stage: job.stage,
+      message: 'Job successfully saved to application tracker!'
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
+ * GET /api/jobs/suggested
+ * Get AI-suggested jobs based on user's skills
+ */
+const suggestJobsForUser = async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+    const limit = Math.min(20, parseInt(req.query.limit, 10) || 5);
+
+    // Get all user skills
+    const userSkills = await Skill.findAll({ where: { userId } });
+    const skillNames = userSkills.map(s => s.skillName);
+
+    // Query distinct jobs available in database with descriptions
+    const allRecentJobs = await Job.findAll({
+      limit: 50,
+      order: [['createdAt', 'DESC']]
+    });
+
+    const suggestions = [];
+
+    for (const j of allRecentJobs) {
+      if (!j.jobDescription) continue;
+      const reqs = jobScraper.extractJobRequirements(j.jobDescription);
+      const score = jobAnalyzer.calculateMatchScore(skillNames, reqs);
+
+      if (score >= 60 || suggestions.length < limit) {
+        suggestions.push({
+          id: j.id,
+          title: j.jobTitle,
+          company: j.companyName,
+          location: 'Remote / Hybrid',
+          salary: j.salary || '$120k - $160k',
+          source: j.jobSource || 'linkedin',
+          url: j.jobLink || j.jobPostingUrl,
+          matchScore: score,
+          requiredSkills: reqs.requiredSkills,
+          seniority: reqs.seniority
+        });
+      }
+    }
+
+    // Sort descending by matchScore
+    suggestions.sort((a, b) => b.matchScore - a.matchScore);
+
+    res.json({
+      success: true,
+      count: suggestions.slice(0, limit).length,
+      jobs: suggestions.slice(0, limit)
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
+ * GET /api/jobs/search-analysis
+ * Analyze multiple job URLs at once
+ */
+const searchMultipleJobsAnalysis = async (req, res, next) => {
+  try {
+    const rawUrls = req.query.urls || '';
+    const urlList = rawUrls.split(',').map(u => u.trim()).filter(Boolean);
+
+    if (urlList.length === 0) {
+      return res.status(400).json({
+        success: false,
+        message: 'No URLs provided in query parameter. Example: ?urls=url1,url2'
+      });
+    }
+
+    const analyses = [];
+    for (const u of urlList.slice(0, 5)) {
+      try {
+        const scraped = await jobScraper.scrapeJobFromURL(u);
+        const analysis = await jobAnalyzer.analyzeJobAndCompareWithResume(req.user.id, scraped);
+        analyses.push({
+          url: u,
+          success: true,
+          analysis
+        });
+      } catch (err) {
+        analyses.push({
+          url: u,
+          success: false,
+          error: err.message
+        });
+      }
+    }
+
+    res.json({
+      success: true,
+      count: analyses.length,
+      analyses
     });
   } catch (error) {
     next(error);
@@ -803,6 +867,9 @@ module.exports = {
   getJobStats,
   analyzeJobFromURL,
   getJobAnalysis,
-  suggestPreparation
+  getJobPreparation,
+  saveAnalyzedJobToTracker,
+  suggestJobsForUser,
+  searchMultipleJobsAnalysis,
+  suggestPreparation: getJobPreparation // alias for backwards compatibility
 };
-

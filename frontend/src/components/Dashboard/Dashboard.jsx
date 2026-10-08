@@ -11,7 +11,8 @@ import Recommendations from './Recommendations';
 import DashboardSkeleton from './DashboardSkeleton';
 import NoDataBanner from './NoDataBanner';
 import { dashboardService } from '../../services/dashboardService';
-import { AlertCircle, RefreshCw } from 'lucide-react';
+import JobURLAnalyzerModal from '../JobTracker/JobURLAnalyzerModal';
+import { AlertCircle, RefreshCw, Sparkles, Link2 } from 'lucide-react';
 
 /**
  * Unified Cockpit Dashboard
@@ -32,6 +33,7 @@ export const Dashboard = () => {
   const [refreshing, setRefreshing] = useState(false);
   const [lastUpdated, setLastUpdated] = useState('');
   const [error, setError] = useState(null);
+  const [isAnalyzerOpen, setIsAnalyzerOpen] = useState(false);
 
   const formatCurrentTime = () => {
     return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
@@ -117,6 +119,31 @@ export const Dashboard = () => {
       {/* User Profile Card (Editable profile with targetRole) */}
       <UserProfileCard />
 
+      {/* Quick Action: Analyze Job Posting Banner */}
+      <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 rounded-2xl p-4 sm:p-5 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-xs border border-blue-500/40">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center flex-shrink-0 shadow-2xs">
+            <Sparkles className="w-5 h-5 text-yellow-300" />
+          </div>
+          <div>
+            <h4 className="text-sm font-bold tracking-tight">
+              Found a job you like? Analyze it before applying!
+            </h4>
+            <p className="text-xs text-blue-100 font-medium">
+              Paste any LinkedIn, Indeed, or Glassdoor URL for an instant match score, missing skills and study roadmap.
+            </p>
+          </div>
+        </div>
+        <button
+          type="button"
+          onClick={() => setIsAnalyzerOpen(true)}
+          className="px-4 py-2.5 rounded-xl bg-white hover:bg-blue-50 text-blue-700 font-black text-xs shadow-xs transition-all flex items-center gap-2 flex-shrink-0 cursor-pointer active:scale-98"
+        >
+          <Link2 className="w-3.5 h-3.5 text-blue-700" />
+          <span>Analyze Job</span>
+        </button>
+      </div>
+
       {/* No Data State Banner */}
       {isNoData && (
         <NoDataBanner targetRole={data?.targetRole || 'Frontend Developer'} />
@@ -169,6 +196,13 @@ export const Dashboard = () => {
       <Recommendations
         recommendations={data?.recommendations || []}
         targetRole={data?.targetRole || 'Frontend Developer'}
+      />
+
+      {/* Real Job Postings Integration Modal */}
+      <JobURLAnalyzerModal
+        isOpen={isAnalyzerOpen}
+        onClose={() => setIsAnalyzerOpen(false)}
+        onJobAnalyzed={() => fetchDashboardData(true)}
       />
     </div>
   );

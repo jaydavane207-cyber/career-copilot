@@ -71,6 +71,13 @@ export const NextSteps = ({ nextSteps = [], nextActions = [] }) => {
         link: '/resume'
       },
       {
+        id: 'step-job-analyze',
+        description: 'Found a job you like? Analyze it first with AI to check match score and gaps',
+        progress: 80,
+        icon: 'Briefcase',
+        link: '/jobs'
+      },
+      {
         id: 'step-2',
         description: 'Complete 3 daily LeetCode/DSA problems in your target weak topics',
         progress: 40,
@@ -83,13 +90,6 @@ export const NextSteps = ({ nextSteps = [], nextActions = [] }) => {
         progress: 20,
         icon: 'Mic',
         link: '/mock-interview'
-      },
-      {
-        id: 'step-4',
-        description: 'Track at least 3 new active job applications in your Kanban pipeline',
-        progress: 60,
-        icon: 'Briefcase',
-        link: '/jobs'
       }
     ];
   }

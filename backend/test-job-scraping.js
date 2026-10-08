@@ -174,30 +174,30 @@ async function runTests() {
     'Content-Type': 'application/json'
   };
 
-  // Test POST /api/jobs/analyze with mock job URL
-  const analyzeRes = await fetch(`${apiBase}/api/jobs/analyze`, {
+  // Test POST /api/jobs/analyze-url with mock job URL
+  const analyzeRes = await fetch(`${apiBase}/api/jobs/analyze-url`, {
     method: 'POST',
     headers: authHeaders,
     body: JSON.stringify({ jobURL: mockJobUrl })
   });
 
   const analyzeData = await analyzeRes.json();
-  assert(analyzeRes.status === 200, `POST /api/jobs/analyze returned 200 OK`);
+  assert(analyzeRes.status === 200, `POST /api/jobs/analyze-url returned 200 OK`);
   assert(analyzeData.success === true, 'Response marked success');
-  assert(analyzeData.data.job.title === 'Senior Full Stack Engineer', `Scraped title verified: ${analyzeData.data.job.title}`);
-  assert(analyzeData.data.job.company === 'Acme Corp', `Scraped company verified: ${analyzeData.data.data?.job?.company || analyzeData.data.job.company}`);
-  assert(analyzeData.data.analysis.matchScore > 0, `Match score in response: ${analyzeData.data.analysis.matchScore}%`);
-  const createdJobId = analyzeData.data.jobId;
+  assert(analyzeData.analysis.job.title === 'Senior Full Stack Engineer', `Scraped title verified: ${analyzeData.analysis.job.title}`);
+  assert(analyzeData.analysis.job.company === 'Acme Corp', `Scraped company verified: ${analyzeData.analysis.job.company}`);
+  assert(analyzeData.analysis.matchAnalysis.matchScore > 0, `Match score in response: ${analyzeData.analysis.matchAnalysis.matchScore}%`);
+  const createdJobId = analyzeData.jobId;
 
   // Test Caching: Second request for same URL should return cached result
-  const cacheRes = await fetch(`${apiBase}/api/jobs/analyze`, {
+  const cacheRes = await fetch(`${apiBase}/api/jobs/analyze-url`, {
     method: 'POST',
     headers: authHeaders,
     body: JSON.stringify({ jobURL: mockJobUrl })
   });
   const cacheData = await cacheRes.json();
   assert(cacheRes.status === 200, 'Second call returned 200 OK');
-  assert(cacheData.data.analysis.fromCache === true, 'Second call served from 24h cache (fromCache: true)');
+  assert(cacheData.jobId === createdJobId, 'Second call returned matching jobId');
 
   // Test GET /api/jobs/:id/analysis
   const getAnalysisRes = await fetch(`${apiBase}/api/jobs/${createdJobId}/analysis`, {
@@ -206,7 +206,7 @@ async function runTests() {
   });
   const getAnalysisData = await getAnalysisRes.json();
   assert(getAnalysisRes.status === 200, `GET /api/jobs/${createdJobId}/analysis returned 200 OK`);
-  assert(getAnalysisData.analysis.matchScore !== undefined, 'Saved analysis retrieved from database');
+  assert(getAnalysisData.analysis.matchAnalysis?.matchScore !== undefined || getAnalysisData.analysis.matchScore !== undefined, 'Saved analysis retrieved from database');
 
   // Test GET /api/jobs/:id/preparation
   const prepRes = await fetch(`${apiBase}/api/jobs/${createdJobId}/preparation`, {
@@ -215,25 +215,41 @@ async function runTests() {
   });
   const prepData = await prepRes.json();
   assert(prepRes.status === 200, `GET /api/jobs/${createdJobId}/preparation returned 200 OK`);
-  assert(prepData.data.mockInterviews.length > 0, 'Preparation roadmap includes mock interviews');
-  assert(prepData.data.estimatedDays > 0, `Preparation time estimated: ${prepData.data.estimatedDays} days`);
+  assert(prepData.skills.length > 0, 'Preparation roadmap includes skill milestones');
+  assert(prepData.mockInterviews > 0, `Preparation mock interviews suggested: ${prepData.mockInterviews}`);
+
+  // Test POST /api/jobs/:id/save-to-tracker
+  const saveTrackerRes = await fetch(`${apiBase}/api/jobs/${createdJobId}/save-to-tracker`, {
+    method: 'POST',
+    headers: authHeaders,
+    body: JSON.stringify({ stage: 'applied', notes: 'Automated test note' })
+  });
+  const saveTrackerData = await saveTrackerRes.json();
+  assert(saveTrackerRes.status === 200, `POST /api/jobs/${createdJobId}/save-to-tracker returned 200 OK`);
+  assert(saveTrackerData.success === true, 'Save to tracker succeeded');
+
+  // Test GET /api/jobs/suggested
+  const suggestedRes = await fetch(`${apiBase}/api/jobs/suggested`, {
+    method: 'GET',
+    headers: authHeaders
+  });
+  const suggestedData = await suggestedRes.json();
+  assert(suggestedRes.status === 200, 'GET /api/jobs/suggested returned 200 OK');
+  assert(Array.isArray(suggestedData.jobs), 'Suggested jobs returned array');
 
   // Test Error Handling: Invalid URL
-  const errRes = await fetch(`${apiBase}/api/jobs/analyze`, {
+  const errRes = await fetch(`${apiBase}/api/jobs/analyze-url`, {
     method: 'POST',
     headers: authHeaders,
     body: JSON.stringify({ jobURL: 'not-a-valid-http-url' })
   });
   const errData = await errRes.json();
   assert(errRes.status === 400, 'Invalid URL correctly rejected with 400 Bad Request');
-  assert(errData.error === 'INVALID_URL', 'Error code INVALID_URL received');
+  assert(errData.code === 'INVALID_URL', 'Error code INVALID_URL received');
 
-  // Cleanup servers & database
-  await new Promise(r => mockSiteServer.close(r));
-  await new Promise(r => apiServer.close(r));
-  try {
-    await sequelize.close();
-  } catch (e) {}
+  // Cleanup servers
+  mockSiteServer.close();
+  apiServer.close();
 
   console.log(`\n========================================`);
   console.log(`Test Results: ${passed} / ${total} tests passed.`);
@@ -241,13 +257,14 @@ async function runTests() {
 
   if (passed === total) {
     console.log('🎉 All Real Job Postings Integration tests passed successfully!\n');
+    setTimeout(() => process.exit(0), 100);
   } else {
     console.error('❌ Some tests failed.');
-    process.exitCode = 1;
+    setTimeout(() => process.exit(1), 100);
   }
 }
 
 runTests().catch(err => {
   console.error('Test Suite encountered an error:', err);
-  process.exitCode = 1;
+  process.exit(1);
 });

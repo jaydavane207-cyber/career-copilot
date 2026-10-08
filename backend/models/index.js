@@ -12,10 +12,14 @@ const MockInterviewQuestion = require('./MockInterviewQuestion');
 const Resource = require('./Resource');
 const PopularCompany = require('./PopularCompany');
 const CodingTopic = require('./CodingTopic');
+const OAuthProfile = require('./OAuthProfile');
 
 // Associations: User -> Personal Models
 User.hasMany(Resume, { foreignKey: 'userId', as: 'resumes', onDelete: 'CASCADE' });
 Resume.belongsTo(User, { foreignKey: 'userId', as: 'user' });
+
+User.hasMany(OAuthProfile, { foreignKey: 'userId', as: 'oauthProfiles', onDelete: 'CASCADE' });
+OAuthProfile.belongsTo(User, { foreignKey: 'userId', as: 'user' });
 
 User.hasMany(Job, { foreignKey: 'userId', as: 'jobs', onDelete: 'CASCADE' });
 Job.belongsTo(User, { foreignKey: 'userId', as: 'user' });
@@ -40,6 +44,7 @@ Skill.belongsTo(Role, { foreignKey: 'roleId', as: 'role' });
 // Ensure custom columns are synchronized whenever sequelize.sync() is executed
 sequelize.afterSync(async () => {
   try {
+    if (OAuthProfile && OAuthProfile.syncColumns) await OAuthProfile.syncColumns();
     if (Resume && Resume.syncColumns) await Resume.syncColumns();
     if (Job && Job.syncColumns) await Job.syncColumns();
     if (CodingProblem && CodingProblem.syncColumns) await CodingProblem.syncColumns();
@@ -64,5 +69,6 @@ module.exports = {
   MockInterviewQuestion,
   Resource,
   PopularCompany,
-  CodingTopic
+  CodingTopic,
+  OAuthProfile
 };

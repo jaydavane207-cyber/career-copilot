@@ -1,8 +1,8 @@
 // backend/utils/jobAnalyzer.js
-const { TECH_SKILLS_CATALOG } = require('./keywordMatcher');
+const { extractJobRequirements } = require('./jobScraper');
 
 /**
- * Predefined dictionary of 120+ tech skills with categories, aliases, and estimated learning hours
+ * Predefined database of 100+ technical skills with categories, aliases, and estimated learning hours
  */
 const SKILL_DATABASE = [
   // Frontend
@@ -72,163 +72,154 @@ const SKILL_DATABASE = [
 ];
 
 /**
- * Extract required vs preferred skills, years of experience, seniority, and frequency from JD text
- * @param {string} jobDescription
- * @returns {Object}
+ * Identify critical skills from job requirements
+ * @param {Object} jobRequirements
+ * @returns {Array<string>} Array of critical skills sorted by priority
  */
-const analyzeJobRequirements = (jobDescription = '') => {
-  const jd = jobDescription || '';
-  const lines = jd.split('\n');
+const identifyCriticalSkills = (jobRequirements = {}) => {
+  const req = jobRequirements.requiredSkills || [];
+  const pref = jobRequirements.preferredSkills || [];
+  const allReq = [...req];
 
-  // Detect seniority
-  let seniority = 'Mid';
-  const lowerJd = jd.toLowerCase();
-  if (/\b(senior|sr\.?|lead|principal|staff|architect|director|head of)\b/i.test(lowerJd)) {
-    seniority = 'Senior';
-  } else if (/\b(junior|jr\.?|entry-level|entry level|graduate|intern|associate|fresher)\b/i.test(lowerJd)) {
-    seniority = 'Junior';
+  // System Design, Kubernetes, AWS, Data Structures are recognized core interview topics
+  const highPriorityKeywords = ['System Design', 'Kubernetes', 'AWS', 'Docker', 'SQL', 'Data Structures & Algorithms', 'Microservices'];
+
+  allReq.sort((a, b) => {
+    const aIsHigh = highPriorityKeywords.some(kw => a.toLowerCase().includes(kw.toLowerCase()));
+    const bIsHigh = highPriorityKeywords.some(kw => b.toLowerCase().includes(kw.toLowerCase()));
+    if (aIsHigh && !bIsHigh) return -1;
+    if (!aIsHigh && bIsHigh) return 1;
+    return 0;
+  });
+
+  return Array.from(new Set(allReq));
+};
+
+/**
+ * Estimate preparation time in hours, weeks, and days
+ * @param {Array<string>} missingSkills
+ * @param {number} [hoursPerWeek=15]
+ * @returns {{ totalHours: number, weeks: number, days: number }}
+ */
+const estimatePreparationTime = (missingSkills = [], hoursPerWeek = 15) => {
+  let totalHours = 0;
+  for (const skill of missingSkills) {
+    const dbMatch = SKILL_DATABASE.find(s => s.name.toLowerCase() === skill.toLowerCase());
+    totalHours += dbMatch ? dbMatch.hours : 30;
   }
 
-  // Detect job type
-  let jobType = 'Full-time';
-  if (/\b(contract|contractor|freelance|c2c|w2 contract)\b/i.test(lowerJd)) {
-    jobType = 'Contract';
-  } else if (/\b(part-time|part time)\b/i.test(lowerJd)) {
-    jobType = 'Part-time';
-  } else if (/\b(internship|co-op)\b/i.test(lowerJd)) {
-    jobType = 'Internship';
-  }
+  // Minimum baseline
+  if (missingSkills.length === 0) totalHours = 10;
 
-  // Extract years of experience
-  let experienceRequired = seniority === 'Senior' ? 5 : seniority === 'Junior' ? 1 : 3;
-  const expMatch = lowerJd.match(/(\d+)\+?\s*(?:to|-)\s*(\d+)?\s*(?:years|yrs|year)\b/i)
-    || lowerJd.match(/(\d+)\+?\s*(?:years|yrs|year)\s*(?:of)?\s*(?:relevant|industry|professional|experience|work)/i);
-
-  if (expMatch && expMatch[1]) {
-    const parsedYears = parseInt(expMatch[1], 10);
-    if (!isNaN(parsedYears) && parsedYears >= 0 && parsedYears <= 20) {
-      experienceRequired = parsedYears;
-    }
-  }
-
-  // Segment JD into Required vs Preferred blocks
-  let requiredBlock = '';
-  let preferredBlock = '';
-  let inRequired = false;
-  let inPreferred = false;
-
-  for (const line of lines) {
-    const l = line.trim().toLowerCase();
-    if (/(must have|minimum qualifications|requirements|what you'll need|basic qualifications|what we're looking for|qualifications:)/i.test(l)) {
-      inRequired = true;
-      inPreferred = false;
-      continue;
-    }
-    if (/(nice to have|preferred qualifications|bonus points|good to have|desired skills|preferred skills|plus:)/i.test(l)) {
-      inPreferred = true;
-      inRequired = false;
-      continue;
-    }
-    if (/(about us|benefits|perks|compensation|equal opportunity|what we offer)/i.test(l)) {
-      inRequired = false;
-      inPreferred = false;
-      continue;
-    }
-
-    if (inPreferred) {
-      preferredBlock += ' ' + line;
-    } else if (inRequired) {
-      requiredBlock += ' ' + line;
-    }
-  }
-
-  // Skill matching & frequency calculation
-  const foundSkills = [];
-  const keywordFrequency = {};
-
-  for (const skill of SKILL_DATABASE) {
-    let count = 0;
-    for (const alias of skill.aliases) {
-      const globalRegex = new RegExp(alias.source, alias.flags.includes('g') ? alias.flags : alias.flags + 'g');
-      const matches = jd.match(globalRegex);
-      if (matches) {
-        count += matches.length;
-      }
-    }
-
-    if (count > 0) {
-      keywordFrequency[skill.name] = count;
-
-      // Determine if skill is required or preferred
-      let isPreferred = false;
-      if (preferredBlock) {
-        for (const alias of skill.aliases) {
-          if (alias.test(preferredBlock)) {
-            isPreferred = true;
-            break;
-          }
-        }
-      }
-
-      foundSkills.push({
-        ...skill,
-        frequency: count,
-        isPreferred
-      });
-    }
-  }
-
-  // Sort by frequency descending
-  foundSkills.sort((a, b) => b.frequency - a.frequency);
-
-  const requiredSkills = [];
-  const preferredSkills = [];
-
-  for (const s of foundSkills) {
-    if (s.isPreferred) {
-      preferredSkills.push(s.name);
-    } else {
-      requiredSkills.push(s.name);
-    }
-  }
-
-  // If no skills segregated as preferred, take the lowest frequency ones as preferred if list is long
-  if (preferredSkills.length === 0 && requiredSkills.length > 5) {
-    const splitIndex = Math.ceil(requiredSkills.length * 0.7);
-    preferredSkills.push(...requiredSkills.splice(splitIndex));
-  }
-
-  // Fallback defaults if JD text was short
-  if (requiredSkills.length === 0) {
-    requiredSkills.push('JavaScript', 'React', 'Node.js', 'SQL', 'Git');
-    preferredSkills.push('TypeScript', 'Docker', 'AWS');
-  }
+  const weeks = Math.max(1, Math.round(totalHours / hoursPerWeek));
+  const days = Math.max(5, Math.round(totalHours / (hoursPerWeek / 7)));
 
   return {
-    requiredSkills,
-    preferredSkills,
-    experienceRequired,
-    keywordFrequency,
-    seniority,
-    jobType,
-    allMatchedSkills: foundSkills
+    totalHours,
+    weeks,
+    days
   };
 };
 
 /**
- * Compare user profile / resume skills against job requirements
- * @param {Array<string|Object>} userSkills - Array of skill names or skill objects
- * @param {Object} jobRequirements - Output from analyzeJobRequirements
- * @param {string} resumeText - Raw text of user resume (optional)
- * @param {number} userExperienceYears - Candidate years of experience (optional)
- * @returns {Object}
+ * Calculate match score with weighted algorithm:
+ * - Required skills match: 60% weight
+ * - Experience match: 25% weight
+ * - Seniority match: 15% weight
+ * @param {Array<string|Object>} userSkills
+ * @param {Object} jobRequirements
+ * @param {number} [userYears=2]
+ * @param {string} [userSeniority='Mid-level']
+ * @returns {number} 0-100
+ */
+const calculateMatchScore = (userSkills = [], jobRequirements = {}, userYears = 2, userSeniority = 'Mid-level') => {
+  const reqSkills = jobRequirements.requiredSkills || [];
+  const reqExp = jobRequirements.experienceRequired || 3;
+  const jobSeniority = jobRequirements.seniority || 'Mid-level';
+
+  // Normalize user skills
+  const userSkillSet = new Set();
+  for (const s of userSkills) {
+    if (typeof s === 'string') userSkillSet.add(s.toLowerCase().trim());
+    else if (s && typeof s === 'object') {
+      const name = (s.skillName || s.name || s.skill || '').toLowerCase().trim();
+      if (name) userSkillSet.add(name);
+    }
+  }
+
+  // 1. Required skills score (60%)
+  let matchedRequired = 0;
+  for (const r of reqSkills) {
+    const lower = r.toLowerCase();
+    if (userSkillSet.has(lower)) {
+      matchedRequired++;
+      continue;
+    }
+    const db = SKILL_DATABASE.find(item => item.name.toLowerCase() === lower);
+    if (db) {
+      for (const alias of db.aliases) {
+        let foundAlias = false;
+        for (const u of userSkillSet) {
+          if (alias.test(u)) {
+            matchedRequired++;
+            foundAlias = true;
+            break;
+          }
+        }
+        if (foundAlias) break;
+      }
+    }
+  }
+
+  const reqScore = reqSkills.length > 0 ? (matchedRequired / reqSkills.length) * 60 : 45;
+
+  // 2. Experience match score (25%)
+  let expScore = 0;
+  if (userYears >= reqExp) {
+    expScore = 25;
+  } else if (userYears >= reqExp - 1) {
+    expScore = 18;
+  } else if (userYears >= reqExp - 2) {
+    expScore = 10;
+  } else {
+    expScore = 5;
+  }
+
+  // 3. Seniority match score (15%)
+  let seniorityScore = 10;
+  const uNorm = userSeniority.toLowerCase();
+  const jNorm = jobSeniority.toLowerCase();
+  if (uNorm === jNorm || (uNorm.includes('mid') && jNorm.includes('mid'))) {
+    seniorityScore = 15;
+  } else if (
+    (uNorm.includes('mid') && jNorm.includes('senior')) ||
+    (uNorm.includes('senior') && jNorm.includes('mid')) ||
+    (uNorm.includes('entry') && jNorm.includes('junior'))
+  ) {
+    seniorityScore = 10;
+  } else {
+    seniorityScore = 5;
+  }
+
+  const total = Math.min(100, Math.max(10, Math.round(reqScore + expScore + seniorityScore)));
+  return total;
+};
+
+/**
+ * Backward-compatible wrapper for analyzeJobRequirements
+ */
+const analyzeJobRequirements = (jobDescription = '') => {
+  return extractJobRequirements(jobDescription);
+};
+
+/**
+ * Compare resume and skills with job
  */
 const compareResumeWithJob = (userSkills = [], jobRequirements = {}, resumeText = '', userExperienceYears = null) => {
   const reqSkills = jobRequirements.requiredSkills || [];
   const prefSkills = jobRequirements.preferredSkills || [];
   const requiredExp = jobRequirements.experienceRequired || 3;
 
-  // Normalize user skills list into lowercase map
   const userSkillSet = new Set();
   const userSkillProficiencies = {};
 
@@ -246,7 +237,6 @@ const compareResumeWithJob = (userSkills = [], jobRequirements = {}, resumeText 
     }
   }
 
-  // Also check resumeText if provided
   if (resumeText) {
     const lowerResume = resumeText.toLowerCase();
     for (const skill of SKILL_DATABASE) {
@@ -259,7 +249,6 @@ const compareResumeWithJob = (userSkills = [], jobRequirements = {}, resumeText 
     }
   }
 
-  // Calculate experience
   let candidateYears = userExperienceYears;
   if (candidateYears === null || candidateYears === undefined) {
     if (resumeText) {
@@ -269,29 +258,21 @@ const compareResumeWithJob = (userSkills = [], jobRequirements = {}, resumeText 
       }
     }
     if (candidateYears === null || candidateYears === undefined) {
-      candidateYears = 2; // sensible candidate baseline
+      candidateYears = 2;
     }
   }
 
-  // Skill matching evaluation
   const strongMatches = [];
   const partialMatches = [];
   const missingSkills = [];
   const missingCritical = [];
   const missingImportant = [];
 
-  let earnedPoints = 0;
-  let totalPossiblePoints = 0;
-
-  // 1. Evaluate Required Skills (+20 points for strong, +10 for partial)
   for (const skillName of reqSkills) {
-    totalPossiblePoints += 20;
     const lower = skillName.toLowerCase();
-
-    // Check direct or alias match
     let hasSkill = userSkillSet.has(lower);
+
     if (!hasSkill) {
-      // Check partial match with database aliases
       const dbEntry = SKILL_DATABASE.find(s => s.name.toLowerCase() === lower);
       if (dbEntry) {
         for (const alias of dbEntry.aliases) {
@@ -310,10 +291,8 @@ const compareResumeWithJob = (userSkills = [], jobRequirements = {}, resumeText 
       const prof = userSkillProficiencies[lower] || 75;
       if (prof >= 60) {
         strongMatches.push(skillName);
-        earnedPoints += 20;
       } else {
         partialMatches.push(skillName);
-        earnedPoints += 10;
       }
     } else {
       missingSkills.push(skillName);
@@ -321,39 +300,25 @@ const compareResumeWithJob = (userSkills = [], jobRequirements = {}, resumeText 
     }
   }
 
-  // 2. Evaluate Preferred Skills (+10 points)
   for (const skillName of prefSkills) {
-    totalPossiblePoints += 10;
     const lower = skillName.toLowerCase();
     let hasSkill = userSkillSet.has(lower);
 
     if (hasSkill) {
       strongMatches.push(skillName);
-      earnedPoints += 10;
     } else {
       missingSkills.push(skillName);
       missingImportant.push(skillName);
     }
   }
 
-  // 3. Evaluate Experience (+10 points)
-  totalPossiblePoints += 10;
-  let expPoints = 0;
-  const expGap = candidateYears - requiredExp;
+  const scorePercent = calculateMatchScore(
+    Array.from(userSkillSet),
+    jobRequirements,
+    candidateYears,
+    candidateYears >= 5 ? 'Senior' : candidateYears >= 2 ? 'Mid-level' : 'Junior'
+  );
 
-  if (candidateYears >= requiredExp) {
-    expPoints = 10;
-  } else if (candidateYears >= requiredExp - 1) {
-    expPoints = 5;
-  }
-  earnedPoints += expPoints;
-
-  // Calculate percentage (0-100)
-  const scorePercent = totalPossiblePoints > 0
-    ? Math.min(100, Math.max(10, Math.round((earnedPoints / totalPossiblePoints) * 100)))
-    : 70;
-
-  // Categorize Match Level
   let matchLevel = 'Good Match';
   if (scorePercent >= 86) {
     matchLevel = 'Excellent Match';
@@ -364,6 +329,8 @@ const compareResumeWithJob = (userSkills = [], jobRequirements = {}, resumeText 
   } else {
     matchLevel = 'Poor Match';
   }
+
+  const expGap = candidateYears - requiredExp;
 
   return {
     matchScore: scorePercent,
@@ -387,117 +354,69 @@ const compareResumeWithJob = (userSkills = [], jobRequirements = {}, resumeText 
 };
 
 /**
- * Generate human-readable analysis summary, strengths, gaps and prep recommendations
- * @param {Object} analysis - Output of compareResumeWithJob
- * @param {Object} jobDetails - Scraped job metadata
- * @returns {Object}
+ * Generate human-readable analysis summary
  */
 const generateJobAnalysisSummary = (analysis, jobDetails = {}) => {
   const company = jobDetails.company || 'the company';
   const title = jobDetails.jobTitle || 'this position';
   const score = analysis.matchScore;
   const strong = analysis.skillMatches?.strong || [];
-  const missing = analysis.skillMatches?.missing || [];
   const critical = analysis.missingCriticalSkills || [];
   const important = analysis.missingImportantSkills || [];
 
-  // Summary sentence
   let summary = '';
   if (score >= 85) {
-    summary = `Outstanding fit! Your skillset strongly matches the requirements for ${title} at ${company}. You have verified proficiency in core technologies and meet the expected experience bar.`;
+    summary = `Outstanding fit! Your skillset strongly matches the requirements for ${title} at ${company}.`;
   } else if (score >= 67) {
-    summary = `Strong match for ${title} at ${company}. You possess most foundational requirements, with just a few target skills to brush up on before your technical rounds.`;
+    summary = `Strong match for ${title} at ${company}. You possess foundational requirements with few gaps.`;
   } else if (score >= 40) {
-    summary = `Moderate match. You have relevant experience for ${title}, but there are key gaps in required tech stack that you should prepare before applying.`;
+    summary = `Moderate match. You have relevant experience for ${title}, but key technical requirements require preparation.`;
   } else {
-    summary = `This role requires several technologies outside your current primary stack. A focused 3-4 week study plan is recommended before submitting an application.`;
+    summary = `This role requires technologies outside your primary stack. A focused preparation plan is recommended.`;
   }
 
-  // Strengths
   const strengths = [];
-  if (strong.length > 0) {
-    strengths.push(`Proven skills in ${strong.slice(0, 3).join(', ')}`);
-  }
+  if (strong.length > 0) strengths.push(`Proven skills in ${strong.slice(0, 3).join(', ')}`);
   if (analysis.experienceMatch?.gap >= 0) {
     strengths.push(`Experience bar satisfied (${analysis.experienceMatch.user} yrs vs ${analysis.experienceMatch.required} yrs required)`);
-  } else {
-    strengths.push(`Core engineering fundamentals align with ${jobDetails.seniority || 'the target'} level`);
-  }
-  if (strong.length >= 4) {
-    strengths.push(`Demonstrated proficiency across ${strong.length} job-specific keywords`);
   }
 
-  // Gaps
   const gaps = [];
-  if (critical.length > 0) {
-    gaps.push(`Missing critical required skills: ${critical.slice(0, 3).join(', ')}`);
-  }
+  if (critical.length > 0) gaps.push(`Missing critical required skills: ${critical.slice(0, 3).join(', ')}`);
   if (analysis.experienceMatch?.gap < 0) {
-    gaps.push(`Role prefers ${analysis.experienceMatch.required} years experience (you have ${analysis.experienceMatch.user} years)`);
-  }
-  if (important.length > 0) {
-    gaps.push(`Would benefit from learning preferred toolings: ${important.slice(0, 2).join(', ')}`);
-  }
-  if (gaps.length === 0) {
-    gaps.push('No critical skill gaps identified for this posting.');
+    gaps.push(`Role requires ${analysis.experienceMatch.required} years experience (you have ${analysis.experienceMatch.user} years)`);
   }
 
-  // Recommended preparation tasks
   const recommendedPrep = [];
-
-  // Critical skills (High Priority)
   for (const s of critical.slice(0, 3)) {
     const db = SKILL_DATABASE.find(item => item.name.toLowerCase() === s.toLowerCase());
     recommendedPrep.push({
       type: 'skill',
+      skill: s,
       name: s,
       estimatedHours: db ? db.hours : 30,
-      priority: 'high',
+      priority: 'HIGH',
       recommendation: `Deep dive into ${s} architecture and build a hands-on project milestone.`
     });
   }
 
-  // Important skills (Medium Priority)
   for (const s of important.slice(0, 2)) {
     const db = SKILL_DATABASE.find(item => item.name.toLowerCase() === s.toLowerCase());
     recommendedPrep.push({
       type: 'skill',
+      skill: s,
       name: s,
       estimatedHours: db ? db.hours : 20,
-      priority: 'medium',
+      priority: 'MEDIUM',
       recommendation: `Review ${s} fundamentals and common interview concepts.`
     });
   }
 
-  // Always suggest system design / mock interview if Senior role
-  if (jobDetails.seniority === 'Senior') {
-    recommendedPrep.push({
-      type: 'interview',
-      name: 'System Design Mock Interview',
-      estimatedHours: 10,
-      priority: 'high',
-      recommendation: 'Complete 2-3 System Design mock interview sessions focusing on scalability and trade-offs.'
-    });
-  } else {
-    recommendedPrep.push({
-      type: 'interview',
-      name: 'Technical Screening Practice',
-      estimatedHours: 6,
-      priority: 'medium',
-      recommendation: 'Complete mock technical coding sessions on core data structures.'
-    });
-  }
-
-  // Estimate time to ready
-  let timeToReady = '1 week';
+  let timeToReady = '2-3 weeks';
   const totalHours = recommendedPrep.reduce((sum, item) => sum + (item.estimatedHours || 10), 0);
-  if (totalHours > 70) {
-    timeToReady = '3-4 weeks';
-  } else if (totalHours > 35) {
-    timeToReady = '2-3 weeks';
-  } else if (totalHours > 15) {
-    timeToReady = '1-2 weeks';
-  }
+  if (totalHours > 70) timeToReady = '3-4 weeks';
+  else if (totalHours > 35) timeToReady = '2-3 weeks';
+  else timeToReady = '1-2 weeks';
 
   return {
     summary,
@@ -508,9 +427,224 @@ const generateJobAnalysisSummary = (analysis, jobDetails = {}) => {
   };
 };
 
+/**
+ * Main Full Job Analysis & Resume Comparison function (Part 2 spec)
+ * @param {string|Object} userIdentifier - userId or user object
+ * @param {Object} jobData - output from jobScraper.scrapeJobFromURL
+ * @returns {Promise<Object>} Full Analysis object
+ */
+const analyzeJobAndCompareWithResume = async (userIdentifier, jobData = {}) => {
+  let userSkills = [];
+  let resumeText = '';
+  let candidateYears = 2;
+  let userSeniority = 'Mid-level';
+
+  // If userIdentifier is a UUID string, query database
+  if (typeof userIdentifier === 'string') {
+    try {
+      const { User, Skill, Resume } = require('../models');
+      const [dbSkills, dbResume, dbUser] = await Promise.all([
+        Skill.findAll({ where: { userId: userIdentifier } }),
+        Resume.findOne({ where: { userId: userIdentifier }, order: [['createdAt', 'DESC']] }),
+        User.findByPk(userIdentifier)
+      ]);
+
+      if (dbSkills) {
+        userSkills = dbSkills.map(s => ({
+          skillName: s.skillName,
+          userLevel: s.userLevel || 75
+        }));
+      }
+
+      if (dbResume) {
+        resumeText = dbResume.extractedText || '';
+        if (Array.isArray(dbResume.matchedKeywords)) {
+          for (const kw of dbResume.matchedKeywords) {
+            userSkills.push({ skillName: kw, userLevel: 75 });
+          }
+        }
+      }
+
+      if (dbUser && dbUser.experienceLevel) {
+        const exp = dbUser.experienceLevel.toLowerCase();
+        if (exp.includes('senior') || exp.includes('5+')) {
+          candidateYears = 5;
+          userSeniority = 'Senior';
+        } else if (exp.includes('mid') || exp.includes('3-5')) {
+          candidateYears = 3;
+          userSeniority = 'Mid-level';
+        } else if (exp.includes('junior') || exp.includes('entry')) {
+          candidateYears = 1;
+          userSeniority = 'Junior';
+        }
+      }
+    } catch (dbErr) {
+      // Fallback defaults if DB lookup fails
+    }
+  } else if (userIdentifier && typeof userIdentifier === 'object') {
+    userSkills = userIdentifier.skills || [];
+    resumeText = userIdentifier.resumeText || '';
+    candidateYears = userIdentifier.experienceYears || 2;
+    userSeniority = userIdentifier.seniority || (candidateYears >= 5 ? 'Senior' : candidateYears >= 2 ? 'Mid-level' : 'Junior');
+  }
+
+  // Ensure requirements are extracted
+  const requirements = jobData.requirements || extractJobRequirements(jobData.jobDescription || '');
+
+  // Compare Resume vs Job
+  const comparison = compareResumeWithJob(userSkills, requirements, resumeText, candidateYears);
+
+  // Match score
+  const matchScore = comparison.matchScore;
+  const reqExp = requirements.experienceRequired || 3;
+  const expGap = candidateYears - reqExp;
+
+  // Experience Match Object
+  const experienceMatch = {
+    required: reqExp,
+    userHas: candidateYears,
+    gap: expGap,
+    message: expGap >= 0
+      ? `You meet or exceed the ${reqExp} years requirement!`
+      : `You're ${Math.abs(expGap)} year${Math.abs(expGap) > 1 ? 's' : ''} short, but close`
+  };
+
+  // Seniority Match Object
+  const jobLevel = requirements.seniority || 'Mid-level';
+  const seniorityMatch = {
+    jobLevel,
+    userLevel: userSeniority,
+    message: userSeniority.toLowerCase() === jobLevel.toLowerCase()
+      ? 'Your current career stage matches the role target'
+      : userSeniority === 'Senior'
+        ? 'You have more seniority than requested for this role'
+        : 'You might need to grow into this role during preparation'
+  };
+
+  // Missing Skills categorization
+  const missingCritical = [];
+  const missingImportant = [];
+
+  for (const s of comparison.skillMatches.missing) {
+    if (requirements.requiredSkills.includes(s)) {
+      const db = SKILL_DATABASE.find(item => item.name.toLowerCase() === s.toLowerCase());
+      missingCritical.push({
+        skill: s,
+        priority: 'HIGH',
+        estimatedHours: db ? db.hours : 35
+      });
+    } else {
+      const db = SKILL_DATABASE.find(item => item.name.toLowerCase() === s.toLowerCase());
+      missingImportant.push({
+        skill: s,
+        priority: 'MEDIUM',
+        estimatedHours: db ? db.hours : 20
+      });
+    }
+  }
+
+  // Prep time estimation
+  const prepTime = estimatePreparationTime(comparison.skillMatches.missing, 15);
+  const prepWeeks = `${Math.max(1, prepTime.weeks - 1)}-${prepTime.weeks + 1} weeks`;
+
+  // Recommended order of learning
+  const recommendedOrder = [
+    ...missingCritical.map(m => `${m.skill} (most critical for technical round)`),
+    ...missingImportant.map(m => `${m.skill} (valuable for bonus questions)`)
+  ];
+  if (recommendedOrder.length === 0) {
+    recommendedOrder.push('Review System Design and technical mock interviews');
+  }
+
+  // Red flags
+  const redFlags = [];
+  if (candidateYears < reqExp) {
+    redFlags.push(`Job requires ${reqExp}+ years, you currently have ${candidateYears}`);
+  }
+  if (jobLevel === 'Senior' && userSeniority !== 'Senior') {
+    redFlags.push(`Seniority is Senior, while your profile is ${userSeniority}`);
+  }
+  if (jobData.location && jobData.location.toLowerCase().includes('on-site') && !jobData.location.toLowerCase().includes('remote')) {
+    redFlags.push(`Position requires on-site presence in ${jobData.location}`);
+  }
+  if (requirements.educationRequired && requirements.educationRequired.includes('Master') && candidateYears < 3) {
+    redFlags.push(`Advanced degree preferred: ${requirements.educationRequired}`);
+  }
+
+  // Recommendations
+  const shouldApply = matchScore >= 50;
+  const confidence = `${matchScore}% - ${comparison.matchLevel}`;
+  const nextSteps = [];
+
+  if (missingCritical.length > 0) {
+    nextSteps.push(`Study ${missingCritical[0].skill} (${missingCritical[0].estimatedHours} hours)`);
+  }
+  nextSteps.push('Take 3 mock technical interviews');
+  if (missingCritical.length > 1) {
+    nextSteps.push(`Learn ${missingCritical[1].skill} fundamentals`);
+  }
+  nextSteps.push('Apply with focus on your proven strengths and system impact');
+
+  const matchBreakdown = {
+    requiredSkillsHave: comparison.skillMatches.strong.filter(s => requirements.requiredSkills.includes(s)).length,
+    requiredSkillsMissing: requirements.requiredSkills.filter(s => comparison.skillMatches.missing.includes(s)).length,
+    preferredSkillsHave: comparison.skillMatches.strong.filter(s => requirements.preferredSkills.includes(s)).length,
+    preferredSkillsMissing: requirements.preferredSkills.filter(s => comparison.skillMatches.missing.includes(s)).length
+  };
+
+  const preparation = {
+    criticalSkills: missingCritical,
+    importantSkills: missingImportant,
+    estimatedPrepTime: prepWeeks,
+    recommendedOrder
+  };
+
+  const recommendation = {
+    shouldApply,
+    confidence,
+    nextSteps
+  };
+
+  return {
+    jobId: jobData.jobId || jobData.id || null,
+    job: {
+      title: jobData.jobTitle || 'Software Engineer',
+      company: jobData.company || 'Company',
+      location: jobData.location || 'Remote',
+      salary: jobData.salary || 'Competitive',
+      source: jobData.sourceWebsite || 'other',
+      url: jobData.jobLink || jobData.url || '',
+      description: jobData.jobDescription || '',
+      requirements: {
+        requiredSkills: requirements.requiredSkills,
+        preferredSkills: requirements.preferredSkills,
+        experienceRequired: reqExp,
+        seniority: jobLevel
+      }
+    },
+    matchAnalysis: {
+      matchScore,
+      matchPercentage: `${matchScore}%`,
+      matchLevel: comparison.matchLevel,
+      skillMatches: comparison.skillMatches,
+      experienceMatch,
+      seniorityMatch
+    },
+    matchBreakdown,
+    preparation,
+    redFlags,
+    recommendation,
+    timeToReady: prepWeeks
+  };
+};
+
 module.exports = {
   SKILL_DATABASE,
   analyzeJobRequirements,
   compareResumeWithJob,
-  generateJobAnalysisSummary
+  generateJobAnalysisSummary,
+  calculateMatchScore,
+  identifyCriticalSkills,
+  estimatePreparationTime,
+  analyzeJobAndCompareWithResume
 };

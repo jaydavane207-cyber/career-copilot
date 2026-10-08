@@ -16,6 +16,7 @@ const studyPlanRoutes = require('./routes/studyPlan');
 const codingRoutes = require('./routes/coding');
 const mockInterviewRoutes = require('./routes/mockInterview');
 const dashboardRoutes = require('./routes/dashboard');
+const profileRoutes = require('./routes/profile');
 const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
@@ -51,6 +52,7 @@ app.use('/api/study-plan', studyPlanRoutes);
 app.use('/api/coding', codingRoutes);
 app.use('/api/mock-interview', mockInterviewRoutes);
 app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/profile', profileRoutes);
 
 // 404 Handler
 app.use('/api/*', (req, res) => {
@@ -67,7 +69,10 @@ const startServer = async () => {
   try {
     await testConnection();
     await sequelize.sync({ alter: false });
-    const { CodingProblem, MockInterview, Skill, StudyPlan, Resume } = require('./models');
+    const { CodingProblem, MockInterview, Skill, StudyPlan, Resume, OAuthProfile } = require('./models');
+    if (OAuthProfile && OAuthProfile.syncColumns) {
+      await OAuthProfile.syncColumns();
+    }
     if (Resume && Resume.syncColumns) {
       await Resume.syncColumns();
     }

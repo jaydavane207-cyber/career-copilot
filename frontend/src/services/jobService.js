@@ -36,7 +36,7 @@ export const jobService = {
    * @param {string} stage - 'applied' | 'interview' | 'offer'
    */
   async updateStage(id, stage) {
-    const res = await api.put(`/jobs/${id}`, { stage });
+    const res = await api.patch(`/jobs/${id}/status`, { stage });
     return res.data;
   },
 
@@ -60,10 +60,10 @@ export const jobService = {
   /**
    * Scrape and analyze a real job posting from a URL
    * @param {string} jobURL
-   * @returns {Promise<{ job: Object, analysis: Object, jobId: string }>}
+   * @returns {Promise<{ success: boolean, analysis: Object, jobId: string, url: string }>}
    */
   async analyzeJobFromURL(jobURL) {
-    const res = await api.post('/jobs/analyze', { jobURL });
+    const res = await api.post('/jobs/analyze-url', { jobURL });
     return res.data;
   },
 
@@ -82,6 +82,36 @@ export const jobService = {
    */
   async getJobPreparation(jobId) {
     const res = await api.get(`/jobs/${jobId}/preparation`);
+    return res.data;
+  },
+
+  /**
+   * Save analyzed job to applications tracker
+   * @param {string} jobId
+   * @param {string} [stage='applied']
+   * @param {string} [notes='']
+   */
+  async saveJobToTracker(jobId, stage = 'applied', notes = '') {
+    const res = await api.post(`/jobs/${jobId}/save-to-tracker`, { stage, notes });
+    return res.data;
+  },
+
+  /**
+   * Get AI-suggested jobs based on user's skills
+   * @param {number} [limit=10]
+   */
+  async getSuggestedJobs(limit = 10) {
+    const res = await api.get('/jobs/suggested', { params: { limit } });
+    return res.data;
+  },
+
+  /**
+   * Analyze multiple jobs at once from an array of URLs
+   * @param {Array<string>|string} urls
+   */
+  async analyzeMultipleJobs(urls) {
+    const urlString = Array.isArray(urls) ? urls.join(',') : urls;
+    const res = await api.get('/jobs/search-analysis', { params: { urls: urlString } });
     return res.data;
   }
 };

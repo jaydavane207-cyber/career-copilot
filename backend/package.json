@@ -12,7 +12,8 @@
     "test:interview": "node test-mock-interview.js",
     "test:ai": "node test-ai-resume.js",
     "test:ai:e2e": "node test-ai-resume-e2e.js",
-    "test:jobs": "node test-job-scraping.js"
+    "test:jobs": "node test-job-scraping.js",
+    "test:oauth": "node test-oauth-integration.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
@@ -24,6 +25,9 @@
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "multer": "^1.4.5-lts.1",
+    "passport": "^0.7.0",
+    "passport-github2": "^0.1.12",
+    "passport-linkedin-oauth2": "^2.0.0",
     "pdf-parse": "^1.1.1",
     "pdfjs-dist": "^6.3.289",
     "pg": "^8.12.0",

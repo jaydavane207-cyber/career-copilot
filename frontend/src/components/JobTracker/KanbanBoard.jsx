@@ -5,10 +5,10 @@ import JobCard from './JobCard';
 import JobStats from './JobStats';
 import JobModal from './JobModal';
 import DeleteConfirmModal from './DeleteConfirmModal';
-import JobAnalyzerModal from './JobAnalyzerModal';
+import JobURLAnalyzerModal from './JobURLAnalyzerModal';
 import { jobService } from '../../services/jobService';
 import { KANBAN_COLUMNS } from '../../utils/constants';
-import { Plus, Search, RefreshCw, Briefcase, Sparkles, Link2 } from 'lucide-react';
+import { Plus, Search, RefreshCw, Briefcase, Sparkles, Link2, ExternalLink, ArrowRight } from 'lucide-react';
 import { LoadingSpinner } from '../Common/LoadingSpinner';
 import { useToast } from '../../hooks/useToast';
 import Toast from '../Common/Toast';
@@ -156,6 +156,11 @@ export const KanbanBoard = () => {
     return company.includes(query) || title.includes(query) || notes.includes(query);
   });
 
+  // Recent analyzed jobs (with matchScore or aiAnalysis)
+  const recentAnalyzedJobs = jobs
+    .filter((j) => j.matchScore !== null && j.matchScore !== undefined)
+    .slice(0, 3);
+
   if (loading) {
     return <LoadingSpinner message="Loading your Job Application Kanban Board..." />;
   }
@@ -193,12 +198,11 @@ export const KanbanBoard = () => {
       {/* Header Bar */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-[#E5E7EB]">
         <div>
-          {/* H1: "My Job Applications" */}
           <h1 className="text-[32px] leading-[40px] font-bold text-[#111827] tracking-[-0.5px]">
             My Job Applications
           </h1>
           <p className="text-[14px] text-[#6B7280] mt-1">
-            Track applications from submission to technical interviews and offers.
+            Track applications from submission to technical interviews, offer negotiations and readiness.
           </p>
         </div>
 
@@ -218,10 +222,10 @@ export const KanbanBoard = () => {
               setJobForAnalysis(null);
               setIsAnalyzerModalOpen(true);
             }}
-            className="px-3.5 py-2 rounded-[8px] bg-gradient-to-r from-[#3B82F6] to-[#2563EB] hover:from-[#2563EB] hover:to-[#1D4ED8] text-white text-[13px] font-semibold transition-all shadow-xs flex items-center gap-1.5 cursor-pointer active:scale-98"
+            className="px-4 py-2.5 rounded-[10px] bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-[13px] font-bold transition-all shadow-sm hover:shadow flex items-center gap-2 cursor-pointer active:scale-98"
           >
-            <Sparkles className="w-4 h-4 text-[#FDE047]" />
-            <span>Add Job from URL</span>
+            <Link2 className="w-4 h-4 text-white" />
+            <span>Analyze Job URL</span>
           </button>
 
           <Button
@@ -237,13 +241,49 @@ export const KanbanBoard = () => {
       {/* Stats Bar (4 columns: Total Applied | Interviews | Offers | Conversion %) */}
       <JobStats stats={stats} />
 
+      {/* Recently Analyzed Jobs Quick Bar (if any analyzed) */}
+      {recentAnalyzedJobs.length > 0 && (
+        <div className="bg-gradient-to-r from-blue-50/80 to-indigo-50/80 border border-blue-200/80 rounded-xl p-3.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-2xs">
+          <div className="flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-blue-600 flex-shrink-0" />
+            <span className="text-xs font-bold text-gray-900">
+              Recently Analyzed Postings:
+            </span>
+          </div>
+
+          <div className="flex items-center gap-2.5 flex-wrap w-full sm:w-auto">
+            {recentAnalyzedJobs.map((j) => (
+              <button
+                key={j.id}
+                type="button"
+                onClick={() => {
+                  setJobForAnalysis(j);
+                  setIsAnalyzerModalOpen(true);
+                }}
+                className="bg-white hover:bg-blue-50 border border-blue-200 rounded-lg px-2.5 py-1 text-xs font-semibold text-gray-800 flex items-center gap-1.5 transition-all shadow-2xs hover:border-blue-400"
+              >
+                <span
+                  className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-black text-white ${
+                    j.matchScore >= 80 ? 'bg-emerald-600' : j.matchScore >= 60 ? 'bg-blue-600' : 'bg-amber-500'
+                  }`}
+                >
+                  {j.matchScore}%
+                </span>
+                <span className="truncate max-w-[130px] font-bold">{j.companyName}</span>
+                <span className="text-gray-400 text-[10px] truncate max-w-[110px]">({j.jobTitle})</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Search and Filters */}
       <div className="bg-white rounded-[12px] border border-[#E5E7EB] p-3 shadow-[0_1px_3px_rgba(0,0,0,0.1)] flex flex-col sm:flex-row items-center justify-between gap-3">
         <div className="relative w-full sm:w-80">
           <Search className="w-4 h-4 text-[#9CA3AF] absolute left-3 top-1/2 -translate-y-1/2" />
           <input
             type="text"
-            placeholder="Search company or title..."
+            placeholder="Search company, title, or notes..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-9 pr-3 py-2 text-[14px] bg-[#F9FAFB] border border-[#E5E7EB] rounded-[8px] focus:outline-none focus:border-[#3B82F6] focus:bg-white transition-all"
@@ -279,7 +319,7 @@ export const KanbanBoard = () => {
         })}
       </div>
 
-      {/* Three Columns Below (Desktop 3 columns, Mobile 1 column based on tab) */}
+      {/* Three Columns (Desktop 3 columns, Mobile 1 column based on tab) */}
       <DragDropContext onDragEnd={handleDragEnd}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-[16px] items-start">
           {columns.map((col) => {
@@ -375,16 +415,16 @@ export const KanbanBoard = () => {
       />
 
       {/* Real Job Posting URL Analyzer Modal */}
-      <JobAnalyzerModal
+      <JobURLAnalyzerModal
         isOpen={isAnalyzerModalOpen}
         onClose={() => {
           setIsAnalyzerModalOpen(false);
           setJobForAnalysis(null);
         }}
         existingJob={jobForAnalysis}
-        onJobAdded={(newJob) => {
+        onJobAnalyzed={(newJob) => {
           fetchJobsAndStats(true);
-          showToast(`Added ${newJob.company || newJob.companyName || 'job'} to pipeline!`, 'success');
+          showToast(`Job application analyzed and updated in tracker!`, 'success');
         }}
       />
 

@@ -1,5 +1,6 @@
 // frontend/src/components/Dashboard/UserProfileCard.jsx
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import { userService } from '../../services/userService';
 import {
@@ -119,15 +120,24 @@ export const UserProfileCard = () => {
           </div>
         </div>
 
-        {/* Action Button */}
+        {/* Action Buttons */}
         {!isEditing && (
-          <button
-            onClick={() => setIsEditing(true)}
-            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-semibold transition-all self-start sm:self-center"
-          >
-            <Edit2 className="w-3.5 h-3.5" />
-            <span>Edit Profile</span>
-          </button>
+          <div className="flex items-center gap-2 self-start sm:self-center">
+            <Link
+              to="/profile"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-bold transition-all border border-indigo-100"
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Import & Sync</span>
+            </Link>
+            <button
+              onClick={() => setIsEditing(true)}
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-semibold transition-all"
+            >
+              <Edit2 className="w-3.5 h-3.5" />
+              <span>Quick Edit</span>
+            </button>
+          </div>
         )}
       </div>
 

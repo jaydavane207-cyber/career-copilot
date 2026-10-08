@@ -17,6 +17,7 @@ import ResumeAnalyzer from './components/Resume/ResumeAnalyzer';
 import KanbanBoard from './components/JobTracker/KanbanBoard';
 import GapAnalysis from './components/SkillGap/GapAnalysis';
 import PlanDashboard from './components/StudyPlanner/PlanDashboard';
+import ProfileForm from './components/Profile/ProfileForm';
 
 // Coding Tracker Page Container
 import LogProblem from './components/CodingTracker/LogProblem';
@@ -444,6 +445,7 @@ export const App = () => {
         <Route path="/study-plan" element={<PlanDashboard />} />
         <Route path="/coding" element={<CodingView />} />
         <Route path="/mock-interview" element={<MockInterviewView />} />
+        <Route path="/profile" element={<ProfileForm />} />
       </Route>
 
       <Route path="/unauthorized" element={<Unauthorized />} />
