@@ -4,12 +4,13 @@ const router = express.Router();
 const resumeController = require('../controllers/resumeController');
 const authenticate = require('../middleware/auth');
 const { uploadResumeMiddleware } = require('../middleware/fileUpload');
+const { requireQuota } = require('../middleware/subscriptionGate');
 
 // All resume routes require authentication
 router.use(authenticate);
 
-// Resume upload (PDF file, max 5MB, format checked)
-router.post('/upload', uploadResumeMiddleware, resumeController.uploadResume);
+// Resume upload (PDF file, max 5MB, format checked, quota enforced)
+router.post('/upload', requireQuota('resume_scan'), uploadResumeMiddleware, resumeController.uploadResume);
 
 // Resume analysis against Job Description
 router.post('/analyze', resumeController.analyzeResume);

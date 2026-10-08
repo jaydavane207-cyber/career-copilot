@@ -11,7 +11,11 @@ import {
   CalendarCheck,
   Code2,
   Mic,
-  Sparkles
+  Sparkles,
+  Trophy,
+  BookOpen,
+  BarChart3,
+  Zap
 } from 'lucide-react';
 
 export const Navbar = () => {
@@ -24,7 +28,11 @@ export const Navbar = () => {
     { name: 'Skill Gap', path: '/skills', icon: Target },
     { name: 'Study Plan', path: '/study-plan', icon: CalendarCheck },
     { name: 'Coding', path: '/coding', icon: Code2 },
-    { name: 'Mock Interview', path: '/mock-interview', icon: Mic }
+    { name: 'Mock Interview', path: '/mock-interview', icon: Mic },
+    { name: 'Stories', path: '/stories', icon: BookOpen },
+    { name: 'Leaderboard', path: '/leaderboard', icon: Trophy },
+    { name: 'Analytics', path: '/analytics', icon: BarChart3 },
+    { name: 'Pricing', path: '/pricing', icon: Zap }
   ];
 
   return (
@@ -73,6 +81,12 @@ export const Navbar = () => {
               <ProfileDropdown />
             ) : (
               <div className="flex items-center gap-2">
+                <Link
+                  to="/pricing"
+                  className="px-3.5 py-1.5 text-xs font-semibold text-slate-700 hover:text-indigo-600 transition-colors"
+                >
+                  Pricing
+                </Link>
                 <Link
                   to="/login"
                   className="px-3.5 py-1.5 text-xs font-semibold text-slate-700 hover:text-indigo-600 transition-colors"

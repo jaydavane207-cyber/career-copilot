@@ -1,8 +1,8 @@
-// frontend/src/components/Navbar/ProfileDropdown.jsx
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-import { User, LogOut, ChevronDown, Sparkles, Calendar, ShieldCheck } from 'lucide-react';
+import { User, LogOut, ChevronDown, Sparkles, Calendar, ShieldCheck, Zap } from 'lucide-react';
+import SubscriptionBadge from '../Subscription/SubscriptionBadge';
 
 /**
  * ProfileDropdown Component
@@ -81,10 +81,11 @@ export const ProfileDropdown = () => {
           {/* Target Role Tag */}
           <div className="mx-3 my-2 px-3 py-2 bg-indigo-50/80 rounded-xl text-[11px] text-indigo-700 font-medium flex items-center gap-2">
             <Sparkles className="w-3.5 h-3.5 text-indigo-600 flex-shrink-0" />
-            <div className="truncate">
+            <div className="truncate flex-1">
               <span className="text-slate-500 block text-[9px] uppercase font-bold">Target Role</span>
               <span className="font-semibold text-indigo-900">{user.targetRole || 'Software Engineer'}</span>
             </div>
+            <SubscriptionBadge tier={user.subscriptionTier} showUpgradeLink={false} />
           </div>
 
           {/* Member Info */}
@@ -95,8 +96,18 @@ export const ProfileDropdown = () => {
             </div>
           )}
 
-          {/* Profile & Integrations Link */}
+          {/* Pricing & Upgrade CTA */}
           <div className="pt-1 border-t border-slate-100">
+            <button
+              onClick={() => {
+                setIsOpen(false);
+                navigate('/pricing');
+              }}
+              className="w-full px-4 py-2 text-left text-xs font-semibold text-indigo-600 hover:bg-indigo-50 flex items-center gap-2 transition-colors"
+            >
+              <Zap className="w-4 h-4 text-indigo-600" />
+              <span>Upgrade Plan & Pricing</span>
+            </button>
             <button
               onClick={() => {
                 setIsOpen(false);
@@ -104,7 +115,7 @@ export const ProfileDropdown = () => {
               }}
               className="w-full px-4 py-2 text-left text-xs font-semibold text-slate-700 hover:bg-slate-50 flex items-center gap-2 transition-colors"
             >
-              <User className="w-4 h-4 text-indigo-600" />
+              <User className="w-4 h-4 text-slate-500" />
               <span>Profile & Integrations</span>
             </button>
           </div>

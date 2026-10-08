@@ -32,6 +32,9 @@ const getProfile = async (req, res, next) => {
         experienceLevel: user.experienceLevel,
         bio: user.bio,
         avatarUrl: user.avatarUrl,
+        subscriptionTier: user.subscriptionTier || 'free',
+        subscriptionStatus: user.subscriptionStatus || 'active',
+        subscriptionExpiresAt: user.subscriptionExpiresAt || null,
         createdAt: user.createdAt,
         updatedAt: user.updatedAt
       }

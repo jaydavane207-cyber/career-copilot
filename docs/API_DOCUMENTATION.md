@@ -109,3 +109,19 @@ All authenticated endpoints require an `Authorization` header formatted as:
 |---|---|---|---|
 | `GET` | `/api/dashboard/readiness` | Get aggregate 0-100% Readiness Score & component weights | Yes |
 | `GET` | `/api/dashboard/summary` | Consolidated dashboard KPIs, next steps, recent activities | Yes |
+
+---
+
+### 10. Subscriptions & Monetization Endpoints (`/api/subscription`)
+
+| Method | Endpoint | Description | Auth Required |
+|:-------|:---------|:------------|:--------------|
+| `GET` | `/api/subscription/plans` | Fetch available plans, monthly/yearly pricing (INR & USD), and FAQs | No |
+| `GET` | `/api/subscription/status` | Current user tier (`free`, `premium`, `pro`), usage counts, and remaining quota | Yes |
+| `POST` | `/api/subscription/create-order` | Create payment order (`planId`, `billingCycle`, `currency`, `gateway`) | Yes |
+| `POST` | `/api/subscription/verify-payment` | Verify signature and elevate user account to Premium/Pro tier | Yes |
+| `POST` | `/api/subscription/cancel` | Cancel renewal at current billing period end | Yes |
+| `POST` | `/api/subscription/webhook` | Idempotent webhook receiver for Razorpay / Stripe events | No (Signature Verified) |
+| `GET` | `/api/subscription/pro-features/salary-coach` | Pro-exclusive executive salary negotiation guidance & counter-offer scripts | Yes (Pro Tier) |
+| `GET` | `/api/subscription/pro-features/video-mock` | Pro-exclusive video mock interview simulation configuration | Yes (Pro Tier) |
+

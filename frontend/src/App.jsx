@@ -18,6 +18,11 @@ import KanbanBoard from './components/JobTracker/KanbanBoard';
 import GapAnalysis from './components/SkillGap/GapAnalysis';
 import PlanDashboard from './components/StudyPlanner/PlanDashboard';
 import ProfileForm from './components/Profile/ProfileForm';
+import CompanyPrep from './pages/CompanyPrep';
+import SuccessStories from './pages/SuccessStories';
+import Leaderboard from './pages/Leaderboard';
+import Analytics from './pages/Analytics';
+import Pricing from './pages/Pricing';
 
 // Coding Tracker Page Container
 import LogProblem from './components/CodingTracker/LogProblem';
@@ -445,8 +450,27 @@ export const App = () => {
         <Route path="/study-plan" element={<PlanDashboard />} />
         <Route path="/coding" element={<CodingView />} />
         <Route path="/mock-interview" element={<MockInterviewView />} />
+        <Route path="/company-prep" element={<CompanyPrep />} />
+        <Route path="/stories" element={<SuccessStories />} />
+        <Route path="/stories/:id" element={<SuccessStories />} />
+        <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route path="/analytics" element={<Analytics />} />
         <Route path="/profile" element={<ProfileForm />} />
+        <Route path="/pricing" element={<Pricing />} />
       </Route>
+
+      {/* Public Pricing Route with standard header */}
+      <Route
+        path="/pricing"
+        element={
+          <div className="min-h-screen flex flex-col bg-[#F9FAFB] text-[#374151] font-sans antialiased">
+            <Navbar />
+            <main className="flex-1">
+              <Pricing />
+            </main>
+          </div>
+        }
+      />
 
       <Route path="/unauthorized" element={<Unauthorized />} />
       <Route path="*" element={<NotFound />} />

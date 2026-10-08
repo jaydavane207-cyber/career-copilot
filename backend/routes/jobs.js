@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const jobController = require('../controllers/jobController');
 const authenticate = require('../middleware/auth');
+const { requireQuota } = require('../middleware/subscriptionGate');
 
 router.use(authenticate);
 
@@ -51,7 +52,7 @@ router.post('/:id/save-to-tracker', jobController.saveAnalyzedJobToTracker);
 
 // REST Job endpoints
 router.get('/', jobController.getJobs);
-router.post('/', jobController.createJob);
+router.post('/', requireQuota('job_tracking'), jobController.createJob);
 router.put('/:id', jobController.updateJob);
 router.patch('/:id/status', jobController.updateJobStatus);
 router.delete('/:id', jobController.deleteJob);

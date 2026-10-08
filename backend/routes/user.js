@@ -27,6 +27,12 @@ router.post('/', validateProfileUpdate, userController.updateProfile);
  */
 router.get('/profile', userController.getProfile);
 router.put('/profile', validateProfileUpdate, userController.updateProfile);
-router.put('/change-password', userController.changePassword);
+const leaderboardController = require('../controllers/leaderboardController');
+
+// User Gamification Endpoints
+router.get('/badges', leaderboardController.getUserBadges);
+router.get('/achievements', leaderboardController.getUserAchievements);
+router.get('/points', leaderboardController.getUserPoints);
+router.post('/badges/award', leaderboardController.awardBadge);
 
 module.exports = router;

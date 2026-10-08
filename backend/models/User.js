@@ -76,6 +76,23 @@ const User = sequelize.define('User', {
   avatarUrl: {
     type: DataTypes.STRING,
     allowNull: true
+  },
+  subscriptionTier: {
+    type: DataTypes.STRING,
+    defaultValue: 'free',
+    field: 'subscription_tier',
+    comment: 'free | premium | pro'
+  },
+  subscriptionStatus: {
+    type: DataTypes.STRING,
+    defaultValue: 'active',
+    field: 'subscription_status',
+    comment: 'active | canceled | past_due | expired'
+  },
+  subscriptionExpiresAt: {
+    type: DataTypes.DATE,
+    allowNull: true,
+    field: 'subscription_expires_at'
   }
 }, {
   tableName: 'users',
@@ -108,6 +125,46 @@ const User = sequelize.define('User', {
   }
 });
 
+// Snake_case aliases
+Object.defineProperty(User.prototype, 'subscription_tier', {
+  get() { return this.getDataValue('subscriptionTier'); },
+  set(val) { this.setDataValue('subscriptionTier', val); }
+});
+
+Object.defineProperty(User.prototype, 'subscription_status', {
+  get() { return this.getDataValue('subscriptionStatus'); },
+  set(val) { this.setDataValue('subscriptionStatus', val); }
+});
+
+Object.defineProperty(User.prototype, 'subscription_expires_at', {
+  get() { return this.getDataValue('subscriptionExpiresAt'); },
+  set(val) { this.setDataValue('subscriptionExpiresAt', val); }
+});
+
+/**
+ * Check if user has active premium or pro access
+ */
+User.prototype.isPremium = function () {
+  const tier = (this.subscriptionTier || 'free').toLowerCase();
+  if (tier === 'free') return false;
+  if (this.subscriptionExpiresAt && new Date(this.subscriptionExpiresAt) < new Date()) {
+    return false;
+  }
+  return tier === 'premium' || tier === 'pro';
+};
+
+/**
+ * Check if user has active pro tier access
+ */
+User.prototype.isPro = function () {
+  const tier = (this.subscriptionTier || 'free').toLowerCase();
+  if (tier !== 'pro') return false;
+  if (this.subscriptionExpiresAt && new Date(this.subscriptionExpiresAt) < new Date()) {
+    return false;
+  }
+  return true;
+};
+
 /**
  * Compare candidate plain password with stored bcrypt hash
  * @param {string} candidatePassword - Plain text password from request
@@ -128,6 +185,36 @@ User.prototype.toJSON = function () {
   if (!values.fullName && values.name) values.fullName = values.name;
   if (!values.name && values.fullName) values.name = values.fullName;
   return values;
+};
+
+// Safe migration helper for existing databases
+User.syncColumns = async () => {
+  try {
+    const dialect = sequelize.getDialect();
+    if (dialect === 'sqlite') {
+      const [cols] = await sequelize.query("PRAGMA table_info('users');");
+      const existingColNames = cols.map(c => c.name);
+      const colsToAdd = [
+        { name: 'subscription_tier', type: "VARCHAR(50) DEFAULT 'free'" },
+        { name: 'subscription_status', type: "VARCHAR(50) DEFAULT 'active'" },
+        { name: 'subscription_expires_at', type: "DATETIME" }
+      ];
+      for (const col of colsToAdd) {
+        if (!existingColNames.includes(col.name)) {
+          await sequelize.query(`ALTER TABLE users ADD COLUMN ${col.name} ${col.type};`);
+        }
+      }
+    } else if (dialect === 'postgres') {
+      await sequelize.query(`
+        ALTER TABLE users
+        ADD COLUMN IF NOT EXISTS subscription_tier VARCHAR(50) DEFAULT 'free',
+        ADD COLUMN IF NOT EXISTS subscription_status VARCHAR(50) DEFAULT 'active',
+        ADD COLUMN IF NOT EXISTS subscription_expires_at TIMESTAMP;
+      `);
+    }
+  } catch (err) {
+    console.warn('⚠️ [User.syncColumns] Notice:', err.message);
+  }
 };
 
 module.exports = User;

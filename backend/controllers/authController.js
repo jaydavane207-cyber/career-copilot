@@ -82,6 +82,9 @@ const register = async (req, res, next) => {
         fullName: newUser.name,
         email: newUser.email,
         targetRole: newUser.targetRole,
+        subscriptionTier: newUser.subscriptionTier || 'free',
+        subscriptionStatus: newUser.subscriptionStatus || 'active',
+        subscriptionExpiresAt: newUser.subscriptionExpiresAt || null,
         createdAt: newUser.createdAt
       }
     });
@@ -143,6 +146,9 @@ const login = async (req, res, next) => {
         targetRole: user.targetRole,
         experienceLevel: user.experienceLevel,
         bio: user.bio,
+        subscriptionTier: user.subscriptionTier || 'free',
+        subscriptionStatus: user.subscriptionStatus || 'active',
+        subscriptionExpiresAt: user.subscriptionExpiresAt || null,
         createdAt: user.createdAt
       }
     });
@@ -181,6 +187,9 @@ const me = async (req, res) => {
       targetRole: req.user.targetRole,
       experienceLevel: req.user.experienceLevel,
       bio: req.user.bio,
+      subscriptionTier: req.user.subscriptionTier || 'free',
+      subscriptionStatus: req.user.subscriptionStatus || 'active',
+      subscriptionExpiresAt: req.user.subscriptionExpiresAt || null,
       createdAt: req.user.createdAt
     }
   });

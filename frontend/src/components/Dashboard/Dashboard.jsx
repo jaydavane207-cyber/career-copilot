@@ -12,6 +12,7 @@ import DashboardSkeleton from './DashboardSkeleton';
 import NoDataBanner from './NoDataBanner';
 import { dashboardService } from '../../services/dashboardService';
 import JobURLAnalyzerModal from '../JobTracker/JobURLAnalyzerModal';
+import GamificationWidget from './GamificationWidget';
 import { AlertCircle, RefreshCw, Sparkles, Link2 } from 'lucide-react';
 
 /**
@@ -148,6 +149,9 @@ export const Dashboard = () => {
       {isNoData && (
         <NoDataBanner targetRole={data?.targetRole || 'Frontend Developer'} />
       )}
+
+      {/* Gamification & Motivation Community Widget */}
+      <GamificationWidget />
 
       {/* Top Section: Overall Readiness Score */}
       <ReadinessScore

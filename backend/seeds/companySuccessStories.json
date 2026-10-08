@@ -1,0 +1,3590 @@
+[
+  {
+    "id": 1,
+    "companyId": 1,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 25,
+    "preparation_weeks": 5,
+    "interview_rounds": 5,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Google was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 2,
+    "companyId": 1,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 25,
+    "preparation_weeks": 4,
+    "interview_rounds": 5,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Google was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 3,
+    "companyId": 1,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 25,
+    "preparation_weeks": 3,
+    "interview_rounds": 5,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at Google was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 189750,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 4,
+    "companyId": 2,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 21,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Microsoft was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 5,
+    "companyId": 2,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 21,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Microsoft was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 6,
+    "companyId": 3,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 18,
+    "preparation_weeks": 5,
+    "interview_rounds": 5,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Amazon was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 7,
+    "companyId": 3,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 18,
+    "preparation_weeks": 4,
+    "interview_rounds": 5,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Amazon was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 8,
+    "companyId": 3,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 18,
+    "preparation_weeks": 3,
+    "interview_rounds": 5,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at Amazon was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 189750,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 9,
+    "companyId": 4,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 21,
+    "preparation_weeks": 5,
+    "interview_rounds": 5,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Meta was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 10,
+    "companyId": 4,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 21,
+    "preparation_weeks": 4,
+    "interview_rounds": 5,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Meta was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 11,
+    "companyId": 5,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 28,
+    "preparation_weeks": 5,
+    "interview_rounds": 5,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Apple was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 12,
+    "companyId": 5,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 28,
+    "preparation_weeks": 4,
+    "interview_rounds": 5,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Apple was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 13,
+    "companyId": 5,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 28,
+    "preparation_weeks": 3,
+    "interview_rounds": 5,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at Apple was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 189750,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 14,
+    "companyId": 6,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 20,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Netflix was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 15,
+    "companyId": 6,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 20,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Netflix was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 16,
+    "companyId": 7,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 22,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Uber was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 17,
+    "companyId": 7,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 22,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Uber was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 18,
+    "companyId": 7,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 22,
+    "preparation_weeks": 3,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at Uber was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 189750,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 19,
+    "companyId": 8,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 26,
+    "preparation_weeks": 5,
+    "interview_rounds": 5,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Airbnb was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 20,
+    "companyId": 8,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 26,
+    "preparation_weeks": 4,
+    "interview_rounds": 5,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Airbnb was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 21,
+    "companyId": 9,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 24,
+    "preparation_weeks": 5,
+    "interview_rounds": 5,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Stripe was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 22,
+    "companyId": 9,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 24,
+    "preparation_weeks": 4,
+    "interview_rounds": 5,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Stripe was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 23,
+    "companyId": 9,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 24,
+    "preparation_weeks": 3,
+    "interview_rounds": 5,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at Stripe was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 189750,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 24,
+    "companyId": 10,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 24,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Salesforce was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 220000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 25,
+    "companyId": 10,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 24,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Salesforce was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 175000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 26,
+    "companyId": 11,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 21,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Adobe was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 220000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 27,
+    "companyId": 11,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 21,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Adobe was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 175000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 28,
+    "companyId": 11,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 21,
+    "preparation_weeks": 3,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at Adobe was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 165000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 29,
+    "companyId": 12,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 25,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Spotify was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 30,
+    "companyId": 12,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 25,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Spotify was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 31,
+    "companyId": 13,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 21,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at LinkedIn was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 32,
+    "companyId": 13,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 21,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at LinkedIn was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 33,
+    "companyId": 13,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 21,
+    "preparation_weeks": 3,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at LinkedIn was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 189750,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 34,
+    "companyId": 14,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 28,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Nvidia was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 35,
+    "companyId": 14,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 28,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Nvidia was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 36,
+    "companyId": 15,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 20,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Oracle was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 220000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 37,
+    "companyId": 15,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 20,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Oracle was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 175000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 38,
+    "companyId": 15,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 20,
+    "preparation_weeks": 3,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at Oracle was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 165000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 39,
+    "companyId": 16,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 18,
+    "preparation_weeks": 5,
+    "interview_rounds": 3,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Cisco was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 220000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 40,
+    "companyId": 16,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 18,
+    "preparation_weeks": 4,
+    "interview_rounds": 3,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Cisco was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 175000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 41,
+    "companyId": 17,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 22,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Intel was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 220000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 42,
+    "companyId": 17,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 22,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Intel was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 175000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 43,
+    "companyId": 17,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 22,
+    "preparation_weeks": 3,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at Intel was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 165000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 44,
+    "companyId": 18,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 20,
+    "preparation_weeks": 5,
+    "interview_rounds": 3,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at AMD was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 220000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 45,
+    "companyId": 18,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 20,
+    "preparation_weeks": 4,
+    "interview_rounds": 3,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at AMD was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 175000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 46,
+    "companyId": 19,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 24,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Atlassian was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 47,
+    "companyId": 19,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 24,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Atlassian was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 48,
+    "companyId": 19,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 24,
+    "preparation_weeks": 3,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at Atlassian was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 189750,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 49,
+    "companyId": 20,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 22,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Snowflake was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 50,
+    "companyId": 20,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 22,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Snowflake was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 51,
+    "companyId": 21,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 26,
+    "preparation_weeks": 5,
+    "interview_rounds": 5,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Databricks was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 52,
+    "companyId": 21,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 26,
+    "preparation_weeks": 4,
+    "interview_rounds": 5,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Databricks was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 53,
+    "companyId": 21,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 26,
+    "preparation_weeks": 3,
+    "interview_rounds": 5,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at Databricks was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 189750,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 54,
+    "companyId": 22,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 16,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at ByteDance was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 55,
+    "companyId": 22,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 16,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at ByteDance was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 56,
+    "companyId": 23,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 21,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Coinbase was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 57,
+    "companyId": 23,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 21,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Coinbase was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 58,
+    "companyId": 23,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 21,
+    "preparation_weeks": 3,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at Coinbase was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 189750,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 59,
+    "companyId": 24,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 23,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Dropbox was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 60,
+    "companyId": 24,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 23,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Dropbox was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 61,
+    "companyId": 25,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 25,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Palantir was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 62,
+    "companyId": 25,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 25,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Palantir was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 63,
+    "companyId": 25,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 25,
+    "preparation_weeks": 3,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at Palantir was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 189750,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 64,
+    "companyId": 26,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 22,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Pinterest was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 65,
+    "companyId": 26,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 22,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Pinterest was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 66,
+    "companyId": 27,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 24,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Snap was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 67,
+    "companyId": 27,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 24,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Snap was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 68,
+    "companyId": 27,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 24,
+    "preparation_weeks": 3,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at Snap was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 189750,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 69,
+    "companyId": 28,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 21,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Square (Block) was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 70,
+    "companyId": 28,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 21,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Square (Block) was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 71,
+    "companyId": 29,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 25,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Shopify was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 72,
+    "companyId": 29,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 25,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Shopify was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 73,
+    "companyId": 29,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 25,
+    "preparation_weeks": 3,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at Shopify was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 189750,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 74,
+    "companyId": 30,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 20,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Zoom was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 220000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 75,
+    "companyId": 30,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 20,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Zoom was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 175000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 76,
+    "companyId": 31,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 22,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Twilio was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 77,
+    "companyId": 31,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 22,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Twilio was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 78,
+    "companyId": 31,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 22,
+    "preparation_weeks": 3,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at Twilio was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 189750,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 79,
+    "companyId": 32,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 20,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Cloudflare was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 80,
+    "companyId": 32,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 20,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Cloudflare was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 81,
+    "companyId": 33,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 21,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at GitHub was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 82,
+    "companyId": 33,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 21,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at GitHub was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 83,
+    "companyId": 33,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 21,
+    "preparation_weeks": 3,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at GitHub was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 189750,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 84,
+    "companyId": 34,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 24,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Slack was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 85,
+    "companyId": 34,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 24,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Slack was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 86,
+    "companyId": 35,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 21,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at PayPal was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 220000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 87,
+    "companyId": 35,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 21,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at PayPal was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 175000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 88,
+    "companyId": 35,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 21,
+    "preparation_weeks": 3,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at PayPal was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 165000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 89,
+    "companyId": 36,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 23,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Intuit was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 220000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 90,
+    "companyId": 36,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 23,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Intuit was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 175000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 91,
+    "companyId": 37,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 19,
+    "preparation_weeks": 5,
+    "interview_rounds": 3,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at eBay was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 220000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 92,
+    "companyId": 37,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 19,
+    "preparation_weeks": 4,
+    "interview_rounds": 3,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at eBay was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 175000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 93,
+    "companyId": 37,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 19,
+    "preparation_weeks": 3,
+    "interview_rounds": 3,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at eBay was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 165000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 94,
+    "companyId": 38,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 21,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Tesla was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 95,
+    "companyId": 38,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 21,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Tesla was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 96,
+    "companyId": 39,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 18,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Flipkart was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 97,
+    "companyId": 39,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 18,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Flipkart was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 98,
+    "companyId": 39,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 18,
+    "preparation_weeks": 3,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at Flipkart was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 189750,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 99,
+    "companyId": 40,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 17,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Swiggy was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 100,
+    "companyId": 40,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 17,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Swiggy was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 101,
+    "companyId": 41,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 16,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Zomato was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 102,
+    "companyId": 41,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 16,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Zomato was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 103,
+    "companyId": 41,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 16,
+    "preparation_weeks": 3,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at Zomato was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 189750,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 104,
+    "companyId": 42,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 20,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Razorpay was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 105,
+    "companyId": 42,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 20,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Razorpay was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 106,
+    "companyId": 43,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 15,
+    "preparation_weeks": 5,
+    "interview_rounds": 3,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Paytm was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 220000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 107,
+    "companyId": 43,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 15,
+    "preparation_weeks": 4,
+    "interview_rounds": 3,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Paytm was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 175000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 108,
+    "companyId": 43,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 15,
+    "preparation_weeks": 3,
+    "interview_rounds": 3,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at Paytm was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 165000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 109,
+    "companyId": 44,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 18,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at CRED was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 110,
+    "companyId": 44,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 18,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at CRED was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 111,
+    "companyId": 45,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 19,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at PhonePe was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 112,
+    "companyId": 45,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 19,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at PhonePe was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 113,
+    "companyId": 45,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 19,
+    "preparation_weeks": 3,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at PhonePe was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 189750,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 114,
+    "companyId": 46,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 14,
+    "preparation_weeks": 5,
+    "interview_rounds": 3,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Ola was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 220000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 115,
+    "companyId": 46,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 14,
+    "preparation_weeks": 4,
+    "interview_rounds": 3,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Ola was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 175000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 116,
+    "companyId": 47,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 18,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Meesho was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 117,
+    "companyId": 47,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 18,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Meesho was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 118,
+    "companyId": 47,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 18,
+    "preparation_weeks": 3,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at Meesho was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 189750,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 119,
+    "companyId": 48,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 21,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Zerodha was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 120,
+    "companyId": 48,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 21,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Zerodha was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 121,
+    "companyId": 49,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 21,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Walmart Global Tech was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 122,
+    "companyId": 49,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 21,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Walmart Global Tech was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 123,
+    "companyId": 49,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 21,
+    "preparation_weeks": 3,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at Walmart Global Tech was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 189750,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 124,
+    "companyId": 50,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 25,
+    "preparation_weeks": 5,
+    "interview_rounds": 5,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Goldman Sachs was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 125,
+    "companyId": 50,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 25,
+    "preparation_weeks": 4,
+    "interview_rounds": 5,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Goldman Sachs was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 126,
+    "companyId": 51,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 22,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Morgan Stanley was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 253000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 127,
+    "companyId": 51,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 22,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Morgan Stanley was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 201250,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 128,
+    "companyId": 51,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 22,
+    "preparation_weeks": 3,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at Morgan Stanley was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 189750,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 129,
+    "companyId": 52,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 21,
+    "preparation_weeks": 5,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at JPMorgan Chase was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 220000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 130,
+    "companyId": 52,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 21,
+    "preparation_weeks": 4,
+    "interview_rounds": 4,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at JPMorgan Chase was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 175000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 131,
+    "companyId": 53,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 14,
+    "preparation_weeks": 5,
+    "interview_rounds": 3,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at TCS was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 220000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 132,
+    "companyId": 53,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 14,
+    "preparation_weeks": 4,
+    "interview_rounds": 3,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at TCS was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 175000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 133,
+    "companyId": 53,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 14,
+    "preparation_weeks": 3,
+    "interview_rounds": 3,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at TCS was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 165000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 134,
+    "companyId": 54,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 14,
+    "preparation_weeks": 5,
+    "interview_rounds": 3,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Infosys was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 220000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 135,
+    "companyId": 54,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 14,
+    "preparation_weeks": 4,
+    "interview_rounds": 3,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Infosys was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 175000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 136,
+    "companyId": 55,
+    "role": "Senior Software Engineer",
+    "experience_level": "Senior",
+    "years_experience": 6,
+    "interview_duration": 15,
+    "preparation_weeks": 5,
+    "interview_rounds": 3,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Focus on system design fundamentals: caching, message queues, and database sharding.",
+      "Practice explaining your thought process out loud using mock interview tools.",
+      "Always discuss trade-offs: no architectural choice is universally perfect.",
+      "Prepare 6 polished STAR stories covering leadership, failure, and mentorship."
+    ],
+    "story": "I started preparation 5 weeks before my interview loop. I practiced 15 system design mocks and completed 80 targeted LeetCode questions focusing on graph algorithms and dynamic programming. During the interview, staying calm and treating the interviewer as a collaborative teammate made all the difference. Got an offer that was 20% higher than my initial expectations! Interviewing at Wipro was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 220000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 137,
+    "companyId": 55,
+    "role": "SDE",
+    "experience_level": "Mid",
+    "years_experience": 3,
+    "interview_duration": 15,
+    "preparation_weeks": 4,
+    "interview_rounds": 3,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Company values matter as much as technical chops. Study them thoroughly.",
+      "When coding, write test cases before the interviewer asks for them.",
+      "Ask clarifying questions up front: constraints, input bounds, null checks.",
+      "Don't panic if you get stuck; vocalize where your thought process is halted."
+    ],
+    "story": "Career Copilot's company-specific prep gave me the exact confidence boost I needed. The questions I was asked in round 2 and round 3 were almost identical in scope to the practice modules here. I felt completely prepared for the behavioral questions using the STAR framework. Interviewing at Wipro was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 175000,
+    "offer_accepted": true,
+    "rating": 5
+  },
+  {
+    "id": 138,
+    "companyId": 55,
+    "role": "Frontend Engineer",
+    "experience_level": "Mid",
+    "years_experience": 4,
+    "interview_duration": 15,
+    "preparation_weeks": 3,
+    "interview_rounds": 3,
+    "key_preparation": [
+      "System Design",
+      "Algorithmic Problem Solving",
+      "Behavioral & Values Alignment",
+      "Mock Interviews"
+    ],
+    "tips_for_success": [
+      "Deep dive into browser rendering cycles, event loops, and reflow/repaint triggers.",
+      "Master state management architectures and component composition.",
+      "Be ready to write a custom virtualized list or debounce hook from scratch.",
+      "Show care for accessibility (ARIA, keyboard navigation)."
+    ],
+    "story": "The interview focused heavily on frontend architecture and web performance. Because I practiced company-specific machine coding questions, I wrote clean modular components within 30 minutes, leaving plenty of time to optimize render cycles and discuss accessibility. Interviewing at Wipro was rigorous, but taking systematic notes and reviewing past interview patterns was key.",
+    "salary_negotiated": 165000,
+    "offer_accepted": true,
+    "rating": 5
+  }
+]

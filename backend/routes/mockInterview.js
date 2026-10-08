@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const mockInterviewController = require('../controllers/mockInterviewController');
 const authenticate = require('../middleware/auth');
+const { requireQuota } = require('../middleware/subscriptionGate');
 
 // All mock interview operations require user authentication
 router.use(authenticate);
@@ -14,9 +15,9 @@ router.post('/submit', mockInterviewController.submitAnswer); // alias for backw
 router.get('/history', mockInterviewController.getHistory);
 router.get('/feedback', mockInterviewController.getFeedback);
 
-// Start interview endpoints
-router.post('/start', mockInterviewController.startInterview);
-router.get('/start', mockInterviewController.startInterview);
+// Start interview endpoints (quota enforced)
+router.post('/start', requireQuota('mock_interview'), mockInterviewController.startInterview);
+router.get('/start', requireQuota('mock_interview'), mockInterviewController.startInterview);
 
 // Session results & answer review endpoints
 router.get('/:id/results', mockInterviewController.getResults);

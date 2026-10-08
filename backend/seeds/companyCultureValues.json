@@ -1,0 +1,2202 @@
+[
+  {
+    "id": 1,
+    "companyId": 1,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 2,
+    "companyId": 1,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 3,
+    "companyId": 1,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 4,
+    "companyId": 1,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 5,
+    "companyId": 1,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 6,
+    "companyId": 2,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 7,
+    "companyId": 2,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 8,
+    "companyId": 2,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 9,
+    "companyId": 2,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 10,
+    "companyId": 2,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 11,
+    "companyId": 3,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 12,
+    "companyId": 3,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 13,
+    "companyId": 3,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 14,
+    "companyId": 3,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 15,
+    "companyId": 3,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 16,
+    "companyId": 4,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 17,
+    "companyId": 4,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 18,
+    "companyId": 4,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 19,
+    "companyId": 4,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 20,
+    "companyId": 4,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 21,
+    "companyId": 5,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 22,
+    "companyId": 5,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 23,
+    "companyId": 5,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 24,
+    "companyId": 5,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 25,
+    "companyId": 5,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 26,
+    "companyId": 6,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 27,
+    "companyId": 6,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 28,
+    "companyId": 6,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 29,
+    "companyId": 6,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 30,
+    "companyId": 6,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 31,
+    "companyId": 7,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 32,
+    "companyId": 7,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 33,
+    "companyId": 7,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 34,
+    "companyId": 7,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 35,
+    "companyId": 7,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 36,
+    "companyId": 8,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 37,
+    "companyId": 8,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 38,
+    "companyId": 8,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 39,
+    "companyId": 8,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 40,
+    "companyId": 8,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 41,
+    "companyId": 9,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 42,
+    "companyId": 9,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 43,
+    "companyId": 9,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 44,
+    "companyId": 9,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 45,
+    "companyId": 9,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 46,
+    "companyId": 10,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 47,
+    "companyId": 10,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 48,
+    "companyId": 10,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 49,
+    "companyId": 10,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 50,
+    "companyId": 10,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 51,
+    "companyId": 11,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 52,
+    "companyId": 11,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 53,
+    "companyId": 11,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 54,
+    "companyId": 11,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 55,
+    "companyId": 11,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 56,
+    "companyId": 12,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 57,
+    "companyId": 12,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 58,
+    "companyId": 12,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 59,
+    "companyId": 12,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 60,
+    "companyId": 12,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 61,
+    "companyId": 13,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 62,
+    "companyId": 13,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 63,
+    "companyId": 13,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 64,
+    "companyId": 13,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 65,
+    "companyId": 13,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 66,
+    "companyId": 14,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 67,
+    "companyId": 14,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 68,
+    "companyId": 14,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 69,
+    "companyId": 14,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 70,
+    "companyId": 14,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 71,
+    "companyId": 15,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 72,
+    "companyId": 15,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 73,
+    "companyId": 15,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 74,
+    "companyId": 15,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 75,
+    "companyId": 15,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 76,
+    "companyId": 16,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 77,
+    "companyId": 16,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 78,
+    "companyId": 16,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 79,
+    "companyId": 16,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 80,
+    "companyId": 16,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 81,
+    "companyId": 17,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 82,
+    "companyId": 17,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 83,
+    "companyId": 17,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 84,
+    "companyId": 17,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 85,
+    "companyId": 17,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 86,
+    "companyId": 18,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 87,
+    "companyId": 18,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 88,
+    "companyId": 18,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 89,
+    "companyId": 18,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 90,
+    "companyId": 18,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 91,
+    "companyId": 19,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 92,
+    "companyId": 19,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 93,
+    "companyId": 19,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 94,
+    "companyId": 19,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 95,
+    "companyId": 19,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 96,
+    "companyId": 20,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 97,
+    "companyId": 20,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 98,
+    "companyId": 20,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 99,
+    "companyId": 20,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 100,
+    "companyId": 20,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 101,
+    "companyId": 21,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 102,
+    "companyId": 21,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 103,
+    "companyId": 21,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 104,
+    "companyId": 21,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 105,
+    "companyId": 21,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 106,
+    "companyId": 22,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 107,
+    "companyId": 22,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 108,
+    "companyId": 22,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 109,
+    "companyId": 22,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 110,
+    "companyId": 22,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 111,
+    "companyId": 23,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 112,
+    "companyId": 23,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 113,
+    "companyId": 23,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 114,
+    "companyId": 23,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 115,
+    "companyId": 23,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 116,
+    "companyId": 24,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 117,
+    "companyId": 24,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 118,
+    "companyId": 24,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 119,
+    "companyId": 24,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 120,
+    "companyId": 24,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 121,
+    "companyId": 25,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 122,
+    "companyId": 25,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 123,
+    "companyId": 25,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 124,
+    "companyId": 25,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 125,
+    "companyId": 25,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 126,
+    "companyId": 26,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 127,
+    "companyId": 26,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 128,
+    "companyId": 26,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 129,
+    "companyId": 26,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 130,
+    "companyId": 26,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 131,
+    "companyId": 27,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 132,
+    "companyId": 27,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 133,
+    "companyId": 27,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 134,
+    "companyId": 27,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 135,
+    "companyId": 27,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 136,
+    "companyId": 28,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 137,
+    "companyId": 28,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 138,
+    "companyId": 28,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 139,
+    "companyId": 28,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 140,
+    "companyId": 28,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 141,
+    "companyId": 29,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 142,
+    "companyId": 29,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 143,
+    "companyId": 29,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 144,
+    "companyId": 29,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 145,
+    "companyId": 29,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 146,
+    "companyId": 30,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 147,
+    "companyId": 30,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 148,
+    "companyId": 30,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 149,
+    "companyId": 30,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 150,
+    "companyId": 30,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 151,
+    "companyId": 31,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 152,
+    "companyId": 31,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 153,
+    "companyId": 31,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 154,
+    "companyId": 31,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 155,
+    "companyId": 31,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 156,
+    "companyId": 32,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 157,
+    "companyId": 32,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 158,
+    "companyId": 32,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 159,
+    "companyId": 32,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 160,
+    "companyId": 32,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 161,
+    "companyId": 33,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 162,
+    "companyId": 33,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 163,
+    "companyId": 33,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 164,
+    "companyId": 33,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 165,
+    "companyId": 33,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 166,
+    "companyId": 34,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 167,
+    "companyId": 34,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 168,
+    "companyId": 34,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 169,
+    "companyId": 34,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 170,
+    "companyId": 34,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 171,
+    "companyId": 35,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 172,
+    "companyId": 35,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 173,
+    "companyId": 35,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 174,
+    "companyId": 35,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 175,
+    "companyId": 35,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 176,
+    "companyId": 36,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 177,
+    "companyId": 36,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 178,
+    "companyId": 36,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 179,
+    "companyId": 36,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 180,
+    "companyId": 36,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 181,
+    "companyId": 37,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 182,
+    "companyId": 37,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 183,
+    "companyId": 37,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 184,
+    "companyId": 37,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 185,
+    "companyId": 37,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 186,
+    "companyId": 38,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 187,
+    "companyId": 38,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 188,
+    "companyId": 38,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 189,
+    "companyId": 38,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 190,
+    "companyId": 38,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 191,
+    "companyId": 39,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 192,
+    "companyId": 39,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 193,
+    "companyId": 39,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 194,
+    "companyId": 39,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 195,
+    "companyId": 39,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 196,
+    "companyId": 40,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 197,
+    "companyId": 40,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 198,
+    "companyId": 40,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 199,
+    "companyId": 40,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 200,
+    "companyId": 40,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 201,
+    "companyId": 41,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 202,
+    "companyId": 41,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 203,
+    "companyId": 41,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 204,
+    "companyId": 41,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 205,
+    "companyId": 41,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 206,
+    "companyId": 42,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 207,
+    "companyId": 42,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 208,
+    "companyId": 42,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 209,
+    "companyId": 42,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 210,
+    "companyId": 42,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 211,
+    "companyId": 43,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 212,
+    "companyId": 43,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 213,
+    "companyId": 43,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 214,
+    "companyId": 43,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 215,
+    "companyId": 43,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 216,
+    "companyId": 44,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 217,
+    "companyId": 44,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 218,
+    "companyId": 44,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 219,
+    "companyId": 44,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 220,
+    "companyId": 44,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 221,
+    "companyId": 45,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 222,
+    "companyId": 45,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 223,
+    "companyId": 45,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 224,
+    "companyId": 45,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 225,
+    "companyId": 45,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 226,
+    "companyId": 46,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 227,
+    "companyId": 46,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 228,
+    "companyId": 46,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 229,
+    "companyId": 46,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 230,
+    "companyId": 46,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 231,
+    "companyId": 47,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 232,
+    "companyId": 47,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 233,
+    "companyId": 47,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 234,
+    "companyId": 47,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 235,
+    "companyId": 47,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 236,
+    "companyId": 48,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 237,
+    "companyId": 48,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 238,
+    "companyId": 48,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 239,
+    "companyId": 48,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 240,
+    "companyId": 48,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 241,
+    "companyId": 49,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 242,
+    "companyId": 49,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 243,
+    "companyId": 49,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 244,
+    "companyId": 49,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 245,
+    "companyId": 49,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 246,
+    "companyId": 50,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 247,
+    "companyId": 50,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 248,
+    "companyId": 50,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 249,
+    "companyId": 50,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 250,
+    "companyId": 50,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 251,
+    "companyId": 51,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 252,
+    "companyId": 51,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 253,
+    "companyId": 51,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 254,
+    "companyId": 51,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 255,
+    "companyId": 51,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 256,
+    "companyId": 52,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 257,
+    "companyId": 52,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 258,
+    "companyId": 52,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 259,
+    "companyId": 52,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 260,
+    "companyId": 52,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 261,
+    "companyId": 53,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 262,
+    "companyId": 53,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 263,
+    "companyId": 53,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 264,
+    "companyId": 53,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 265,
+    "companyId": 53,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 266,
+    "companyId": 54,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 267,
+    "companyId": 54,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 268,
+    "companyId": 54,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 269,
+    "companyId": 54,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 270,
+    "companyId": 54,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  },
+  {
+    "id": 271,
+    "companyId": 55,
+    "value": "Customer Obsession",
+    "description": "Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust.",
+    "how_its_tested": "Tested via scenario questions asking how you balanced business constraints against user pain points.",
+    "importance": "Critical"
+  },
+  {
+    "id": 272,
+    "companyId": 55,
+    "value": "Bias for Action",
+    "description": "Speed matters in business. Many decisions and actions are reversible and do not need extensive study.",
+    "how_its_tested": "Evaluated by asking how you handled incomplete data and launched MVPs without blocking on perfection.",
+    "importance": "Critical"
+  },
+  {
+    "id": 273,
+    "companyId": 55,
+    "value": "Deep Craftsmanship & Quality",
+    "description": "We take immense pride in writing elegant, resilient, and well-tested systems that withstand millions of users.",
+    "how_its_tested": "Evaluated during live coding sessions, readability of architecture, and attention to edge cases.",
+    "importance": "Critical"
+  },
+  {
+    "id": 274,
+    "companyId": 55,
+    "value": "Psychological Safety & Collaboration",
+    "description": "We value open debate, intellectual humility, and lifting teammates through mentorship and clear feedback.",
+    "how_its_tested": "Tested via questions exploring past team disagreements and how you mentored junior developers.",
+    "importance": "Important"
+  },
+  {
+    "id": 275,
+    "companyId": 55,
+    "value": "Think 10x & Innovation",
+    "description": "Challenging conventional boundaries to invent transformative approaches rather than incremental tweaks.",
+    "how_its_tested": "Tested by asking for examples where you challenged the status quo and created novel solutions.",
+    "importance": "Important"
+  }
+]

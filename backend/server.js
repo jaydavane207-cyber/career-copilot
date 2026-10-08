@@ -17,6 +17,11 @@ const codingRoutes = require('./routes/coding');
 const mockInterviewRoutes = require('./routes/mockInterview');
 const dashboardRoutes = require('./routes/dashboard');
 const profileRoutes = require('./routes/profile');
+const companyRoutes = require('./routes/company');
+const storyRoutes = require('./routes/story');
+const leaderboardRoutes = require('./routes/leaderboard');
+const analyticsRoutes = require('./routes/analytics');
+const subscriptionRoutes = require('./routes/subscription');
 const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
@@ -53,6 +58,11 @@ app.use('/api/coding', codingRoutes);
 app.use('/api/mock-interview', mockInterviewRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/profile', profileRoutes);
+app.use('/api/company', companyRoutes);
+app.use('/api/stories', storyRoutes);
+app.use('/api/leaderboard', leaderboardRoutes);
+app.use('/api/analytics', analyticsRoutes);
+app.use('/api/subscription', subscriptionRoutes);
 
 // 404 Handler
 app.use('/api/*', (req, res) => {
@@ -69,25 +79,21 @@ const startServer = async () => {
   try {
     await testConnection();
     await sequelize.sync({ alter: false });
-    const { CodingProblem, MockInterview, Skill, StudyPlan, Resume, OAuthProfile } = require('./models');
-    if (OAuthProfile && OAuthProfile.syncColumns) {
-      await OAuthProfile.syncColumns();
-    }
-    if (Resume && Resume.syncColumns) {
-      await Resume.syncColumns();
-    }
-    if (CodingProblem && CodingProblem.syncColumns) {
-      await CodingProblem.syncColumns();
-    }
-    if (MockInterview && MockInterview.syncColumns) {
-      await MockInterview.syncColumns();
-    }
-    if (Skill && Skill.syncColumns) {
-      await Skill.syncColumns();
-    }
-    if (StudyPlan && StudyPlan.syncColumns) {
-      await StudyPlan.syncColumns();
-    }
+    const { User, Subscription, CodingProblem, MockInterview, Skill, StudyPlan, Resume, OAuthProfile, SuccessStory, LeaderboardEntry, UserBadge, UserAchievement } = require('./models');
+    const { syncColumns: syncAnalytics } = require('./models/Analytics');
+    if (User && User.syncColumns) await User.syncColumns();
+    if (Subscription && Subscription.syncColumns) await Subscription.syncColumns();
+    if (OAuthProfile && OAuthProfile.syncColumns) await OAuthProfile.syncColumns();
+    if (Resume && Resume.syncColumns) await Resume.syncColumns();
+    if (CodingProblem && CodingProblem.syncColumns) await CodingProblem.syncColumns();
+    if (MockInterview && MockInterview.syncColumns) await MockInterview.syncColumns();
+    if (Skill && Skill.syncColumns) await Skill.syncColumns();
+    if (StudyPlan && StudyPlan.syncColumns) await StudyPlan.syncColumns();
+    if (SuccessStory && SuccessStory.syncColumns) await SuccessStory.syncColumns();
+    if (UserBadge && UserBadge.syncColumns) await UserBadge.syncColumns();
+    if (UserAchievement && UserAchievement.syncColumns) await UserAchievement.syncColumns();
+    if (LeaderboardEntry && LeaderboardEntry.syncColumns) await LeaderboardEntry.syncColumns();
+    if (syncAnalytics) await syncAnalytics();
     console.log('📦 Database models synchronized.');
 
     app.listen(PORT, () => {

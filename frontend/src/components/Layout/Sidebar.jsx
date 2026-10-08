@@ -15,8 +15,14 @@ import {
   LogOut,
   ChevronDown,
   Sparkles,
+  Building2,
+  Trophy,
+  BookOpen,
+  BarChart3,
+  Zap,
   X
 } from 'lucide-react';
+import SubscriptionBadge from '../Subscription/SubscriptionBadge';
 
 export const NAV_ITEMS = [
   { name: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
@@ -25,7 +31,12 @@ export const NAV_ITEMS = [
   { name: 'Skill Gap Matrix', path: '/skills', icon: Target },
   { name: 'Study Planner', path: '/study-plan', icon: CalendarCheck },
   { name: 'Coding Practice', path: '/coding', icon: Code2 },
-  { name: 'Mock Interview', path: '/mock-interview', icon: Mic }
+  { name: 'Mock Interview', path: '/mock-interview', icon: Mic },
+  { name: 'Company Prep', path: '/company-prep', icon: Building2 },
+  { name: 'Success Stories', path: '/stories', icon: BookOpen },
+  { name: 'Leaderboard', path: '/leaderboard', icon: Trophy },
+  { name: 'Analytics', path: '/analytics', icon: BarChart3 },
+  { name: 'Pricing & Plans', path: '/pricing', icon: Zap }
 ];
 
 export const Sidebar = ({ onCloseMobile }) => {
@@ -128,6 +139,22 @@ export const Sidebar = ({ onCloseMobile }) => {
         {/* User Quick Actions Menu */}
         {userDropdownOpen && (
           <div className="mt-2 pt-2 border-t border-[#E5E7EB] space-y-1 animate-fade-in">
+            <div className="px-3 py-1.5 flex items-center justify-between">
+              <span className="text-[11px] text-[#6B7280] font-semibold">Tier</span>
+              <SubscriptionBadge tier={user?.subscriptionTier} showUpgradeLink={true} />
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                setUserDropdownOpen(false);
+                navigate('/pricing');
+                if (onCloseMobile) onCloseMobile();
+              }}
+              className="w-full flex items-center gap-2.5 px-3 py-2 text-[13px] font-semibold text-indigo-600 hover:bg-indigo-50 rounded-[6px] transition-colors"
+            >
+              <Zap className="w-4 h-4 text-indigo-600" />
+              <span>Upgrade / Manage Plan</span>
+            </button>
             <button
               type="button"
               onClick={() => {

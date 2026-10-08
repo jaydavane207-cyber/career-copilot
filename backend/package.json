@@ -13,7 +13,9 @@
     "test:ai": "node test-ai-resume.js",
     "test:ai:e2e": "node test-ai-resume-e2e.js",
     "test:jobs": "node test-job-scraping.js",
-    "test:oauth": "node test-oauth-integration.js"
+    "test:oauth": "node test-oauth-integration.js",
+    "test:analytics": "node test-analytics-api.js",
+    "test:monetization": "node test-subscription-monetization.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",

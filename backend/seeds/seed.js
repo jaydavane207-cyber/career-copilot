@@ -33,6 +33,7 @@ const questionsData = require('./questions.json');
 const resourcesMap = require('./resources.json');
 const popularCompaniesData = require('./popularCompanies.json');
 const codingTopicsData = require('./codingTopics.json');
+const { seedCompanyData } = require('./seedCompanies');
 
 /**
  * Migration helper to ensure SQLite or PostgreSQL tables have correct schema
@@ -324,6 +325,12 @@ const runSeeder = async () => {
     } else {
       console.log('ℹ️ Demo user already exists.');
     }
+
+    // ========================================================================
+    // 8. Seed Feature 6: Company-Specific Interview Prep Data
+    // ========================================================================
+    console.log('🏢 Seeding Feature 6: Company-Specific Interview Prep data...');
+    await seedCompanyData();
 
     console.log('\n========================================================');
     console.log('🎉 INDIA-SPECIFIC CAREER COPILOT SEEDING COMPLETE!');

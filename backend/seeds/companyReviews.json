@@ -1,0 +1,3467 @@
+[
+  {
+    "id": 1,
+    "companyId": 1,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 2,
+    "companyId": 1,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 3,
+    "companyId": 1,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 4,
+    "companyId": 2,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 5,
+    "companyId": 2,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 6,
+    "companyId": 2,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 7,
+    "companyId": 3,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 8,
+    "companyId": 3,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 9,
+    "companyId": 3,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 10,
+    "companyId": 4,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 11,
+    "companyId": 4,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 12,
+    "companyId": 4,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 13,
+    "companyId": 5,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 14,
+    "companyId": 5,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 15,
+    "companyId": 5,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 16,
+    "companyId": 6,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 17,
+    "companyId": 6,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 18,
+    "companyId": 6,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 19,
+    "companyId": 7,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 20,
+    "companyId": 7,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 21,
+    "companyId": 7,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 22,
+    "companyId": 8,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 23,
+    "companyId": 8,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 24,
+    "companyId": 8,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 25,
+    "companyId": 9,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 26,
+    "companyId": 9,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 27,
+    "companyId": 9,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 28,
+    "companyId": 10,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 4,
+    "pros": [
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 29,
+    "companyId": 10,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 30,
+    "companyId": 10,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 4,
+    "pros": [
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 31,
+    "companyId": 11,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 4,
+    "pros": [
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 32,
+    "companyId": 11,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 33,
+    "companyId": 11,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 4,
+    "pros": [
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 34,
+    "companyId": 12,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 35,
+    "companyId": 12,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 36,
+    "companyId": 12,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 37,
+    "companyId": 13,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 38,
+    "companyId": 13,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 39,
+    "companyId": 13,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 40,
+    "companyId": 14,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 41,
+    "companyId": 14,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 42,
+    "companyId": 14,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 43,
+    "companyId": 15,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 4,
+    "pros": [
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 44,
+    "companyId": 15,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 45,
+    "companyId": 15,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 4,
+    "pros": [
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 46,
+    "companyId": 16,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 4,
+    "pros": [
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 47,
+    "companyId": 16,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 48,
+    "companyId": 16,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 4,
+    "pros": [
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 49,
+    "companyId": 17,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 4,
+    "pros": [
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 50,
+    "companyId": 17,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 51,
+    "companyId": 17,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 4,
+    "pros": [
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 52,
+    "companyId": 18,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 4,
+    "pros": [
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 53,
+    "companyId": 18,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 54,
+    "companyId": 18,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 4,
+    "pros": [
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 55,
+    "companyId": 19,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 56,
+    "companyId": 19,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 57,
+    "companyId": 19,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 58,
+    "companyId": 20,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 59,
+    "companyId": 20,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 60,
+    "companyId": 20,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 61,
+    "companyId": 21,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 62,
+    "companyId": 21,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 63,
+    "companyId": 21,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 64,
+    "companyId": 22,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 65,
+    "companyId": 22,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 66,
+    "companyId": 22,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 67,
+    "companyId": 23,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 68,
+    "companyId": 23,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 69,
+    "companyId": 23,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 70,
+    "companyId": 24,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 71,
+    "companyId": 24,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 72,
+    "companyId": 24,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 73,
+    "companyId": 25,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 74,
+    "companyId": 25,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 75,
+    "companyId": 25,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 76,
+    "companyId": 26,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 77,
+    "companyId": 26,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 78,
+    "companyId": 26,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 79,
+    "companyId": 27,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 80,
+    "companyId": 27,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 81,
+    "companyId": 27,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 82,
+    "companyId": 28,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 83,
+    "companyId": 28,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 84,
+    "companyId": 28,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 85,
+    "companyId": 29,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 86,
+    "companyId": 29,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 87,
+    "companyId": 29,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 88,
+    "companyId": 30,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 4,
+    "pros": [
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 89,
+    "companyId": 30,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 90,
+    "companyId": 30,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 4,
+    "pros": [
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 91,
+    "companyId": 31,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 92,
+    "companyId": 31,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 93,
+    "companyId": 31,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 94,
+    "companyId": 32,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 95,
+    "companyId": 32,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 96,
+    "companyId": 32,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 97,
+    "companyId": 33,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 98,
+    "companyId": 33,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 99,
+    "companyId": 33,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 100,
+    "companyId": 34,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 101,
+    "companyId": 34,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 102,
+    "companyId": 34,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 103,
+    "companyId": 35,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 4,
+    "pros": [
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 104,
+    "companyId": 35,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 105,
+    "companyId": 35,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 4,
+    "pros": [
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 106,
+    "companyId": 36,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 4,
+    "pros": [
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 107,
+    "companyId": 36,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 108,
+    "companyId": 36,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 4,
+    "pros": [
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 109,
+    "companyId": 37,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 4,
+    "pros": [
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 110,
+    "companyId": 37,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 111,
+    "companyId": 37,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 4,
+    "pros": [
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 112,
+    "companyId": 38,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 113,
+    "companyId": 38,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 114,
+    "companyId": 38,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 115,
+    "companyId": 39,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 116,
+    "companyId": 39,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 117,
+    "companyId": 39,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 118,
+    "companyId": 40,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 119,
+    "companyId": 40,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 120,
+    "companyId": 40,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 121,
+    "companyId": 41,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 122,
+    "companyId": 41,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 123,
+    "companyId": 41,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 124,
+    "companyId": 42,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 125,
+    "companyId": 42,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 126,
+    "companyId": 42,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 127,
+    "companyId": 43,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 4,
+    "pros": [
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 128,
+    "companyId": 43,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 129,
+    "companyId": 43,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 4,
+    "pros": [
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 130,
+    "companyId": 44,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 131,
+    "companyId": 44,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 132,
+    "companyId": 44,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 133,
+    "companyId": 45,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 134,
+    "companyId": 45,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 135,
+    "companyId": 45,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 136,
+    "companyId": 46,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 4,
+    "pros": [
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 137,
+    "companyId": 46,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 138,
+    "companyId": 46,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 4,
+    "pros": [
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 139,
+    "companyId": 47,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 140,
+    "companyId": 47,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 141,
+    "companyId": 47,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 142,
+    "companyId": 48,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 143,
+    "companyId": 48,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 144,
+    "companyId": 48,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 145,
+    "companyId": 49,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 146,
+    "companyId": 49,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 147,
+    "companyId": 49,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 148,
+    "companyId": 50,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 149,
+    "companyId": 50,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 150,
+    "companyId": 50,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 151,
+    "companyId": 51,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 5,
+    "pros": [
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 152,
+    "companyId": 51,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 153,
+    "companyId": 51,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 5,
+    "pros": [
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 5,
+    "management_rating": 4,
+    "compensation_rating": 5
+  },
+  {
+    "id": 154,
+    "companyId": 52,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 4,
+    "pros": [
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 155,
+    "companyId": 52,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 156,
+    "companyId": 52,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 4,
+    "pros": [
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 157,
+    "companyId": 53,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 4,
+    "pros": [
+      "High emphasis on psychological safety and inclusive culture",
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges"
+    ],
+    "cons": [
+      "Frequent reorganizations and shifting quarterly priorities",
+      "Fast-paced environment can occasionally lead to crunch before major launches"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 158,
+    "companyId": 53,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 159,
+    "companyId": 53,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 4,
+    "pros": [
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 160,
+    "companyId": 54,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 4,
+    "pros": [
+      "Outstanding health benefits, wellness perks, and learning budget",
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside"
+    ],
+    "cons": [
+      "On-call rotations can be demanding for mission-critical services",
+      "Large organizational hierarchy can make cross-team consensus slow"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 161,
+    "companyId": 54,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 162,
+    "companyId": 54,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 4,
+    "pros": [
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 163,
+    "companyId": 55,
+    "role": "Senior Software Engineer",
+    "employment_status": "Current",
+    "years_at_company": 2,
+    "rating": 4,
+    "pros": [
+      "Strong brand prestige on resume unlocking future opportunities",
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy"
+    ],
+    "cons": [
+      "Fast-paced environment can occasionally lead to crunch before major launches",
+      "High performance expectations and rigorous peer review cycles"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 164,
+    "companyId": 55,
+    "role": "SDE",
+    "employment_status": "Former",
+    "years_at_company": 3,
+    "rating": 4,
+    "pros": [
+      "World-class engineering talent and supportive mentors",
+      "Generous compensation, 401(k) match, and equity upside",
+      "High emphasis on psychological safety and inclusive culture"
+    ],
+    "cons": [
+      "Large organizational hierarchy can make cross-team consensus slow",
+      "Frequent reorganizations and shifting quarterly priorities"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  },
+  {
+    "id": 165,
+    "companyId": 55,
+    "role": "Staff Engineer",
+    "employment_status": "Current",
+    "years_at_company": 4,
+    "rating": 4,
+    "pros": [
+      "Cutting-edge tech stack solving immense scale challenges",
+      "Flexible remote/hybrid policy and strong work autonomy",
+      "Outstanding health benefits, wellness perks, and learning budget"
+    ],
+    "cons": [
+      "High performance expectations and rigorous peer review cycles",
+      "On-call rotations can be demanding for mission-critical services"
+    ],
+    "work_life_balance": 4,
+    "culture_rating": 4,
+    "management_rating": 4,
+    "compensation_rating": 4
+  }
+]
