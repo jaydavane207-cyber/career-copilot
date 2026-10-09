@@ -7,6 +7,9 @@ node_modules/
 coverage/
 
 # Production Build
+.next/
+out/
+*.tsbuildinfo
 frontend/build/
 frontend/dist/
 dist/

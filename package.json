@@ -8,6 +8,10 @@
     "frontend"
   ],
   "scripts": {
+    "build": "prisma generate && next build",
+    "postinstall": "prisma generate",
+    "test": "vitest run",
+    "dev:next": "next dev",
     "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
     "start:backend": "cd backend && npm run dev",
     "start:frontend": "cd frontend && npm run dev",
@@ -16,7 +20,24 @@
     "setup": "bash scripts/setup-env.sh"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "@prisma/client": "6.19.3",
+    "@types/node": "^26.6.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "clsx": "^2.1.1",
+    "concurrently": "^8.2.2",
+    "date-fns": "^4.4.0",
+    "ics": "^3.12.1",
+    "lucide-react": "^1.54.0",
+    "next": "^14.2.35",
+    "next-auth": "^4.24.15",
+    "prisma": "6.19.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^3.7.0",
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.3",
+    "zod": "^4.6.5"
   },
   "keywords": [
     "career",

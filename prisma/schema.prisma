@@ -1,0 +1,110 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum InterviewType {
+  OA
+  TECHNICAL
+  HR
+  MANAGERIAL
+  SCREENING
+  OTHER
+}
+
+enum InterviewMode {
+  ONLINE
+  OFFLINE
+}
+
+enum InterviewStatus {
+  SCHEDULED
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+enum InterviewOutcome {
+  PASS
+  FAIL
+  PENDING
+}
+
+model User {
+  id            String          @id @default(cuid())
+  name          String?
+  email         String?         @unique
+  emailVerified DateTime?
+  image         String?
+  timezone      String          @default("Asia/Kolkata")
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+
+  applications  Application[]
+  interviews    InterviewEvent[]
+  calendarToken CalendarToken?
+}
+
+model Application {
+  id          String           @id @default(cuid())
+  userId      String
+  company     String
+  role        String
+  status      String           @default("APPLIED")
+  appliedDate DateTime?        @default(now())
+  salary      String?
+  location    String?
+  notes       String?
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+
+  user        User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  interviews  InterviewEvent[]
+
+  @@index([userId])
+}
+
+model InterviewEvent {
+  id              String            @id @default(cuid())
+  userId          String
+  applicationId   String
+
+  title           String
+  type            InterviewType     @default(TECHNICAL)
+  mode            InterviewMode     @default(ONLINE)
+
+  scheduledStart  DateTime
+  durationMin     Int               @default(45)
+  timezone        String            @default("Asia/Kolkata")
+
+  meetingLink     String?
+  location        String?
+  interviewerName String?
+
+  status          InterviewStatus   @default(SCHEDULED)
+  outcome         InterviewOutcome?
+  notes           String?
+  feedback        String?
+
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+
+  user            User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  application     Application       @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  @@index([userId, scheduledStart])
+  @@index([applicationId])
+}
+
+model CalendarToken {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  token     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
