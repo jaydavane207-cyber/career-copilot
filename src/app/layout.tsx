@@ -2,7 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ToastProvider } from "@/components/ui/toast";
-import { Calendar, LayoutDashboard, Briefcase, Settings } from "lucide-react";
+import { Calendar, LayoutDashboard, Briefcase, Settings, Compass } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Career Copilot - Interview Tracker & Calendar",
@@ -33,6 +33,13 @@ export default function RootLayout({
                     >
                       <LayoutDashboard className="h-4 w-4" />
                       Dashboard
+                    </Link>
+                    <Link
+                      href="/learning-path"
+                      className="flex items-center gap-1.5 text-slate-600 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
+                    >
+                      <Compass className="h-4 w-4" />
+                      Learning Path
                     </Link>
                     <Link
                       href="/interviews"

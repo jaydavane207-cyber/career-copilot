@@ -47,6 +47,8 @@ model User {
   applications  Application[]
   interviews    InterviewEvent[]
   calendarToken CalendarToken?
+  learningPaths LearningPath[]
+  learningTasks LearningTask[]
 }
 
 model Application {
@@ -108,3 +110,83 @@ model CalendarToken {
   updatedAt DateTime @updatedAt
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
+
+enum LearningPathFocusMode {
+  BALANCED
+  OA_FIRST
+  INTERVIEW_FIRST
+}
+
+enum LearningTaskType {
+  LEARN
+  PRACTICE
+  REVISE
+  MOCK
+}
+
+enum LearningTaskStatus {
+  PENDING
+  DONE
+  SKIPPED
+}
+
+model LearningPath {
+  id                     String                @id @default(cuid())
+  userId                 String
+  title                  String
+  targetRoleKey          String?
+  durationWeeks          Int
+  hoursPerWeek           Int
+  focusMode              LearningPathFocusMode @default(BALANCED)
+  sourceResumeAnalysisId String?
+  startDate              DateTime              @default(now())
+  createdAt              DateTime              @default(now())
+  updatedAt              DateTime              @updatedAt
+
+  user                   User                  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  weeks                  LearningWeek[]
+  tasks                  LearningTask[]
+
+  @@index([userId, createdAt])
+}
+
+model LearningWeek {
+  id          String         @id @default(cuid())
+  pathId      String
+  weekNumber  Int
+  title       String
+  skillIds    Json
+  goalSummary String?
+  createdAt   DateTime       @default(now())
+
+  path        LearningPath   @relation(fields: [pathId], references: [id], onDelete: Cascade)
+  tasks       LearningTask[]
+
+  @@unique([pathId, weekNumber])
+  @@index([pathId])
+}
+
+model LearningTask {
+  id            String             @id @default(cuid())
+  weekId        String
+  pathId        String
+  userId        String
+  type          LearningTaskType
+  title         String
+  description   String?
+  durationMin   Int
+  resourceUrl   String?
+  resourceTitle String?
+  skillIds      Json
+  status        LearningTaskStatus @default(PENDING)
+  completedAt   DateTime?
+  createdAt     DateTime           @default(now())
+
+  week          LearningWeek       @relation(fields: [weekId], references: [id], onDelete: Cascade)
+  path          LearningPath       @relation(fields: [pathId], references: [id], onDelete: Cascade)
+  user          User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, status])
+  @@index([pathId])
+}
+
