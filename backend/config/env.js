@@ -10,9 +10,9 @@ module.exports = {
   CLIENT_URL: process.env.CLIENT_URL || 'http://localhost:5173',
   JWT_SECRET: process.env.JWT_SECRET || 'dev_secret_jwt_key_career_copilot_98765',
   JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN || '7d',
-  DATABASE_URL: process.env.DATABASE_URL || 'postgresql://postgres:postgres@localhost:5432/career_copilot',
+  DATABASE_URL: process.env.DATABASE_URL || '',
   DB: {
-    DIALECT: process.env.DB_DIALECT || 'sqlite',
+    DIALECT: process.env.DB_DIALECT || (process.env.DATABASE_URL ? 'postgres' : 'sqlite'),
     HOST: process.env.DB_HOST || 'localhost',
     PORT: parseInt(process.env.DB_PORT, 10) || 5432,
     NAME: process.env.DB_NAME || 'career_copilot',

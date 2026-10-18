@@ -29,7 +29,11 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: '*',
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps, curl, Postman) or any client origin
+    if (!origin) return callback(null, true);
+    return callback(null, true);
+  },
   credentials: true
 }));
 app.use(express.json());
@@ -98,6 +102,22 @@ const startServer = async () => {
     if (Interview && Interview.syncColumns) await Interview.syncColumns();
     if (syncAnalytics) await syncAnalytics();
     console.log('📦 Database models synchronized.');
+
+    // Auto-seed initial catalog data if database is fresh (e.g. freshly provisioned PostgreSQL)
+    const { Role } = require('./models');
+    if (Role) {
+      const roleCount = await Role.count();
+      if (roleCount === 0) {
+        console.log('🌱 Fresh database detected (0 roles). Running initial data seed...');
+        try {
+          const runSeeder = require('./seeds/seed');
+          await runSeeder();
+          console.log('✅ Initial database seed completed successfully.');
+        } catch (seedErr) {
+          console.warn('⚠️ Non-fatal seed error during startup:', seedErr.message);
+        }
+      }
+    }
 
     app.listen(PORT, () => {
       console.log(`🚀 Career Copilot API running at http://localhost:${PORT}`);

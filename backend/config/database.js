@@ -5,20 +5,28 @@ const path = require('path');
 
 let sequelize;
 
-if (env.DB.DIALECT === 'postgres') {
+const isPostgres = env.DB.DIALECT === 'postgres' ||
+  (env.DB.DIALECT !== 'sqlite' && env.DATABASE_URL && (env.DATABASE_URL.startsWith('postgres://') || env.DATABASE_URL.startsWith('postgresql://')));
+
+if (isPostgres) {
   // Connect via DATABASE_URL if available, otherwise host/port/credentials
-  if (env.DATABASE_URL && env.DATABASE_URL.startsWith('postgres')) {
+  const isRemote = env.DATABASE_URL && !env.DATABASE_URL.includes('localhost') && !env.DATABASE_URL.includes('127.0.0.1');
+  const useSsl = env.DB.SSL || (isRemote && env.NODE_ENV === 'production') || isRemote;
+
+  const dialectOptions = useSsl
+    ? {
+        ssl: {
+          require: true,
+          rejectUnauthorized: false
+        }
+      }
+    : {};
+
+  if (env.DATABASE_URL && (env.DATABASE_URL.startsWith('postgres://') || env.DATABASE_URL.startsWith('postgresql://'))) {
     sequelize = new Sequelize(env.DATABASE_URL, {
       dialect: 'postgres',
       logging: false,
-      dialectOptions: env.DB.SSL
-        ? {
-            ssl: {
-              require: true,
-              rejectUnauthorized: false
-            }
-          }
-        : {},
+      dialectOptions,
       pool: {
         max: 10,
         min: 0,
