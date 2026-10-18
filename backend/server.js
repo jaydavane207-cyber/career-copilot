@@ -22,6 +22,7 @@ const storyRoutes = require('./routes/story');
 const leaderboardRoutes = require('./routes/leaderboard');
 const analyticsRoutes = require('./routes/analytics');
 const subscriptionRoutes = require('./routes/subscription');
+const interviewRoutes = require('./routes/interviews');
 const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
@@ -63,6 +64,7 @@ app.use('/api/stories', storyRoutes);
 app.use('/api/leaderboard', leaderboardRoutes);
 app.use('/api/analytics', analyticsRoutes);
 app.use('/api/subscription', subscriptionRoutes);
+app.use('/api/interviews', interviewRoutes);
 
 // 404 Handler
 app.use('/api/*', (req, res) => {
@@ -79,7 +81,7 @@ const startServer = async () => {
   try {
     await testConnection();
     await sequelize.sync({ alter: false });
-    const { User, Subscription, CodingProblem, MockInterview, Skill, StudyPlan, Resume, OAuthProfile, SuccessStory, LeaderboardEntry, UserBadge, UserAchievement } = require('./models');
+    const { User, Subscription, CodingProblem, MockInterview, Skill, StudyPlan, Resume, OAuthProfile, SuccessStory, LeaderboardEntry, UserBadge, UserAchievement, Interview } = require('./models');
     const { syncColumns: syncAnalytics } = require('./models/Analytics');
     if (User && User.syncColumns) await User.syncColumns();
     if (Subscription && Subscription.syncColumns) await Subscription.syncColumns();
@@ -93,6 +95,7 @@ const startServer = async () => {
     if (UserBadge && UserBadge.syncColumns) await UserBadge.syncColumns();
     if (UserAchievement && UserAchievement.syncColumns) await UserAchievement.syncColumns();
     if (LeaderboardEntry && LeaderboardEntry.syncColumns) await LeaderboardEntry.syncColumns();
+    if (Interview && Interview.syncColumns) await Interview.syncColumns();
     if (syncAnalytics) await syncAnalytics();
     console.log('📦 Database models synchronized.');
 

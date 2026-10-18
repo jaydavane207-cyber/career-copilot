@@ -6,6 +6,7 @@ import JobStats from './JobStats';
 import JobModal from './JobModal';
 import DeleteConfirmModal from './DeleteConfirmModal';
 import JobURLAnalyzerModal from './JobURLAnalyzerModal';
+import AddInterviewForm from '../Interviews/AddInterviewForm';
 import { jobService } from '../../services/jobService';
 import { KANBAN_COLUMNS } from '../../utils/constants';
 import { Plus, Search, RefreshCw, Briefcase, Sparkles, Link2, ExternalLink, ArrowRight } from 'lucide-react';
@@ -30,6 +31,8 @@ export const KanbanBoard = () => {
   const [jobToEdit, setJobToEdit] = useState(null);
   const [jobToDelete, setJobToDelete] = useState(null);
   const [jobForAnalysis, setJobForAnalysis] = useState(null);
+  const [isInterviewModalOpen, setIsInterviewModalOpen] = useState(false);
+  const [interviewJobTarget, setInterviewJobTarget] = useState(null);
   const [deleteLoading, setDeleteLoading] = useState(false);
   const [initialStageForNew, setInitialStageForNew] = useState('applied');
 
@@ -372,6 +375,10 @@ export const KanbanBoard = () => {
                             setJobForAnalysis(j);
                             setIsAnalyzerModalOpen(true);
                           }}
+                          onScheduleInterview={(j) => {
+                            setInterviewJobTarget(j);
+                            setIsInterviewModalOpen(true);
+                          }}
                         />
                       ))}
                       {provided.placeholder}
@@ -425,6 +432,29 @@ export const KanbanBoard = () => {
         onJobAnalyzed={(newJob) => {
           fetchJobsAndStats(true);
           showToast(`Job application analyzed and updated in tracker!`, 'success');
+        }}
+      />
+
+      {/* Schedule Interview Modal for Job */}
+      <AddInterviewForm
+        isOpen={isInterviewModalOpen}
+        onClose={() => {
+          setIsInterviewModalOpen(false);
+          setInterviewJobTarget(null);
+        }}
+        initialData={
+          interviewJobTarget
+            ? {
+                companyName: interviewJobTarget.companyName,
+                roleTitle: interviewJobTarget.jobTitle,
+                jobId: interviewJobTarget.id,
+                stage: 'Technical Screen (Round 1)'
+              }
+            : null
+        }
+        onSuccess={() => {
+          showToast('Interview scheduled & prep plan generated!', 'success');
+          fetchJobsAndStats(true);
         }}
       />
 

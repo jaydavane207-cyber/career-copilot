@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { format, isToday, isTomorrow } from "date-fns";
-import { Calendar, Clock, Video, ArrowRight, ExternalLink } from "lucide-react";
+import { Calendar, Clock, Video, ArrowRight, ExternalLink, Sparkles } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -115,6 +115,14 @@ export const UpcomingInterviewsWidget: React.FC = () => {
                         {format(start, "h:mm a")}
                       </div>
                     </div>
+
+                    <Link
+                      href={`/interviews/${item.id}/prep`}
+                      className="rounded-md bg-indigo-50 p-1.5 text-indigo-600 hover:bg-indigo-100 dark:bg-indigo-950 dark:text-indigo-300"
+                      title="Open Prep Plan"
+                    >
+                      <Sparkles className="h-3.5 w-3.5" />
+                    </Link>
 
                     {item.meetingLink && (
                       <a

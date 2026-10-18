@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { format, isPast, differenceInHours } from "date-fns";
 import {
   Calendar,
@@ -14,6 +15,7 @@ import {
   User,
   AlertTriangle,
   Check,
+  Sparkles,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -136,6 +138,17 @@ export const InterviewCard: React.FC<InterviewCardProps> = ({
 
         {/* Action buttons */}
         <div className="flex items-center gap-2 self-start sm:self-auto">
+          <Link href={`/interviews/${interview.id}/prep`}>
+            <Button
+              size="sm"
+              variant="outline"
+              className="h-8 gap-1 text-xs border-indigo-200 text-indigo-700 hover:bg-indigo-50 dark:border-indigo-800 dark:text-indigo-400"
+            >
+              <Sparkles className="h-3.5 w-3.5 text-indigo-600 dark:text-indigo-400" />
+              Prep Plan
+            </Button>
+          </Link>
+
           {interview.meetingLink && (
             <a
               href={interview.meetingLink}

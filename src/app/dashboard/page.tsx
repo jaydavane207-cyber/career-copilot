@@ -1,12 +1,17 @@
 import React from "react";
 import { UpcomingInterviewsWidget } from "@/components/dashboard/UpcomingInterviewsWidget";
-import { Calendar, Briefcase, CheckCircle2, TrendingUp } from "lucide-react";
+import { UpcomingInterviewPrepWidget } from "@/components/dashboard/UpcomingInterviewPrepWidget";
+import { InterviewReminderBanner } from "@/components/dashboard/InterviewReminderBanner";
+import { Calendar, Briefcase, CheckCircle2, TrendingUp, Sparkles, Compass } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function DashboardPage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 space-y-8">
+    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 space-y-6">
+      {/* Proactive Interview Reminder Banner */}
+      <InterviewReminderBanner />
+
       {/* Welcome Banner */}
       <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-700 via-indigo-700 to-blue-800 p-6 sm:p-8 text-white shadow-md">
         <div className="relative z-10 max-w-2xl space-y-2">
@@ -25,19 +30,20 @@ export default function DashboardPage() {
                 Open Interview Calendar
               </Button>
             </Link>
-            <Link href="/settings/calendar">
+            <Link href="/learning-path">
               <Button size="sm" variant="outline" className="border-white/40 text-white hover:bg-white/10 font-semibold">
-                Calendar Feed URL
+                Personalized Learning Path
               </Button>
             </Link>
           </div>
         </div>
       </div>
 
-      {/* Main Grid: Widget & Quick stats */}
+      {/* Main Grid: Interview Prep Automation & Calendar Widgets */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {/* Upcoming interviews widget */}
-        <div className="lg:col-span-2">
+        {/* Next Interview Prep & Focus Widget */}
+        <div className="lg:col-span-2 space-y-6">
+          <UpcomingInterviewPrepWidget />
           <UpcomingInterviewsWidget />
         </div>
 

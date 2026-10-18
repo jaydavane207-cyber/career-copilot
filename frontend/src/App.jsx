@@ -23,6 +23,8 @@ import SuccessStories from './pages/SuccessStories';
 import Leaderboard from './pages/Leaderboard';
 import Analytics from './pages/Analytics';
 import Pricing from './pages/Pricing';
+import InterviewsPage from './pages/InterviewsPage';
+import InterviewPrepPage from './pages/InterviewPrepPage';
 
 // Coding Tracker Page Container
 import LogProblem from './components/CodingTracker/LogProblem';
@@ -446,6 +448,10 @@ export const App = () => {
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/resume" element={<ResumeAnalyzer />} />
         <Route path="/jobs" element={<KanbanBoard />} />
+        <Route path="/interviews" element={<InterviewsPage />} />
+        <Route path="/interviews/calendar" element={<InterviewsPage />} />
+        <Route path="/interviews/upcoming" element={<InterviewsPage />} />
+        <Route path="/interviews/:id/prep" element={<InterviewPrepPage />} />
         <Route path="/skills" element={<GapAnalysis />} />
         <Route path="/study-plan" element={<PlanDashboard />} />
         <Route path="/coding" element={<CodingView />} />

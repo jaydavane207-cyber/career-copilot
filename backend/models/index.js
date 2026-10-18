@@ -32,6 +32,7 @@ const {
   CompanyCultureValue,
   UserCompanyPreparation
 } = require('./Company');
+const { Interview, InterviewPrepLog } = require('./Interview');
 
 // Associations: User -> Personal Models
 User.hasMany(Resume, { foreignKey: 'userId', as: 'resumes', onDelete: 'CASCADE' });
@@ -57,6 +58,22 @@ MockInterview.belongsTo(User, { foreignKey: 'userId', as: 'user' });
 
 User.hasMany(Subscription, { foreignKey: 'userId', as: 'subscriptions', onDelete: 'CASCADE' });
 Subscription.belongsTo(User, { foreignKey: 'userId', as: 'user' });
+
+// Associations: Interview & InterviewPrepLog
+User.hasMany(Interview, { foreignKey: 'userId', as: 'interviews', onDelete: 'CASCADE' });
+Interview.belongsTo(User, { foreignKey: 'userId', as: 'user' });
+
+Job.hasMany(Interview, { foreignKey: 'jobId', as: 'interviews', onDelete: 'SET NULL' });
+Interview.belongsTo(Job, { foreignKey: 'jobId', as: 'job' });
+
+Company.hasMany(Interview, { foreignKey: 'companyId', as: 'interviews', onDelete: 'SET NULL' });
+Interview.belongsTo(Company, { foreignKey: 'companyId', as: 'company' });
+
+Interview.hasMany(InterviewPrepLog, { foreignKey: 'interviewId', as: 'prepLogs', onDelete: 'CASCADE' });
+InterviewPrepLog.belongsTo(Interview, { foreignKey: 'interviewId', as: 'interview' });
+
+User.hasMany(InterviewPrepLog, { foreignKey: 'userId', as: 'interviewPrepLogs', onDelete: 'CASCADE' });
+InterviewPrepLog.belongsTo(User, { foreignKey: 'userId', as: 'user' });
 
 // Associations: Company -> Sub-models
 Company.hasMany(CompanyInterviewQuestion, { foreignKey: 'company_id', as: 'questions', onDelete: 'CASCADE' });
@@ -167,6 +184,7 @@ sequelize.afterSync(async () => {
     if (UserAchievement && UserAchievement.syncColumns) await UserAchievement.syncColumns();
     if (LeaderboardEntry && LeaderboardEntry.syncColumns) await LeaderboardEntry.syncColumns();
     if (syncAnalyticsColumns) await syncAnalyticsColumns();
+    if (Interview && Interview.syncColumns) await Interview.syncColumns();
   } catch (e) {
     // ignore
   }
@@ -209,6 +227,8 @@ module.exports = {
   StudyEffectivenessAnalytics,
   PreparationRoiAnalytics,
   PlatformAnalytics,
-  UserComparison
+  UserComparison,
+  Interview,
+  InterviewPrepLog
 };
 

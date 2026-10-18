@@ -13,6 +13,8 @@ import NoDataBanner from './NoDataBanner';
 import { dashboardService } from '../../services/dashboardService';
 import JobURLAnalyzerModal from '../JobTracker/JobURLAnalyzerModal';
 import GamificationWidget from './GamificationWidget';
+import InterviewPrepWidget from '../Interviews/InterviewPrepWidget';
+import AddInterviewForm from '../Interviews/AddInterviewForm';
 import { AlertCircle, RefreshCw, Sparkles, Link2 } from 'lucide-react';
 
 /**
@@ -35,6 +37,7 @@ export const Dashboard = () => {
   const [lastUpdated, setLastUpdated] = useState('');
   const [error, setError] = useState(null);
   const [isAnalyzerOpen, setIsAnalyzerOpen] = useState(false);
+  const [isInterviewModalOpen, setIsInterviewModalOpen] = useState(false);
 
   const formatCurrentTime = () => {
     return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
@@ -153,6 +156,9 @@ export const Dashboard = () => {
       {/* Gamification & Motivation Community Widget */}
       <GamificationWidget />
 
+      {/* Advanced Interview Module: Next Upcoming Interview & Daily Prep Widget */}
+      <InterviewPrepWidget onOpenAddModal={() => setIsInterviewModalOpen(true)} />
+
       {/* Top Section: Overall Readiness Score */}
       <ReadinessScore
         score={data?.readinessScore || 0}
@@ -207,6 +213,13 @@ export const Dashboard = () => {
         isOpen={isAnalyzerOpen}
         onClose={() => setIsAnalyzerOpen(false)}
         onJobAnalyzed={() => fetchDashboardData(true)}
+      />
+
+      {/* Add Interview Modal */}
+      <AddInterviewForm
+        isOpen={isInterviewModalOpen}
+        onClose={() => setIsInterviewModalOpen(false)}
+        onSuccess={() => fetchDashboardData(true)}
       />
     </div>
   );

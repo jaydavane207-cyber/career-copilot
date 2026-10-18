@@ -5,7 +5,7 @@ import { Calendar, AlertCircle, Edit, Trash2, Star, Sparkles } from 'lucide-reac
 import { formatDate } from '../../utils/formatters';
 import JobAnalysisCard from './JobAnalysisCard';
 
-export const JobCard = ({ job, index, onEdit, onDelete, onViewAnalysis }) => {
+export const JobCard = ({ job, index, onEdit, onDelete, onViewAnalysis, onScheduleInterview }) => {
   const dateAppliedFormatted = formatDate(job.dateApplied);
   const interviewDateFormatted = job.interviewDate ? formatDate(job.interviewDate) : null;
 
@@ -106,6 +106,23 @@ export const JobCard = ({ job, index, onEdit, onDelete, onViewAnalysis }) => {
               )}
               <span>Interview: {interviewDateFormatted}</span>
               {isInterviewSoon && <span className="text-[10px] font-bold uppercase ml-1">Soon!</span>}
+            </div>
+          )}
+
+          {/* Schedule / Track Interview button for interview stage jobs */}
+          {job.stage === 'interview' && (
+            <div className="mt-2 pt-1.5 flex items-center justify-between">
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onScheduleInterview && onScheduleInterview(job);
+                }}
+                className="text-[11px] font-bold text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 px-2 py-1 rounded-md flex items-center gap-1 transition-colors cursor-pointer"
+              >
+                <Calendar className="w-3 h-3 text-blue-600" />
+                <span>+ Add Interview Round</span>
+              </button>
             </div>
           )}
 
