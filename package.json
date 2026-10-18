@@ -8,8 +8,8 @@
     "frontend"
   ],
   "scripts": {
-    "build": "prisma generate && next build",
-    "postinstall": "prisma generate",
+    "start": "node backend/server.js",
+    "build": "echo 'Root build ready'",
     "test": "vitest run",
     "dev:next": "next dev",
     "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
