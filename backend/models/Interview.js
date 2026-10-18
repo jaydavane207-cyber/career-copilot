@@ -394,17 +394,9 @@ const InterviewPrepLog = sequelize.define('InterviewPrepLog', {
 });
 
 /**
- * Ensures tables and indexes are created safely on database startup
+ * Ensures compatibility with afterSync lifecycle
  */
-Interview.syncColumns = async () => {
-  try {
-    await Interview.sync();
-    await InterviewPrepLog.sync();
-  } catch (err) {
-    console.warn('⚠️ [Interview Model] Sync warning:', err.message);
-  }
-};
-
+Interview.syncColumns = async () => {};
 InterviewPrepLog.syncColumns = async () => {};
 
 module.exports = {
